@@ -1,0 +1,41 @@
+name: Copy Wiki to New Repo
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  copy_wiki:
+    if: ${{ github.repository != 'hasura/community' && github.run_number == 1 }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+
+      - name: Push wiki to the new repository
+        run: |
+          cd .wiki
+          git init
+          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.wiki.git
+          git add .
+          git commit -m "Copy wiki from main repo"
+          git push --force origin master
+
+      - name: Delete wiki directory from main repo
+        run: |
+          rm -rf .wiki
+
+      - name: Commit the deletion of the wiki in the new repo
+        run: |
+          git add .
+          git commit -m "Delete wiki from new repo"
+          git push --force origin main
+
