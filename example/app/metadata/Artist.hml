@@ -1,0 +1,145 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Artist
+  fields:
+    - name: artistId
+      type: Int4!
+    - name: name
+      type: Varchar
+  graphql:
+    typeName: Artist
+    inputTypeName: ArtistInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: chinook
+      dataConnectorObjectType: artist
+      fieldMapping:
+        artistId:
+          column:
+            name: artist_id
+        name:
+          column:
+            name: name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Artist
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - artistId
+          - name
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ArtistBoolExp
+  operand:
+    object:
+      type: Artist
+      comparableFields:
+        - fieldName: artistId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships:
+        - relationshipName: albums
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ArtistBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ArtistAggExp
+  operand:
+    object:
+      aggregatedType: Artist
+      aggregatableFields:
+        - fieldName: artistId
+          aggregateExpression: Int4AggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: ArtistAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: Artist
+  objectType: Artist
+  source:
+    dataConnectorName: chinook
+    collection: artist
+  filterExpressionType: ArtistBoolExp
+  aggregateExpression: ArtistAggExp
+  orderableFields:
+    - fieldName: artistId
+      orderByDirections:
+        enableAll: true
+    - fieldName: name
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: artist
+      subscription:
+        rootField: artist
+    selectUniques:
+      - queryRootField: artistByArtistId
+        uniqueIdentifier:
+          - artistId
+        subscription:
+          rootField: artistByArtistId
+    orderByExpressionType: ArtistOrderBy
+    filterInputTypeName: ArtistFilterInput
+    aggregate:
+      queryRootField: artistAggregate
+      subscription:
+        rootField: artistAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Artist
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: albums
+  sourceType: Artist
+  target:
+    model:
+      name: Album
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: AlbumAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: artistId
+      target:
+        modelField:
+          - fieldName: artistId
+  graphql:
+    aggregateFieldName: albumsAggregate
+

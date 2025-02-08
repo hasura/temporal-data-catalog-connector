@@ -1,0 +1,175 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertRelationshipFieldMappingObject
+  fields:
+    - name: relationshipName
+      type: Varchar!
+    - name: sourceField
+      type: Varchar!
+    - name: sourceTypeName
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+    - name: targetField
+      type: Varchar!
+  graphql:
+    typeName: InsertRelationshipFieldMappingObject
+    inputTypeName: InsertRelationshipFieldMappingObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_relationship_field_mapping_object
+      fieldMapping:
+        relationshipName:
+          column:
+            name: relationship_name
+        sourceField:
+          column:
+            name: source_field
+        sourceTypeName:
+          column:
+            name: source_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        targetField:
+          column:
+            name: target_field
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertRelationshipFieldMappingObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - relationshipName
+          - sourceField
+          - sourceTypeName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - targetField
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertRelationshipFieldMappingResponse
+  description: Responses from the 'insert_relationship_field_mapping' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[RelationshipFieldMapping!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertRelationshipFieldMappingResponse
+    inputTypeName: InsertRelationshipFieldMappingResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_relationship_field_mapping_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertRelationshipFieldMappingResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertRelationshipFieldMapping
+  outputType: InsertRelationshipFieldMappingResponse!
+  arguments:
+    - name: objects
+      type: "[InsertRelationshipFieldMappingObject!]!"
+    - name: postCheck
+      type: RelationshipFieldMappingBoolExp
+      description: Insert permission predicate over the 'relationship_field_mapping'
+        collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_relationship_field_mapping
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertRelationshipFieldMapping
+    rootFieldKind: Mutation
+  description: Insert into the relationship_field_mapping table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertRelationshipFieldMapping
+  permissions:
+    - role: admin
+      allowExecution: true
+

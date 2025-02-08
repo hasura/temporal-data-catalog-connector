@@ -1,0 +1,85 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_aggregate_scalar_function_by_aggregate_name_and_function_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[AggregateScalarFunction!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: DeleteAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_aggregate_scalar_function_by_aggregate_name_and_function_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersion
+  outputType: DeleteAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyAggregateName
+      type: Varchar!
+    - name: keyFunctionName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: AggregateScalarFunctionBoolExp
+      description: Delete permission predicate over the 'aggregate_scalar_function'
+        collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_aggregate_scalar_function_by_aggregate_name_and_function_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyAggregateName: key_aggregate_name
+      keyFunctionName: key_function_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'aggregate_scalar_function' collection using
+    the 'aggregate_name', 'function_name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

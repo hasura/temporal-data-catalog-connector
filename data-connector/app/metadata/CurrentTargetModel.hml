@@ -1,0 +1,187 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentTargetModel
+  fields:
+    - name: isCommand
+      type: Bool
+    - name: name
+      type: Varchar
+    - name: relationshipName
+      type: Varchar
+    - name: relationshipType
+      type: Varchar
+    - name: sourceTypeName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+    - name: targetSubgraph
+      type: Varchar
+  graphql:
+    typeName: CurrentTargetModel
+    inputTypeName: CurrentTargetModelInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_target_model
+      fieldMapping:
+        isCommand:
+          column:
+            name: is_command
+        name:
+          column:
+            name: name
+        relationshipName:
+          column:
+            name: relationship_name
+        relationshipType:
+          column:
+            name: relationship_type
+        sourceTypeName:
+          column:
+            name: source_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        targetSubgraph:
+          column:
+            name: target_subgraph
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentTargetModel
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - isCommand
+          - name
+          - relationshipName
+          - relationshipType
+          - sourceTypeName
+          - subgraphName
+          - targetSubgraph
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentTargetModelBoolExp
+  operand:
+    object:
+      type: CurrentTargetModel
+      comparableFields:
+        - fieldName: isCommand
+          booleanExpressionType: BoolBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: relationshipName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: relationshipType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: sourceTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: targetSubgraph
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentTargetModelBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentTargetModelAggExp
+  operand:
+    object:
+      aggregatedType: CurrentTargetModel
+      aggregatableFields:
+        - fieldName: isCommand
+          aggregateExpression: BoolAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: relationshipName
+          aggregateExpression: VarcharAggExp
+        - fieldName: relationshipType
+          aggregateExpression: VarcharAggExp
+        - fieldName: sourceTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: targetSubgraph
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentTargetModelAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentTargetModelOrderByExp
+  operand:
+    object:
+      orderedType: CurrentTargetModel
+      orderableFields:
+        - fieldName: isCommand
+          orderByExpression: BoolOrderByExp
+        - fieldName: name
+          orderByExpression: VarcharOrderByExp
+        - fieldName: relationshipName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: relationshipType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: sourceTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: targetSubgraph
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentTargetModelOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentTargetModel
+  objectType: CurrentTargetModel
+  source:
+    dataConnectorName: datamanagement
+    collection: current_target_model
+  filterExpressionType: CurrentTargetModelBoolExp
+  aggregateExpression: CurrentTargetModelAggExp
+  orderByExpression: CurrentTargetModelOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentTargetModel
+      subscription:
+        rootField: currentTargetModel
+    selectUniques: []
+    filterInputTypeName: CurrentTargetModelFilterInput
+    aggregate:
+      queryRootField: currentTargetModelAggregate
+      subscription:
+        rootField: currentTargetModelAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentTargetModel
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

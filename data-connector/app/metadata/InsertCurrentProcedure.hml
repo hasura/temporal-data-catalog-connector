@@ -1,0 +1,138 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentProcedureObject
+  fields:
+    - name: connectorName
+      type: Varchar
+    - name: description
+      type: Varchar
+    - name: name
+      type: Varchar
+    - name: resultTypeConnectorName
+      type: Varchar
+    - name: resultTypeName
+      type: Varchar
+    - name: resultTypeSubgraphName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentProcedureObject
+    inputTypeName: InsertCurrentProcedureObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_procedure_object
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        description:
+          column:
+            name: description
+        name:
+          column:
+            name: name
+        resultTypeConnectorName:
+          column:
+            name: result_type_connector_name
+        resultTypeName:
+          column:
+            name: result_type_name
+        resultTypeSubgraphName:
+          column:
+            name: result_type_subgraph_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentProcedureObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - description
+          - name
+          - resultTypeConnectorName
+          - resultTypeName
+          - resultTypeSubgraphName
+          - subgraphName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentProcedureResponse
+  description: Responses from the 'insert_current_procedure' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentProcedure!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentProcedureResponse
+    inputTypeName: InsertCurrentProcedureResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_procedure_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentProcedureResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentProcedure
+  outputType: InsertCurrentProcedureResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentProcedureObject!]!"
+    - name: postCheck
+      type: CurrentProcedureBoolExp
+      description: Insert permission predicate over the 'current_procedure' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_procedure
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentProcedure
+    rootFieldKind: Mutation
+  description: Insert into the current_procedure table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentProcedure
+  permissions:
+    - role: admin
+      allowExecution: true
+

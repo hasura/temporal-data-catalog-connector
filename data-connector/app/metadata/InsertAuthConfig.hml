@@ -1,0 +1,174 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertAuthConfigObject
+  fields:
+    - name: defaultRole
+      type: Varchar
+    - name: modeType
+      type: Varchar!
+    - name: sessionVars
+      type: Json!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+    - name: version
+      type: Varchar!
+  graphql:
+    typeName: InsertAuthConfigObject
+    inputTypeName: InsertAuthConfigObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_auth_config_object
+      fieldMapping:
+        defaultRole:
+          column:
+            name: default_role
+        modeType:
+          column:
+            name: mode_type
+        sessionVars:
+          column:
+            name: session_vars
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        version:
+          column:
+            name: version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertAuthConfigObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - defaultRole
+          - modeType
+          - sessionVars
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - version
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertAuthConfigResponse
+  description: Responses from the 'insert_auth_config' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[AuthConfig!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertAuthConfigResponse
+    inputTypeName: InsertAuthConfigResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_auth_config_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertAuthConfigResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertAuthConfig
+  outputType: InsertAuthConfigResponse!
+  arguments:
+    - name: objects
+      type: "[InsertAuthConfigObject!]!"
+    - name: postCheck
+      type: AuthConfigBoolExp
+      description: Insert permission predicate over the 'auth_config' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_auth_config
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertAuthConfig
+    rootFieldKind: Mutation
+  description: Insert into the auth_config table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertAuthConfig
+  permissions:
+    - role: admin
+      allowExecution: true
+

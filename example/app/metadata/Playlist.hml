@@ -1,0 +1,145 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Playlist
+  fields:
+    - name: name
+      type: Varchar
+    - name: playlistId
+      type: Int4!
+  graphql:
+    typeName: Playlist
+    inputTypeName: PlaylistInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: chinook
+      dataConnectorObjectType: playlist
+      fieldMapping:
+        name:
+          column:
+            name: name
+        playlistId:
+          column:
+            name: playlist_id
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Playlist
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - name
+          - playlistId
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: PlaylistBoolExp
+  operand:
+    object:
+      type: Playlist
+      comparableFields:
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: playlistId
+          booleanExpressionType: Int4BoolExp
+      comparableRelationships:
+        - relationshipName: playlistTracks
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: PlaylistBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: PlaylistAggExp
+  operand:
+    object:
+      aggregatedType: Playlist
+      aggregatableFields:
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: playlistId
+          aggregateExpression: Int4AggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: PlaylistAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: Playlist
+  objectType: Playlist
+  source:
+    dataConnectorName: chinook
+    collection: playlist
+  filterExpressionType: PlaylistBoolExp
+  aggregateExpression: PlaylistAggExp
+  orderableFields:
+    - fieldName: name
+      orderByDirections:
+        enableAll: true
+    - fieldName: playlistId
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: playlist
+      subscription:
+        rootField: playlist
+    selectUniques:
+      - queryRootField: playlistByPlaylistId
+        uniqueIdentifier:
+          - playlistId
+        subscription:
+          rootField: playlistByPlaylistId
+    orderByExpressionType: PlaylistOrderBy
+    filterInputTypeName: PlaylistFilterInput
+    aggregate:
+      queryRootField: playlistAggregate
+      subscription:
+        rootField: playlistAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Playlist
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: playlistTracks
+  sourceType: Playlist
+  target:
+    model:
+      name: PlaylistTrack
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: PlaylistTrackAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: playlistId
+      target:
+        modelField:
+          - fieldName: playlistId
+  graphql:
+    aggregateFieldName: playlistTracksAggregate
+

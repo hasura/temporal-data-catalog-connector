@@ -1,0 +1,767 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilityConnectorName
+  description: Update the 'connector_name' column in the
+    'data_connector_capability' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilityConnectorName
+    inputTypeName: UpdateColumnDataConnectorCapabilityConnectorNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_connector_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilityConnectorName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilitySubgraphName
+  description: Update the 'subgraph_name' column in the
+    'data_connector_capability' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilitySubgraphName
+    inputTypeName: UpdateColumnDataConnectorCapabilitySubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilitySubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilitySupportsAggregates
+  description: Update the 'supports_aggregates' column in the
+    'data_connector_capability' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilitySupportsAggregates
+    inputTypeName: UpdateColumnDataConnectorCapabilitySupportsAggregatesInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_supports_aggregates
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilitySupportsAggregates
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilitySupportsFieldFilters
+  description: Update the 'supports_field_filters' column in the
+    'data_connector_capability' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilitySupportsFieldFilters
+    inputTypeName: UpdateColumnDataConnectorCapabilitySupportsFieldFiltersInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_supports_field_filters
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilitySupportsFieldFilters
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilitySupportsNestedFields
+  description: Update the 'supports_nested_fields' column in the
+    'data_connector_capability' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilitySupportsNestedFields
+    inputTypeName: UpdateColumnDataConnectorCapabilitySupportsNestedFieldsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_supports_nested_fields
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilitySupportsNestedFields
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilitySupportsTransactions
+  description: Update the 'supports_transactions' column in the
+    'data_connector_capability' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilitySupportsTransactions
+    inputTypeName: UpdateColumnDataConnectorCapabilitySupportsTransactionsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_supports_transactions
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilitySupportsTransactions
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilitySupportsVariables
+  description: Update the 'supports_variables' column in the
+    'data_connector_capability' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilitySupportsVariables
+    inputTypeName: UpdateColumnDataConnectorCapabilitySupportsVariablesInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_supports_variables
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilitySupportsVariables
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilityTContentHash
+  description: Update the 't_content_hash' column in the
+    'data_connector_capability' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilityTContentHash
+    inputTypeName: UpdateColumnDataConnectorCapabilityTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilityTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilityTCreatedAt
+  description: Update the 't_created_at' column in the 'data_connector_capability'
+    collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilityTCreatedAt
+    inputTypeName: UpdateColumnDataConnectorCapabilityTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilityTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilityTDeletedAt
+  description: Update the 't_deleted_at' column in the 'data_connector_capability'
+    collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilityTDeletedAt
+    inputTypeName: UpdateColumnDataConnectorCapabilityTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilityTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilityTId
+  description: Update the 't_id' column in the 'data_connector_capability' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilityTId
+    inputTypeName: UpdateColumnDataConnectorCapabilityTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilityTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilityTIsCurrent
+  description: Update the 't_is_current' column in the 'data_connector_capability'
+    collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilityTIsCurrent
+    inputTypeName: UpdateColumnDataConnectorCapabilityTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilityTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilityTIsDeleted
+  description: Update the 't_is_deleted' column in the 'data_connector_capability'
+    collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilityTIsDeleted
+    inputTypeName: UpdateColumnDataConnectorCapabilityTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilityTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilityTUpdatedAt
+  description: Update the 't_updated_at' column in the 'data_connector_capability'
+    collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilityTUpdatedAt
+    inputTypeName: UpdateColumnDataConnectorCapabilityTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilityTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilityTVersion
+  description: Update the 't_version' column in the 'data_connector_capability' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilityTVersion
+    inputTypeName: UpdateColumnDataConnectorCapabilityTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilityTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorCapabilityVersion
+  description: Update the 'version' column in the 'data_connector_capability' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorCapabilityVersion
+    inputTypeName: UpdateColumnDataConnectorCapabilityVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_capability_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorCapabilityVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateDataConnectorCapabilityByConnectorNameAndSubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'data_connector_capability' collection
+  fields:
+    - name: connectorName
+      type: UpdateColumnDataConnectorCapabilityConnectorName
+      description: Update the 'connector_name' column in the
+        'data_connector_capability' collection.
+    - name: subgraphName
+      type: UpdateColumnDataConnectorCapabilitySubgraphName
+      description: Update the 'subgraph_name' column in the
+        'data_connector_capability' collection.
+    - name: supportsAggregates
+      type: UpdateColumnDataConnectorCapabilitySupportsAggregates
+      description: Update the 'supports_aggregates' column in the
+        'data_connector_capability' collection.
+    - name: supportsFieldFilters
+      type: UpdateColumnDataConnectorCapabilitySupportsFieldFilters
+      description: Update the 'supports_field_filters' column in the
+        'data_connector_capability' collection.
+    - name: supportsNestedFields
+      type: UpdateColumnDataConnectorCapabilitySupportsNestedFields
+      description: Update the 'supports_nested_fields' column in the
+        'data_connector_capability' collection.
+    - name: supportsTransactions
+      type: UpdateColumnDataConnectorCapabilitySupportsTransactions
+      description: Update the 'supports_transactions' column in the
+        'data_connector_capability' collection.
+    - name: supportsVariables
+      type: UpdateColumnDataConnectorCapabilitySupportsVariables
+      description: Update the 'supports_variables' column in the
+        'data_connector_capability' collection.
+    - name: tContentHash
+      type: UpdateColumnDataConnectorCapabilityTContentHash
+      description: Update the 't_content_hash' column in the
+        'data_connector_capability' collection.
+    - name: tCreatedAt
+      type: UpdateColumnDataConnectorCapabilityTCreatedAt
+      description: Update the 't_created_at' column in the 'data_connector_capability'
+        collection.
+    - name: tDeletedAt
+      type: UpdateColumnDataConnectorCapabilityTDeletedAt
+      description: Update the 't_deleted_at' column in the 'data_connector_capability'
+        collection.
+    - name: tId
+      type: UpdateColumnDataConnectorCapabilityTId
+      description: Update the 't_id' column in the 'data_connector_capability' collection.
+    - name: tIsCurrent
+      type: UpdateColumnDataConnectorCapabilityTIsCurrent
+      description: Update the 't_is_current' column in the 'data_connector_capability'
+        collection.
+    - name: tIsDeleted
+      type: UpdateColumnDataConnectorCapabilityTIsDeleted
+      description: Update the 't_is_deleted' column in the 'data_connector_capability'
+        collection.
+    - name: tUpdatedAt
+      type: UpdateColumnDataConnectorCapabilityTUpdatedAt
+      description: Update the 't_updated_at' column in the 'data_connector_capability'
+        collection.
+    - name: tVersion
+      type: UpdateColumnDataConnectorCapabilityTVersion
+      description: Update the 't_version' column in the 'data_connector_capability'
+        collection.
+    - name: version
+      type: UpdateColumnDataConnectorCapabilityVersion
+      description: Update the 'version' column in the 'data_connector_capability'
+        collection.
+  graphql:
+    typeName: UpdateDataConnectorCapabilityByConnectorNameAndSubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateDataConnectorCapabilityByConnectorNameAndSubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_data_connector_capability_by_connector_name_and_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        supportsAggregates:
+          column:
+            name: supports_aggregates
+        supportsFieldFilters:
+          column:
+            name: supports_field_filters
+        supportsNestedFields:
+          column:
+            name: supports_nested_fields
+        supportsTransactions:
+          column:
+            name: supports_transactions
+        supportsVariables:
+          column:
+            name: supports_variables
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        version:
+          column:
+            name: version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateDataConnectorCapabilityByConnectorNameAndSubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - subgraphName
+          - supportsAggregates
+          - supportsFieldFilters
+          - supportsNestedFields
+          - supportsTransactions
+          - supportsVariables
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - version
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateDataConnectorCapabilityByConnectorNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_data_connector_capability_by_connector_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[DataConnectorCapability!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateDataConnectorCapabilityByConnectorNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: UpdateDataConnectorCapabilityByConnectorNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_data_connector_capability_by_connector_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateDataConnectorCapabilityByConnectorNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateDataConnectorCapabilityByConnectorNameAndSubgraphNameAndTVersion
+  outputType: UpdateDataConnectorCapabilityByConnectorNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyConnectorName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: DataConnectorCapabilityBoolExp
+      description: Update permission post-condition predicate over the
+        'data_connector_capability' collection
+    - name: preCheck
+      type: DataConnectorCapabilityBoolExp
+      description: Update permission pre-condition predicate over the
+        'data_connector_capability' collection
+    - name: updateColumns
+      type: UpdateDataConnectorCapabilityByConnectorNameAndSubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_data_connector_capability_by_connector_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyConnectorName: key_connector_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateDataConnectorCapabilityByConnectorNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'data_connector_capability' collection using
+    the 'connector_name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateDataConnectorCapabilityByConnectorNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

@@ -1,0 +1,163 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentDataConnectorScalarRepresentation
+  fields:
+    - name: dataConnectorName
+      type: Varchar
+    - name: dataConnectorScalarType
+      type: Varchar
+    - name: graphqlComparisonExpressionTypeName
+      type: Varchar
+    - name: scalarTypeName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: CurrentDataConnectorScalarRepresentation
+    inputTypeName: CurrentDataConnectorScalarRepresentationInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_data_connector_scalar_representation
+      fieldMapping:
+        dataConnectorName:
+          column:
+            name: data_connector_name
+        dataConnectorScalarType:
+          column:
+            name: data_connector_scalar_type
+        graphqlComparisonExpressionTypeName:
+          column:
+            name: graphql_comparison_expression_type_name
+        scalarTypeName:
+          column:
+            name: scalar_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentDataConnectorScalarRepresentation
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - dataConnectorName
+          - dataConnectorScalarType
+          - graphqlComparisonExpressionTypeName
+          - scalarTypeName
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentDataConnectorScalarRepresentationBoolExp
+  operand:
+    object:
+      type: CurrentDataConnectorScalarRepresentation
+      comparableFields:
+        - fieldName: dataConnectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: dataConnectorScalarType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: graphqlComparisonExpressionTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: scalarTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentDataConnectorScalarRepresentationBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentDataConnectorScalarRepresentationAggExp
+  operand:
+    object:
+      aggregatedType: CurrentDataConnectorScalarRepresentation
+      aggregatableFields:
+        - fieldName: dataConnectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: dataConnectorScalarType
+          aggregateExpression: VarcharAggExp
+        - fieldName: graphqlComparisonExpressionTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: scalarTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentDataConnectorScalarRepresentationAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentDataConnectorScalarRepresentationOrderByExp
+  operand:
+    object:
+      orderedType: CurrentDataConnectorScalarRepresentation
+      orderableFields:
+        - fieldName: dataConnectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: dataConnectorScalarType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: graphqlComparisonExpressionTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: scalarTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentDataConnectorScalarRepresentationOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentDataConnectorScalarRepresentation
+  objectType: CurrentDataConnectorScalarRepresentation
+  source:
+    dataConnectorName: datamanagement
+    collection: current_data_connector_scalar_representation
+  filterExpressionType: CurrentDataConnectorScalarRepresentationBoolExp
+  aggregateExpression: CurrentDataConnectorScalarRepresentationAggExp
+  orderByExpression: CurrentDataConnectorScalarRepresentationOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentDataConnectorScalarRepresentation
+      subscription:
+        rootField: currentDataConnectorScalarRepresentation
+    selectUniques: []
+    filterInputTypeName: CurrentDataConnectorScalarRepresentationFilterInput
+    aggregate:
+      queryRootField: currentDataConnectorScalarRepresentationAggregate
+      subscription:
+        rootField: currentDataConnectorScalarRepresentationAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentDataConnectorScalarRepresentation
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

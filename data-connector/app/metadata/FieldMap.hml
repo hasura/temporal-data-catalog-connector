@@ -1,0 +1,282 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: FieldMap
+  fields:
+    - name: collectionName
+      type: Varchar!
+    - name: connectorName
+      type: Varchar!
+    - name: logicalFieldName
+      type: Varchar!
+    - name: objectTypeName
+      type: Varchar!
+    - name: physicalFieldName
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+  graphql:
+    typeName: FieldMap
+    inputTypeName: FieldMapInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: field_map
+      fieldMapping:
+        collectionName:
+          column:
+            name: collection_name
+        connectorName:
+          column:
+            name: connector_name
+        logicalFieldName:
+          column:
+            name: logical_field_name
+        objectTypeName:
+          column:
+            name: object_type_name
+        physicalFieldName:
+          column:
+            name: physical_field_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: FieldMap
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - collectionName
+          - connectorName
+          - logicalFieldName
+          - objectTypeName
+          - physicalFieldName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: FieldMapBoolExp
+  operand:
+    object:
+      type: FieldMap
+      comparableFields:
+        - fieldName: collectionName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: logicalFieldName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: objectTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: physicalFieldName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: FieldMapBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: FieldMapAggExp
+  operand:
+    object:
+      aggregatedType: FieldMap
+      aggregatableFields:
+        - fieldName: collectionName
+          aggregateExpression: VarcharAggExp
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: logicalFieldName
+          aggregateExpression: VarcharAggExp
+        - fieldName: objectTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: physicalFieldName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: FieldMapAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: FieldMapOrderByExp
+  operand:
+    object:
+      orderedType: FieldMap
+      orderableFields:
+        - fieldName: collectionName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: logicalFieldName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: objectTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: physicalFieldName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: FieldMapOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: FieldMap
+  objectType: FieldMap
+  source:
+    dataConnectorName: datamanagement
+    collection: field_map
+  filterExpressionType: FieldMapBoolExp
+  aggregateExpression: FieldMapAggExp
+  orderByExpression: FieldMapOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: fieldMap
+      subscription:
+        rootField: fieldMap
+    selectUniques:
+      - queryRootField: fieldMapByFieldMapPkey
+        uniqueIdentifier:
+          - collectionName
+          - connectorName
+          - logicalFieldName
+          - objectTypeName
+          - physicalFieldName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: fieldMapByFieldMapPkey
+    filterInputTypeName: FieldMapFilterInput
+    aggregate:
+      queryRootField: fieldMapAggregate
+      subscription:
+        rootField: fieldMapAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: FieldMap
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

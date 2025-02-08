@@ -1,0 +1,180 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertBooleanExpressionTypeObject
+  fields:
+    - name: graphqlTypeName
+      type: Varchar
+    - name: isNullEnabled
+      type: Bool!
+    - name: logicalOpsEnabled
+      type: Bool!
+    - name: name
+      type: Varchar!
+    - name: scalarType
+      type: Varchar
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+  graphql:
+    typeName: InsertBooleanExpressionTypeObject
+    inputTypeName: InsertBooleanExpressionTypeObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_boolean_expression_type_object
+      fieldMapping:
+        graphqlTypeName:
+          column:
+            name: graphql_type_name
+        isNullEnabled:
+          column:
+            name: is_null_enabled
+        logicalOpsEnabled:
+          column:
+            name: logical_ops_enabled
+        name:
+          column:
+            name: name
+        scalarType:
+          column:
+            name: scalar_type
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertBooleanExpressionTypeObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - graphqlTypeName
+          - isNullEnabled
+          - logicalOpsEnabled
+          - name
+          - scalarType
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertBooleanExpressionTypeResponse
+  description: Responses from the 'insert_boolean_expression_type' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[BooleanExpressionType!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertBooleanExpressionTypeResponse
+    inputTypeName: InsertBooleanExpressionTypeResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_boolean_expression_type_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertBooleanExpressionTypeResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertBooleanExpressionType
+  outputType: InsertBooleanExpressionTypeResponse!
+  arguments:
+    - name: objects
+      type: "[InsertBooleanExpressionTypeObject!]!"
+    - name: postCheck
+      type: BooleanExpressionTypeBoolExp
+      description: Insert permission predicate over the 'boolean_expression_type' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_boolean_expression_type
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertBooleanExpressionType
+    rootFieldKind: Mutation
+  description: Insert into the boolean_expression_type table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertBooleanExpressionType
+  permissions:
+    - role: admin
+      allowExecution: true
+

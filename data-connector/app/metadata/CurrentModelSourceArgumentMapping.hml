@@ -1,0 +1,151 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentModelSourceArgumentMapping
+  fields:
+    - name: key
+      type: Varchar
+    - name: modelName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+    - name: value
+      type: Varchar
+  graphql:
+    typeName: CurrentModelSourceArgumentMapping
+    inputTypeName: CurrentModelSourceArgumentMappingInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_model_source_argument_mapping
+      fieldMapping:
+        key:
+          column:
+            name: key
+        modelName:
+          column:
+            name: model_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        value:
+          column:
+            name: value
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentModelSourceArgumentMapping
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - key
+          - modelName
+          - subgraphName
+          - value
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentModelSourceArgumentMappingBoolExp
+  operand:
+    object:
+      type: CurrentModelSourceArgumentMapping
+      comparableFields:
+        - fieldName: key
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: value
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentModelSourceArgumentMappingBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentModelSourceArgumentMappingAggExp
+  operand:
+    object:
+      aggregatedType: CurrentModelSourceArgumentMapping
+      aggregatableFields:
+        - fieldName: key
+          aggregateExpression: VarcharAggExp
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: value
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentModelSourceArgumentMappingAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentModelSourceArgumentMappingOrderByExp
+  operand:
+    object:
+      orderedType: CurrentModelSourceArgumentMapping
+      orderableFields:
+        - fieldName: key
+          orderByExpression: VarcharOrderByExp
+        - fieldName: modelName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: value
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentModelSourceArgumentMappingOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentModelSourceArgumentMapping
+  objectType: CurrentModelSourceArgumentMapping
+  source:
+    dataConnectorName: datamanagement
+    collection: current_model_source_argument_mapping
+  filterExpressionType: CurrentModelSourceArgumentMappingBoolExp
+  aggregateExpression: CurrentModelSourceArgumentMappingAggExp
+  orderByExpression: CurrentModelSourceArgumentMappingOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentModelSourceArgumentMapping
+      subscription:
+        rootField: currentModelSourceArgumentMapping
+    selectUniques: []
+    filterInputTypeName: CurrentModelSourceArgumentMappingFilterInput
+    aggregate:
+      queryRootField: currentModelSourceArgumentMappingAggregate
+      subscription:
+        rootField: currentModelSourceArgumentMappingAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentModelSourceArgumentMapping
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

@@ -1,0 +1,163 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentAllowedField
+  fields:
+    - name: fieldName
+      type: Varchar
+    - name: objectTypeName
+      type: Varchar
+    - name: roleName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+    - name: typeName
+      type: Varchar
+  graphql:
+    typeName: CurrentAllowedField
+    inputTypeName: CurrentAllowedFieldInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_allowed_field
+      fieldMapping:
+        fieldName:
+          column:
+            name: field_name
+        objectTypeName:
+          column:
+            name: object_type_name
+        roleName:
+          column:
+            name: role_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        typeName:
+          column:
+            name: type_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentAllowedField
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - fieldName
+          - objectTypeName
+          - roleName
+          - subgraphName
+          - typeName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentAllowedFieldBoolExp
+  operand:
+    object:
+      type: CurrentAllowedField
+      comparableFields:
+        - fieldName: fieldName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: objectTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: roleName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: typeName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentAllowedFieldBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentAllowedFieldAggExp
+  operand:
+    object:
+      aggregatedType: CurrentAllowedField
+      aggregatableFields:
+        - fieldName: fieldName
+          aggregateExpression: VarcharAggExp
+        - fieldName: objectTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: roleName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: typeName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentAllowedFieldAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentAllowedFieldOrderByExp
+  operand:
+    object:
+      orderedType: CurrentAllowedField
+      orderableFields:
+        - fieldName: fieldName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: objectTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: roleName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: typeName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentAllowedFieldOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentAllowedField
+  objectType: CurrentAllowedField
+  source:
+    dataConnectorName: datamanagement
+    collection: current_allowed_field
+  filterExpressionType: CurrentAllowedFieldBoolExp
+  aggregateExpression: CurrentAllowedFieldAggExp
+  orderByExpression: CurrentAllowedFieldOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentAllowedField
+      subscription:
+        rootField: currentAllowedField
+    selectUniques: []
+    filterInputTypeName: CurrentAllowedFieldFilterInput
+    aggregate:
+      queryRootField: currentAllowedFieldAggregate
+      subscription:
+        rootField: currentAllowedFieldAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentAllowedField
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

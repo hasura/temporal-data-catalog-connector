@@ -1,0 +1,95 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteFieldMapByCollectionNameAndConnectorNameAndLogicalFieldNameAndObjectTypeNameAndPhysicalFieldNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_field_map_by_collection_name_and_connector_name_and_logical_field_name_and_object_type_name_and_physical_field_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[FieldMap!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteFieldMapByCollectionNameAndConnectorNameAndLogicalFieldNameAndObjectTypeNameAndPhysicalFieldNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: DeleteFieldMapByCollectionNameAndConnectorNameAndLogicalFieldNameAndObjectTypeNameAndPhysicalFieldNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_field_map_by_collection_name_and_connector_name_and_logical_field_name_and_object_type_name_and_physical_field_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteFieldMapByCollectionNameAndConnectorNameAndLogicalFieldNameAndObjectTypeNameAndPhysicalFieldNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteFieldMapByCollectionNameAndConnectorNameAndLogicalFieldNameAndObjectTypeNameAndPhysicalFieldNameAndSubgraphNameAndTVersion
+  outputType: DeleteFieldMapByCollectionNameAndConnectorNameAndLogicalFieldNameAndObjectTypeNameAndPhysicalFieldNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyCollectionName
+      type: Varchar!
+    - name: keyConnectorName
+      type: Varchar!
+    - name: keyLogicalFieldName
+      type: Varchar!
+    - name: keyObjectTypeName
+      type: Varchar!
+    - name: keyPhysicalFieldName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: FieldMapBoolExp
+      description: Delete permission predicate over the 'field_map' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_field_map_by_collection_name_and_connector_name_and_logical_field_name_and_object_type_name_and_physical_field_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyCollectionName: key_collection_name
+      keyConnectorName: key_connector_name
+      keyLogicalFieldName: key_logical_field_name
+      keyObjectTypeName: key_object_type_name
+      keyPhysicalFieldName: key_physical_field_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteFieldMapByCollectionNameAndConnectorNameAndLogicalFieldNameAndObjectTypeNameAndPhysicalFieldNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'field_map' collection using the
+    'collection_name', 'connector_name', 'logical_field_name',
+    'object_type_name', 'physical_field_name', 'subgraph_name' and 't_version'
+    keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteFieldMapByCollectionNameAndConnectorNameAndLogicalFieldNameAndObjectTypeNameAndPhysicalFieldNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

@@ -1,0 +1,729 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlSelectManyConfigDeprecated
+  description: Update the 'deprecated' column in the
+    'model_graphql_select_many_config' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlSelectManyConfigDeprecated
+    inputTypeName: UpdateColumnModelGraphqlSelectManyConfigDeprecatedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_select_many_config_deprecated
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlSelectManyConfigDeprecated
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlSelectManyConfigDescription
+  description: Update the 'description' column in the
+    'model_graphql_select_many_config' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlSelectManyConfigDescription
+    inputTypeName: UpdateColumnModelGraphqlSelectManyConfigDescriptionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_select_many_config_description
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlSelectManyConfigDescription
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlSelectManyConfigModelName
+  description: Update the 'model_name' column in the
+    'model_graphql_select_many_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlSelectManyConfigModelName
+    inputTypeName: UpdateColumnModelGraphqlSelectManyConfigModelNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_select_many_config_model_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlSelectManyConfigModelName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlSelectManyConfigQueryRootField
+  description: Update the 'query_root_field' column in the
+    'model_graphql_select_many_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlSelectManyConfigQueryRootField
+    inputTypeName: UpdateColumnModelGraphqlSelectManyConfigQueryRootFieldInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_select_many_config_query_root_field
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlSelectManyConfigQueryRootField
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlSelectManyConfigSubgraphName
+  description: Update the 'subgraph_name' column in the
+    'model_graphql_select_many_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlSelectManyConfigSubgraphName
+    inputTypeName: UpdateColumnModelGraphqlSelectManyConfigSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_select_many_config_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlSelectManyConfigSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlSelectManyConfigSubscriptionPollingIntervalMs
+  description: Update the 'subscription_polling_interval_ms' column in the
+    'model_graphql_select_many_config' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlSelectManyConfigSubscriptionPollingIntervalMs
+    inputTypeName: UpdateColumnModelGraphqlSelectManyConfigSubscriptionPollingIntervalMsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_select_many_config_subscription_polling_interval_ms
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlSelectManyConfigSubscriptionPollingIntervalMs
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlSelectManyConfigSubscriptionRootField
+  description: Update the 'subscription_root_field' column in the
+    'model_graphql_select_many_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlSelectManyConfigSubscriptionRootField
+    inputTypeName: UpdateColumnModelGraphqlSelectManyConfigSubscriptionRootFieldInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_select_many_config_subscription_root_field
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlSelectManyConfigSubscriptionRootField
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlSelectManyConfigTContentHash
+  description: Update the 't_content_hash' column in the
+    'model_graphql_select_many_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlSelectManyConfigTContentHash
+    inputTypeName: UpdateColumnModelGraphqlSelectManyConfigTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_select_many_config_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlSelectManyConfigTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlSelectManyConfigTCreatedAt
+  description: Update the 't_created_at' column in the
+    'model_graphql_select_many_config' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlSelectManyConfigTCreatedAt
+    inputTypeName: UpdateColumnModelGraphqlSelectManyConfigTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_select_many_config_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlSelectManyConfigTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlSelectManyConfigTDeletedAt
+  description: Update the 't_deleted_at' column in the
+    'model_graphql_select_many_config' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlSelectManyConfigTDeletedAt
+    inputTypeName: UpdateColumnModelGraphqlSelectManyConfigTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_select_many_config_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlSelectManyConfigTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlSelectManyConfigTId
+  description: Update the 't_id' column in the 'model_graphql_select_many_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlSelectManyConfigTId
+    inputTypeName: UpdateColumnModelGraphqlSelectManyConfigTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_select_many_config_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlSelectManyConfigTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlSelectManyConfigTIsCurrent
+  description: Update the 't_is_current' column in the
+    'model_graphql_select_many_config' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlSelectManyConfigTIsCurrent
+    inputTypeName: UpdateColumnModelGraphqlSelectManyConfigTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_select_many_config_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlSelectManyConfigTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlSelectManyConfigTIsDeleted
+  description: Update the 't_is_deleted' column in the
+    'model_graphql_select_many_config' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlSelectManyConfigTIsDeleted
+    inputTypeName: UpdateColumnModelGraphqlSelectManyConfigTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_select_many_config_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlSelectManyConfigTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlSelectManyConfigTUpdatedAt
+  description: Update the 't_updated_at' column in the
+    'model_graphql_select_many_config' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlSelectManyConfigTUpdatedAt
+    inputTypeName: UpdateColumnModelGraphqlSelectManyConfigTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_select_many_config_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlSelectManyConfigTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlSelectManyConfigTVersion
+  description: Update the 't_version' column in the
+    'model_graphql_select_many_config' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlSelectManyConfigTVersion
+    inputTypeName: UpdateColumnModelGraphqlSelectManyConfigTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_select_many_config_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlSelectManyConfigTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'model_graphql_select_many_config' collection
+  fields:
+    - name: deprecated
+      type: UpdateColumnModelGraphqlSelectManyConfigDeprecated
+      description: Update the 'deprecated' column in the
+        'model_graphql_select_many_config' collection.
+    - name: description
+      type: UpdateColumnModelGraphqlSelectManyConfigDescription
+      description: Update the 'description' column in the
+        'model_graphql_select_many_config' collection.
+    - name: modelName
+      type: UpdateColumnModelGraphqlSelectManyConfigModelName
+      description: Update the 'model_name' column in the
+        'model_graphql_select_many_config' collection.
+    - name: queryRootField
+      type: UpdateColumnModelGraphqlSelectManyConfigQueryRootField
+      description: Update the 'query_root_field' column in the
+        'model_graphql_select_many_config' collection.
+    - name: subgraphName
+      type: UpdateColumnModelGraphqlSelectManyConfigSubgraphName
+      description: Update the 'subgraph_name' column in the
+        'model_graphql_select_many_config' collection.
+    - name: subscriptionPollingIntervalMs
+      type: UpdateColumnModelGraphqlSelectManyConfigSubscriptionPollingIntervalMs
+      description: Update the 'subscription_polling_interval_ms' column in the
+        'model_graphql_select_many_config' collection.
+    - name: subscriptionRootField
+      type: UpdateColumnModelGraphqlSelectManyConfigSubscriptionRootField
+      description: Update the 'subscription_root_field' column in the
+        'model_graphql_select_many_config' collection.
+    - name: tContentHash
+      type: UpdateColumnModelGraphqlSelectManyConfigTContentHash
+      description: Update the 't_content_hash' column in the
+        'model_graphql_select_many_config' collection.
+    - name: tCreatedAt
+      type: UpdateColumnModelGraphqlSelectManyConfigTCreatedAt
+      description: Update the 't_created_at' column in the
+        'model_graphql_select_many_config' collection.
+    - name: tDeletedAt
+      type: UpdateColumnModelGraphqlSelectManyConfigTDeletedAt
+      description: Update the 't_deleted_at' column in the
+        'model_graphql_select_many_config' collection.
+    - name: tId
+      type: UpdateColumnModelGraphqlSelectManyConfigTId
+      description: Update the 't_id' column in the 'model_graphql_select_many_config'
+        collection.
+    - name: tIsCurrent
+      type: UpdateColumnModelGraphqlSelectManyConfigTIsCurrent
+      description: Update the 't_is_current' column in the
+        'model_graphql_select_many_config' collection.
+    - name: tIsDeleted
+      type: UpdateColumnModelGraphqlSelectManyConfigTIsDeleted
+      description: Update the 't_is_deleted' column in the
+        'model_graphql_select_many_config' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnModelGraphqlSelectManyConfigTUpdatedAt
+      description: Update the 't_updated_at' column in the
+        'model_graphql_select_many_config' collection.
+    - name: tVersion
+      type: UpdateColumnModelGraphqlSelectManyConfigTVersion
+      description: Update the 't_version' column in the
+        'model_graphql_select_many_config' collection.
+  graphql:
+    typeName: UpdateModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_model_graphql_select_many_config_by_model_name_and_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        deprecated:
+          column:
+            name: deprecated
+        description:
+          column:
+            name: description
+        modelName:
+          column:
+            name: model_name
+        queryRootField:
+          column:
+            name: query_root_field
+        subgraphName:
+          column:
+            name: subgraph_name
+        subscriptionPollingIntervalMs:
+          column:
+            name: subscription_polling_interval_ms
+        subscriptionRootField:
+          column:
+            name: subscription_root_field
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - deprecated
+          - description
+          - modelName
+          - queryRootField
+          - subgraphName
+          - subscriptionPollingIntervalMs
+          - subscriptionRootField
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_model_graphql_select_many_config_by_model_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[ModelGraphqlSelectManyConfig!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: UpdateModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_model_graphql_select_many_config_by_model_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersion
+  outputType: UpdateModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyModelName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: ModelGraphqlSelectManyConfigBoolExp
+      description: Update permission post-condition predicate over the
+        'model_graphql_select_many_config' collection
+    - name: preCheck
+      type: ModelGraphqlSelectManyConfigBoolExp
+      description: Update permission pre-condition predicate over the
+        'model_graphql_select_many_config' collection
+    - name: updateColumns
+      type: UpdateModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_model_graphql_select_many_config_by_model_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyModelName: key_model_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'model_graphql_select_many_config' collection
+    using the 'model_name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

@@ -1,0 +1,175 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentAggregateExpressionObject
+  fields:
+    - name: countDescription
+      type: Text
+    - name: countDistinctDescription
+      type: Text
+    - name: countDistinctEnabled
+      type: Bool
+    - name: countDistinctReturnType
+      type: Varchar
+    - name: countEnabled
+      type: Bool
+    - name: countReturnType
+      type: Varchar
+    - name: description
+      type: Text
+    - name: graphqlDeprecated
+      type: Bool
+    - name: graphqlSelectTypeName
+      type: Varchar
+    - name: name
+      type: Varchar
+    - name: operandObjectAggregateType
+      type: Varchar
+    - name: operandScalarType
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentAggregateExpressionObject
+    inputTypeName: InsertCurrentAggregateExpressionObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_aggregate_expression_object
+      fieldMapping:
+        countDescription:
+          column:
+            name: count_description
+        countDistinctDescription:
+          column:
+            name: count_distinct_description
+        countDistinctEnabled:
+          column:
+            name: count_distinct_enabled
+        countDistinctReturnType:
+          column:
+            name: count_distinct_return_type
+        countEnabled:
+          column:
+            name: count_enabled
+        countReturnType:
+          column:
+            name: count_return_type
+        description:
+          column:
+            name: description
+        graphqlDeprecated:
+          column:
+            name: graphql_deprecated
+        graphqlSelectTypeName:
+          column:
+            name: graphql_select_type_name
+        name:
+          column:
+            name: name
+        operandObjectAggregateType:
+          column:
+            name: operand_object_aggregate_type
+        operandScalarType:
+          column:
+            name: operand_scalar_type
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentAggregateExpressionObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - countDescription
+          - countDistinctDescription
+          - countDistinctEnabled
+          - countDistinctReturnType
+          - countEnabled
+          - countReturnType
+          - description
+          - graphqlDeprecated
+          - graphqlSelectTypeName
+          - name
+          - operandObjectAggregateType
+          - operandScalarType
+          - subgraphName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentAggregateExpressionResponse
+  description: Responses from the 'insert_current_aggregate_expression' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentAggregateExpression!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentAggregateExpressionResponse
+    inputTypeName: InsertCurrentAggregateExpressionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_aggregate_expression_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentAggregateExpressionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentAggregateExpression
+  outputType: InsertCurrentAggregateExpressionResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentAggregateExpressionObject!]!"
+    - name: postCheck
+      type: CurrentAggregateExpressionBoolExp
+      description: Insert permission predicate over the 'current_aggregate_expression'
+        collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_aggregate_expression
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentAggregateExpression
+    rootFieldKind: Mutation
+  description: Insert into the current_aggregate_expression table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentAggregateExpression
+  permissions:
+    - role: admin
+      allowExecution: true
+

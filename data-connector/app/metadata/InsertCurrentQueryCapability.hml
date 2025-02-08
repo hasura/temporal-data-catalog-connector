@@ -1,0 +1,157 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentQueryCapabilityObject
+  fields:
+    - name: aggregatesEnabled
+      type: Bool
+    - name: connectorName
+      type: Varchar
+    - name: existsEnabled
+      type: Bool
+    - name: explainEnabled
+      type: Bool
+    - name: filterByEnabled
+      type: Bool
+    - name: nestedCollectionsEnabled
+      type: Bool
+    - name: nestedFieldsEnabled
+      type: Bool
+    - name: orderByEnabled
+      type: Bool
+    - name: subgraphName
+      type: Varchar
+    - name: variablesEnabled
+      type: Bool
+  graphql:
+    typeName: InsertCurrentQueryCapabilityObject
+    inputTypeName: InsertCurrentQueryCapabilityObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_query_capability_object
+      fieldMapping:
+        aggregatesEnabled:
+          column:
+            name: aggregates_enabled
+        connectorName:
+          column:
+            name: connector_name
+        existsEnabled:
+          column:
+            name: exists_enabled
+        explainEnabled:
+          column:
+            name: explain_enabled
+        filterByEnabled:
+          column:
+            name: filter_by_enabled
+        nestedCollectionsEnabled:
+          column:
+            name: nested_collections_enabled
+        nestedFieldsEnabled:
+          column:
+            name: nested_fields_enabled
+        orderByEnabled:
+          column:
+            name: order_by_enabled
+        subgraphName:
+          column:
+            name: subgraph_name
+        variablesEnabled:
+          column:
+            name: variables_enabled
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentQueryCapabilityObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregatesEnabled
+          - connectorName
+          - existsEnabled
+          - explainEnabled
+          - filterByEnabled
+          - nestedCollectionsEnabled
+          - nestedFieldsEnabled
+          - orderByEnabled
+          - subgraphName
+          - variablesEnabled
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentQueryCapabilityResponse
+  description: Responses from the 'insert_current_query_capability' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentQueryCapability!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentQueryCapabilityResponse
+    inputTypeName: InsertCurrentQueryCapabilityResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_query_capability_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentQueryCapabilityResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentQueryCapability
+  outputType: InsertCurrentQueryCapabilityResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentQueryCapabilityObject!]!"
+    - name: postCheck
+      type: CurrentQueryCapabilityBoolExp
+      description: Insert permission predicate over the 'current_query_capability'
+        collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_query_capability
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentQueryCapability
+    rootFieldKind: Mutation
+  description: Insert into the current_query_capability table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentQueryCapability
+  permissions:
+    - role: admin
+      allowExecution: true
+

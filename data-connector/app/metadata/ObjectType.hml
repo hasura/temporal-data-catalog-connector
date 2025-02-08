@@ -1,0 +1,302 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ObjectType
+  fields:
+    - name: collectionType
+      type: Varchar
+    - name: connectorName
+      type: Varchar!
+    - name: description
+      type: Text
+    - name: fieldMapping
+      type: Json
+    - name: graphqlInputTypeName
+      type: Varchar
+    - name: graphqlTypeName
+      type: Varchar!
+    - name: name
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+  graphql:
+    typeName: ObjectType
+    inputTypeName: ObjectTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: object_type
+      fieldMapping:
+        collectionType:
+          column:
+            name: collection_type
+        connectorName:
+          column:
+            name: connector_name
+        description:
+          column:
+            name: description
+        fieldMapping:
+          column:
+            name: field_mapping
+        graphqlInputTypeName:
+          column:
+            name: graphql_input_type_name
+        graphqlTypeName:
+          column:
+            name: graphql_type_name
+        name:
+          column:
+            name: name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ObjectType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - collectionType
+          - connectorName
+          - description
+          - fieldMapping
+          - graphqlInputTypeName
+          - graphqlTypeName
+          - name
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ObjectTypeBoolExp
+  operand:
+    object:
+      type: ObjectType
+      comparableFields:
+        - fieldName: collectionType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: description
+          booleanExpressionType: TextBoolExp
+        - fieldName: fieldMapping
+          booleanExpressionType: JsonBoolExp
+        - fieldName: graphqlInputTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: graphqlTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ObjectTypeBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ObjectTypeAggExp
+  operand:
+    object:
+      aggregatedType: ObjectType
+      aggregatableFields:
+        - fieldName: collectionType
+          aggregateExpression: VarcharAggExp
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: description
+          aggregateExpression: TextAggExp
+        - fieldName: fieldMapping
+          aggregateExpression: JsonAggExp
+        - fieldName: graphqlInputTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: graphqlTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: ObjectTypeAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ObjectTypeOrderByExp
+  operand:
+    object:
+      orderedType: ObjectType
+      orderableFields:
+        - fieldName: collectionType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: description
+          orderByExpression: TextOrderByExp
+        - fieldName: fieldMapping
+          orderByExpression: JsonOrderByExp
+        - fieldName: graphqlInputTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: graphqlTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: name
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: ObjectTypeOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: ObjectType
+  objectType: ObjectType
+  source:
+    dataConnectorName: datamanagement
+    collection: object_type
+  filterExpressionType: ObjectTypeBoolExp
+  aggregateExpression: ObjectTypeAggExp
+  orderByExpression: ObjectTypeOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: objectType
+      subscription:
+        rootField: objectType
+    selectUniques:
+      - queryRootField: objectTypeByObjectTypePkey
+        uniqueIdentifier:
+          - name
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: objectTypeByObjectTypePkey
+    filterInputTypeName: ObjectTypeFilterInput
+    aggregate:
+      queryRootField: objectTypeAggregate
+      subscription:
+        rootField: objectTypeAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: ObjectType
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

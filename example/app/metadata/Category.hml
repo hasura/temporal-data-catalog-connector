@@ -1,0 +1,135 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Category
+  fields:
+    - name: categoryId
+      type: Int4!
+    - name: lastUpdate
+      type: Timestamp!
+    - name: name
+      type: Varchar!
+  graphql:
+    typeName: Category
+    inputTypeName: CategoryInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: chinook
+      dataConnectorObjectType: category
+      fieldMapping:
+        categoryId:
+          column:
+            name: category_id
+        lastUpdate:
+          column:
+            name: last_update
+        name:
+          column:
+            name: name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Category
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - categoryId
+          - lastUpdate
+          - name
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CategoryBoolExp
+  operand:
+    object:
+      type: Category
+      comparableFields:
+        - fieldName: categoryId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: lastUpdate
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CategoryBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CategoryAggExp
+  operand:
+    object:
+      aggregatedType: Category
+      aggregatableFields:
+        - fieldName: categoryId
+          aggregateExpression: Int4AggExp
+        - fieldName: lastUpdate
+          aggregateExpression: TimestampAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CategoryAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: Category
+  objectType: Category
+  source:
+    dataConnectorName: chinook
+    collection: category
+  filterExpressionType: CategoryBoolExp
+  aggregateExpression: CategoryAggExp
+  orderableFields:
+    - fieldName: categoryId
+      orderByDirections:
+        enableAll: true
+    - fieldName: lastUpdate
+      orderByDirections:
+        enableAll: true
+    - fieldName: name
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: category
+      subscription:
+        rootField: category
+    selectUniques:
+      - queryRootField: categoryByCategoryId
+        uniqueIdentifier:
+          - categoryId
+        subscription:
+          rootField: categoryByCategoryId
+    orderByExpressionType: CategoryOrderBy
+    filterInputTypeName: CategoryFilterInput
+    aggregate:
+      queryRootField: categoryAggregate
+      subscription:
+        rootField: categoryAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Category
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

@@ -1,0 +1,175 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentDataConnectorArgumentPreset
+  fields:
+    - name: argumentType
+      type: Varchar
+    - name: connectorName
+      type: Varchar
+    - name: id
+      type: Int4
+    - name: name
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+    - name: value
+      type: Varchar
+  graphql:
+    typeName: CurrentDataConnectorArgumentPreset
+    inputTypeName: CurrentDataConnectorArgumentPresetInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_data_connector_argument_preset
+      fieldMapping:
+        argumentType:
+          column:
+            name: argument_type
+        connectorName:
+          column:
+            name: connector_name
+        id:
+          column:
+            name: id
+        name:
+          column:
+            name: name
+        subgraphName:
+          column:
+            name: subgraph_name
+        value:
+          column:
+            name: value
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentDataConnectorArgumentPreset
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - argumentType
+          - connectorName
+          - id
+          - name
+          - subgraphName
+          - value
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentDataConnectorArgumentPresetBoolExp
+  operand:
+    object:
+      type: CurrentDataConnectorArgumentPreset
+      comparableFields:
+        - fieldName: argumentType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: id
+          booleanExpressionType: Int4BoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: value
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentDataConnectorArgumentPresetBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentDataConnectorArgumentPresetAggExp
+  operand:
+    object:
+      aggregatedType: CurrentDataConnectorArgumentPreset
+      aggregatableFields:
+        - fieldName: argumentType
+          aggregateExpression: VarcharAggExp
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: id
+          aggregateExpression: Int4AggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: value
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentDataConnectorArgumentPresetAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentDataConnectorArgumentPresetOrderByExp
+  operand:
+    object:
+      orderedType: CurrentDataConnectorArgumentPreset
+      orderableFields:
+        - fieldName: argumentType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: id
+          orderByExpression: Int4OrderByExp
+        - fieldName: name
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: value
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentDataConnectorArgumentPresetOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentDataConnectorArgumentPreset
+  objectType: CurrentDataConnectorArgumentPreset
+  source:
+    dataConnectorName: datamanagement
+    collection: current_data_connector_argument_preset
+  filterExpressionType: CurrentDataConnectorArgumentPresetBoolExp
+  aggregateExpression: CurrentDataConnectorArgumentPresetAggExp
+  orderByExpression: CurrentDataConnectorArgumentPresetOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentDataConnectorArgumentPreset
+      subscription:
+        rootField: currentDataConnectorArgumentPreset
+    selectUniques: []
+    filterInputTypeName: CurrentDataConnectorArgumentPresetFilterInput
+    aggregate:
+      queryRootField: currentDataConnectorArgumentPresetAggregate
+      subscription:
+        rootField: currentDataConnectorArgumentPresetAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentDataConnectorArgumentPreset
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

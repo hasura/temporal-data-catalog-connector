@@ -1,0 +1,281 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DataConnectorFunctionMapping
+  fields:
+    - name: aggregateName
+      type: Varchar!
+    - name: dataConnectorName
+      type: Varchar!
+    - name: dataConnectorScalarType
+      type: Varchar!
+    - name: functionName
+      type: Varchar!
+    - name: mappedFunctionName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+  graphql:
+    typeName: DataConnectorFunctionMapping
+    inputTypeName: DataConnectorFunctionMappingInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: data_connector_function_mapping
+      fieldMapping:
+        aggregateName:
+          column:
+            name: aggregate_name
+        dataConnectorName:
+          column:
+            name: data_connector_name
+        dataConnectorScalarType:
+          column:
+            name: data_connector_scalar_type
+        functionName:
+          column:
+            name: function_name
+        mappedFunctionName:
+          column:
+            name: mapped_function_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DataConnectorFunctionMapping
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregateName
+          - dataConnectorName
+          - dataConnectorScalarType
+          - functionName
+          - mappedFunctionName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: DataConnectorFunctionMappingBoolExp
+  operand:
+    object:
+      type: DataConnectorFunctionMapping
+      comparableFields:
+        - fieldName: aggregateName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: dataConnectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: dataConnectorScalarType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: functionName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: mappedFunctionName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: DataConnectorFunctionMappingBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: DataConnectorFunctionMappingAggExp
+  operand:
+    object:
+      aggregatedType: DataConnectorFunctionMapping
+      aggregatableFields:
+        - fieldName: aggregateName
+          aggregateExpression: VarcharAggExp
+        - fieldName: dataConnectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: dataConnectorScalarType
+          aggregateExpression: VarcharAggExp
+        - fieldName: functionName
+          aggregateExpression: VarcharAggExp
+        - fieldName: mappedFunctionName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: DataConnectorFunctionMappingAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: DataConnectorFunctionMappingOrderByExp
+  operand:
+    object:
+      orderedType: DataConnectorFunctionMapping
+      orderableFields:
+        - fieldName: aggregateName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: dataConnectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: dataConnectorScalarType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: functionName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: mappedFunctionName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: DataConnectorFunctionMappingOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: DataConnectorFunctionMapping
+  objectType: DataConnectorFunctionMapping
+  source:
+    dataConnectorName: datamanagement
+    collection: data_connector_function_mapping
+  filterExpressionType: DataConnectorFunctionMappingBoolExp
+  aggregateExpression: DataConnectorFunctionMappingAggExp
+  orderByExpression: DataConnectorFunctionMappingOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: dataConnectorFunctionMapping
+      subscription:
+        rootField: dataConnectorFunctionMapping
+    selectUniques:
+      - queryRootField: dataConnectorFunctionMappingByDataConnectorFunctionMappingPkey
+        uniqueIdentifier:
+          - aggregateName
+          - dataConnectorName
+          - dataConnectorScalarType
+          - functionName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: dataConnectorFunctionMappingByDataConnectorFunctionMappingPkey
+    filterInputTypeName: DataConnectorFunctionMappingFilterInput
+    aggregate:
+      queryRootField: dataConnectorFunctionMappingAggregate
+      subscription:
+        rootField: dataConnectorFunctionMappingAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: DataConnectorFunctionMapping
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

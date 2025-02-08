@@ -1,0 +1,211 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentPresetValue
+  fields:
+    - name: argumentName
+      type: Varchar
+    - name: booleanValue
+      type: Bool
+    - name: modelName
+      type: Varchar
+    - name: numberValue
+      type: Numeric
+    - name: roleName
+      type: Varchar
+    - name: scalarTypeName
+      type: Varchar
+    - name: stringValue
+      type: Text
+    - name: subgraphName
+      type: Varchar
+    - name: valuePosition
+      type: Int4
+  graphql:
+    typeName: CurrentPresetValue
+    inputTypeName: CurrentPresetValueInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_preset_value
+      fieldMapping:
+        argumentName:
+          column:
+            name: argument_name
+        booleanValue:
+          column:
+            name: boolean_value
+        modelName:
+          column:
+            name: model_name
+        numberValue:
+          column:
+            name: number_value
+        roleName:
+          column:
+            name: role_name
+        scalarTypeName:
+          column:
+            name: scalar_type_name
+        stringValue:
+          column:
+            name: string_value
+        subgraphName:
+          column:
+            name: subgraph_name
+        valuePosition:
+          column:
+            name: value_position
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentPresetValue
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - argumentName
+          - booleanValue
+          - modelName
+          - numberValue
+          - roleName
+          - scalarTypeName
+          - stringValue
+          - subgraphName
+          - valuePosition
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentPresetValueBoolExp
+  operand:
+    object:
+      type: CurrentPresetValue
+      comparableFields:
+        - fieldName: argumentName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: booleanValue
+          booleanExpressionType: BoolBoolExp
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: numberValue
+          booleanExpressionType: NumericBoolExp
+        - fieldName: roleName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: scalarTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: stringValue
+          booleanExpressionType: TextBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: valuePosition
+          booleanExpressionType: Int4BoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentPresetValueBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentPresetValueAggExp
+  operand:
+    object:
+      aggregatedType: CurrentPresetValue
+      aggregatableFields:
+        - fieldName: argumentName
+          aggregateExpression: VarcharAggExp
+        - fieldName: booleanValue
+          aggregateExpression: BoolAggExp
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp
+        - fieldName: numberValue
+          aggregateExpression: NumericAggExp
+        - fieldName: roleName
+          aggregateExpression: VarcharAggExp
+        - fieldName: scalarTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: stringValue
+          aggregateExpression: TextAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: valuePosition
+          aggregateExpression: Int4AggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentPresetValueAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentPresetValueOrderByExp
+  operand:
+    object:
+      orderedType: CurrentPresetValue
+      orderableFields:
+        - fieldName: argumentName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: booleanValue
+          orderByExpression: BoolOrderByExp
+        - fieldName: modelName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: numberValue
+          orderByExpression: NumericOrderByExp
+        - fieldName: roleName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: scalarTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: stringValue
+          orderByExpression: TextOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: valuePosition
+          orderByExpression: Int4OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentPresetValueOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentPresetValue
+  objectType: CurrentPresetValue
+  source:
+    dataConnectorName: datamanagement
+    collection: current_preset_value
+  filterExpressionType: CurrentPresetValueBoolExp
+  aggregateExpression: CurrentPresetValueAggExp
+  orderByExpression: CurrentPresetValueOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentPresetValue
+      subscription:
+        rootField: currentPresetValue
+    selectUniques: []
+    filterInputTypeName: CurrentPresetValueFilterInput
+    aggregate:
+      queryRootField: currentPresetValueAggregate
+      subscription:
+        rootField: currentPresetValueAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentPresetValue
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

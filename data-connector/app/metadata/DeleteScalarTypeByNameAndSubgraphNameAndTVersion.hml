@@ -1,0 +1,80 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteScalarTypeByNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_scalar_type_by_name_and_subgraph_name_and_t_version' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[ScalarType!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteScalarTypeByNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: DeleteScalarTypeByNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_scalar_type_by_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteScalarTypeByNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteScalarTypeByNameAndSubgraphNameAndTVersion
+  outputType: DeleteScalarTypeByNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: ScalarTypeBoolExp
+      description: Delete permission predicate over the 'scalar_type' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_scalar_type_by_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyName: key_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteScalarTypeByNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'scalar_type' collection using the 'name',
+    'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteScalarTypeByNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

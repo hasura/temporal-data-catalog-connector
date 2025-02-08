@@ -1,0 +1,180 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: StatisticalFlags
+  fields:
+    - name: analysisId
+      type: Int4!
+    - name: description
+      type: Text
+    - name: flagType
+      type: Varchar
+    - name: id
+      type: Int4!
+    - name: severity
+      type: Float8
+  graphql:
+    typeName: StatisticalFlags
+    inputTypeName: StatisticalFlagsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: anomaly
+      dataConnectorObjectType: statistical_flags
+      fieldMapping:
+        analysisId:
+          column:
+            name: analysis_id
+        description:
+          column:
+            name: description
+        flagType:
+          column:
+            name: flag_type
+        id:
+          column:
+            name: id
+        severity:
+          column:
+            name: severity
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: StatisticalFlags
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - analysisId
+          - description
+          - flagType
+          - id
+          - severity
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: StatisticalFlagsBoolExp
+  operand:
+    object:
+      type: StatisticalFlags
+      comparableFields:
+        - fieldName: analysisId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: description
+          booleanExpressionType: TextBoolExp
+        - fieldName: flagType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: id
+          booleanExpressionType: Int4BoolExp
+        - fieldName: severity
+          booleanExpressionType: Float8BoolExp
+      comparableRelationships:
+        - relationshipName: anomalyAnalyAsis
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: StatisticalFlagsBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: StatisticalFlagsAggExp
+  operand:
+    object:
+      aggregatedType: StatisticalFlags
+      aggregatableFields:
+        - fieldName: analysisId
+          aggregateExpression: Int4AggExp
+        - fieldName: description
+          aggregateExpression: TextAggExp
+        - fieldName: flagType
+          aggregateExpression: VarcharAggExp
+        - fieldName: id
+          aggregateExpression: Int4AggExp
+        - fieldName: severity
+          aggregateExpression: Float8AggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: StatisticalFlagsAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: StatisticalFlags
+  objectType: StatisticalFlags
+  source:
+    dataConnectorName: anomaly
+    collection: statistical_flags
+  filterExpressionType: StatisticalFlagsBoolExp
+  aggregateExpression: StatisticalFlagsAggExp
+  orderableFields:
+    - fieldName: analysisId
+      orderByDirections:
+        enableAll: true
+    - fieldName: description
+      orderByDirections:
+        enableAll: true
+    - fieldName: flagType
+      orderByDirections:
+        enableAll: true
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: severity
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: statisticalFlags
+      subscription:
+        rootField: statisticalFlags
+    selectUniques:
+      - queryRootField: statisticalFlagsById
+        uniqueIdentifier:
+          - id
+        subscription:
+          rootField: statisticalFlagsById
+    orderByExpressionType: StatisticalFlagsOrderBy
+    filterInputTypeName: StatisticalFlagsFilterInput
+    aggregate:
+      queryRootField: statisticalFlagsAggregate
+      subscription:
+        rootField: statisticalFlagsAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: StatisticalFlags
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: anomalyAnalyAsis
+  sourceType: StatisticalFlags
+  target:
+    model:
+      name: AnomalyAnalyses
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: analysisId
+      target:
+        modelField:
+          - fieldName: id
+

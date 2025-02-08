@@ -1,0 +1,145 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentProcedureArgumentObject
+  fields:
+    - name: connectorName
+      type: Varchar
+    - name: description
+      type: Varchar
+    - name: name
+      type: Varchar
+    - name: procedureName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+    - name: typeDefinitionConnectorName
+      type: Varchar
+    - name: typeDefinitionName
+      type: Varchar
+    - name: typeDefinitionSubgraphName
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentProcedureArgumentObject
+    inputTypeName: InsertCurrentProcedureArgumentObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_procedure_argument_object
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        description:
+          column:
+            name: description
+        name:
+          column:
+            name: name
+        procedureName:
+          column:
+            name: procedure_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        typeDefinitionConnectorName:
+          column:
+            name: type_definition_connector_name
+        typeDefinitionName:
+          column:
+            name: type_definition_name
+        typeDefinitionSubgraphName:
+          column:
+            name: type_definition_subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentProcedureArgumentObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - description
+          - name
+          - procedureName
+          - subgraphName
+          - typeDefinitionConnectorName
+          - typeDefinitionName
+          - typeDefinitionSubgraphName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentProcedureArgumentResponse
+  description: Responses from the 'insert_current_procedure_argument' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentProcedureArgument!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentProcedureArgumentResponse
+    inputTypeName: InsertCurrentProcedureArgumentResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_procedure_argument_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentProcedureArgumentResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentProcedureArgument
+  outputType: InsertCurrentProcedureArgumentResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentProcedureArgumentObject!]!"
+    - name: postCheck
+      type: CurrentProcedureArgumentBoolExp
+      description: Insert permission predicate over the 'current_procedure_argument'
+        collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_procedure_argument
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentProcedureArgument
+    rootFieldKind: Mutation
+  description: Insert into the current_procedure_argument table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentProcedureArgument
+  permissions:
+    - role: admin
+      allowExecution: true
+

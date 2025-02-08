@@ -1,0 +1,114 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentModelArgumentObject
+  fields:
+    - name: modelName
+      type: Varchar
+    - name: name
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentModelArgumentObject
+    inputTypeName: InsertCurrentModelArgumentObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_model_argument_object
+      fieldMapping:
+        modelName:
+          column:
+            name: model_name
+        name:
+          column:
+            name: name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentModelArgumentObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - modelName
+          - name
+          - subgraphName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentModelArgumentResponse
+  description: Responses from the 'insert_current_model_argument' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentModelArgument!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentModelArgumentResponse
+    inputTypeName: InsertCurrentModelArgumentResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_model_argument_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentModelArgumentResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentModelArgument
+  outputType: InsertCurrentModelArgumentResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentModelArgumentObject!]!"
+    - name: postCheck
+      type: CurrentModelArgumentBoolExp
+      description: Insert permission predicate over the 'current_model_argument' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_model_argument
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentModelArgument
+    rootFieldKind: Mutation
+  description: Insert into the current_model_argument table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentModelArgument
+  permissions:
+    - role: admin
+      allowExecution: true
+

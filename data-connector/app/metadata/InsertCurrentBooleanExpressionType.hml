@@ -1,0 +1,133 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentBooleanExpressionTypeObject
+  fields:
+    - name: graphqlTypeName
+      type: Varchar
+    - name: isNullEnabled
+      type: Bool
+    - name: logicalOpsEnabled
+      type: Bool
+    - name: name
+      type: Varchar
+    - name: scalarType
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentBooleanExpressionTypeObject
+    inputTypeName: InsertCurrentBooleanExpressionTypeObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_boolean_expression_type_object
+      fieldMapping:
+        graphqlTypeName:
+          column:
+            name: graphql_type_name
+        isNullEnabled:
+          column:
+            name: is_null_enabled
+        logicalOpsEnabled:
+          column:
+            name: logical_ops_enabled
+        name:
+          column:
+            name: name
+        scalarType:
+          column:
+            name: scalar_type
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentBooleanExpressionTypeObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - graphqlTypeName
+          - isNullEnabled
+          - logicalOpsEnabled
+          - name
+          - scalarType
+          - subgraphName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentBooleanExpressionTypeResponse
+  description: Responses from the 'insert_current_boolean_expression_type' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentBooleanExpressionType!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentBooleanExpressionTypeResponse
+    inputTypeName: InsertCurrentBooleanExpressionTypeResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_boolean_expression_type_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentBooleanExpressionTypeResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentBooleanExpressionType
+  outputType: InsertCurrentBooleanExpressionTypeResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentBooleanExpressionTypeObject!]!"
+    - name: postCheck
+      type: CurrentBooleanExpressionTypeBoolExp
+      description: Insert permission predicate over the
+        'current_boolean_expression_type' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_boolean_expression_type
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentBooleanExpressionType
+    rootFieldKind: Mutation
+  description: Insert into the current_boolean_expression_type table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentBooleanExpressionType
+  permissions:
+    - role: admin
+      allowExecution: true
+

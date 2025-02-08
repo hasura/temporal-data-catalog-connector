@@ -1,0 +1,344 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: AnomalyAnalyses
+  fields:
+    - name: analysisMode
+      type: Varchar
+    - name: anomaliesDetected
+      type: Bool
+    - name: anomalousRecordsCount
+      type: Int4
+    - name: historicalDataSize
+      type: Int4
+    - name: id
+      type: Int4!
+    - name: operationName
+      type: Varchar
+    - name: processedRecords
+      type: Int4
+    - name: queryId
+      type: Varchar!
+    - name: role
+      type: Varchar
+    - name: status
+      type: Varchar
+    - name: timestamp
+      type: Timestamptz
+    - name: userId
+      type: Varchar
+  graphql:
+    typeName: AnomalyAnalyses
+    inputTypeName: AnomalyAnalysesInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: anomaly
+      dataConnectorObjectType: anomaly_analyses
+      fieldMapping:
+        analysisMode:
+          column:
+            name: analysis_mode
+        anomaliesDetected:
+          column:
+            name: anomalies_detected
+        anomalousRecordsCount:
+          column:
+            name: anomalous_records_count
+        historicalDataSize:
+          column:
+            name: historical_data_size
+        id:
+          column:
+            name: id
+        operationName:
+          column:
+            name: operation_name
+        processedRecords:
+          column:
+            name: processed_records
+        queryId:
+          column:
+            name: query_id
+        role:
+          column:
+            name: role
+        status:
+          column:
+            name: status
+        timestamp:
+          column:
+            name: timestamp
+        userId:
+          column:
+            name: user_id
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: AnomalyAnalyses
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - analysisMode
+          - anomaliesDetected
+          - anomalousRecordsCount
+          - historicalDataSize
+          - id
+          - operationName
+          - processedRecords
+          - queryId
+          - role
+          - status
+          - timestamp
+          - userId
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: AnomalyAnalysesBoolExp
+  operand:
+    object:
+      type: AnomalyAnalyses
+      comparableFields:
+        - fieldName: analysisMode
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: anomaliesDetected
+          booleanExpressionType: BoolBoolExp
+        - fieldName: anomalousRecordsCount
+          booleanExpressionType: Int4BoolExp
+        - fieldName: historicalDataSize
+          booleanExpressionType: Int4BoolExp
+        - fieldName: id
+          booleanExpressionType: Int4BoolExp
+        - fieldName: operationName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: processedRecords
+          booleanExpressionType: Int4BoolExp
+        - fieldName: queryId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: role
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: status
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: timestamp
+          booleanExpressionType: TimestamptzBoolExp
+        - fieldName: userId
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships:
+        - relationshipName: anomalyRecords
+        - relationshipName: queryConcerns
+        - relationshipName: recommendations
+        - relationshipName: statisticalFlags
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: AnomalyAnalysesBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: AnomalyAnalysesAggExp
+  operand:
+    object:
+      aggregatedType: AnomalyAnalyses
+      aggregatableFields:
+        - fieldName: analysisMode
+          aggregateExpression: VarcharAggExp
+        - fieldName: anomaliesDetected
+          aggregateExpression: BoolAggExp
+        - fieldName: anomalousRecordsCount
+          aggregateExpression: Int4AggExp
+        - fieldName: historicalDataSize
+          aggregateExpression: Int4AggExp
+        - fieldName: id
+          aggregateExpression: Int4AggExp
+        - fieldName: operationName
+          aggregateExpression: VarcharAggExp
+        - fieldName: processedRecords
+          aggregateExpression: Int4AggExp
+        - fieldName: queryId
+          aggregateExpression: VarcharAggExp
+        - fieldName: role
+          aggregateExpression: VarcharAggExp
+        - fieldName: status
+          aggregateExpression: VarcharAggExp
+        - fieldName: timestamp
+          aggregateExpression: TimestamptzAggExp
+        - fieldName: userId
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: AnomalyAnalysesAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: AnomalyAnalyses
+  objectType: AnomalyAnalyses
+  source:
+    dataConnectorName: anomaly
+    collection: anomaly_analyses
+  filterExpressionType: AnomalyAnalysesBoolExp
+  aggregateExpression: AnomalyAnalysesAggExp
+  orderableFields:
+    - fieldName: analysisMode
+      orderByDirections:
+        enableAll: true
+    - fieldName: anomaliesDetected
+      orderByDirections:
+        enableAll: true
+    - fieldName: anomalousRecordsCount
+      orderByDirections:
+        enableAll: true
+    - fieldName: historicalDataSize
+      orderByDirections:
+        enableAll: true
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: operationName
+      orderByDirections:
+        enableAll: true
+    - fieldName: processedRecords
+      orderByDirections:
+        enableAll: true
+    - fieldName: queryId
+      orderByDirections:
+        enableAll: true
+    - fieldName: role
+      orderByDirections:
+        enableAll: true
+    - fieldName: status
+      orderByDirections:
+        enableAll: true
+    - fieldName: timestamp
+      orderByDirections:
+        enableAll: true
+    - fieldName: userId
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: anomalyAnalyses
+      subscription:
+        rootField: anomalyAnalyses
+    selectUniques:
+      - queryRootField: anomalyAnalysesById
+        uniqueIdentifier:
+          - id
+        subscription:
+          rootField: anomalyAnalysesById
+    orderByExpressionType: AnomalyAnalysesOrderBy
+    filterInputTypeName: AnomalyAnalysesFilterInput
+    aggregate:
+      queryRootField: anomalyAnalysesAggregate
+      subscription:
+        rootField: anomalyAnalysesAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: AnomalyAnalyses
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: anomalyRecords
+  sourceType: AnomalyAnalyses
+  target:
+    model:
+      name: AnomalyRecords
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: AnomalyRecordsAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: id
+      target:
+        modelField:
+          - fieldName: analysisId
+  graphql:
+    aggregateFieldName: anomalyRecordsAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: queryConcerns
+  sourceType: AnomalyAnalyses
+  target:
+    model:
+      name: QueryConcerns
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: QueryConcernsAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: id
+      target:
+        modelField:
+          - fieldName: analysisId
+  graphql:
+    aggregateFieldName: queryConcernsAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: recommendations
+  sourceType: AnomalyAnalyses
+  target:
+    model:
+      name: Recommendations
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: RecommendationsAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: id
+      target:
+        modelField:
+          - fieldName: analysisId
+  graphql:
+    aggregateFieldName: recommendationsAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: statisticalFlags
+  sourceType: AnomalyAnalyses
+  target:
+    model:
+      name: StatisticalFlags
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: StatisticalFlagsAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: id
+      target:
+        modelField:
+          - fieldName: analysisId
+  graphql:
+    aggregateFieldName: statisticalFlagsAggregate
+

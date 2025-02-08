@@ -1,0 +1,243 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: TypePermission
+  fields:
+    - name: roleName
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+    - name: typeName
+      type: Varchar!
+  graphql:
+    typeName: TypePermission
+    inputTypeName: TypePermissionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: type_permission
+      fieldMapping:
+        roleName:
+          column:
+            name: role_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        typeName:
+          column:
+            name: type_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: TypePermission
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - roleName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - typeName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: TypePermissionBoolExp
+  operand:
+    object:
+      type: TypePermission
+      comparableFields:
+        - fieldName: roleName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+        - fieldName: typeName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: TypePermissionBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: TypePermissionAggExp
+  operand:
+    object:
+      aggregatedType: TypePermission
+      aggregatableFields:
+        - fieldName: roleName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+        - fieldName: typeName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: TypePermissionAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: TypePermissionOrderByExp
+  operand:
+    object:
+      orderedType: TypePermission
+      orderableFields:
+        - fieldName: roleName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+        - fieldName: typeName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: TypePermissionOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: TypePermission
+  objectType: TypePermission
+  source:
+    dataConnectorName: datamanagement
+    collection: type_permission
+  filterExpressionType: TypePermissionBoolExp
+  aggregateExpression: TypePermissionAggExp
+  orderByExpression: TypePermissionOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: typePermission
+      subscription:
+        rootField: typePermission
+    selectUniques:
+      - queryRootField: typePermissionByTypePermissionPkey
+        uniqueIdentifier:
+          - roleName
+          - subgraphName
+          - tVersion
+          - typeName
+        subscription:
+          rootField: typePermissionByTypePermissionPkey
+    filterInputTypeName: TypePermissionFilterInput
+    aggregate:
+      queryRootField: typePermissionAggregate
+      subscription:
+        rootField: typePermissionAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: TypePermission
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

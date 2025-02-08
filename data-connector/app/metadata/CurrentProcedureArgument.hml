@@ -1,0 +1,199 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentProcedureArgument
+  fields:
+    - name: connectorName
+      type: Varchar
+    - name: description
+      type: Varchar
+    - name: name
+      type: Varchar
+    - name: procedureName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+    - name: typeDefinitionConnectorName
+      type: Varchar
+    - name: typeDefinitionName
+      type: Varchar
+    - name: typeDefinitionSubgraphName
+      type: Varchar
+  graphql:
+    typeName: CurrentProcedureArgument
+    inputTypeName: CurrentProcedureArgumentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_procedure_argument
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        description:
+          column:
+            name: description
+        name:
+          column:
+            name: name
+        procedureName:
+          column:
+            name: procedure_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        typeDefinitionConnectorName:
+          column:
+            name: type_definition_connector_name
+        typeDefinitionName:
+          column:
+            name: type_definition_name
+        typeDefinitionSubgraphName:
+          column:
+            name: type_definition_subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentProcedureArgument
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - description
+          - name
+          - procedureName
+          - subgraphName
+          - typeDefinitionConnectorName
+          - typeDefinitionName
+          - typeDefinitionSubgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentProcedureArgumentBoolExp
+  operand:
+    object:
+      type: CurrentProcedureArgument
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: description
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: procedureName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: typeDefinitionConnectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: typeDefinitionName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: typeDefinitionSubgraphName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentProcedureArgumentBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentProcedureArgumentAggExp
+  operand:
+    object:
+      aggregatedType: CurrentProcedureArgument
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: description
+          aggregateExpression: VarcharAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: procedureName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: typeDefinitionConnectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: typeDefinitionName
+          aggregateExpression: VarcharAggExp
+        - fieldName: typeDefinitionSubgraphName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentProcedureArgumentAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentProcedureArgumentOrderByExp
+  operand:
+    object:
+      orderedType: CurrentProcedureArgument
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: description
+          orderByExpression: VarcharOrderByExp
+        - fieldName: name
+          orderByExpression: VarcharOrderByExp
+        - fieldName: procedureName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: typeDefinitionConnectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: typeDefinitionName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: typeDefinitionSubgraphName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentProcedureArgumentOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentProcedureArgument
+  objectType: CurrentProcedureArgument
+  source:
+    dataConnectorName: datamanagement
+    collection: current_procedure_argument
+  filterExpressionType: CurrentProcedureArgumentBoolExp
+  aggregateExpression: CurrentProcedureArgumentAggExp
+  orderByExpression: CurrentProcedureArgumentOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentProcedureArgument
+      subscription:
+        rootField: currentProcedureArgument
+    selectUniques: []
+    filterInputTypeName: CurrentProcedureArgumentFilterInput
+    aggregate:
+      queryRootField: currentProcedureArgumentAggregate
+      subscription:
+        rootField: currentProcedureArgumentAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentProcedureArgument
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

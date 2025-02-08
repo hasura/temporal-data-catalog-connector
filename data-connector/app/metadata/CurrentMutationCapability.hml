@@ -1,0 +1,151 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentMutationCapability
+  fields:
+    - name: connectorName
+      type: Varchar
+    - name: explainEnabled
+      type: Bool
+    - name: subgraphName
+      type: Varchar
+    - name: transactionalEnabled
+      type: Bool
+  graphql:
+    typeName: CurrentMutationCapability
+    inputTypeName: CurrentMutationCapabilityInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_mutation_capability
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        explainEnabled:
+          column:
+            name: explain_enabled
+        subgraphName:
+          column:
+            name: subgraph_name
+        transactionalEnabled:
+          column:
+            name: transactional_enabled
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentMutationCapability
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - explainEnabled
+          - subgraphName
+          - transactionalEnabled
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentMutationCapabilityBoolExp
+  operand:
+    object:
+      type: CurrentMutationCapability
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: explainEnabled
+          booleanExpressionType: BoolBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: transactionalEnabled
+          booleanExpressionType: BoolBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentMutationCapabilityBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentMutationCapabilityAggExp
+  operand:
+    object:
+      aggregatedType: CurrentMutationCapability
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: explainEnabled
+          aggregateExpression: BoolAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: transactionalEnabled
+          aggregateExpression: BoolAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentMutationCapabilityAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentMutationCapabilityOrderByExp
+  operand:
+    object:
+      orderedType: CurrentMutationCapability
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: explainEnabled
+          orderByExpression: BoolOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: transactionalEnabled
+          orderByExpression: BoolOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentMutationCapabilityOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentMutationCapability
+  objectType: CurrentMutationCapability
+  source:
+    dataConnectorName: datamanagement
+    collection: current_mutation_capability
+  filterExpressionType: CurrentMutationCapabilityBoolExp
+  aggregateExpression: CurrentMutationCapabilityAggExp
+  orderByExpression: CurrentMutationCapabilityOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentMutationCapability
+      subscription:
+        rootField: currentMutationCapability
+    selectUniques: []
+    filterInputTypeName: CurrentMutationCapabilityFilterInput
+    aggregate:
+      queryRootField: currentMutationCapabilityAggregate
+      subscription:
+        rootField: currentMutationCapabilityAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentMutationCapability
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

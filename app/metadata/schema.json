@@ -1,0 +1,1747 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "version",
+    "subgraphs"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "enum": [
+        "v2"
+      ]
+    },
+    "subgraphs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "objects"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "objects": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/lifecyclePluginHook"
+                },
+                {
+                  "$ref": "#/$defs/authConfig"
+                },
+                {
+                  "$ref": "#/$defs/compatibilityConfig"
+                },
+                {
+                  "$ref": "#/$defs/graphqlConfig"
+                },
+                {
+                  "$ref": "#/$defs/objectType"
+                },
+                {
+                  "$ref": "#/$defs/typePermissions"
+                },
+                {
+                  "$ref": "#/$defs/booleanExpressionType"
+                },
+                {
+                  "$ref": "#/$defs/aggregateExpression"
+                },
+                {
+                  "$ref": "#/$defs/model"
+                },
+                {
+                  "$ref": "#/$defs/modelPermissions"
+                },
+                {
+                  "$ref": "#/$defs/relationship"
+                },
+                {
+                  "$ref": "#/$defs/scalarType"
+                },
+                {
+                  "$ref": "#/$defs/dataConnectorScalarRepresentation"
+                },
+                {
+                  "$ref": "#/$defs/dataConnectorLink"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "baseObject": {
+      "type": "object",
+      "required": [
+        "kind",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string",
+          "enum": [
+            "v1",
+            "v2"
+          ]
+        }
+      }
+    },
+    "lifecyclePluginHook": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "LifecyclePluginHook"
+            },
+            "definition": {
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "pre": {
+                  "type": "string"
+                },
+                "url": {
+                  "$ref": "#/$defs/urlDefinition"
+                },
+                "config": {
+                  "type": "object",
+                  "properties": {
+                    "request": {
+                      "$ref": "#/$defs/requestConfig"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "requestConfig": {
+      "type": "object",
+      "properties": {
+        "headers": {
+          "type": "object",
+          "properties": {
+            "additional": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "forward": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "rawRequest": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "object"
+            },
+            "variables": {
+              "type": "object"
+            }
+          }
+        },
+        "rawResponse": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "session": {
+          "type": "object"
+        }
+      }
+    },
+    "authConfig": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "AuthConfig"
+            },
+            "definition": {
+              "type": "object",
+              "properties": {
+                "mode": {
+                  "type": "object",
+                  "properties": {
+                    "noAuth": {
+                      "type": "object",
+                      "properties": {
+                        "role": {
+                          "type": "string"
+                        },
+                        "sessionVariables": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "compatibilityConfig": {
+      "allOf": [
+        {
+          "properties": {
+            "kind": {
+              "const": "CompatibilityConfig"
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        }
+      ]
+    },
+    "graphqlConfig": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "GraphqlConfig"
+            },
+            "definition": {
+              "type": "object",
+              "properties": {
+                "apolloFederation": {
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                },
+                "mutation": {
+                  "$ref": "#/$defs/operationConfig"
+                },
+                "query": {
+                  "$ref": "#/$defs/queryConfig"
+                },
+                "subscription": {
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "operationConfig": {
+      "type": "object",
+      "properties": {
+        "rootOperationTypeName": {
+          "type": "string"
+        }
+      }
+    },
+    "queryConfig": {
+      "type": "object",
+      "properties": {
+        "rootOperationTypeName": {
+          "type": "string"
+        },
+        "aggregate": {
+          "type": "object",
+          "properties": {
+            "countDistinctFieldName": {
+              "type": "string"
+            },
+            "countFieldName": {
+              "type": "string"
+            },
+            "filterInputFieldName": {
+              "type": "string"
+            }
+          }
+        },
+        "argumentsInput": {
+          "type": "object",
+          "properties": {
+            "fieldName": {
+              "type": "string"
+            }
+          }
+        },
+        "filterInput": {
+          "type": "object",
+          "properties": {
+            "fieldName": {
+              "type": "string"
+            },
+            "operatorNames": {
+              "type": "object",
+              "properties": {
+                "and": {
+                  "type": "string"
+                },
+                "isNull": {
+                  "type": "string"
+                },
+                "not": {
+                  "type": "string"
+                },
+                "or": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "orderByInput": {
+          "type": "object",
+          "properties": {
+            "enumDirectionValues": {
+              "type": "object",
+              "properties": {
+                "asc": {
+                  "type": "string"
+                },
+                "desc": {
+                  "type": "string"
+                }
+              }
+            },
+            "enumTypeNames": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "directions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "typeName": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "fieldName": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "objectType": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "ObjectType"
+            },
+            "definition": {
+              "type": "object",
+              "required": [
+                "name",
+                "fields"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "fields": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/field"
+                  },
+                  "minItems": 1
+                },
+                "dataConnectorTypeMapping": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/dataConnectorTypeMapping"
+                  }
+                },
+                "globalIdFields": {
+                  "type": [
+                    "array",
+                    "null"
+                  ]
+                },
+                "graphql": {
+                  "$ref": "#/$defs/graphqlTypeConfig"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "dataConnectorTypeMapping": {
+      "type": "object",
+      "required": [
+        "dataConnectorName",
+        "dataConnectorObjectType",
+        "fieldMapping"
+      ],
+      "properties": {
+        "dataConnectorName": {
+          "type": "string"
+        },
+        "dataConnectorObjectType": {
+          "type": "string"
+        },
+        "fieldMapping": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "column": {
+                "type": "object",
+                "properties": {
+                  "argumentMapping": {
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "graphqlTypeConfig": {
+      "type": "object",
+      "properties": {
+        "apolloFederation": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "inputTypeName": {
+          "type": "string"
+        },
+        "typeName": {
+          "type": "string"
+        }
+      }
+    },
+    "field": {
+      "type": "object",
+      "required": [
+        "name",
+        "type"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "deprecated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "arguments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fieldArgument"
+          }
+        }
+      }
+    },
+    "fieldArgument": {
+      "type": "object",
+      "required": [
+        "name",
+        "type"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "defaultValue": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "typePermissions": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "TypePermissions"
+            },
+            "definition": {
+              "type": "object",
+              "required": [
+                "typeName",
+                "permissions"
+              ],
+              "properties": {
+                "typeName": {
+                  "type": "string"
+                },
+                "permissions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "role",
+                      "output"
+                    ],
+                    "properties": {
+                      "role": {
+                        "type": "string"
+                      },
+                      "input": {
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      },
+                      "output": {
+                        "type": "object",
+                        "required": [
+                          "allowedFields"
+                        ],
+                        "properties": {
+                          "allowedFields": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "booleanExpressionType": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "BooleanExpressionType"
+            },
+            "definition": {
+              "type": "object",
+              "required": [
+                "name",
+                "operand"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "graphql": {
+                  "$ref": "#/$defs/graphqlTypeConfig"
+                },
+                "isNull": {
+                  "type": "object",
+                  "properties": {
+                    "enable": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "logicalOperators": {
+                  "type": "object",
+                  "properties": {
+                    "enable": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "operand": {
+                  "$ref": "#/$defs/operandDefinition"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "operandDefinition": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "object",
+          "properties": {
+            "comparableFields": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "booleanExpressionType": {
+                    "type": "string"
+                  },
+                  "fieldName": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "comparableRelationships": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "aggregateBooleanExpressionType": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "booleanExpressionType": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "relationshipName": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        },
+        "scalar": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "comparisonOperators": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "argumentType": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "dataConnectorOperatorMapping": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "dataConnectorName": {
+                    "type": "string"
+                  },
+                  "dataConnectorScalarType": {
+                    "type": "string"
+                  },
+                  "operatorMapping": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "aggregateExpression": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "AggregateExpression"
+            },
+            "definition": {
+              "type": "object",
+              "required": [
+                "name",
+                "operand"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "count": {
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "enable": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "countDistinct": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "description": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "enable": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "graphql": {
+                  "type": "object",
+                  "properties": {
+                    "deprecated": {
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "selectTypeName": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "operand": {
+                  "type": "object",
+                  "properties": {
+                    "object": {
+                      "type": "object",
+                      "properties": {
+                        "aggregatableFields": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "aggregateExpression": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "fieldName": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "aggregatedType": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "scalar": {
+                      "type": "object",
+                      "properties": {
+                        "aggregatedType": {
+                          "type": "string"
+                        },
+                        "aggregationFunctions": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "description": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "returnType": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "returnType"
+                            ]
+                          }
+                        },
+                        "dataConnectorAggregationFunctionMapping": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "dataConnectorName": {
+                                "type": "string"
+                              },
+                              "dataConnectorScalarType": {
+                                "type": "string"
+                              },
+                              "functionMapping": {
+                                "type": "object",
+                                "additionalProperties": {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "required": [
+                              "dataConnectorName",
+                              "dataConnectorScalarType"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "model": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "Model"
+            },
+            "definition": {
+              "type": "object",
+              "required": [
+                "name",
+                "objectType"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "aggregateExpression": {
+                  "type": "string"
+                },
+                "arguments": {
+                  "type": "array"
+                },
+                "filterExpressionType": {
+                  "type": "string"
+                },
+                "globalIdSource": {
+                  "type": "boolean"
+                },
+                "graphql": {
+                  "type": "object",
+                  "properties": {
+                    "aggregate": {
+                      "$ref": "#/$defs/operationMetadata"
+                    },
+                    "apolloFederation": {
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    },
+                    "argumentsInputType": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "filterInputTypeName": {
+                      "type": "string"
+                    },
+                    "orderByExpressionType": {
+                      "type": "string"
+                    },
+                    "selectMany": {
+                      "$ref": "#/$defs/operationMetadata"
+                    },
+                    "selectUniques": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/$defs/operationMetadata"
+                          },
+                          {
+                            "properties": {
+                              "uniqueIdentifier": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "objectType": {
+                  "type": "string"
+                },
+                "orderableFields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "fieldName": {
+                        "type": "string"
+                      },
+                      "orderByDirections": {
+                        "type": "object",
+                        "properties": {
+                          "enableAll": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "argumentMapping": {
+                      "type": "object"
+                    },
+                    "collection": {
+                      "type": "string"
+                    },
+                    "dataConnectorName": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "operationMetadata": {
+      "type": "object",
+      "properties": {
+        "deprecated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "queryRootField": {
+          "type": "string"
+        },
+        "subscription": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      }
+    },
+    "modelPermissions": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "ModelPermissions"
+            },
+            "definition": {
+              "type": "object",
+              "required": [
+                "modelName",
+                "permissions"
+              ],
+              "properties": {
+                "modelName": {
+                  "type": "string"
+                },
+                "permissions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "role",
+                      "select"
+                    ],
+                    "properties": {
+                      "role": {
+                        "type": "string"
+                      },
+                      "select": {
+                        "type": "object",
+                        "properties": {
+                          "allowSubscriptions": {
+                            "type": "boolean"
+                          },
+                          "argumentPresets": {
+                            "type": "array"
+                          },
+                          "filter": {
+                            "type": [
+                              "object",
+                              "null"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "relationship": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "Relationship"
+            },
+            "definition": {
+              "type": "object",
+              "required": [
+                "name",
+                "sourceType",
+                "mapping",
+                "target"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "deprecated": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "graphql": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "aggregateFieldName": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "mapping": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "source": {
+                        "type": "object",
+                        "properties": {
+                          "fieldPath": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "fieldName": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "target": {
+                        "type": "object",
+                        "properties": {
+                          "modelField": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "fieldName": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "sourceType": {
+                  "type": "string"
+                },
+                "target": {
+                  "type": "object",
+                  "properties": {
+                    "model": {
+                      "type": "object",
+                      "properties": {
+                        "aggregate": {
+                          "type": "object",
+                          "properties": {
+                            "aggregateExpression": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "relationshipType": {
+                          "type": "string",
+                          "enum": [
+                            "Array",
+                            "Object"
+                          ]
+                        },
+                        "subgraph": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "scalarType": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "ScalarType"
+            },
+            "definition": {
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "graphql": {
+                  "$ref": "#/$defs/graphqlTypeConfig"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "dataConnectorScalarRepresentation": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "DataConnectorScalarRepresentation"
+            },
+            "definition": {
+              "type": "object",
+              "required": [
+                "dataConnectorName",
+                "dataConnectorScalarType",
+                "representation"
+              ],
+              "properties": {
+                "dataConnectorName": {
+                  "type": "string"
+                },
+                "dataConnectorScalarType": {
+                  "type": "string"
+                },
+                "graphql": {
+                  "type": "object",
+                  "properties": {
+                    "comparisonExpressionTypeName": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "representation": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "boolean",
+                        "int32",
+                        "int64",
+                        "float64",
+                        "string",
+                        "timestamptz",
+                        "timestamp",
+                        "date",
+                        "time",
+                        "datetime",
+                        "decimal",
+                        "bigdecimal",
+                        "enum"
+                      ]
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "dataConnectorLink": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "DataConnectorLink"
+            },
+            "definition": {
+              "type": "object",
+              "required": [
+                "name",
+                "url",
+                "schema"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "argumentPresets": {
+                  "type": "array"
+                },
+                "headers": {
+                  "type": "object",
+                  "properties": {
+                    "Authorization": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "responseHeaders": {
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                },
+                "url": {
+                  "$ref": "#/$defs/urlDefinition"
+                },
+                "schema": {
+                  "$ref": "#/$defs/schemaDefinition"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "urlDefinition": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "readWriteUrls": {
+          "type": "object",
+          "properties": {
+            "read": {
+              "$ref": "#/$defs/urlValue"
+            },
+            "write": {
+              "$ref": "#/$defs/urlValue"
+            }
+          }
+        }
+      }
+    },
+    "urlValue": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "schemaDefinition": {
+      "type": "object",
+      "properties": {
+        "capabilities": {
+          "type": "object",
+          "properties": {
+            "capabilities": {
+              "type": "object",
+              "properties": {
+                "mutation": {
+                  "type": "object",
+                  "properties": {
+                    "explain": {
+                      "type": "object"
+                    },
+                    "transactional": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "query": {
+                  "type": "object",
+                  "properties": {
+                    "aggregates": {
+                      "type": "object"
+                    },
+                    "exists": {
+                      "type": "object"
+                    },
+                    "explain": {
+                      "type": "object"
+                    },
+                    "nested_fields": {
+                      "type": "object"
+                    },
+                    "variables": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "relationships": {
+                  "type": "object",
+                  "properties": {
+                    "order_by_aggregate": {
+                      "type": "object"
+                    },
+                    "relation_comparisons": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            },
+            "version": {
+              "type": "string"
+            }
+          }
+        },
+        "collections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/collectionDefinition"
+          }
+        },
+        "functions": {
+          "type": "array"
+        },
+        "object_types": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/objectTypeDefinition"
+          }
+        },
+        "procedures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/procedureDefinition"
+          }
+        },
+        "scalar_types": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/scalarTypeDefinition"
+          }
+        }
+      }
+    },
+    "collectionDefinition": {
+      "type": "object",
+      "required": [
+        "name",
+        "type"
+      ],
+      "properties": {
+        "arguments": {
+          "type": "object"
+        },
+        "foreign_keys": {
+          "type": "object"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uniqueness_constraints": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "unique_columns": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "objectTypeDefinition": {
+      "type": "object",
+      "properties": {
+        "fields": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/$defs/typeDefinition"
+              }
+            }
+          }
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "nullable",
+                "named",
+                "array"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "nullable",
+                    "named",
+                    "array"
+                  ]
+                },
+                "underlying_type": {
+                  "$ref": "#/$defs/typeDefinition"
+                },
+                "element_type": {
+                  "$ref": "#/$defs/typeDefinition"
+                }
+              }
+            }
+          ]
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "procedureDefinition": {
+      "type": "object",
+      "required": [
+        "name",
+        "arguments",
+        "result_type"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "arguments": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/$defs/typeDefinition"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "result_type": {
+          "$ref": "#/$defs/typeDefinition"
+        }
+      }
+    },
+    "scalarTypeDefinition": {
+      "type": "object",
+      "properties": {
+        "aggregate_functions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "result_type": {
+                "$ref": "#/$defs/resultTypeDefinition"
+              }
+            }
+          }
+        },
+        "comparison_operators": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "equal",
+                  "custom",
+                  "in"
+                ]
+              },
+              "argument_type": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "representation": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "one_of": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "resultTypeDefinition": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "nullable"
+          ]
+        },
+        "underlying_type": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "type"
+          ]
+        }
+      }
+    }
+  }
+}

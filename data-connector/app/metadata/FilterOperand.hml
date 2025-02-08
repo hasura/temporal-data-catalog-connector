@@ -1,0 +1,355 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: FilterOperand
+  fields:
+    - name: booleanValue
+      type: Bool
+    - name: conditionType
+      type: Varchar!
+    - name: fieldName
+      type: Varchar!
+    - name: modelName
+      type: Varchar!
+    - name: numberValue
+      type: Numeric
+    - name: operandPosition
+      type: Int4!
+    - name: operationName
+      type: Varchar!
+    - name: operator
+      type: Varchar!
+    - name: roleName
+      type: Varchar!
+    - name: stringValue
+      type: Text
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+    - name: valueType
+      type: Varchar!
+  graphql:
+    typeName: FilterOperand
+    inputTypeName: FilterOperandInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: filter_operand
+      fieldMapping:
+        booleanValue:
+          column:
+            name: boolean_value
+        conditionType:
+          column:
+            name: condition_type
+        fieldName:
+          column:
+            name: field_name
+        modelName:
+          column:
+            name: model_name
+        numberValue:
+          column:
+            name: number_value
+        operandPosition:
+          column:
+            name: operand_position
+        operationName:
+          column:
+            name: operation_name
+        operator:
+          column:
+            name: operator
+        roleName:
+          column:
+            name: role_name
+        stringValue:
+          column:
+            name: string_value
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        valueType:
+          column:
+            name: value_type
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: FilterOperand
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - booleanValue
+          - conditionType
+          - fieldName
+          - modelName
+          - numberValue
+          - operandPosition
+          - operationName
+          - operator
+          - roleName
+          - stringValue
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - valueType
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: FilterOperandBoolExp
+  operand:
+    object:
+      type: FilterOperand
+      comparableFields:
+        - fieldName: booleanValue
+          booleanExpressionType: BoolBoolExp
+        - fieldName: conditionType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: fieldName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: numberValue
+          booleanExpressionType: NumericBoolExp
+        - fieldName: operandPosition
+          booleanExpressionType: Int4BoolExp
+        - fieldName: operationName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: operator
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: roleName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: stringValue
+          booleanExpressionType: TextBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+        - fieldName: valueType
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: FilterOperandBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: FilterOperandAggExp
+  operand:
+    object:
+      aggregatedType: FilterOperand
+      aggregatableFields:
+        - fieldName: booleanValue
+          aggregateExpression: BoolAggExp
+        - fieldName: conditionType
+          aggregateExpression: VarcharAggExp
+        - fieldName: fieldName
+          aggregateExpression: VarcharAggExp
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp
+        - fieldName: numberValue
+          aggregateExpression: NumericAggExp
+        - fieldName: operandPosition
+          aggregateExpression: Int4AggExp
+        - fieldName: operationName
+          aggregateExpression: VarcharAggExp
+        - fieldName: operator
+          aggregateExpression: VarcharAggExp
+        - fieldName: roleName
+          aggregateExpression: VarcharAggExp
+        - fieldName: stringValue
+          aggregateExpression: TextAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+        - fieldName: valueType
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: FilterOperandAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: FilterOperandOrderByExp
+  operand:
+    object:
+      orderedType: FilterOperand
+      orderableFields:
+        - fieldName: booleanValue
+          orderByExpression: BoolOrderByExp
+        - fieldName: conditionType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: fieldName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: modelName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: numberValue
+          orderByExpression: NumericOrderByExp
+        - fieldName: operandPosition
+          orderByExpression: Int4OrderByExp
+        - fieldName: operationName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: operator
+          orderByExpression: VarcharOrderByExp
+        - fieldName: roleName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: stringValue
+          orderByExpression: TextOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+        - fieldName: valueType
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: FilterOperandOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: FilterOperand
+  objectType: FilterOperand
+  source:
+    dataConnectorName: datamanagement
+    collection: filter_operand
+  filterExpressionType: FilterOperandBoolExp
+  aggregateExpression: FilterOperandAggExp
+  orderByExpression: FilterOperandOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: filterOperand
+      subscription:
+        rootField: filterOperand
+    selectUniques:
+      - queryRootField: filterOperandByFilterOperandPkey
+        uniqueIdentifier:
+          - conditionType
+          - modelName
+          - operandPosition
+          - operationName
+          - operator
+          - roleName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: filterOperandByFilterOperandPkey
+    filterInputTypeName: FilterOperandFilterInput
+    aggregate:
+      queryRootField: filterOperandAggregate
+      subscription:
+        rootField: filterOperandAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: FilterOperand
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

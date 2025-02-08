@@ -1,0 +1,199 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InvoiceLine
+  fields:
+    - name: invoiceId
+      type: Int4!
+    - name: invoiceLineId
+      type: Int4!
+    - name: quantity
+      type: Int4!
+    - name: trackId
+      type: Int4!
+    - name: unitPrice
+      type: Numeric!
+  graphql:
+    typeName: InvoiceLine
+    inputTypeName: InvoiceLineInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: chinook
+      dataConnectorObjectType: invoice_line
+      fieldMapping:
+        invoiceId:
+          column:
+            name: invoice_id
+        invoiceLineId:
+          column:
+            name: invoice_line_id
+        quantity:
+          column:
+            name: quantity
+        trackId:
+          column:
+            name: track_id
+        unitPrice:
+          column:
+            name: unit_price
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InvoiceLine
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - invoiceId
+          - invoiceLineId
+          - quantity
+          - trackId
+          - unitPrice
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: InvoiceLineBoolExp
+  operand:
+    object:
+      type: InvoiceLine
+      comparableFields:
+        - fieldName: invoiceId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: invoiceLineId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: quantity
+          booleanExpressionType: Int4BoolExp
+        - fieldName: trackId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: unitPrice
+          booleanExpressionType: NumericBoolExp
+      comparableRelationships:
+        - relationshipName: invoice
+        - relationshipName: track
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: InvoiceLineBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: InvoiceLineAggExp
+  operand:
+    object:
+      aggregatedType: InvoiceLine
+      aggregatableFields:
+        - fieldName: invoiceId
+          aggregateExpression: Int4AggExp
+        - fieldName: invoiceLineId
+          aggregateExpression: Int4AggExp
+        - fieldName: quantity
+          aggregateExpression: Int4AggExp
+        - fieldName: trackId
+          aggregateExpression: Int4AggExp
+        - fieldName: unitPrice
+          aggregateExpression: NumericAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: InvoiceLineAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: InvoiceLine
+  objectType: InvoiceLine
+  source:
+    dataConnectorName: chinook
+    collection: invoice_line
+  filterExpressionType: InvoiceLineBoolExp
+  aggregateExpression: InvoiceLineAggExp
+  orderableFields:
+    - fieldName: invoiceId
+      orderByDirections:
+        enableAll: true
+    - fieldName: invoiceLineId
+      orderByDirections:
+        enableAll: true
+    - fieldName: quantity
+      orderByDirections:
+        enableAll: true
+    - fieldName: trackId
+      orderByDirections:
+        enableAll: true
+    - fieldName: unitPrice
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: invoiceLine
+      subscription:
+        rootField: invoiceLine
+    selectUniques:
+      - queryRootField: invoiceLineByInvoiceLineId
+        uniqueIdentifier:
+          - invoiceLineId
+        subscription:
+          rootField: invoiceLineByInvoiceLineId
+    orderByExpressionType: InvoiceLineOrderBy
+    filterInputTypeName: InvoiceLineFilterInput
+    aggregate:
+      queryRootField: invoiceLineAggregate
+      subscription:
+        rootField: invoiceLineAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: InvoiceLine
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: invoice
+  sourceType: InvoiceLine
+  target:
+    model:
+      name: Invoice
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: invoiceId
+      target:
+        modelField:
+          - fieldName: invoiceId
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: track
+  sourceType: InvoiceLine
+  target:
+    model:
+      name: Track
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: trackId
+      target:
+        modelField:
+          - fieldName: trackId
+

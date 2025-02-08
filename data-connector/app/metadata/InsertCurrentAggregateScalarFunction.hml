@@ -1,0 +1,133 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentAggregateScalarFunctionObject
+  fields:
+    - name: aggregateName
+      type: Varchar
+    - name: aggregatedType
+      type: Varchar
+    - name: description
+      type: Text
+    - name: functionName
+      type: Varchar
+    - name: returnType
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentAggregateScalarFunctionObject
+    inputTypeName: InsertCurrentAggregateScalarFunctionObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_aggregate_scalar_function_object
+      fieldMapping:
+        aggregateName:
+          column:
+            name: aggregate_name
+        aggregatedType:
+          column:
+            name: aggregated_type
+        description:
+          column:
+            name: description
+        functionName:
+          column:
+            name: function_name
+        returnType:
+          column:
+            name: return_type
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentAggregateScalarFunctionObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregateName
+          - aggregatedType
+          - description
+          - functionName
+          - returnType
+          - subgraphName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentAggregateScalarFunctionResponse
+  description: Responses from the 'insert_current_aggregate_scalar_function' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentAggregateScalarFunction!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentAggregateScalarFunctionResponse
+    inputTypeName: InsertCurrentAggregateScalarFunctionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_aggregate_scalar_function_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentAggregateScalarFunctionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentAggregateScalarFunction
+  outputType: InsertCurrentAggregateScalarFunctionResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentAggregateScalarFunctionObject!]!"
+    - name: postCheck
+      type: CurrentAggregateScalarFunctionBoolExp
+      description: Insert permission predicate over the
+        'current_aggregate_scalar_function' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_aggregate_scalar_function
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentAggregateScalarFunction
+    rootFieldKind: Mutation
+  description: Insert into the current_aggregate_scalar_function table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentAggregateScalarFunction
+  permissions:
+    - role: admin
+      allowExecution: true
+

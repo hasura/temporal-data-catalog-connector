@@ -1,0 +1,168 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertComparableFieldObject
+  fields:
+    - name: booleanExpressionTypeName
+      type: Varchar!
+    - name: fieldName
+      type: Varchar!
+    - name: parentName
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+  graphql:
+    typeName: InsertComparableFieldObject
+    inputTypeName: InsertComparableFieldObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_comparable_field_object
+      fieldMapping:
+        booleanExpressionTypeName:
+          column:
+            name: boolean_expression_type_name
+        fieldName:
+          column:
+            name: field_name
+        parentName:
+          column:
+            name: parent_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertComparableFieldObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - booleanExpressionTypeName
+          - fieldName
+          - parentName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertComparableFieldResponse
+  description: Responses from the 'insert_comparable_field' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[ComparableField!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertComparableFieldResponse
+    inputTypeName: InsertComparableFieldResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_comparable_field_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertComparableFieldResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertComparableField
+  outputType: InsertComparableFieldResponse!
+  arguments:
+    - name: objects
+      type: "[InsertComparableFieldObject!]!"
+    - name: postCheck
+      type: ComparableFieldBoolExp
+      description: Insert permission predicate over the 'comparable_field' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_comparable_field
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertComparableField
+    rootFieldKind: Mutation
+  description: Insert into the comparable_field table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertComparableField
+  permissions:
+    - role: admin
+      allowExecution: true
+

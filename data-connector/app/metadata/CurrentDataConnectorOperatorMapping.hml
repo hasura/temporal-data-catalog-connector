@@ -1,0 +1,163 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentDataConnectorOperatorMapping
+  fields:
+    - name: booleanExpressionTypeName
+      type: Varchar
+    - name: dataConnectorName
+      type: Varchar
+    - name: dataConnectorScalarType
+      type: Varchar
+    - name: operatorMapping
+      type: Json
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: CurrentDataConnectorOperatorMapping
+    inputTypeName: CurrentDataConnectorOperatorMappingInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_data_connector_operator_mapping
+      fieldMapping:
+        booleanExpressionTypeName:
+          column:
+            name: boolean_expression_type_name
+        dataConnectorName:
+          column:
+            name: data_connector_name
+        dataConnectorScalarType:
+          column:
+            name: data_connector_scalar_type
+        operatorMapping:
+          column:
+            name: operator_mapping
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentDataConnectorOperatorMapping
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - booleanExpressionTypeName
+          - dataConnectorName
+          - dataConnectorScalarType
+          - operatorMapping
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentDataConnectorOperatorMappingBoolExp
+  operand:
+    object:
+      type: CurrentDataConnectorOperatorMapping
+      comparableFields:
+        - fieldName: booleanExpressionTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: dataConnectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: dataConnectorScalarType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: operatorMapping
+          booleanExpressionType: JsonBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentDataConnectorOperatorMappingBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentDataConnectorOperatorMappingAggExp
+  operand:
+    object:
+      aggregatedType: CurrentDataConnectorOperatorMapping
+      aggregatableFields:
+        - fieldName: booleanExpressionTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: dataConnectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: dataConnectorScalarType
+          aggregateExpression: VarcharAggExp
+        - fieldName: operatorMapping
+          aggregateExpression: JsonAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentDataConnectorOperatorMappingAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentDataConnectorOperatorMappingOrderByExp
+  operand:
+    object:
+      orderedType: CurrentDataConnectorOperatorMapping
+      orderableFields:
+        - fieldName: booleanExpressionTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: dataConnectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: dataConnectorScalarType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: operatorMapping
+          orderByExpression: JsonOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentDataConnectorOperatorMappingOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentDataConnectorOperatorMapping
+  objectType: CurrentDataConnectorOperatorMapping
+  source:
+    dataConnectorName: datamanagement
+    collection: current_data_connector_operator_mapping
+  filterExpressionType: CurrentDataConnectorOperatorMappingBoolExp
+  aggregateExpression: CurrentDataConnectorOperatorMappingAggExp
+  orderByExpression: CurrentDataConnectorOperatorMappingOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentDataConnectorOperatorMapping
+      subscription:
+        rootField: currentDataConnectorOperatorMapping
+    selectUniques: []
+    filterInputTypeName: CurrentDataConnectorOperatorMappingFilterInput
+    aggregate:
+      queryRootField: currentDataConnectorOperatorMappingAggregate
+      subscription:
+        rootField: currentDataConnectorOperatorMappingAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentDataConnectorOperatorMapping
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

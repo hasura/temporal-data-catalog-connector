@@ -1,0 +1,641 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnComparableRelationshipAggregateBooleanExpressionTypeName
+  description: Update the 'aggregate_boolean_expression_type_name' column in the
+    'comparable_relationship' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnComparableRelationshipAggregateBooleanExpressionTypeName
+    inputTypeName: UpdateColumnComparableRelationshipAggregateBooleanExpressionTypeNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_comparable_relationship_aggregate_boolean_expression_type_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnComparableRelationshipAggregateBooleanExpressionTypeName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnComparableRelationshipBooleanExpressionTypeName
+  description: Update the 'boolean_expression_type_name' column in the
+    'comparable_relationship' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnComparableRelationshipBooleanExpressionTypeName
+    inputTypeName: UpdateColumnComparableRelationshipBooleanExpressionTypeNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_comparable_relationship_boolean_expression_type_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnComparableRelationshipBooleanExpressionTypeName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnComparableRelationshipParentName
+  description: Update the 'parent_name' column in the 'comparable_relationship' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnComparableRelationshipParentName
+    inputTypeName: UpdateColumnComparableRelationshipParentNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_comparable_relationship_parent_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnComparableRelationshipParentName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnComparableRelationshipRelationshipName
+  description: Update the 'relationship_name' column in the
+    'comparable_relationship' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnComparableRelationshipRelationshipName
+    inputTypeName: UpdateColumnComparableRelationshipRelationshipNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_comparable_relationship_relationship_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnComparableRelationshipRelationshipName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnComparableRelationshipSubgraphName
+  description: Update the 'subgraph_name' column in the 'comparable_relationship' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnComparableRelationshipSubgraphName
+    inputTypeName: UpdateColumnComparableRelationshipSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_comparable_relationship_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnComparableRelationshipSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnComparableRelationshipTContentHash
+  description: Update the 't_content_hash' column in the 'comparable_relationship'
+    collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnComparableRelationshipTContentHash
+    inputTypeName: UpdateColumnComparableRelationshipTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_comparable_relationship_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnComparableRelationshipTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnComparableRelationshipTCreatedAt
+  description: Update the 't_created_at' column in the 'comparable_relationship' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnComparableRelationshipTCreatedAt
+    inputTypeName: UpdateColumnComparableRelationshipTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_comparable_relationship_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnComparableRelationshipTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnComparableRelationshipTDeletedAt
+  description: Update the 't_deleted_at' column in the 'comparable_relationship' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnComparableRelationshipTDeletedAt
+    inputTypeName: UpdateColumnComparableRelationshipTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_comparable_relationship_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnComparableRelationshipTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnComparableRelationshipTId
+  description: Update the 't_id' column in the 'comparable_relationship' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnComparableRelationshipTId
+    inputTypeName: UpdateColumnComparableRelationshipTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_comparable_relationship_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnComparableRelationshipTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnComparableRelationshipTIsCurrent
+  description: Update the 't_is_current' column in the 'comparable_relationship' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnComparableRelationshipTIsCurrent
+    inputTypeName: UpdateColumnComparableRelationshipTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_comparable_relationship_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnComparableRelationshipTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnComparableRelationshipTIsDeleted
+  description: Update the 't_is_deleted' column in the 'comparable_relationship' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnComparableRelationshipTIsDeleted
+    inputTypeName: UpdateColumnComparableRelationshipTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_comparable_relationship_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnComparableRelationshipTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnComparableRelationshipTUpdatedAt
+  description: Update the 't_updated_at' column in the 'comparable_relationship' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnComparableRelationshipTUpdatedAt
+    inputTypeName: UpdateColumnComparableRelationshipTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_comparable_relationship_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnComparableRelationshipTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnComparableRelationshipTVersion
+  description: Update the 't_version' column in the 'comparable_relationship' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnComparableRelationshipTVersion
+    inputTypeName: UpdateColumnComparableRelationshipTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_comparable_relationship_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnComparableRelationshipTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'comparable_relationship' collection
+  fields:
+    - name: aggregateBooleanExpressionTypeName
+      type: UpdateColumnComparableRelationshipAggregateBooleanExpressionTypeName
+      description: Update the 'aggregate_boolean_expression_type_name' column in the
+        'comparable_relationship' collection.
+    - name: booleanExpressionTypeName
+      type: UpdateColumnComparableRelationshipBooleanExpressionTypeName
+      description: Update the 'boolean_expression_type_name' column in the
+        'comparable_relationship' collection.
+    - name: parentName
+      type: UpdateColumnComparableRelationshipParentName
+      description: Update the 'parent_name' column in the 'comparable_relationship'
+        collection.
+    - name: relationshipName
+      type: UpdateColumnComparableRelationshipRelationshipName
+      description: Update the 'relationship_name' column in the
+        'comparable_relationship' collection.
+    - name: subgraphName
+      type: UpdateColumnComparableRelationshipSubgraphName
+      description: Update the 'subgraph_name' column in the 'comparable_relationship'
+        collection.
+    - name: tContentHash
+      type: UpdateColumnComparableRelationshipTContentHash
+      description: Update the 't_content_hash' column in the 'comparable_relationship'
+        collection.
+    - name: tCreatedAt
+      type: UpdateColumnComparableRelationshipTCreatedAt
+      description: Update the 't_created_at' column in the 'comparable_relationship'
+        collection.
+    - name: tDeletedAt
+      type: UpdateColumnComparableRelationshipTDeletedAt
+      description: Update the 't_deleted_at' column in the 'comparable_relationship'
+        collection.
+    - name: tId
+      type: UpdateColumnComparableRelationshipTId
+      description: Update the 't_id' column in the 'comparable_relationship' collection.
+    - name: tIsCurrent
+      type: UpdateColumnComparableRelationshipTIsCurrent
+      description: Update the 't_is_current' column in the 'comparable_relationship'
+        collection.
+    - name: tIsDeleted
+      type: UpdateColumnComparableRelationshipTIsDeleted
+      description: Update the 't_is_deleted' column in the 'comparable_relationship'
+        collection.
+    - name: tUpdatedAt
+      type: UpdateColumnComparableRelationshipTUpdatedAt
+      description: Update the 't_updated_at' column in the 'comparable_relationship'
+        collection.
+    - name: tVersion
+      type: UpdateColumnComparableRelationshipTVersion
+      description: Update the 't_version' column in the 'comparable_relationship'
+        collection.
+  graphql:
+    typeName: UpdateComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_comparable_relationship_by_parent_name_and_relationship_name_and_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        aggregateBooleanExpressionTypeName:
+          column:
+            name: aggregate_boolean_expression_type_name
+        booleanExpressionTypeName:
+          column:
+            name: boolean_expression_type_name
+        parentName:
+          column:
+            name: parent_name
+        relationshipName:
+          column:
+            name: relationship_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregateBooleanExpressionTypeName
+          - booleanExpressionTypeName
+          - parentName
+          - relationshipName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_comparable_relationship_by_parent_name_and_relationship_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[ComparableRelationship!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: UpdateComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_comparable_relationship_by_parent_name_and_relationship_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersion
+  outputType: UpdateComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyParentName
+      type: Varchar!
+    - name: keyRelationshipName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: ComparableRelationshipBoolExp
+      description: Update permission post-condition predicate over the
+        'comparable_relationship' collection
+    - name: preCheck
+      type: ComparableRelationshipBoolExp
+      description: Update permission pre-condition predicate over the
+        'comparable_relationship' collection
+    - name: updateColumns
+      type: UpdateComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_comparable_relationship_by_parent_name_and_relationship_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyParentName: key_parent_name
+      keyRelationshipName: key_relationship_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'comparable_relationship' collection using
+    the 'parent_name', 'relationship_name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

@@ -1,0 +1,860 @@
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Varchar
+  graphql:
+    typeName: Varchar
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: VarcharBoolExp
+  operand:
+    scalar:
+      type: Varchar
+      comparisonOperators:
+        - name: _eq
+          argumentType: Varchar!
+        - name: _gt
+          argumentType: Varchar!
+        - name: _gte
+          argumentType: Varchar!
+        - name: _ilike
+          argumentType: Varchar!
+        - name: _in
+          argumentType: "[Varchar!]!"
+        - name: _iregex
+          argumentType: Varchar!
+        - name: _like
+          argumentType: Varchar!
+        - name: _lt
+          argumentType: Varchar!
+        - name: _lte
+          argumentType: Varchar!
+        - name: _neq
+          argumentType: Varchar!
+        - name: _nilike
+          argumentType: Varchar!
+        - name: _niregex
+          argumentType: Varchar!
+        - name: _nlike
+          argumentType: Varchar!
+        - name: _nregex
+          argumentType: Varchar!
+        - name: _regex
+          argumentType: Varchar!
+        - name: starts_with
+          argumentType: Varchar!
+        - name: ts_match_tt
+          argumentType: Varchar!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: varchar
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: VarcharBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: anomaly
+  dataConnectorScalarType: varchar
+  representation: Varchar
+  graphql:
+    comparisonExpressionTypeName: VarcharComparisonExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Bool
+  graphql:
+    typeName: Bool
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: BoolBoolExp
+  operand:
+    scalar:
+      type: Bool
+      comparisonOperators:
+        - name: _eq
+          argumentType: Bool!
+        - name: _gt
+          argumentType: Bool!
+        - name: _gte
+          argumentType: Bool!
+        - name: _in
+          argumentType: "[Bool!]!"
+        - name: _lt
+          argumentType: Bool!
+        - name: _lte
+          argumentType: Bool!
+        - name: _neq
+          argumentType: Bool!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: bool
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: BoolBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: anomaly
+  dataConnectorScalarType: bool
+  representation: Bool
+  graphql:
+    comparisonExpressionTypeName: BoolComparisonExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Int4
+  graphql:
+    typeName: Int4
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: Int4BoolExp
+  operand:
+    scalar:
+      type: Int4
+      comparisonOperators:
+        - name: _eq
+          argumentType: Int4!
+        - name: _gt
+          argumentType: Int4!
+        - name: _gte
+          argumentType: Int4!
+        - name: _in
+          argumentType: "[Int4!]!"
+        - name: _lt
+          argumentType: Int4!
+        - name: _lte
+          argumentType: Int4!
+        - name: _neq
+          argumentType: Int4!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: int4
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: Int4BoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: anomaly
+  dataConnectorScalarType: int4
+  representation: Int4
+  graphql:
+    comparisonExpressionTypeName: Int4ComparisonExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Timestamptz
+  graphql:
+    typeName: Timestamptz
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: TimestamptzBoolExp
+  operand:
+    scalar:
+      type: Timestamptz
+      comparisonOperators:
+        - name: _eq
+          argumentType: Timestamptz!
+        - name: _gt
+          argumentType: Timestamptz!
+        - name: _gte
+          argumentType: Timestamptz!
+        - name: _in
+          argumentType: "[Timestamptz!]!"
+        - name: _lt
+          argumentType: Timestamptz!
+        - name: _lte
+          argumentType: Timestamptz!
+        - name: _neq
+          argumentType: Timestamptz!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: timestamptz
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: TimestamptzBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: anomaly
+  dataConnectorScalarType: timestamptz
+  representation: Timestamptz
+  graphql:
+    comparisonExpressionTypeName: TimestamptzComparisonExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Text
+  graphql:
+    typeName: Text
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: TextBoolExp
+  operand:
+    scalar:
+      type: Text
+      comparisonOperators:
+        - name: _eq
+          argumentType: Text!
+        - name: _gt
+          argumentType: Text!
+        - name: _gte
+          argumentType: Text!
+        - name: _ilike
+          argumentType: Text!
+        - name: _in
+          argumentType: "[Text!]!"
+        - name: _iregex
+          argumentType: Text!
+        - name: _like
+          argumentType: Text!
+        - name: _lt
+          argumentType: Text!
+        - name: _lte
+          argumentType: Text!
+        - name: _neq
+          argumentType: Text!
+        - name: _nilike
+          argumentType: Text!
+        - name: _niregex
+          argumentType: Text!
+        - name: _nlike
+          argumentType: Text!
+        - name: _nregex
+          argumentType: Text!
+        - name: _regex
+          argumentType: Text!
+        - name: starts_with
+          argumentType: Text!
+        - name: ts_match_tt
+          argumentType: Text!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: text
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: TextBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: anomaly
+  dataConnectorScalarType: text
+  representation: Text
+  graphql:
+    comparisonExpressionTypeName: TextComparisonExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: VarcharAggExp
+  operand:
+    scalar:
+      aggregatedType: Varchar
+      aggregationFunctions:
+        - name: max
+          returnType: Text
+        - name: min
+          returnType: Text
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: varchar
+          functionMapping:
+            max:
+              name: max
+            min:
+              name: min
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: VarcharAggExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: BoolAggExp
+  operand:
+    scalar:
+      aggregatedType: Bool
+      aggregationFunctions:
+        - name: bool_and
+          returnType: Bool
+        - name: bool_or
+          returnType: Bool
+        - name: every
+          returnType: Bool
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: bool
+          functionMapping:
+            bool_and:
+              name: bool_and
+            bool_or:
+              name: bool_or
+            every:
+              name: every
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: BoolAggExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Numeric
+  graphql:
+    typeName: Numeric
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: NumericBoolExp
+  operand:
+    scalar:
+      type: Numeric
+      comparisonOperators:
+        - name: _eq
+          argumentType: Numeric!
+        - name: _gt
+          argumentType: Numeric!
+        - name: _gte
+          argumentType: Numeric!
+        - name: _in
+          argumentType: "[Numeric!]!"
+        - name: _lt
+          argumentType: Numeric!
+        - name: _lte
+          argumentType: Numeric!
+        - name: _neq
+          argumentType: Numeric!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: numeric
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: NumericBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: anomaly
+  dataConnectorScalarType: numeric
+  representation: Numeric
+  graphql:
+    comparisonExpressionTypeName: NumericComparisonExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Int8
+  graphql:
+    typeName: Int8
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: Int8BoolExp
+  operand:
+    scalar:
+      type: Int8
+      comparisonOperators:
+        - name: _eq
+          argumentType: Int8!
+        - name: _gt
+          argumentType: Int8!
+        - name: _gte
+          argumentType: Int8!
+        - name: _in
+          argumentType: "[Int8!]!"
+        - name: _lt
+          argumentType: Int8!
+        - name: _lte
+          argumentType: Int8!
+        - name: _neq
+          argumentType: Int8!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: int8
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: Int8BoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: anomaly
+  dataConnectorScalarType: int8
+  representation: Int8
+  graphql:
+    comparisonExpressionTypeName: Int8ComparisonExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: Int4AggExp
+  operand:
+    scalar:
+      aggregatedType: Int4
+      aggregationFunctions:
+        - name: avg
+          returnType: Numeric
+        - name: bit_and
+          returnType: Int4
+        - name: bit_or
+          returnType: Int4
+        - name: bit_xor
+          returnType: Int4
+        - name: max
+          returnType: Int4
+        - name: min
+          returnType: Int4
+        - name: stddev
+          returnType: Numeric
+        - name: stddev_pop
+          returnType: Numeric
+        - name: stddev_samp
+          returnType: Numeric
+        - name: sum
+          returnType: Int8
+        - name: var_pop
+          returnType: Numeric
+        - name: var_samp
+          returnType: Numeric
+        - name: variance
+          returnType: Numeric
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: int4
+          functionMapping:
+            avg:
+              name: avg
+            bit_and:
+              name: bit_and
+            bit_or:
+              name: bit_or
+            bit_xor:
+              name: bit_xor
+            max:
+              name: max
+            min:
+              name: min
+            stddev:
+              name: stddev
+            stddev_pop:
+              name: stddev_pop
+            stddev_samp:
+              name: stddev_samp
+            sum:
+              name: sum
+            var_pop:
+              name: var_pop
+            var_samp:
+              name: var_samp
+            variance:
+              name: variance
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: Int4AggExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: TimestamptzAggExp
+  operand:
+    scalar:
+      aggregatedType: Timestamptz
+      aggregationFunctions:
+        - name: max
+          returnType: Timestamptz
+        - name: min
+          returnType: Timestamptz
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: timestamptz
+          functionMapping:
+            max:
+              name: max
+            min:
+              name: min
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: TimestamptzAggExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Risklevel
+  graphql:
+    typeName: Risklevel
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: RisklevelBoolExp
+  operand:
+    scalar:
+      type: Risklevel
+      comparisonOperators:
+        - name: _eq
+          argumentType: Risklevel!
+        - name: _gt
+          argumentType: Risklevel!
+        - name: _gte
+          argumentType: Risklevel!
+        - name: _in
+          argumentType: "[Risklevel!]!"
+        - name: _lt
+          argumentType: Risklevel!
+        - name: _lte
+          argumentType: Risklevel!
+        - name: _neq
+          argumentType: Risklevel!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: risklevel
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: RisklevelBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: anomaly
+  dataConnectorScalarType: risklevel
+  representation: Risklevel
+  graphql:
+    comparisonExpressionTypeName: RisklevelComparisonExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: TextAggExp
+  operand:
+    scalar:
+      aggregatedType: Text
+      aggregationFunctions:
+        - name: max
+          returnType: Text
+        - name: min
+          returnType: Text
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: text
+          functionMapping:
+            max:
+              name: max
+            min:
+              name: min
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: TextAggExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: RisklevelAggExp
+  operand:
+    scalar:
+      aggregatedType: Risklevel
+      aggregationFunctions:
+        - name: max
+          returnType: Risklevel
+        - name: min
+          returnType: Risklevel
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: risklevel
+          functionMapping:
+            max:
+              name: max
+            min:
+              name: min
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: RisklevelAggExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Float8
+  graphql:
+    typeName: Float8
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: Float8BoolExp
+  operand:
+    scalar:
+      type: Float8
+      comparisonOperators:
+        - name: _eq
+          argumentType: Float8!
+        - name: _gt
+          argumentType: Float8!
+        - name: _gte
+          argumentType: Float8!
+        - name: _in
+          argumentType: "[Float8!]!"
+        - name: _lt
+          argumentType: Float8!
+        - name: _lte
+          argumentType: Float8!
+        - name: _neq
+          argumentType: Float8!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: float8
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: Float8BoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: anomaly
+  dataConnectorScalarType: float8
+  representation: Float8
+  graphql:
+    comparisonExpressionTypeName: Float8ComparisonExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: Float8AggExp
+  operand:
+    scalar:
+      aggregatedType: Float8
+      aggregationFunctions:
+        - name: avg
+          returnType: Float8
+        - name: max
+          returnType: Float8
+        - name: min
+          returnType: Float8
+        - name: stddev
+          returnType: Float8
+        - name: stddev_pop
+          returnType: Float8
+        - name: stddev_samp
+          returnType: Float8
+        - name: sum
+          returnType: Float8
+        - name: var_pop
+          returnType: Float8
+        - name: var_samp
+          returnType: Float8
+        - name: variance
+          returnType: Float8
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: float8
+          functionMapping:
+            avg:
+              name: avg
+            max:
+              name: max
+            min:
+              name: min
+            stddev:
+              name: stddev
+            stddev_pop:
+              name: stddev_pop
+            stddev_samp:
+              name: stddev_samp
+            sum:
+              name: sum
+            var_pop:
+              name: var_pop
+            var_samp:
+              name: var_samp
+            variance:
+              name: variance
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: Float8AggExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Bytea
+  graphql:
+    typeName: Bytea
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ByteaBoolExp
+  operand:
+    scalar:
+      type: Bytea
+      comparisonOperators:
+        - name: _eq
+          argumentType: Bytea!
+        - name: _gt
+          argumentType: Bytea!
+        - name: _gte
+          argumentType: Bytea!
+        - name: _in
+          argumentType: "[Bytea!]!"
+        - name: _like
+          argumentType: Bytea!
+        - name: _lt
+          argumentType: Bytea!
+        - name: _lte
+          argumentType: Bytea!
+        - name: _neq
+          argumentType: Bytea!
+        - name: _nlike
+          argumentType: Bytea!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: bytea
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ByteaBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: anomaly
+  dataConnectorScalarType: bytea
+  representation: Bytea
+  graphql:
+    comparisonExpressionTypeName: ByteaComparisonExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ByteaAggExp
+  operand:
+    scalar:
+      aggregatedType: Bytea
+      aggregationFunctions: []
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: anomaly
+          dataConnectorScalarType: bytea
+          functionMapping: {}
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: ByteaAggExp
+

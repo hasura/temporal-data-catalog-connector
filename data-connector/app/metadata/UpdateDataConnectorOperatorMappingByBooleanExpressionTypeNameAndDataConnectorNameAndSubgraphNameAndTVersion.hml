@@ -1,0 +1,651 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorOperatorMappingBooleanExpressionTypeName
+  description: Update the 'boolean_expression_type_name' column in the
+    'data_connector_operator_mapping' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorOperatorMappingBooleanExpressionTypeName
+    inputTypeName: UpdateColumnDataConnectorOperatorMappingBooleanExpressionTypeNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_operator_mapping_boolean_expression_type_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorOperatorMappingBooleanExpressionTypeName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorOperatorMappingDataConnectorName
+  description: Update the 'data_connector_name' column in the
+    'data_connector_operator_mapping' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorOperatorMappingDataConnectorName
+    inputTypeName: UpdateColumnDataConnectorOperatorMappingDataConnectorNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_operator_mapping_data_connector_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorOperatorMappingDataConnectorName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorOperatorMappingDataConnectorScalarType
+  description: Update the 'data_connector_scalar_type' column in the
+    'data_connector_operator_mapping' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorOperatorMappingDataConnectorScalarType
+    inputTypeName: UpdateColumnDataConnectorOperatorMappingDataConnectorScalarTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_operator_mapping_data_connector_scalar_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorOperatorMappingDataConnectorScalarType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorOperatorMappingOperatorMapping
+  description: Update the 'operator_mapping' column in the
+    'data_connector_operator_mapping' collection
+  fields:
+    - name: set
+      type: Json!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorOperatorMappingOperatorMapping
+    inputTypeName: UpdateColumnDataConnectorOperatorMappingOperatorMappingInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_operator_mapping_operator_mapping
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorOperatorMappingOperatorMapping
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorOperatorMappingSubgraphName
+  description: Update the 'subgraph_name' column in the
+    'data_connector_operator_mapping' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorOperatorMappingSubgraphName
+    inputTypeName: UpdateColumnDataConnectorOperatorMappingSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_operator_mapping_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorOperatorMappingSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorOperatorMappingTContentHash
+  description: Update the 't_content_hash' column in the
+    'data_connector_operator_mapping' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorOperatorMappingTContentHash
+    inputTypeName: UpdateColumnDataConnectorOperatorMappingTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_operator_mapping_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorOperatorMappingTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorOperatorMappingTCreatedAt
+  description: Update the 't_created_at' column in the
+    'data_connector_operator_mapping' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorOperatorMappingTCreatedAt
+    inputTypeName: UpdateColumnDataConnectorOperatorMappingTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_operator_mapping_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorOperatorMappingTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorOperatorMappingTDeletedAt
+  description: Update the 't_deleted_at' column in the
+    'data_connector_operator_mapping' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorOperatorMappingTDeletedAt
+    inputTypeName: UpdateColumnDataConnectorOperatorMappingTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_operator_mapping_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorOperatorMappingTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorOperatorMappingTId
+  description: Update the 't_id' column in the 'data_connector_operator_mapping' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorOperatorMappingTId
+    inputTypeName: UpdateColumnDataConnectorOperatorMappingTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_operator_mapping_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorOperatorMappingTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorOperatorMappingTIsCurrent
+  description: Update the 't_is_current' column in the
+    'data_connector_operator_mapping' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorOperatorMappingTIsCurrent
+    inputTypeName: UpdateColumnDataConnectorOperatorMappingTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_operator_mapping_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorOperatorMappingTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorOperatorMappingTIsDeleted
+  description: Update the 't_is_deleted' column in the
+    'data_connector_operator_mapping' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorOperatorMappingTIsDeleted
+    inputTypeName: UpdateColumnDataConnectorOperatorMappingTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_operator_mapping_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorOperatorMappingTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorOperatorMappingTUpdatedAt
+  description: Update the 't_updated_at' column in the
+    'data_connector_operator_mapping' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorOperatorMappingTUpdatedAt
+    inputTypeName: UpdateColumnDataConnectorOperatorMappingTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_operator_mapping_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorOperatorMappingTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorOperatorMappingTVersion
+  description: Update the 't_version' column in the
+    'data_connector_operator_mapping' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorOperatorMappingTVersion
+    inputTypeName: UpdateColumnDataConnectorOperatorMappingTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_operator_mapping_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorOperatorMappingTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'data_connector_operator_mapping' collection
+  fields:
+    - name: booleanExpressionTypeName
+      type: UpdateColumnDataConnectorOperatorMappingBooleanExpressionTypeName
+      description: Update the 'boolean_expression_type_name' column in the
+        'data_connector_operator_mapping' collection.
+    - name: dataConnectorName
+      type: UpdateColumnDataConnectorOperatorMappingDataConnectorName
+      description: Update the 'data_connector_name' column in the
+        'data_connector_operator_mapping' collection.
+    - name: dataConnectorScalarType
+      type: UpdateColumnDataConnectorOperatorMappingDataConnectorScalarType
+      description: Update the 'data_connector_scalar_type' column in the
+        'data_connector_operator_mapping' collection.
+    - name: operatorMapping
+      type: UpdateColumnDataConnectorOperatorMappingOperatorMapping
+      description: Update the 'operator_mapping' column in the
+        'data_connector_operator_mapping' collection.
+    - name: subgraphName
+      type: UpdateColumnDataConnectorOperatorMappingSubgraphName
+      description: Update the 'subgraph_name' column in the
+        'data_connector_operator_mapping' collection.
+    - name: tContentHash
+      type: UpdateColumnDataConnectorOperatorMappingTContentHash
+      description: Update the 't_content_hash' column in the
+        'data_connector_operator_mapping' collection.
+    - name: tCreatedAt
+      type: UpdateColumnDataConnectorOperatorMappingTCreatedAt
+      description: Update the 't_created_at' column in the
+        'data_connector_operator_mapping' collection.
+    - name: tDeletedAt
+      type: UpdateColumnDataConnectorOperatorMappingTDeletedAt
+      description: Update the 't_deleted_at' column in the
+        'data_connector_operator_mapping' collection.
+    - name: tId
+      type: UpdateColumnDataConnectorOperatorMappingTId
+      description: Update the 't_id' column in the 'data_connector_operator_mapping'
+        collection.
+    - name: tIsCurrent
+      type: UpdateColumnDataConnectorOperatorMappingTIsCurrent
+      description: Update the 't_is_current' column in the
+        'data_connector_operator_mapping' collection.
+    - name: tIsDeleted
+      type: UpdateColumnDataConnectorOperatorMappingTIsDeleted
+      description: Update the 't_is_deleted' column in the
+        'data_connector_operator_mapping' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnDataConnectorOperatorMappingTUpdatedAt
+      description: Update the 't_updated_at' column in the
+        'data_connector_operator_mapping' collection.
+    - name: tVersion
+      type: UpdateColumnDataConnectorOperatorMappingTVersion
+      description: Update the 't_version' column in the
+        'data_connector_operator_mapping' collection.
+  graphql:
+    typeName: UpdateDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_data_connector_operator_mapping_by_boolean_expression_type_name_and_data_connector_name_and_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        booleanExpressionTypeName:
+          column:
+            name: boolean_expression_type_name
+        dataConnectorName:
+          column:
+            name: data_connector_name
+        dataConnectorScalarType:
+          column:
+            name: data_connector_scalar_type
+        operatorMapping:
+          column:
+            name: operator_mapping
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - booleanExpressionTypeName
+          - dataConnectorName
+          - dataConnectorScalarType
+          - operatorMapping
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_data_connector_operator_mapping_by_boolean_expression_type_name_and_data_connector_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[DataConnectorOperatorMapping!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: UpdateDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_data_connector_operator_mapping_by_boolean_expression_type_name_and_data_connector_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersion
+  outputType: UpdateDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyBooleanExpressionTypeName
+      type: Varchar!
+    - name: keyDataConnectorName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: DataConnectorOperatorMappingBoolExp
+      description: Update permission post-condition predicate over the
+        'data_connector_operator_mapping' collection
+    - name: preCheck
+      type: DataConnectorOperatorMappingBoolExp
+      description: Update permission pre-condition predicate over the
+        'data_connector_operator_mapping' collection
+    - name: updateColumns
+      type: UpdateDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_data_connector_operator_mapping_by_boolean_expression_type_name_and_data_connector_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyBooleanExpressionTypeName: key_boolean_expression_type_name
+      keyDataConnectorName: key_data_connector_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'data_connector_operator_mapping' collection
+    using the 'boolean_expression_type_name', 'data_connector_name',
+    'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

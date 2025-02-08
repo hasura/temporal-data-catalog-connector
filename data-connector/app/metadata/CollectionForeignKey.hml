@@ -1,0 +1,291 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CollectionForeignKey
+  fields:
+    - name: collectionName
+      type: Varchar!
+    - name: connectorName
+      type: Varchar!
+    - name: fieldName
+      type: Varchar!
+    - name: fkName
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+    - name: targetCollection
+      type: Varchar!
+    - name: targetField
+      type: Varchar!
+  graphql:
+    typeName: CollectionForeignKey
+    inputTypeName: CollectionForeignKeyInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: collection_foreign_key
+      fieldMapping:
+        collectionName:
+          column:
+            name: collection_name
+        connectorName:
+          column:
+            name: connector_name
+        fieldName:
+          column:
+            name: field_name
+        fkName:
+          column:
+            name: fk_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        targetCollection:
+          column:
+            name: target_collection
+        targetField:
+          column:
+            name: target_field
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CollectionForeignKey
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - collectionName
+          - connectorName
+          - fieldName
+          - fkName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - targetCollection
+          - targetField
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CollectionForeignKeyBoolExp
+  operand:
+    object:
+      type: CollectionForeignKey
+      comparableFields:
+        - fieldName: collectionName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: fieldName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: fkName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+        - fieldName: targetCollection
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: targetField
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CollectionForeignKeyBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CollectionForeignKeyAggExp
+  operand:
+    object:
+      aggregatedType: CollectionForeignKey
+      aggregatableFields:
+        - fieldName: collectionName
+          aggregateExpression: VarcharAggExp
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: fieldName
+          aggregateExpression: VarcharAggExp
+        - fieldName: fkName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+        - fieldName: targetCollection
+          aggregateExpression: VarcharAggExp
+        - fieldName: targetField
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CollectionForeignKeyAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CollectionForeignKeyOrderByExp
+  operand:
+    object:
+      orderedType: CollectionForeignKey
+      orderableFields:
+        - fieldName: collectionName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: fieldName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: fkName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+        - fieldName: targetCollection
+          orderByExpression: VarcharOrderByExp
+        - fieldName: targetField
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CollectionForeignKeyOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CollectionForeignKey
+  objectType: CollectionForeignKey
+  source:
+    dataConnectorName: datamanagement
+    collection: collection_foreign_key
+  filterExpressionType: CollectionForeignKeyBoolExp
+  aggregateExpression: CollectionForeignKeyAggExp
+  orderByExpression: CollectionForeignKeyOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: collectionForeignKey
+      subscription:
+        rootField: collectionForeignKey
+    selectUniques:
+      - queryRootField: collectionForeignKeyByCollectionForeignKeyPkey
+        uniqueIdentifier:
+          - collectionName
+          - connectorName
+          - fkName
+          - tVersion
+        subscription:
+          rootField: collectionForeignKeyByCollectionForeignKeyPkey
+    filterInputTypeName: CollectionForeignKeyFilterInput
+    aggregate:
+      queryRootField: collectionForeignKeyAggregate
+      subscription:
+        rootField: collectionForeignKeyAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CollectionForeignKey
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

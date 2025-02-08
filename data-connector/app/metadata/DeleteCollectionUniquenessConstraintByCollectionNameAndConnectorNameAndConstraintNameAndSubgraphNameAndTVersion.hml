@@ -1,0 +1,89 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteCollectionUniquenessConstraintByCollectionNameAndConnectorNameAndConstraintNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_collection_uniqueness_constraint_by_collection_name_and_connector_name_and_constraint_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CollectionUniquenessConstraint!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteCollectionUniquenessConstraintByCollectionNameAndConnectorNameAndConstraintNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: DeleteCollectionUniquenessConstraintByCollectionNameAndConnectorNameAndConstraintNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_collection_uniqueness_constraint_by_collection_name_and_connector_name_and_constraint_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteCollectionUniquenessConstraintByCollectionNameAndConnectorNameAndConstraintNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteCollectionUniquenessConstraintByCollectionNameAndConnectorNameAndConstraintNameAndSubgraphNameAndTVersion
+  outputType: DeleteCollectionUniquenessConstraintByCollectionNameAndConnectorNameAndConstraintNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyCollectionName
+      type: Varchar!
+    - name: keyConnectorName
+      type: Varchar!
+    - name: keyConstraintName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: CollectionUniquenessConstraintBoolExp
+      description: Delete permission predicate over the
+        'collection_uniqueness_constraint' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_collection_uniqueness_constraint_by_collection_name_and_connector_name_and_constraint_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyCollectionName: key_collection_name
+      keyConnectorName: key_connector_name
+      keyConstraintName: key_constraint_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteCollectionUniquenessConstraintByCollectionNameAndConnectorNameAndConstraintNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'collection_uniqueness_constraint' collection
+    using the 'collection_name', 'connector_name', 'constraint_name',
+    'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteCollectionUniquenessConstraintByCollectionNameAndConnectorNameAndConstraintNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

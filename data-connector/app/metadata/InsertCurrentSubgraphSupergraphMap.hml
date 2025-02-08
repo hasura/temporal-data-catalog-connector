@@ -1,0 +1,109 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentSubgraphSupergraphMapObject
+  fields:
+    - name: subgraphName
+      type: Varchar
+    - name: supergraphName
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentSubgraphSupergraphMapObject
+    inputTypeName: InsertCurrentSubgraphSupergraphMapObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_subgraph_supergraph_map_object
+      fieldMapping:
+        subgraphName:
+          column:
+            name: subgraph_name
+        supergraphName:
+          column:
+            name: supergraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentSubgraphSupergraphMapObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - subgraphName
+          - supergraphName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentSubgraphSupergraphMapResponse
+  description: Responses from the 'insert_current_subgraph_supergraph_map' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentSubgraphSupergraphMap!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentSubgraphSupergraphMapResponse
+    inputTypeName: InsertCurrentSubgraphSupergraphMapResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_subgraph_supergraph_map_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentSubgraphSupergraphMapResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentSubgraphSupergraphMap
+  outputType: InsertCurrentSubgraphSupergraphMapResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentSubgraphSupergraphMapObject!]!"
+    - name: postCheck
+      type: CurrentSubgraphSupergraphMapBoolExp
+      description: Insert permission predicate over the
+        'current_subgraph_supergraph_map' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_subgraph_supergraph_map
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentSubgraphSupergraphMap
+    rootFieldKind: Mutation
+  description: Insert into the current_subgraph_supergraph_map table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentSubgraphSupergraphMap
+  permissions:
+    - role: admin
+      allowExecution: true
+

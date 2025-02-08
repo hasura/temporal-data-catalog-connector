@@ -1,0 +1,788 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueArgumentName
+  description: Update the 'argument_name' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueArgumentName
+    inputTypeName: UpdateColumnPresetValueArgumentNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_argument_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueArgumentName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueBooleanValue
+  description: Update the 'boolean_value' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Bool
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueBooleanValue
+    inputTypeName: UpdateColumnPresetValueBooleanValueInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_boolean_value
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueBooleanValue
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueModelName
+  description: Update the 'model_name' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueModelName
+    inputTypeName: UpdateColumnPresetValueModelNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_model_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueModelName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueNumberValue
+  description: Update the 'number_value' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Numeric
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueNumberValue
+    inputTypeName: UpdateColumnPresetValueNumberValueInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_number_value
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueNumberValue
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueRoleName
+  description: Update the 'role_name' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueRoleName
+    inputTypeName: UpdateColumnPresetValueRoleNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_role_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueRoleName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueScalarTypeName
+  description: Update the 'scalar_type_name' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueScalarTypeName
+    inputTypeName: UpdateColumnPresetValueScalarTypeNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_scalar_type_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueScalarTypeName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueStringValue
+  description: Update the 'string_value' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Text
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueStringValue
+    inputTypeName: UpdateColumnPresetValueStringValueInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_string_value
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueStringValue
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueSubgraphName
+  description: Update the 'subgraph_name' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueSubgraphName
+    inputTypeName: UpdateColumnPresetValueSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueTContentHash
+  description: Update the 't_content_hash' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueTContentHash
+    inputTypeName: UpdateColumnPresetValueTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueTCreatedAt
+  description: Update the 't_created_at' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueTCreatedAt
+    inputTypeName: UpdateColumnPresetValueTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueTDeletedAt
+  description: Update the 't_deleted_at' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueTDeletedAt
+    inputTypeName: UpdateColumnPresetValueTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueTId
+  description: Update the 't_id' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueTId
+    inputTypeName: UpdateColumnPresetValueTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueTIsCurrent
+  description: Update the 't_is_current' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueTIsCurrent
+    inputTypeName: UpdateColumnPresetValueTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueTIsDeleted
+  description: Update the 't_is_deleted' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueTIsDeleted
+    inputTypeName: UpdateColumnPresetValueTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueTUpdatedAt
+  description: Update the 't_updated_at' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueTUpdatedAt
+    inputTypeName: UpdateColumnPresetValueTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueTVersion
+  description: Update the 't_version' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueTVersion
+    inputTypeName: UpdateColumnPresetValueTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnPresetValueValuePosition
+  description: Update the 'value_position' column in the 'preset_value' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnPresetValueValuePosition
+    inputTypeName: UpdateColumnPresetValueValuePositionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_preset_value_value_position
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnPresetValueValuePosition
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdatePresetValueByArgumentNameAndModelNameAndRoleNameAndSubgraphNameAndTVersionAndValuePositionUpdateColumns
+  description: Update the columns of the 'preset_value' collection
+  fields:
+    - name: argumentName
+      type: UpdateColumnPresetValueArgumentName
+      description: Update the 'argument_name' column in the 'preset_value' collection.
+    - name: booleanValue
+      type: UpdateColumnPresetValueBooleanValue
+      description: Update the 'boolean_value' column in the 'preset_value' collection.
+    - name: modelName
+      type: UpdateColumnPresetValueModelName
+      description: Update the 'model_name' column in the 'preset_value' collection.
+    - name: numberValue
+      type: UpdateColumnPresetValueNumberValue
+      description: Update the 'number_value' column in the 'preset_value' collection.
+    - name: roleName
+      type: UpdateColumnPresetValueRoleName
+      description: Update the 'role_name' column in the 'preset_value' collection.
+    - name: scalarTypeName
+      type: UpdateColumnPresetValueScalarTypeName
+      description: Update the 'scalar_type_name' column in the 'preset_value' collection.
+    - name: stringValue
+      type: UpdateColumnPresetValueStringValue
+      description: Update the 'string_value' column in the 'preset_value' collection.
+    - name: subgraphName
+      type: UpdateColumnPresetValueSubgraphName
+      description: Update the 'subgraph_name' column in the 'preset_value' collection.
+    - name: tContentHash
+      type: UpdateColumnPresetValueTContentHash
+      description: Update the 't_content_hash' column in the 'preset_value' collection.
+    - name: tCreatedAt
+      type: UpdateColumnPresetValueTCreatedAt
+      description: Update the 't_created_at' column in the 'preset_value' collection.
+    - name: tDeletedAt
+      type: UpdateColumnPresetValueTDeletedAt
+      description: Update the 't_deleted_at' column in the 'preset_value' collection.
+    - name: tId
+      type: UpdateColumnPresetValueTId
+      description: Update the 't_id' column in the 'preset_value' collection.
+    - name: tIsCurrent
+      type: UpdateColumnPresetValueTIsCurrent
+      description: Update the 't_is_current' column in the 'preset_value' collection.
+    - name: tIsDeleted
+      type: UpdateColumnPresetValueTIsDeleted
+      description: Update the 't_is_deleted' column in the 'preset_value' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnPresetValueTUpdatedAt
+      description: Update the 't_updated_at' column in the 'preset_value' collection.
+    - name: tVersion
+      type: UpdateColumnPresetValueTVersion
+      description: Update the 't_version' column in the 'preset_value' collection.
+    - name: valuePosition
+      type: UpdateColumnPresetValueValuePosition
+      description: Update the 'value_position' column in the 'preset_value' collection.
+  graphql:
+    typeName: UpdatePresetValueByArgumentNameAndModelNameAndRoleNameAndSubgraphNameAndTVersionAndValuePositionUpdateColumns
+    inputTypeName: UpdatePresetValueByArgumentNameAndModelNameAndRoleNameAndSubgraphNameAndTVersionAndValuePositionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_preset_value_by_argument_name_and_model_name_and_role_name_and_subgraph_name_and_t_version_and_value_position_update_columns
+      fieldMapping:
+        argumentName:
+          column:
+            name: argument_name
+        booleanValue:
+          column:
+            name: boolean_value
+        modelName:
+          column:
+            name: model_name
+        numberValue:
+          column:
+            name: number_value
+        roleName:
+          column:
+            name: role_name
+        scalarTypeName:
+          column:
+            name: scalar_type_name
+        stringValue:
+          column:
+            name: string_value
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        valuePosition:
+          column:
+            name: value_position
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdatePresetValueByArgumentNameAndModelNameAndRoleNameAndSubgraphNameAndTVersionAndValuePositionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - argumentName
+          - booleanValue
+          - modelName
+          - numberValue
+          - roleName
+          - scalarTypeName
+          - stringValue
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - valuePosition
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdatePresetValueByArgumentNameAndModelNameAndRoleNameAndSubgraphNameAndTVersionAndValuePositionResponse
+  description: Responses from the
+    'update_preset_value_by_argument_name_and_model_name_and_role_name_and_subgraph_name_and_t_version_and_value_position'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[PresetValue!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdatePresetValueByArgumentNameAndModelNameAndRoleNameAndSubgraphNameAndTVersionAndValuePositionResponse
+    inputTypeName: UpdatePresetValueByArgumentNameAndModelNameAndRoleNameAndSubgraphNameAndTVersionAndValuePositionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_preset_value_by_argument_name_and_model_name_and_role_name_and_subgraph_name_and_t_version_and_value_position_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdatePresetValueByArgumentNameAndModelNameAndRoleNameAndSubgraphNameAndTVersionAndValuePositionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdatePresetValueByArgumentNameAndModelNameAndRoleNameAndSubgraphNameAndTVersionAndValuePosition
+  outputType: UpdatePresetValueByArgumentNameAndModelNameAndRoleNameAndSubgraphNameAndTVersionAndValuePositionResponse!
+  arguments:
+    - name: keyArgumentName
+      type: Varchar!
+    - name: keyModelName
+      type: Varchar!
+    - name: keyRoleName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: keyValuePosition
+      type: Int4!
+    - name: postCheck
+      type: PresetValueBoolExp
+      description: Update permission post-condition predicate over the 'preset_value'
+        collection
+    - name: preCheck
+      type: PresetValueBoolExp
+      description: Update permission pre-condition predicate over the 'preset_value'
+        collection
+    - name: updateColumns
+      type: UpdatePresetValueByArgumentNameAndModelNameAndRoleNameAndSubgraphNameAndTVersionAndValuePositionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_preset_value_by_argument_name_and_model_name_and_role_name_and_subgraph_name_and_t_version_and_value_position
+    argumentMapping:
+      keyArgumentName: key_argument_name
+      keyModelName: key_model_name
+      keyRoleName: key_role_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      keyValuePosition: key_value_position
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updatePresetValueByArgumentNameAndModelNameAndRoleNameAndSubgraphNameAndTVersionAndValuePosition
+    rootFieldKind: Mutation
+  description: Update any row on the 'preset_value' collection using the
+    'argument_name', 'model_name', 'role_name', 'subgraph_name', 't_version' and
+    'value_position' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdatePresetValueByArgumentNameAndModelNameAndRoleNameAndSubgraphNameAndTVersionAndValuePosition
+  permissions:
+    - role: admin
+      allowExecution: true
+

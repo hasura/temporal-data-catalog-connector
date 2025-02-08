@@ -1,0 +1,167 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ValueDistributions
+  fields:
+    - name: count
+      type: Int4
+    - name: fieldStatisticId
+      type: Int4!
+    - name: id
+      type: Int4!
+    - name: value
+      type: Varchar
+  graphql:
+    typeName: ValueDistributions
+    inputTypeName: ValueDistributionsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: anomaly
+      dataConnectorObjectType: value_distributions
+      fieldMapping:
+        count:
+          column:
+            name: count
+        fieldStatisticId:
+          column:
+            name: field_statistic_id
+        id:
+          column:
+            name: id
+        value:
+          column:
+            name: value
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ValueDistributions
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - count
+          - fieldStatisticId
+          - id
+          - value
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ValueDistributionsBoolExp
+  operand:
+    object:
+      type: ValueDistributions
+      comparableFields:
+        - fieldName: count
+          booleanExpressionType: Int4BoolExp
+        - fieldName: fieldStatisticId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: id
+          booleanExpressionType: Int4BoolExp
+        - fieldName: value
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships:
+        - relationshipName: fieldStatistic
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ValueDistributionsBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ValueDistributionsAggExp
+  operand:
+    object:
+      aggregatedType: ValueDistributions
+      aggregatableFields:
+        - fieldName: count
+          aggregateExpression: Int4AggExp
+        - fieldName: fieldStatisticId
+          aggregateExpression: Int4AggExp
+        - fieldName: id
+          aggregateExpression: Int4AggExp
+        - fieldName: value
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: ValueDistributionsAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: ValueDistributions
+  objectType: ValueDistributions
+  source:
+    dataConnectorName: anomaly
+    collection: value_distributions
+  filterExpressionType: ValueDistributionsBoolExp
+  aggregateExpression: ValueDistributionsAggExp
+  orderableFields:
+    - fieldName: count
+      orderByDirections:
+        enableAll: true
+    - fieldName: fieldStatisticId
+      orderByDirections:
+        enableAll: true
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: value
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: valueDistributions
+      subscription:
+        rootField: valueDistributions
+    selectUniques:
+      - queryRootField: valueDistributionsById
+        uniqueIdentifier:
+          - id
+        subscription:
+          rootField: valueDistributionsById
+    orderByExpressionType: ValueDistributionsOrderBy
+    filterInputTypeName: ValueDistributionsFilterInput
+    aggregate:
+      queryRootField: valueDistributionsAggregate
+      subscription:
+        rootField: valueDistributionsAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: ValueDistributions
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: fieldStatistic
+  sourceType: ValueDistributions
+  target:
+    model:
+      name: FieldStatistics
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: fieldStatisticId
+      target:
+        modelField:
+          - fieldName: id
+

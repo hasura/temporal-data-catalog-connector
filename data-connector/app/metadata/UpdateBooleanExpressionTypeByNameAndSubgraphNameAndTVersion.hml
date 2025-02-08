@@ -1,0 +1,677 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnBooleanExpressionTypeGraphqlTypeName
+  description: Update the 'graphql_type_name' column in the
+    'boolean_expression_type' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnBooleanExpressionTypeGraphqlTypeName
+    inputTypeName: UpdateColumnBooleanExpressionTypeGraphqlTypeNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_boolean_expression_type_graphql_type_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnBooleanExpressionTypeGraphqlTypeName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnBooleanExpressionTypeIsNullEnabled
+  description: Update the 'is_null_enabled' column in the
+    'boolean_expression_type' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnBooleanExpressionTypeIsNullEnabled
+    inputTypeName: UpdateColumnBooleanExpressionTypeIsNullEnabledInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_boolean_expression_type_is_null_enabled
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnBooleanExpressionTypeIsNullEnabled
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnBooleanExpressionTypeLogicalOpsEnabled
+  description: Update the 'logical_ops_enabled' column in the
+    'boolean_expression_type' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnBooleanExpressionTypeLogicalOpsEnabled
+    inputTypeName: UpdateColumnBooleanExpressionTypeLogicalOpsEnabledInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_boolean_expression_type_logical_ops_enabled
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnBooleanExpressionTypeLogicalOpsEnabled
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnBooleanExpressionTypeName
+  description: Update the 'name' column in the 'boolean_expression_type' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnBooleanExpressionTypeName
+    inputTypeName: UpdateColumnBooleanExpressionTypeNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_boolean_expression_type_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnBooleanExpressionTypeName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnBooleanExpressionTypeScalarType
+  description: Update the 'scalar_type' column in the 'boolean_expression_type' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnBooleanExpressionTypeScalarType
+    inputTypeName: UpdateColumnBooleanExpressionTypeScalarTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_boolean_expression_type_scalar_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnBooleanExpressionTypeScalarType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnBooleanExpressionTypeSubgraphName
+  description: Update the 'subgraph_name' column in the 'boolean_expression_type' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnBooleanExpressionTypeSubgraphName
+    inputTypeName: UpdateColumnBooleanExpressionTypeSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_boolean_expression_type_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnBooleanExpressionTypeSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnBooleanExpressionTypeTContentHash
+  description: Update the 't_content_hash' column in the 'boolean_expression_type'
+    collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnBooleanExpressionTypeTContentHash
+    inputTypeName: UpdateColumnBooleanExpressionTypeTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_boolean_expression_type_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnBooleanExpressionTypeTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnBooleanExpressionTypeTCreatedAt
+  description: Update the 't_created_at' column in the 'boolean_expression_type' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnBooleanExpressionTypeTCreatedAt
+    inputTypeName: UpdateColumnBooleanExpressionTypeTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_boolean_expression_type_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnBooleanExpressionTypeTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnBooleanExpressionTypeTDeletedAt
+  description: Update the 't_deleted_at' column in the 'boolean_expression_type' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnBooleanExpressionTypeTDeletedAt
+    inputTypeName: UpdateColumnBooleanExpressionTypeTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_boolean_expression_type_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnBooleanExpressionTypeTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnBooleanExpressionTypeTId
+  description: Update the 't_id' column in the 'boolean_expression_type' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnBooleanExpressionTypeTId
+    inputTypeName: UpdateColumnBooleanExpressionTypeTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_boolean_expression_type_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnBooleanExpressionTypeTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnBooleanExpressionTypeTIsCurrent
+  description: Update the 't_is_current' column in the 'boolean_expression_type' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnBooleanExpressionTypeTIsCurrent
+    inputTypeName: UpdateColumnBooleanExpressionTypeTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_boolean_expression_type_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnBooleanExpressionTypeTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnBooleanExpressionTypeTIsDeleted
+  description: Update the 't_is_deleted' column in the 'boolean_expression_type' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnBooleanExpressionTypeTIsDeleted
+    inputTypeName: UpdateColumnBooleanExpressionTypeTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_boolean_expression_type_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnBooleanExpressionTypeTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnBooleanExpressionTypeTUpdatedAt
+  description: Update the 't_updated_at' column in the 'boolean_expression_type' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnBooleanExpressionTypeTUpdatedAt
+    inputTypeName: UpdateColumnBooleanExpressionTypeTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_boolean_expression_type_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnBooleanExpressionTypeTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnBooleanExpressionTypeTVersion
+  description: Update the 't_version' column in the 'boolean_expression_type' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnBooleanExpressionTypeTVersion
+    inputTypeName: UpdateColumnBooleanExpressionTypeTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_boolean_expression_type_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnBooleanExpressionTypeTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateBooleanExpressionTypeByNameAndSubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'boolean_expression_type' collection
+  fields:
+    - name: graphqlTypeName
+      type: UpdateColumnBooleanExpressionTypeGraphqlTypeName
+      description: Update the 'graphql_type_name' column in the
+        'boolean_expression_type' collection.
+    - name: isNullEnabled
+      type: UpdateColumnBooleanExpressionTypeIsNullEnabled
+      description: Update the 'is_null_enabled' column in the
+        'boolean_expression_type' collection.
+    - name: logicalOpsEnabled
+      type: UpdateColumnBooleanExpressionTypeLogicalOpsEnabled
+      description: Update the 'logical_ops_enabled' column in the
+        'boolean_expression_type' collection.
+    - name: name
+      type: UpdateColumnBooleanExpressionTypeName
+      description: Update the 'name' column in the 'boolean_expression_type' collection.
+    - name: scalarType
+      type: UpdateColumnBooleanExpressionTypeScalarType
+      description: Update the 'scalar_type' column in the 'boolean_expression_type'
+        collection.
+    - name: subgraphName
+      type: UpdateColumnBooleanExpressionTypeSubgraphName
+      description: Update the 'subgraph_name' column in the 'boolean_expression_type'
+        collection.
+    - name: tContentHash
+      type: UpdateColumnBooleanExpressionTypeTContentHash
+      description: Update the 't_content_hash' column in the 'boolean_expression_type'
+        collection.
+    - name: tCreatedAt
+      type: UpdateColumnBooleanExpressionTypeTCreatedAt
+      description: Update the 't_created_at' column in the 'boolean_expression_type'
+        collection.
+    - name: tDeletedAt
+      type: UpdateColumnBooleanExpressionTypeTDeletedAt
+      description: Update the 't_deleted_at' column in the 'boolean_expression_type'
+        collection.
+    - name: tId
+      type: UpdateColumnBooleanExpressionTypeTId
+      description: Update the 't_id' column in the 'boolean_expression_type' collection.
+    - name: tIsCurrent
+      type: UpdateColumnBooleanExpressionTypeTIsCurrent
+      description: Update the 't_is_current' column in the 'boolean_expression_type'
+        collection.
+    - name: tIsDeleted
+      type: UpdateColumnBooleanExpressionTypeTIsDeleted
+      description: Update the 't_is_deleted' column in the 'boolean_expression_type'
+        collection.
+    - name: tUpdatedAt
+      type: UpdateColumnBooleanExpressionTypeTUpdatedAt
+      description: Update the 't_updated_at' column in the 'boolean_expression_type'
+        collection.
+    - name: tVersion
+      type: UpdateColumnBooleanExpressionTypeTVersion
+      description: Update the 't_version' column in the 'boolean_expression_type'
+        collection.
+  graphql:
+    typeName: UpdateBooleanExpressionTypeByNameAndSubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateBooleanExpressionTypeByNameAndSubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_boolean_expression_type_by_name_and_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        graphqlTypeName:
+          column:
+            name: graphql_type_name
+        isNullEnabled:
+          column:
+            name: is_null_enabled
+        logicalOpsEnabled:
+          column:
+            name: logical_ops_enabled
+        name:
+          column:
+            name: name
+        scalarType:
+          column:
+            name: scalar_type
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateBooleanExpressionTypeByNameAndSubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - graphqlTypeName
+          - isNullEnabled
+          - logicalOpsEnabled
+          - name
+          - scalarType
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateBooleanExpressionTypeByNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_boolean_expression_type_by_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[BooleanExpressionType!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateBooleanExpressionTypeByNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: UpdateBooleanExpressionTypeByNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_boolean_expression_type_by_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateBooleanExpressionTypeByNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateBooleanExpressionTypeByNameAndSubgraphNameAndTVersion
+  outputType: UpdateBooleanExpressionTypeByNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: BooleanExpressionTypeBoolExp
+      description: Update permission post-condition predicate over the
+        'boolean_expression_type' collection
+    - name: preCheck
+      type: BooleanExpressionTypeBoolExp
+      description: Update permission pre-condition predicate over the
+        'boolean_expression_type' collection
+    - name: updateColumns
+      type: UpdateBooleanExpressionTypeByNameAndSubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_boolean_expression_type_by_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyName: key_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateBooleanExpressionTypeByNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'boolean_expression_type' collection using
+    the 'name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateBooleanExpressionTypeByNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

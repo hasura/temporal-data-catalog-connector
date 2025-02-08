@@ -1,0 +1,151 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentModelOrderableField
+  fields:
+    - name: enableAllDirections
+      type: Bool
+    - name: fieldName
+      type: Varchar
+    - name: modelName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: CurrentModelOrderableField
+    inputTypeName: CurrentModelOrderableFieldInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_model_orderable_field
+      fieldMapping:
+        enableAllDirections:
+          column:
+            name: enable_all_directions
+        fieldName:
+          column:
+            name: field_name
+        modelName:
+          column:
+            name: model_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentModelOrderableField
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - enableAllDirections
+          - fieldName
+          - modelName
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentModelOrderableFieldBoolExp
+  operand:
+    object:
+      type: CurrentModelOrderableField
+      comparableFields:
+        - fieldName: enableAllDirections
+          booleanExpressionType: BoolBoolExp
+        - fieldName: fieldName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentModelOrderableFieldBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentModelOrderableFieldAggExp
+  operand:
+    object:
+      aggregatedType: CurrentModelOrderableField
+      aggregatableFields:
+        - fieldName: enableAllDirections
+          aggregateExpression: BoolAggExp
+        - fieldName: fieldName
+          aggregateExpression: VarcharAggExp
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentModelOrderableFieldAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentModelOrderableFieldOrderByExp
+  operand:
+    object:
+      orderedType: CurrentModelOrderableField
+      orderableFields:
+        - fieldName: enableAllDirections
+          orderByExpression: BoolOrderByExp
+        - fieldName: fieldName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: modelName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentModelOrderableFieldOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentModelOrderableField
+  objectType: CurrentModelOrderableField
+  source:
+    dataConnectorName: datamanagement
+    collection: current_model_orderable_field
+  filterExpressionType: CurrentModelOrderableFieldBoolExp
+  aggregateExpression: CurrentModelOrderableFieldAggExp
+  orderByExpression: CurrentModelOrderableFieldOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentModelOrderableField
+      subscription:
+        rootField: currentModelOrderableField
+    selectUniques: []
+    filterInputTypeName: CurrentModelOrderableFieldFilterInput
+    aggregate:
+      queryRootField: currentModelOrderableFieldAggregate
+      subscription:
+        rootField: currentModelOrderableFieldAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentModelOrderableField
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

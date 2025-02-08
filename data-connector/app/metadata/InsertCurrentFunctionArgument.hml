@@ -1,0 +1,139 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentFunctionArgumentObject
+  fields:
+    - name: connectorName
+      type: Varchar
+    - name: description
+      type: Varchar
+    - name: functionName
+      type: Varchar
+    - name: isRequired
+      type: Bool
+    - name: name
+      type: Varchar
+    - name: scalarTypeName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentFunctionArgumentObject
+    inputTypeName: InsertCurrentFunctionArgumentObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_function_argument_object
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        description:
+          column:
+            name: description
+        functionName:
+          column:
+            name: function_name
+        isRequired:
+          column:
+            name: is_required
+        name:
+          column:
+            name: name
+        scalarTypeName:
+          column:
+            name: scalar_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentFunctionArgumentObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - description
+          - functionName
+          - isRequired
+          - name
+          - scalarTypeName
+          - subgraphName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentFunctionArgumentResponse
+  description: Responses from the 'insert_current_function_argument' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentFunctionArgument!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentFunctionArgumentResponse
+    inputTypeName: InsertCurrentFunctionArgumentResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_function_argument_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentFunctionArgumentResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentFunctionArgument
+  outputType: InsertCurrentFunctionArgumentResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentFunctionArgumentObject!]!"
+    - name: postCheck
+      type: CurrentFunctionArgumentBoolExp
+      description: Insert permission predicate over the 'current_function_argument'
+        collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_function_argument
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentFunctionArgument
+    rootFieldKind: Mutation
+  description: Insert into the current_function_argument table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentFunctionArgument
+  permissions:
+    - role: admin
+      allowExecution: true
+

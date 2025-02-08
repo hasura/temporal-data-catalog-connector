@@ -1,0 +1,192 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCollectionFieldObject
+  fields:
+    - name: collectionName
+      type: Varchar!
+    - name: connectorName
+      type: Varchar!
+    - name: description
+      type: Varchar
+    - name: physicalFieldName
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+    - name: typeDefinitionConnectorName
+      type: Varchar!
+    - name: typeDefinitionName
+      type: Varchar!
+    - name: typeDefinitionSubgraphName
+      type: Varchar!
+  graphql:
+    typeName: InsertCollectionFieldObject
+    inputTypeName: InsertCollectionFieldObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_collection_field_object
+      fieldMapping:
+        collectionName:
+          column:
+            name: collection_name
+        connectorName:
+          column:
+            name: connector_name
+        description:
+          column:
+            name: description
+        physicalFieldName:
+          column:
+            name: physical_field_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        typeDefinitionConnectorName:
+          column:
+            name: type_definition_connector_name
+        typeDefinitionName:
+          column:
+            name: type_definition_name
+        typeDefinitionSubgraphName:
+          column:
+            name: type_definition_subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCollectionFieldObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - collectionName
+          - connectorName
+          - description
+          - physicalFieldName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - typeDefinitionConnectorName
+          - typeDefinitionName
+          - typeDefinitionSubgraphName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCollectionFieldResponse
+  description: Responses from the 'insert_collection_field' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CollectionField!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCollectionFieldResponse
+    inputTypeName: InsertCollectionFieldResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_collection_field_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCollectionFieldResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCollectionField
+  outputType: InsertCollectionFieldResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCollectionFieldObject!]!"
+    - name: postCheck
+      type: CollectionFieldBoolExp
+      description: Insert permission predicate over the 'collection_field' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_collection_field
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCollectionField
+    rootFieldKind: Mutation
+  description: Insert into the collection_field table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCollectionField
+  permissions:
+    - role: admin
+      allowExecution: true
+

@@ -1,0 +1,304 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CollectionField
+  fields:
+    - name: collectionName
+      type: Varchar!
+    - name: connectorName
+      type: Varchar!
+    - name: description
+      type: Varchar
+    - name: physicalFieldName
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+    - name: typeDefinitionConnectorName
+      type: Varchar!
+    - name: typeDefinitionName
+      type: Varchar!
+    - name: typeDefinitionSubgraphName
+      type: Varchar!
+  graphql:
+    typeName: CollectionField
+    inputTypeName: CollectionFieldInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: collection_field
+      fieldMapping:
+        collectionName:
+          column:
+            name: collection_name
+        connectorName:
+          column:
+            name: connector_name
+        description:
+          column:
+            name: description
+        physicalFieldName:
+          column:
+            name: physical_field_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        typeDefinitionConnectorName:
+          column:
+            name: type_definition_connector_name
+        typeDefinitionName:
+          column:
+            name: type_definition_name
+        typeDefinitionSubgraphName:
+          column:
+            name: type_definition_subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CollectionField
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - collectionName
+          - connectorName
+          - description
+          - physicalFieldName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - typeDefinitionConnectorName
+          - typeDefinitionName
+          - typeDefinitionSubgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CollectionFieldBoolExp
+  operand:
+    object:
+      type: CollectionField
+      comparableFields:
+        - fieldName: collectionName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: description
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: physicalFieldName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+        - fieldName: typeDefinitionConnectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: typeDefinitionName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: typeDefinitionSubgraphName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CollectionFieldBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CollectionFieldAggExp
+  operand:
+    object:
+      aggregatedType: CollectionField
+      aggregatableFields:
+        - fieldName: collectionName
+          aggregateExpression: VarcharAggExp
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: description
+          aggregateExpression: VarcharAggExp
+        - fieldName: physicalFieldName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+        - fieldName: typeDefinitionConnectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: typeDefinitionName
+          aggregateExpression: VarcharAggExp
+        - fieldName: typeDefinitionSubgraphName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CollectionFieldAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CollectionFieldOrderByExp
+  operand:
+    object:
+      orderedType: CollectionField
+      orderableFields:
+        - fieldName: collectionName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: description
+          orderByExpression: VarcharOrderByExp
+        - fieldName: physicalFieldName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+        - fieldName: typeDefinitionConnectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: typeDefinitionName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: typeDefinitionSubgraphName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CollectionFieldOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CollectionField
+  objectType: CollectionField
+  source:
+    dataConnectorName: datamanagement
+    collection: collection_field
+  filterExpressionType: CollectionFieldBoolExp
+  aggregateExpression: CollectionFieldAggExp
+  orderByExpression: CollectionFieldOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: collectionField
+      subscription:
+        rootField: collectionField
+    selectUniques:
+      - queryRootField: collectionFieldByCollectionFieldPkey
+        uniqueIdentifier:
+          - collectionName
+          - connectorName
+          - physicalFieldName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: collectionFieldByCollectionFieldPkey
+    filterInputTypeName: CollectionFieldFilterInput
+    aggregate:
+      queryRootField: collectionFieldAggregate
+      subscription:
+        rootField: collectionFieldAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CollectionField
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

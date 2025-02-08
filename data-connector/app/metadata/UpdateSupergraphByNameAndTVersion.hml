@@ -1,0 +1,500 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSupergraphName
+  description: Update the 'name' column in the 'supergraph' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSupergraphName
+    inputTypeName: UpdateColumnSupergraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_supergraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSupergraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSupergraphTContentHash
+  description: Update the 't_content_hash' column in the 'supergraph' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSupergraphTContentHash
+    inputTypeName: UpdateColumnSupergraphTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_supergraph_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSupergraphTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSupergraphTCreatedAt
+  description: Update the 't_created_at' column in the 'supergraph' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSupergraphTCreatedAt
+    inputTypeName: UpdateColumnSupergraphTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_supergraph_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSupergraphTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSupergraphTDeletedAt
+  description: Update the 't_deleted_at' column in the 'supergraph' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSupergraphTDeletedAt
+    inputTypeName: UpdateColumnSupergraphTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_supergraph_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSupergraphTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSupergraphTId
+  description: Update the 't_id' column in the 'supergraph' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSupergraphTId
+    inputTypeName: UpdateColumnSupergraphTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_supergraph_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSupergraphTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSupergraphTIsCurrent
+  description: Update the 't_is_current' column in the 'supergraph' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSupergraphTIsCurrent
+    inputTypeName: UpdateColumnSupergraphTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_supergraph_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSupergraphTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSupergraphTIsDeleted
+  description: Update the 't_is_deleted' column in the 'supergraph' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSupergraphTIsDeleted
+    inputTypeName: UpdateColumnSupergraphTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_supergraph_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSupergraphTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSupergraphTUpdatedAt
+  description: Update the 't_updated_at' column in the 'supergraph' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSupergraphTUpdatedAt
+    inputTypeName: UpdateColumnSupergraphTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_supergraph_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSupergraphTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSupergraphTVersion
+  description: Update the 't_version' column in the 'supergraph' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSupergraphTVersion
+    inputTypeName: UpdateColumnSupergraphTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_supergraph_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSupergraphTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSupergraphVersion
+  description: Update the 'version' column in the 'supergraph' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSupergraphVersion
+    inputTypeName: UpdateColumnSupergraphVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_supergraph_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSupergraphVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateSupergraphByNameAndTVersionUpdateColumns
+  description: Update the columns of the 'supergraph' collection
+  fields:
+    - name: name
+      type: UpdateColumnSupergraphName
+      description: Update the 'name' column in the 'supergraph' collection.
+    - name: tContentHash
+      type: UpdateColumnSupergraphTContentHash
+      description: Update the 't_content_hash' column in the 'supergraph' collection.
+    - name: tCreatedAt
+      type: UpdateColumnSupergraphTCreatedAt
+      description: Update the 't_created_at' column in the 'supergraph' collection.
+    - name: tDeletedAt
+      type: UpdateColumnSupergraphTDeletedAt
+      description: Update the 't_deleted_at' column in the 'supergraph' collection.
+    - name: tId
+      type: UpdateColumnSupergraphTId
+      description: Update the 't_id' column in the 'supergraph' collection.
+    - name: tIsCurrent
+      type: UpdateColumnSupergraphTIsCurrent
+      description: Update the 't_is_current' column in the 'supergraph' collection.
+    - name: tIsDeleted
+      type: UpdateColumnSupergraphTIsDeleted
+      description: Update the 't_is_deleted' column in the 'supergraph' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnSupergraphTUpdatedAt
+      description: Update the 't_updated_at' column in the 'supergraph' collection.
+    - name: tVersion
+      type: UpdateColumnSupergraphTVersion
+      description: Update the 't_version' column in the 'supergraph' collection.
+    - name: version
+      type: UpdateColumnSupergraphVersion
+      description: Update the 'version' column in the 'supergraph' collection.
+  graphql:
+    typeName: UpdateSupergraphByNameAndTVersionUpdateColumns
+    inputTypeName: UpdateSupergraphByNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_supergraph_by_name_and_t_version_update_columns
+      fieldMapping:
+        name:
+          column:
+            name: name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        version:
+          column:
+            name: version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateSupergraphByNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - name
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - version
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateSupergraphByNameAndTVersionResponse
+  description: Responses from the 'update_supergraph_by_name_and_t_version' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[Supergraph!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateSupergraphByNameAndTVersionResponse
+    inputTypeName: UpdateSupergraphByNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_supergraph_by_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateSupergraphByNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateSupergraphByNameAndTVersion
+  outputType: UpdateSupergraphByNameAndTVersionResponse!
+  arguments:
+    - name: keyName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: SupergraphBoolExp
+      description: Update permission post-condition predicate over the 'supergraph'
+        collection
+    - name: preCheck
+      type: SupergraphBoolExp
+      description: Update permission pre-condition predicate over the 'supergraph'
+        collection
+    - name: updateColumns
+      type: UpdateSupergraphByNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_supergraph_by_name_and_t_version
+    argumentMapping:
+      keyName: key_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateSupergraphByNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'supergraph' collection using the 'name' and
+    't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateSupergraphByNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

@@ -1,0 +1,180 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertFilterOperationObject
+  fields:
+    - name: conditionType
+      type: Varchar!
+    - name: modelName
+      type: Varchar!
+    - name: operationName
+      type: Varchar!
+    - name: operator
+      type: Varchar!
+    - name: roleName
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+  graphql:
+    typeName: InsertFilterOperationObject
+    inputTypeName: InsertFilterOperationObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_filter_operation_object
+      fieldMapping:
+        conditionType:
+          column:
+            name: condition_type
+        modelName:
+          column:
+            name: model_name
+        operationName:
+          column:
+            name: operation_name
+        operator:
+          column:
+            name: operator
+        roleName:
+          column:
+            name: role_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertFilterOperationObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - conditionType
+          - modelName
+          - operationName
+          - operator
+          - roleName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertFilterOperationResponse
+  description: Responses from the 'insert_filter_operation' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[FilterOperation!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertFilterOperationResponse
+    inputTypeName: InsertFilterOperationResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_filter_operation_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertFilterOperationResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertFilterOperation
+  outputType: InsertFilterOperationResponse!
+  arguments:
+    - name: objects
+      type: "[InsertFilterOperationObject!]!"
+    - name: postCheck
+      type: FilterOperationBoolExp
+      description: Insert permission predicate over the 'filter_operation' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_filter_operation
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertFilterOperation
+    rootFieldKind: Mutation
+  description: Insert into the filter_operation table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertFilterOperation
+  permissions:
+    - role: admin
+      allowExecution: true
+

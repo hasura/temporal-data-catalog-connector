@@ -1,0 +1,126 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentAuthConfigObject
+  fields:
+    - name: defaultRole
+      type: Varchar
+    - name: modeType
+      type: Varchar
+    - name: sessionVars
+      type: Json
+    - name: subgraphName
+      type: Varchar
+    - name: version
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentAuthConfigObject
+    inputTypeName: InsertCurrentAuthConfigObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_auth_config_object
+      fieldMapping:
+        defaultRole:
+          column:
+            name: default_role
+        modeType:
+          column:
+            name: mode_type
+        sessionVars:
+          column:
+            name: session_vars
+        subgraphName:
+          column:
+            name: subgraph_name
+        version:
+          column:
+            name: version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentAuthConfigObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - defaultRole
+          - modeType
+          - sessionVars
+          - subgraphName
+          - version
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentAuthConfigResponse
+  description: Responses from the 'insert_current_auth_config' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentAuthConfig!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentAuthConfigResponse
+    inputTypeName: InsertCurrentAuthConfigResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_auth_config_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentAuthConfigResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentAuthConfig
+  outputType: InsertCurrentAuthConfigResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentAuthConfigObject!]!"
+    - name: postCheck
+      type: CurrentAuthConfigBoolExp
+      description: Insert permission predicate over the 'current_auth_config' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_auth_config
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentAuthConfig
+    rootFieldKind: Mutation
+  description: Insert into the current_auth_config table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentAuthConfig
+  permissions:
+    - role: admin
+      allowExecution: true
+

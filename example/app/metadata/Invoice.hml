@@ -1,0 +1,255 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Invoice
+  fields:
+    - name: billingAddress
+      type: Varchar
+    - name: billingCity
+      type: Varchar
+    - name: billingCountry
+      type: Varchar
+    - name: billingPostalCode
+      type: Varchar
+    - name: billingState
+      type: Varchar
+    - name: customerId
+      type: Int4!
+    - name: invoiceDate
+      type: Timestamp!
+    - name: invoiceId
+      type: Int4!
+    - name: total
+      type: Numeric!
+  graphql:
+    typeName: Invoice
+    inputTypeName: InvoiceInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: chinook
+      dataConnectorObjectType: invoice
+      fieldMapping:
+        billingAddress:
+          column:
+            name: billing_address
+        billingCity:
+          column:
+            name: billing_city
+        billingCountry:
+          column:
+            name: billing_country
+        billingPostalCode:
+          column:
+            name: billing_postal_code
+        billingState:
+          column:
+            name: billing_state
+        customerId:
+          column:
+            name: customer_id
+        invoiceDate:
+          column:
+            name: invoice_date
+        invoiceId:
+          column:
+            name: invoice_id
+        total:
+          column:
+            name: total
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Invoice
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - billingAddress
+          - billingCity
+          - billingCountry
+          - billingPostalCode
+          - billingState
+          - customerId
+          - invoiceDate
+          - invoiceId
+          - total
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: InvoiceBoolExp
+  operand:
+    object:
+      type: Invoice
+      comparableFields:
+        - fieldName: billingAddress
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: billingCity
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: billingCountry
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: billingPostalCode
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: billingState
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: customerId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: invoiceDate
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: invoiceId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: total
+          booleanExpressionType: NumericBoolExp
+      comparableRelationships:
+        - relationshipName: customer
+        - relationshipName: invoiceLines
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: InvoiceBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: InvoiceAggExp
+  operand:
+    object:
+      aggregatedType: Invoice
+      aggregatableFields:
+        - fieldName: billingAddress
+          aggregateExpression: VarcharAggExp
+        - fieldName: billingCity
+          aggregateExpression: VarcharAggExp
+        - fieldName: billingCountry
+          aggregateExpression: VarcharAggExp
+        - fieldName: billingPostalCode
+          aggregateExpression: VarcharAggExp
+        - fieldName: billingState
+          aggregateExpression: VarcharAggExp
+        - fieldName: customerId
+          aggregateExpression: Int4AggExp
+        - fieldName: invoiceDate
+          aggregateExpression: TimestampAggExp
+        - fieldName: invoiceId
+          aggregateExpression: Int4AggExp
+        - fieldName: total
+          aggregateExpression: NumericAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: InvoiceAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: Invoice
+  objectType: Invoice
+  source:
+    dataConnectorName: chinook
+    collection: invoice
+  filterExpressionType: InvoiceBoolExp
+  aggregateExpression: InvoiceAggExp
+  orderableFields:
+    - fieldName: billingAddress
+      orderByDirections:
+        enableAll: true
+    - fieldName: billingCity
+      orderByDirections:
+        enableAll: true
+    - fieldName: billingCountry
+      orderByDirections:
+        enableAll: true
+    - fieldName: billingPostalCode
+      orderByDirections:
+        enableAll: true
+    - fieldName: billingState
+      orderByDirections:
+        enableAll: true
+    - fieldName: customerId
+      orderByDirections:
+        enableAll: true
+    - fieldName: invoiceDate
+      orderByDirections:
+        enableAll: true
+    - fieldName: invoiceId
+      orderByDirections:
+        enableAll: true
+    - fieldName: total
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: invoice
+      subscription:
+        rootField: invoice
+    selectUniques:
+      - queryRootField: invoiceByInvoiceId
+        uniqueIdentifier:
+          - invoiceId
+        subscription:
+          rootField: invoiceByInvoiceId
+    orderByExpressionType: InvoiceOrderBy
+    filterInputTypeName: InvoiceFilterInput
+    aggregate:
+      queryRootField: invoiceAggregate
+      subscription:
+        rootField: invoiceAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Invoice
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: customer
+  sourceType: Invoice
+  target:
+    model:
+      name: Customer
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: customerId
+      target:
+        modelField:
+          - fieldName: customerId
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: invoiceLines
+  sourceType: Invoice
+  target:
+    model:
+      name: InvoiceLine
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: InvoiceLineAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: invoiceId
+      target:
+        modelField:
+          - fieldName: invoiceId
+  graphql:
+    aggregateFieldName: invoiceLinesAggregate
+

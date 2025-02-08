@@ -1,0 +1,294 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: FieldStatistics
+  fields:
+    - name: avgLength
+      type: Float8
+    - name: fieldName
+      type: Varchar!
+    - name: fieldType
+      type: Varchar
+    - name: id
+      type: Int4!
+    - name: maxValue
+      type: Float8
+    - name: meanValue
+      type: Float8
+    - name: medianValue
+      type: Float8
+    - name: minValue
+      type: Float8
+    - name: recordId
+      type: Int4!
+    - name: stdDev
+      type: Float8
+    - name: uniqueCount
+      type: Int4
+    - name: uniquenessRatio
+      type: Float8
+  graphql:
+    typeName: FieldStatistics
+    inputTypeName: FieldStatisticsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: anomaly
+      dataConnectorObjectType: field_statistics
+      fieldMapping:
+        avgLength:
+          column:
+            name: avg_length
+        fieldName:
+          column:
+            name: field_name
+        fieldType:
+          column:
+            name: field_type
+        id:
+          column:
+            name: id
+        maxValue:
+          column:
+            name: max_value
+        meanValue:
+          column:
+            name: mean_value
+        medianValue:
+          column:
+            name: median_value
+        minValue:
+          column:
+            name: min_value
+        recordId:
+          column:
+            name: record_id
+        stdDev:
+          column:
+            name: std_dev
+        uniqueCount:
+          column:
+            name: unique_count
+        uniquenessRatio:
+          column:
+            name: uniqueness_ratio
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: FieldStatistics
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - avgLength
+          - fieldName
+          - fieldType
+          - id
+          - maxValue
+          - meanValue
+          - medianValue
+          - minValue
+          - recordId
+          - stdDev
+          - uniqueCount
+          - uniquenessRatio
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: FieldStatisticsBoolExp
+  operand:
+    object:
+      type: FieldStatistics
+      comparableFields:
+        - fieldName: avgLength
+          booleanExpressionType: Float8BoolExp
+        - fieldName: fieldName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: fieldType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: id
+          booleanExpressionType: Int4BoolExp
+        - fieldName: maxValue
+          booleanExpressionType: Float8BoolExp
+        - fieldName: meanValue
+          booleanExpressionType: Float8BoolExp
+        - fieldName: medianValue
+          booleanExpressionType: Float8BoolExp
+        - fieldName: minValue
+          booleanExpressionType: Float8BoolExp
+        - fieldName: recordId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: stdDev
+          booleanExpressionType: Float8BoolExp
+        - fieldName: uniqueCount
+          booleanExpressionType: Int4BoolExp
+        - fieldName: uniquenessRatio
+          booleanExpressionType: Float8BoolExp
+      comparableRelationships:
+        - relationshipName: anomalyRecord
+        - relationshipName: valueDistributions
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: FieldStatisticsBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: FieldStatisticsAggExp
+  operand:
+    object:
+      aggregatedType: FieldStatistics
+      aggregatableFields:
+        - fieldName: avgLength
+          aggregateExpression: Float8AggExp
+        - fieldName: fieldName
+          aggregateExpression: VarcharAggExp
+        - fieldName: fieldType
+          aggregateExpression: VarcharAggExp
+        - fieldName: id
+          aggregateExpression: Int4AggExp
+        - fieldName: maxValue
+          aggregateExpression: Float8AggExp
+        - fieldName: meanValue
+          aggregateExpression: Float8AggExp
+        - fieldName: medianValue
+          aggregateExpression: Float8AggExp
+        - fieldName: minValue
+          aggregateExpression: Float8AggExp
+        - fieldName: recordId
+          aggregateExpression: Int4AggExp
+        - fieldName: stdDev
+          aggregateExpression: Float8AggExp
+        - fieldName: uniqueCount
+          aggregateExpression: Int4AggExp
+        - fieldName: uniquenessRatio
+          aggregateExpression: Float8AggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: FieldStatisticsAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: FieldStatistics
+  objectType: FieldStatistics
+  source:
+    dataConnectorName: anomaly
+    collection: field_statistics
+  filterExpressionType: FieldStatisticsBoolExp
+  aggregateExpression: FieldStatisticsAggExp
+  orderableFields:
+    - fieldName: avgLength
+      orderByDirections:
+        enableAll: true
+    - fieldName: fieldName
+      orderByDirections:
+        enableAll: true
+    - fieldName: fieldType
+      orderByDirections:
+        enableAll: true
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: maxValue
+      orderByDirections:
+        enableAll: true
+    - fieldName: meanValue
+      orderByDirections:
+        enableAll: true
+    - fieldName: medianValue
+      orderByDirections:
+        enableAll: true
+    - fieldName: minValue
+      orderByDirections:
+        enableAll: true
+    - fieldName: recordId
+      orderByDirections:
+        enableAll: true
+    - fieldName: stdDev
+      orderByDirections:
+        enableAll: true
+    - fieldName: uniqueCount
+      orderByDirections:
+        enableAll: true
+    - fieldName: uniquenessRatio
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: fieldStatistics
+      subscription:
+        rootField: fieldStatistics
+    selectUniques:
+      - queryRootField: fieldStatisticsById
+        uniqueIdentifier:
+          - id
+        subscription:
+          rootField: fieldStatisticsById
+    orderByExpressionType: FieldStatisticsOrderBy
+    filterInputTypeName: FieldStatisticsFilterInput
+    aggregate:
+      queryRootField: fieldStatisticsAggregate
+      subscription:
+        rootField: fieldStatisticsAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: FieldStatistics
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: anomalyRecord
+  sourceType: FieldStatistics
+  target:
+    model:
+      name: AnomalyRecords
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: recordId
+      target:
+        modelField:
+          - fieldName: id
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: valueDistributions
+  sourceType: FieldStatistics
+  target:
+    model:
+      name: ValueDistributions
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: ValueDistributionsAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: id
+      target:
+        modelField:
+          - fieldName: fieldStatisticId
+  graphql:
+    aggregateFieldName: valueDistributionsAggregate
+

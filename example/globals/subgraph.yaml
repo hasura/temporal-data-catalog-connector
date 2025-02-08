@@ -1,0 +1,13 @@
+kind: Subgraph
+version: v2
+definition:
+  name: globals
+  generator:
+    rootPath: .
+  includePaths:
+    - metadata
+  envMapping:
+    ANOMALIES_URL:
+      fromEnv: ANOMALIES_URL
+    M_AUTH_KEY:
+      fromEnv: M_AUTH_KEY

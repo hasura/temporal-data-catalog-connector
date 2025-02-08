@@ -1,0 +1,175 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentBooleanExpressionType
+  fields:
+    - name: graphqlTypeName
+      type: Varchar
+    - name: isNullEnabled
+      type: Bool
+    - name: logicalOpsEnabled
+      type: Bool
+    - name: name
+      type: Varchar
+    - name: scalarType
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: CurrentBooleanExpressionType
+    inputTypeName: CurrentBooleanExpressionTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_boolean_expression_type
+      fieldMapping:
+        graphqlTypeName:
+          column:
+            name: graphql_type_name
+        isNullEnabled:
+          column:
+            name: is_null_enabled
+        logicalOpsEnabled:
+          column:
+            name: logical_ops_enabled
+        name:
+          column:
+            name: name
+        scalarType:
+          column:
+            name: scalar_type
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentBooleanExpressionType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - graphqlTypeName
+          - isNullEnabled
+          - logicalOpsEnabled
+          - name
+          - scalarType
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentBooleanExpressionTypeBoolExp
+  operand:
+    object:
+      type: CurrentBooleanExpressionType
+      comparableFields:
+        - fieldName: graphqlTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: isNullEnabled
+          booleanExpressionType: BoolBoolExp
+        - fieldName: logicalOpsEnabled
+          booleanExpressionType: BoolBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: scalarType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentBooleanExpressionTypeBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentBooleanExpressionTypeAggExp
+  operand:
+    object:
+      aggregatedType: CurrentBooleanExpressionType
+      aggregatableFields:
+        - fieldName: graphqlTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: isNullEnabled
+          aggregateExpression: BoolAggExp
+        - fieldName: logicalOpsEnabled
+          aggregateExpression: BoolAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: scalarType
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentBooleanExpressionTypeAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentBooleanExpressionTypeOrderByExp
+  operand:
+    object:
+      orderedType: CurrentBooleanExpressionType
+      orderableFields:
+        - fieldName: graphqlTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: isNullEnabled
+          orderByExpression: BoolOrderByExp
+        - fieldName: logicalOpsEnabled
+          orderByExpression: BoolOrderByExp
+        - fieldName: name
+          orderByExpression: VarcharOrderByExp
+        - fieldName: scalarType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentBooleanExpressionTypeOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentBooleanExpressionType
+  objectType: CurrentBooleanExpressionType
+  source:
+    dataConnectorName: datamanagement
+    collection: current_boolean_expression_type
+  filterExpressionType: CurrentBooleanExpressionTypeBoolExp
+  aggregateExpression: CurrentBooleanExpressionTypeAggExp
+  orderByExpression: CurrentBooleanExpressionTypeOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentBooleanExpressionType
+      subscription:
+        rootField: currentBooleanExpressionType
+    selectUniques: []
+    filterInputTypeName: CurrentBooleanExpressionTypeFilterInput
+    aggregate:
+      queryRootField: currentBooleanExpressionTypeAggregate
+      subscription:
+        rootField: currentBooleanExpressionTypeAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentBooleanExpressionType
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

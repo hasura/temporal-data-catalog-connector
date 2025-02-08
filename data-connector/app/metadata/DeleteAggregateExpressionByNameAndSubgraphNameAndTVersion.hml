@@ -1,0 +1,81 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteAggregateExpressionByNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_aggregate_expression_by_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[AggregateExpression!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteAggregateExpressionByNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: DeleteAggregateExpressionByNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_aggregate_expression_by_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteAggregateExpressionByNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteAggregateExpressionByNameAndSubgraphNameAndTVersion
+  outputType: DeleteAggregateExpressionByNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: AggregateExpressionBoolExp
+      description: Delete permission predicate over the 'aggregate_expression' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_aggregate_expression_by_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyName: key_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteAggregateExpressionByNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'aggregate_expression' collection using the
+    'name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteAggregateExpressionByNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

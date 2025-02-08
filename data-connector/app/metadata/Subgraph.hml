@@ -1,0 +1,229 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Subgraph
+  fields:
+    - name: description
+      type: Text
+    - name: name
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+  graphql:
+    typeName: Subgraph
+    inputTypeName: SubgraphInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: subgraph
+      fieldMapping:
+        description:
+          column:
+            name: description
+        name:
+          column:
+            name: name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Subgraph
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - description
+          - name
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: SubgraphBoolExp
+  operand:
+    object:
+      type: Subgraph
+      comparableFields:
+        - fieldName: description
+          booleanExpressionType: TextBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: SubgraphBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: SubgraphAggExp
+  operand:
+    object:
+      aggregatedType: Subgraph
+      aggregatableFields:
+        - fieldName: description
+          aggregateExpression: TextAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: SubgraphAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: SubgraphOrderByExp
+  operand:
+    object:
+      orderedType: Subgraph
+      orderableFields:
+        - fieldName: description
+          orderByExpression: TextOrderByExp
+        - fieldName: name
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: SubgraphOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: Subgraph
+  objectType: Subgraph
+  source:
+    dataConnectorName: datamanagement
+    collection: subgraph
+  filterExpressionType: SubgraphBoolExp
+  aggregateExpression: SubgraphAggExp
+  orderByExpression: SubgraphOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: subgraph
+      subscription:
+        rootField: subgraph
+    selectUniques:
+      - queryRootField: subgraphBySubgraphPkey
+        uniqueIdentifier:
+          - name
+          - tVersion
+        subscription:
+          rootField: subgraphBySubgraphPkey
+    filterInputTypeName: SubgraphFilterInput
+    aggregate:
+      queryRootField: subgraphAggregate
+      subscription:
+        rootField: subgraphAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Subgraph
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

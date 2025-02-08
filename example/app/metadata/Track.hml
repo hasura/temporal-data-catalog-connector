@@ -1,0 +1,316 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Track
+  fields:
+    - name: albumId
+      type: Int4
+    - name: bytes
+      type: Int4
+    - name: composer
+      type: Varchar
+    - name: genreId
+      type: Int4
+    - name: mediaTypeId
+      type: Int4!
+    - name: milliseconds
+      type: Int4!
+    - name: name
+      type: Varchar!
+    - name: trackId
+      type: Int4!
+    - name: unitPrice
+      type: Numeric!
+  graphql:
+    typeName: Track
+    inputTypeName: TrackInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: chinook
+      dataConnectorObjectType: track
+      fieldMapping:
+        albumId:
+          column:
+            name: album_id
+        bytes:
+          column:
+            name: bytes
+        composer:
+          column:
+            name: composer
+        genreId:
+          column:
+            name: genre_id
+        mediaTypeId:
+          column:
+            name: media_type_id
+        milliseconds:
+          column:
+            name: milliseconds
+        name:
+          column:
+            name: name
+        trackId:
+          column:
+            name: track_id
+        unitPrice:
+          column:
+            name: unit_price
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Track
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - albumId
+          - bytes
+          - composer
+          - genreId
+          - mediaTypeId
+          - milliseconds
+          - name
+          - trackId
+          - unitPrice
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: TrackBoolExp
+  operand:
+    object:
+      type: Track
+      comparableFields:
+        - fieldName: albumId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: bytes
+          booleanExpressionType: Int4BoolExp
+        - fieldName: composer
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: genreId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: mediaTypeId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: milliseconds
+          booleanExpressionType: Int4BoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: trackId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: unitPrice
+          booleanExpressionType: NumericBoolExp
+      comparableRelationships:
+        - relationshipName: invoiceLines
+        - relationshipName: playlistTracks
+        - relationshipName: album
+        - relationshipName: genre
+        - relationshipName: mediaType
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: TrackBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: TrackAggExp
+  operand:
+    object:
+      aggregatedType: Track
+      aggregatableFields:
+        - fieldName: albumId
+          aggregateExpression: Int4AggExp
+        - fieldName: bytes
+          aggregateExpression: Int4AggExp
+        - fieldName: composer
+          aggregateExpression: VarcharAggExp
+        - fieldName: genreId
+          aggregateExpression: Int4AggExp
+        - fieldName: mediaTypeId
+          aggregateExpression: Int4AggExp
+        - fieldName: milliseconds
+          aggregateExpression: Int4AggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: trackId
+          aggregateExpression: Int4AggExp
+        - fieldName: unitPrice
+          aggregateExpression: NumericAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: TrackAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: Track
+  objectType: Track
+  source:
+    dataConnectorName: chinook
+    collection: track
+  filterExpressionType: TrackBoolExp
+  aggregateExpression: TrackAggExp
+  orderableFields:
+    - fieldName: albumId
+      orderByDirections:
+        enableAll: true
+    - fieldName: bytes
+      orderByDirections:
+        enableAll: true
+    - fieldName: composer
+      orderByDirections:
+        enableAll: true
+    - fieldName: genreId
+      orderByDirections:
+        enableAll: true
+    - fieldName: mediaTypeId
+      orderByDirections:
+        enableAll: true
+    - fieldName: milliseconds
+      orderByDirections:
+        enableAll: true
+    - fieldName: name
+      orderByDirections:
+        enableAll: true
+    - fieldName: trackId
+      orderByDirections:
+        enableAll: true
+    - fieldName: unitPrice
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: track
+      subscription:
+        rootField: track
+    selectUniques:
+      - queryRootField: trackByTrackId
+        uniqueIdentifier:
+          - trackId
+        subscription:
+          rootField: trackByTrackId
+    orderByExpressionType: TrackOrderBy
+    filterInputTypeName: TrackFilterInput
+    aggregate:
+      queryRootField: trackAggregate
+      subscription:
+        rootField: trackAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Track
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: invoiceLines
+  sourceType: Track
+  target:
+    model:
+      name: InvoiceLine
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: InvoiceLineAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: trackId
+      target:
+        modelField:
+          - fieldName: trackId
+  graphql:
+    aggregateFieldName: invoiceLinesAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: playlistTracks
+  sourceType: Track
+  target:
+    model:
+      name: PlaylistTrack
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: PlaylistTrackAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: trackId
+      target:
+        modelField:
+          - fieldName: trackId
+  graphql:
+    aggregateFieldName: playlistTracksAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: album
+  sourceType: Track
+  target:
+    model:
+      name: Album
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: albumId
+      target:
+        modelField:
+          - fieldName: albumId
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: genre
+  sourceType: Track
+  target:
+    model:
+      name: Genre
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: genreId
+      target:
+        modelField:
+          - fieldName: genreId
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: mediaType
+  sourceType: Track
+  target:
+    model:
+      name: MediaType
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: mediaTypeId
+      target:
+        modelField:
+          - fieldName: mediaTypeId
+

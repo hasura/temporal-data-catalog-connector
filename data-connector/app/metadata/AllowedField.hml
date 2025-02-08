@@ -1,0 +1,268 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: AllowedField
+  fields:
+    - name: fieldName
+      type: Varchar!
+    - name: objectTypeName
+      type: Varchar!
+    - name: roleName
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+    - name: typeName
+      type: Varchar!
+  graphql:
+    typeName: AllowedField
+    inputTypeName: AllowedFieldInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: allowed_field
+      fieldMapping:
+        fieldName:
+          column:
+            name: field_name
+        objectTypeName:
+          column:
+            name: object_type_name
+        roleName:
+          column:
+            name: role_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        typeName:
+          column:
+            name: type_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: AllowedField
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - fieldName
+          - objectTypeName
+          - roleName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - typeName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: AllowedFieldBoolExp
+  operand:
+    object:
+      type: AllowedField
+      comparableFields:
+        - fieldName: fieldName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: objectTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: roleName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+        - fieldName: typeName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: AllowedFieldBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: AllowedFieldAggExp
+  operand:
+    object:
+      aggregatedType: AllowedField
+      aggregatableFields:
+        - fieldName: fieldName
+          aggregateExpression: VarcharAggExp
+        - fieldName: objectTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: roleName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+        - fieldName: typeName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: AllowedFieldAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: AllowedFieldOrderByExp
+  operand:
+    object:
+      orderedType: AllowedField
+      orderableFields:
+        - fieldName: fieldName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: objectTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: roleName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+        - fieldName: typeName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: AllowedFieldOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: AllowedField
+  objectType: AllowedField
+  source:
+    dataConnectorName: datamanagement
+    collection: allowed_field
+  filterExpressionType: AllowedFieldBoolExp
+  aggregateExpression: AllowedFieldAggExp
+  orderByExpression: AllowedFieldOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: allowedField
+      subscription:
+        rootField: allowedField
+    selectUniques:
+      - queryRootField: allowedFieldByAllowedFieldPkey
+        uniqueIdentifier:
+          - fieldName
+          - roleName
+          - subgraphName
+          - tVersion
+          - typeName
+        subscription:
+          rootField: allowedFieldByAllowedFieldPkey
+    filterInputTypeName: AllowedFieldFilterInput
+    aggregate:
+      queryRootField: allowedFieldAggregate
+      subscription:
+        rootField: allowedFieldAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: AllowedField
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

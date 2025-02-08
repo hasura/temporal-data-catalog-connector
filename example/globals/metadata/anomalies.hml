@@ -1,0 +1,20 @@
+kind: LifecyclePluginHook
+version: v1
+definition:
+  name: anomalies
+  url:
+    valueFromEnv: ANOMALIES_URL
+  pre: response
+  config:
+    request:
+      headers:
+        forward:
+          - x-hasura-user
+          - x-hasura-role
+        additional:
+          hasura-m-auth:
+            valueFromEnv: M_AUTH_KEY
+      session: {}
+      rawRequest:
+        query: {}
+        variables: {}

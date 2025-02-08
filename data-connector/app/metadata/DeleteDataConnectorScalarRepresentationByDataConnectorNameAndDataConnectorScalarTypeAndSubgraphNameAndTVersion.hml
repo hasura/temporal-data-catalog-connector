@@ -1,0 +1,86 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_data_connector_scalar_representation_by_data_connector_name_and_data_connector_scalar_type_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[DataConnectorScalarRepresentation!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersionResponse
+    inputTypeName: DeleteDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_data_connector_scalar_representation_by_data_connector_name_and_data_connector_scalar_type_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersion
+  outputType: DeleteDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyDataConnectorName
+      type: Varchar!
+    - name: keyDataConnectorScalarType
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: DataConnectorScalarRepresentationBoolExp
+      description: Delete permission predicate over the
+        'data_connector_scalar_representation' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_data_connector_scalar_representation_by_data_connector_name_and_data_connector_scalar_type_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyDataConnectorName: key_data_connector_name
+      keyDataConnectorScalarType: key_data_connector_scalar_type
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'data_connector_scalar_representation'
+    collection using the 'data_connector_name', 'data_connector_scalar_type',
+    'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

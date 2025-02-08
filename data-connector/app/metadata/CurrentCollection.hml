@@ -1,0 +1,187 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentCollection
+  fields:
+    - name: connectorName
+      type: Varchar
+    - name: description
+      type: Text
+    - name: modelName
+      type: Varchar
+    - name: name
+      type: Varchar
+    - name: objectTypeName
+      type: Varchar
+    - name: physicalCollectionName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: CurrentCollection
+    inputTypeName: CurrentCollectionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_collection
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        description:
+          column:
+            name: description
+        modelName:
+          column:
+            name: model_name
+        name:
+          column:
+            name: name
+        objectTypeName:
+          column:
+            name: object_type_name
+        physicalCollectionName:
+          column:
+            name: physical_collection_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentCollection
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - description
+          - modelName
+          - name
+          - objectTypeName
+          - physicalCollectionName
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentCollectionBoolExp
+  operand:
+    object:
+      type: CurrentCollection
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: description
+          booleanExpressionType: TextBoolExp
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: objectTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: physicalCollectionName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentCollectionBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentCollectionAggExp
+  operand:
+    object:
+      aggregatedType: CurrentCollection
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: description
+          aggregateExpression: TextAggExp
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: objectTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: physicalCollectionName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentCollectionAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentCollectionOrderByExp
+  operand:
+    object:
+      orderedType: CurrentCollection
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: description
+          orderByExpression: TextOrderByExp
+        - fieldName: modelName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: name
+          orderByExpression: VarcharOrderByExp
+        - fieldName: objectTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: physicalCollectionName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentCollectionOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentCollection
+  objectType: CurrentCollection
+  source:
+    dataConnectorName: datamanagement
+    collection: current_collection
+  filterExpressionType: CurrentCollectionBoolExp
+  aggregateExpression: CurrentCollectionAggExp
+  orderByExpression: CurrentCollectionOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentCollection
+      subscription:
+        rootField: currentCollection
+    selectUniques: []
+    filterInputTypeName: CurrentCollectionFilterInput
+    aggregate:
+      queryRootField: currentCollectionAggregate
+      subscription:
+        rootField: currentCollectionAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentCollection
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

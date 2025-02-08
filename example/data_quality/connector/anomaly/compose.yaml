@@ -1,0 +1,14 @@
+services:
+  data_quality_anomaly:
+    build:
+      context: .
+      dockerfile: .hasura-connector/Dockerfile.anomaly
+    environment:
+      CONNECTION_URI: $DATA_QUALITY_ANOMALY_CONNECTION_URI
+      HASURA_SERVICE_TOKEN_SECRET: $DATA_QUALITY_ANOMALY_HASURA_SERVICE_TOKEN_SECRET
+      OTEL_EXPORTER_OTLP_ENDPOINT: $DATA_QUALITY_ANOMALY_OTEL_EXPORTER_OTLP_ENDPOINT
+      OTEL_SERVICE_NAME: $DATA_QUALITY_ANOMALY_OTEL_SERVICE_NAME
+    extra_hosts:
+      - local.hasura.dev:host-gateway
+    ports:
+      - 5464:8080

@@ -1,0 +1,676 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlConfigApolloFederation
+  description: Update the 'apollo_federation' column in the 'model_graphql_config'
+    collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlConfigApolloFederation
+    inputTypeName: UpdateColumnModelGraphqlConfigApolloFederationInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_config_apollo_federation
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlConfigApolloFederation
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlConfigArgumentsInputType
+  description: Update the 'arguments_input_type' column in the
+    'model_graphql_config' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlConfigArgumentsInputType
+    inputTypeName: UpdateColumnModelGraphqlConfigArgumentsInputTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_config_arguments_input_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlConfigArgumentsInputType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlConfigFilterInputTypeName
+  description: Update the 'filter_input_type_name' column in the
+    'model_graphql_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlConfigFilterInputTypeName
+    inputTypeName: UpdateColumnModelGraphqlConfigFilterInputTypeNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_config_filter_input_type_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlConfigFilterInputTypeName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlConfigModelName
+  description: Update the 'model_name' column in the 'model_graphql_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlConfigModelName
+    inputTypeName: UpdateColumnModelGraphqlConfigModelNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_config_model_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlConfigModelName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlConfigOrderByExpressionType
+  description: Update the 'order_by_expression_type' column in the
+    'model_graphql_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlConfigOrderByExpressionType
+    inputTypeName: UpdateColumnModelGraphqlConfigOrderByExpressionTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_config_order_by_expression_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlConfigOrderByExpressionType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlConfigSubgraphName
+  description: Update the 'subgraph_name' column in the 'model_graphql_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlConfigSubgraphName
+    inputTypeName: UpdateColumnModelGraphqlConfigSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_config_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlConfigSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlConfigTContentHash
+  description: Update the 't_content_hash' column in the 'model_graphql_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlConfigTContentHash
+    inputTypeName: UpdateColumnModelGraphqlConfigTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_config_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlConfigTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlConfigTCreatedAt
+  description: Update the 't_created_at' column in the 'model_graphql_config' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlConfigTCreatedAt
+    inputTypeName: UpdateColumnModelGraphqlConfigTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_config_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlConfigTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlConfigTDeletedAt
+  description: Update the 't_deleted_at' column in the 'model_graphql_config' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlConfigTDeletedAt
+    inputTypeName: UpdateColumnModelGraphqlConfigTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_config_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlConfigTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlConfigTId
+  description: Update the 't_id' column in the 'model_graphql_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlConfigTId
+    inputTypeName: UpdateColumnModelGraphqlConfigTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_config_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlConfigTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlConfigTIsCurrent
+  description: Update the 't_is_current' column in the 'model_graphql_config' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlConfigTIsCurrent
+    inputTypeName: UpdateColumnModelGraphqlConfigTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_config_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlConfigTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlConfigTIsDeleted
+  description: Update the 't_is_deleted' column in the 'model_graphql_config' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlConfigTIsDeleted
+    inputTypeName: UpdateColumnModelGraphqlConfigTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_config_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlConfigTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlConfigTUpdatedAt
+  description: Update the 't_updated_at' column in the 'model_graphql_config' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlConfigTUpdatedAt
+    inputTypeName: UpdateColumnModelGraphqlConfigTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_config_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlConfigTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnModelGraphqlConfigTVersion
+  description: Update the 't_version' column in the 'model_graphql_config' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnModelGraphqlConfigTVersion
+    inputTypeName: UpdateColumnModelGraphqlConfigTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_model_graphql_config_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnModelGraphqlConfigTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateModelGraphqlConfigByModelNameAndSubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'model_graphql_config' collection
+  fields:
+    - name: apolloFederation
+      type: UpdateColumnModelGraphqlConfigApolloFederation
+      description: Update the 'apollo_federation' column in the 'model_graphql_config'
+        collection.
+    - name: argumentsInputType
+      type: UpdateColumnModelGraphqlConfigArgumentsInputType
+      description: Update the 'arguments_input_type' column in the
+        'model_graphql_config' collection.
+    - name: filterInputTypeName
+      type: UpdateColumnModelGraphqlConfigFilterInputTypeName
+      description: Update the 'filter_input_type_name' column in the
+        'model_graphql_config' collection.
+    - name: modelName
+      type: UpdateColumnModelGraphqlConfigModelName
+      description: Update the 'model_name' column in the 'model_graphql_config' collection.
+    - name: orderByExpressionType
+      type: UpdateColumnModelGraphqlConfigOrderByExpressionType
+      description: Update the 'order_by_expression_type' column in the
+        'model_graphql_config' collection.
+    - name: subgraphName
+      type: UpdateColumnModelGraphqlConfigSubgraphName
+      description: Update the 'subgraph_name' column in the 'model_graphql_config'
+        collection.
+    - name: tContentHash
+      type: UpdateColumnModelGraphqlConfigTContentHash
+      description: Update the 't_content_hash' column in the 'model_graphql_config'
+        collection.
+    - name: tCreatedAt
+      type: UpdateColumnModelGraphqlConfigTCreatedAt
+      description: Update the 't_created_at' column in the 'model_graphql_config'
+        collection.
+    - name: tDeletedAt
+      type: UpdateColumnModelGraphqlConfigTDeletedAt
+      description: Update the 't_deleted_at' column in the 'model_graphql_config'
+        collection.
+    - name: tId
+      type: UpdateColumnModelGraphqlConfigTId
+      description: Update the 't_id' column in the 'model_graphql_config' collection.
+    - name: tIsCurrent
+      type: UpdateColumnModelGraphqlConfigTIsCurrent
+      description: Update the 't_is_current' column in the 'model_graphql_config'
+        collection.
+    - name: tIsDeleted
+      type: UpdateColumnModelGraphqlConfigTIsDeleted
+      description: Update the 't_is_deleted' column in the 'model_graphql_config'
+        collection.
+    - name: tUpdatedAt
+      type: UpdateColumnModelGraphqlConfigTUpdatedAt
+      description: Update the 't_updated_at' column in the 'model_graphql_config'
+        collection.
+    - name: tVersion
+      type: UpdateColumnModelGraphqlConfigTVersion
+      description: Update the 't_version' column in the 'model_graphql_config' collection.
+  graphql:
+    typeName: UpdateModelGraphqlConfigByModelNameAndSubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateModelGraphqlConfigByModelNameAndSubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_model_graphql_config_by_model_name_and_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        apolloFederation:
+          column:
+            name: apollo_federation
+        argumentsInputType:
+          column:
+            name: arguments_input_type
+        filterInputTypeName:
+          column:
+            name: filter_input_type_name
+        modelName:
+          column:
+            name: model_name
+        orderByExpressionType:
+          column:
+            name: order_by_expression_type
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateModelGraphqlConfigByModelNameAndSubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - apolloFederation
+          - argumentsInputType
+          - filterInputTypeName
+          - modelName
+          - orderByExpressionType
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateModelGraphqlConfigByModelNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_model_graphql_config_by_model_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[ModelGraphqlConfig!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateModelGraphqlConfigByModelNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: UpdateModelGraphqlConfigByModelNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_model_graphql_config_by_model_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateModelGraphqlConfigByModelNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateModelGraphqlConfigByModelNameAndSubgraphNameAndTVersion
+  outputType: UpdateModelGraphqlConfigByModelNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyModelName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: ModelGraphqlConfigBoolExp
+      description: Update permission post-condition predicate over the
+        'model_graphql_config' collection
+    - name: preCheck
+      type: ModelGraphqlConfigBoolExp
+      description: Update permission pre-condition predicate over the
+        'model_graphql_config' collection
+    - name: updateColumns
+      type: UpdateModelGraphqlConfigByModelNameAndSubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_model_graphql_config_by_model_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyModelName: key_model_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateModelGraphqlConfigByModelNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'model_graphql_config' collection using the
+    'model_name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateModelGraphqlConfigByModelNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

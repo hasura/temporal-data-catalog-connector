@@ -1,0 +1,138 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentModelObject
+  fields:
+    - name: aggregateExpression
+      type: Varchar
+    - name: description
+      type: Text
+    - name: filterExpressionType
+      type: Varchar
+    - name: globalIdSource
+      type: Bool
+    - name: name
+      type: Varchar
+    - name: objectTypeName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentModelObject
+    inputTypeName: InsertCurrentModelObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_model_object
+      fieldMapping:
+        aggregateExpression:
+          column:
+            name: aggregate_expression
+        description:
+          column:
+            name: description
+        filterExpressionType:
+          column:
+            name: filter_expression_type
+        globalIdSource:
+          column:
+            name: global_id_source
+        name:
+          column:
+            name: name
+        objectTypeName:
+          column:
+            name: object_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentModelObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregateExpression
+          - description
+          - filterExpressionType
+          - globalIdSource
+          - name
+          - objectTypeName
+          - subgraphName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentModelResponse
+  description: Responses from the 'insert_current_model' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentModel!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentModelResponse
+    inputTypeName: InsertCurrentModelResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_model_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentModelResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentModel
+  outputType: InsertCurrentModelResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentModelObject!]!"
+    - name: postCheck
+      type: CurrentModelBoolExp
+      description: Insert permission predicate over the 'current_model' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_model
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentModel
+    rootFieldKind: Mutation
+  description: Insert into the current_model table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentModel
+  permissions:
+    - role: admin
+      allowExecution: true
+

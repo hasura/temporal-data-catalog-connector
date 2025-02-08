@@ -1,0 +1,91 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_filter_operation_by_condition_type_and_model_name_and_operation_name_and_role_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[FilterOperation!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: DeleteFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_filter_operation_by_condition_type_and_model_name_and_operation_name_and_role_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersion
+  outputType: DeleteFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyConditionType
+      type: Varchar!
+    - name: keyModelName
+      type: Varchar!
+    - name: keyOperationName
+      type: Varchar!
+    - name: keyRoleName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: FilterOperationBoolExp
+      description: Delete permission predicate over the 'filter_operation' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_filter_operation_by_condition_type_and_model_name_and_operation_name_and_role_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyConditionType: key_condition_type
+      keyModelName: key_model_name
+      keyOperationName: key_operation_name
+      keyRoleName: key_role_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'filter_operation' collection using the
+    'condition_type', 'model_name', 'operation_name', 'role_name',
+    'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

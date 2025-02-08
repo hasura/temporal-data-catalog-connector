@@ -1,0 +1,362 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: AggregateExpression
+  fields:
+    - name: countDescription
+      type: Text
+    - name: countDistinctDescription
+      type: Text
+    - name: countDistinctEnabled
+      type: Bool
+    - name: countDistinctReturnType
+      type: Varchar
+    - name: countEnabled
+      type: Bool!
+    - name: countReturnType
+      type: Varchar
+    - name: description
+      type: Text
+    - name: graphqlDeprecated
+      type: Bool
+    - name: graphqlSelectTypeName
+      type: Varchar!
+    - name: name
+      type: Varchar!
+    - name: operandObjectAggregateType
+      type: Varchar
+    - name: operandScalarType
+      type: Varchar
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+  graphql:
+    typeName: AggregateExpression
+    inputTypeName: AggregateExpressionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: aggregate_expression
+      fieldMapping:
+        countDescription:
+          column:
+            name: count_description
+        countDistinctDescription:
+          column:
+            name: count_distinct_description
+        countDistinctEnabled:
+          column:
+            name: count_distinct_enabled
+        countDistinctReturnType:
+          column:
+            name: count_distinct_return_type
+        countEnabled:
+          column:
+            name: count_enabled
+        countReturnType:
+          column:
+            name: count_return_type
+        description:
+          column:
+            name: description
+        graphqlDeprecated:
+          column:
+            name: graphql_deprecated
+        graphqlSelectTypeName:
+          column:
+            name: graphql_select_type_name
+        name:
+          column:
+            name: name
+        operandObjectAggregateType:
+          column:
+            name: operand_object_aggregate_type
+        operandScalarType:
+          column:
+            name: operand_scalar_type
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: AggregateExpression
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - countDescription
+          - countDistinctDescription
+          - countDistinctEnabled
+          - countDistinctReturnType
+          - countEnabled
+          - countReturnType
+          - description
+          - graphqlDeprecated
+          - graphqlSelectTypeName
+          - name
+          - operandObjectAggregateType
+          - operandScalarType
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: AggregateExpressionBoolExp
+  operand:
+    object:
+      type: AggregateExpression
+      comparableFields:
+        - fieldName: countDescription
+          booleanExpressionType: TextBoolExp
+        - fieldName: countDistinctDescription
+          booleanExpressionType: TextBoolExp
+        - fieldName: countDistinctEnabled
+          booleanExpressionType: BoolBoolExp
+        - fieldName: countDistinctReturnType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: countEnabled
+          booleanExpressionType: BoolBoolExp
+        - fieldName: countReturnType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: description
+          booleanExpressionType: TextBoolExp
+        - fieldName: graphqlDeprecated
+          booleanExpressionType: BoolBoolExp
+        - fieldName: graphqlSelectTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: operandObjectAggregateType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: operandScalarType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: AggregateExpressionBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: AggregateExpressionAggExp
+  operand:
+    object:
+      aggregatedType: AggregateExpression
+      aggregatableFields:
+        - fieldName: countDescription
+          aggregateExpression: TextAggExp
+        - fieldName: countDistinctDescription
+          aggregateExpression: TextAggExp
+        - fieldName: countDistinctEnabled
+          aggregateExpression: BoolAggExp
+        - fieldName: countDistinctReturnType
+          aggregateExpression: VarcharAggExp
+        - fieldName: countEnabled
+          aggregateExpression: BoolAggExp
+        - fieldName: countReturnType
+          aggregateExpression: VarcharAggExp
+        - fieldName: description
+          aggregateExpression: TextAggExp
+        - fieldName: graphqlDeprecated
+          aggregateExpression: BoolAggExp
+        - fieldName: graphqlSelectTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: operandObjectAggregateType
+          aggregateExpression: VarcharAggExp
+        - fieldName: operandScalarType
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: AggregateExpressionAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: AggregateExpressionOrderByExp
+  operand:
+    object:
+      orderedType: AggregateExpression
+      orderableFields:
+        - fieldName: countDescription
+          orderByExpression: TextOrderByExp
+        - fieldName: countDistinctDescription
+          orderByExpression: TextOrderByExp
+        - fieldName: countDistinctEnabled
+          orderByExpression: BoolOrderByExp
+        - fieldName: countDistinctReturnType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: countEnabled
+          orderByExpression: BoolOrderByExp
+        - fieldName: countReturnType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: description
+          orderByExpression: TextOrderByExp
+        - fieldName: graphqlDeprecated
+          orderByExpression: BoolOrderByExp
+        - fieldName: graphqlSelectTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: name
+          orderByExpression: VarcharOrderByExp
+        - fieldName: operandObjectAggregateType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: operandScalarType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: AggregateExpressionOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: AggregateExpression
+  objectType: AggregateExpression
+  source:
+    dataConnectorName: datamanagement
+    collection: aggregate_expression
+  filterExpressionType: AggregateExpressionBoolExp
+  aggregateExpression: AggregateExpressionAggExp
+  orderByExpression: AggregateExpressionOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: aggregateExpression
+      subscription:
+        rootField: aggregateExpression
+    selectUniques:
+      - queryRootField: aggregateExpressionByAggregateExpressionPkey
+        uniqueIdentifier:
+          - name
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: aggregateExpressionByAggregateExpressionPkey
+    filterInputTypeName: AggregateExpressionFilterInput
+    aggregate:
+      queryRootField: aggregateExpressionAggregate
+      subscription:
+        rootField: aggregateExpressionAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: AggregateExpression
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

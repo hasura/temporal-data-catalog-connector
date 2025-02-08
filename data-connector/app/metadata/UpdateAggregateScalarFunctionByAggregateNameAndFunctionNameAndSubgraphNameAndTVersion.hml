@@ -1,0 +1,687 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateScalarFunctionAggregateName
+  description: Update the 'aggregate_name' column in the
+    'aggregate_scalar_function' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateScalarFunctionAggregateName
+    inputTypeName: UpdateColumnAggregateScalarFunctionAggregateNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_scalar_function_aggregate_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateScalarFunctionAggregateName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateScalarFunctionAggregatedType
+  description: Update the 'aggregated_type' column in the
+    'aggregate_scalar_function' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateScalarFunctionAggregatedType
+    inputTypeName: UpdateColumnAggregateScalarFunctionAggregatedTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_scalar_function_aggregated_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateScalarFunctionAggregatedType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateScalarFunctionDescription
+  description: Update the 'description' column in the 'aggregate_scalar_function' collection
+  fields:
+    - name: set
+      type: Text
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateScalarFunctionDescription
+    inputTypeName: UpdateColumnAggregateScalarFunctionDescriptionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_scalar_function_description
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateScalarFunctionDescription
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateScalarFunctionFunctionName
+  description: Update the 'function_name' column in the
+    'aggregate_scalar_function' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateScalarFunctionFunctionName
+    inputTypeName: UpdateColumnAggregateScalarFunctionFunctionNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_scalar_function_function_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateScalarFunctionFunctionName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateScalarFunctionReturnType
+  description: Update the 'return_type' column in the 'aggregate_scalar_function' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateScalarFunctionReturnType
+    inputTypeName: UpdateColumnAggregateScalarFunctionReturnTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_scalar_function_return_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateScalarFunctionReturnType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateScalarFunctionSubgraphName
+  description: Update the 'subgraph_name' column in the
+    'aggregate_scalar_function' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateScalarFunctionSubgraphName
+    inputTypeName: UpdateColumnAggregateScalarFunctionSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_scalar_function_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateScalarFunctionSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateScalarFunctionTContentHash
+  description: Update the 't_content_hash' column in the
+    'aggregate_scalar_function' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateScalarFunctionTContentHash
+    inputTypeName: UpdateColumnAggregateScalarFunctionTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_scalar_function_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateScalarFunctionTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateScalarFunctionTCreatedAt
+  description: Update the 't_created_at' column in the 'aggregate_scalar_function'
+    collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateScalarFunctionTCreatedAt
+    inputTypeName: UpdateColumnAggregateScalarFunctionTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_scalar_function_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateScalarFunctionTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateScalarFunctionTDeletedAt
+  description: Update the 't_deleted_at' column in the 'aggregate_scalar_function'
+    collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateScalarFunctionTDeletedAt
+    inputTypeName: UpdateColumnAggregateScalarFunctionTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_scalar_function_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateScalarFunctionTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateScalarFunctionTId
+  description: Update the 't_id' column in the 'aggregate_scalar_function' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateScalarFunctionTId
+    inputTypeName: UpdateColumnAggregateScalarFunctionTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_scalar_function_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateScalarFunctionTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateScalarFunctionTIsCurrent
+  description: Update the 't_is_current' column in the 'aggregate_scalar_function'
+    collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateScalarFunctionTIsCurrent
+    inputTypeName: UpdateColumnAggregateScalarFunctionTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_scalar_function_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateScalarFunctionTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateScalarFunctionTIsDeleted
+  description: Update the 't_is_deleted' column in the 'aggregate_scalar_function'
+    collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateScalarFunctionTIsDeleted
+    inputTypeName: UpdateColumnAggregateScalarFunctionTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_scalar_function_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateScalarFunctionTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateScalarFunctionTUpdatedAt
+  description: Update the 't_updated_at' column in the 'aggregate_scalar_function'
+    collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateScalarFunctionTUpdatedAt
+    inputTypeName: UpdateColumnAggregateScalarFunctionTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_scalar_function_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateScalarFunctionTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateScalarFunctionTVersion
+  description: Update the 't_version' column in the 'aggregate_scalar_function' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateScalarFunctionTVersion
+    inputTypeName: UpdateColumnAggregateScalarFunctionTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_scalar_function_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateScalarFunctionTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'aggregate_scalar_function' collection
+  fields:
+    - name: aggregateName
+      type: UpdateColumnAggregateScalarFunctionAggregateName
+      description: Update the 'aggregate_name' column in the
+        'aggregate_scalar_function' collection.
+    - name: aggregatedType
+      type: UpdateColumnAggregateScalarFunctionAggregatedType
+      description: Update the 'aggregated_type' column in the
+        'aggregate_scalar_function' collection.
+    - name: description
+      type: UpdateColumnAggregateScalarFunctionDescription
+      description: Update the 'description' column in the 'aggregate_scalar_function'
+        collection.
+    - name: functionName
+      type: UpdateColumnAggregateScalarFunctionFunctionName
+      description: Update the 'function_name' column in the
+        'aggregate_scalar_function' collection.
+    - name: returnType
+      type: UpdateColumnAggregateScalarFunctionReturnType
+      description: Update the 'return_type' column in the 'aggregate_scalar_function'
+        collection.
+    - name: subgraphName
+      type: UpdateColumnAggregateScalarFunctionSubgraphName
+      description: Update the 'subgraph_name' column in the
+        'aggregate_scalar_function' collection.
+    - name: tContentHash
+      type: UpdateColumnAggregateScalarFunctionTContentHash
+      description: Update the 't_content_hash' column in the
+        'aggregate_scalar_function' collection.
+    - name: tCreatedAt
+      type: UpdateColumnAggregateScalarFunctionTCreatedAt
+      description: Update the 't_created_at' column in the 'aggregate_scalar_function'
+        collection.
+    - name: tDeletedAt
+      type: UpdateColumnAggregateScalarFunctionTDeletedAt
+      description: Update the 't_deleted_at' column in the 'aggregate_scalar_function'
+        collection.
+    - name: tId
+      type: UpdateColumnAggregateScalarFunctionTId
+      description: Update the 't_id' column in the 'aggregate_scalar_function' collection.
+    - name: tIsCurrent
+      type: UpdateColumnAggregateScalarFunctionTIsCurrent
+      description: Update the 't_is_current' column in the 'aggregate_scalar_function'
+        collection.
+    - name: tIsDeleted
+      type: UpdateColumnAggregateScalarFunctionTIsDeleted
+      description: Update the 't_is_deleted' column in the 'aggregate_scalar_function'
+        collection.
+    - name: tUpdatedAt
+      type: UpdateColumnAggregateScalarFunctionTUpdatedAt
+      description: Update the 't_updated_at' column in the 'aggregate_scalar_function'
+        collection.
+    - name: tVersion
+      type: UpdateColumnAggregateScalarFunctionTVersion
+      description: Update the 't_version' column in the 'aggregate_scalar_function'
+        collection.
+  graphql:
+    typeName: UpdateAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_aggregate_scalar_function_by_aggregate_name_and_function_name_and_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        aggregateName:
+          column:
+            name: aggregate_name
+        aggregatedType:
+          column:
+            name: aggregated_type
+        description:
+          column:
+            name: description
+        functionName:
+          column:
+            name: function_name
+        returnType:
+          column:
+            name: return_type
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregateName
+          - aggregatedType
+          - description
+          - functionName
+          - returnType
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_aggregate_scalar_function_by_aggregate_name_and_function_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[AggregateScalarFunction!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: UpdateAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_aggregate_scalar_function_by_aggregate_name_and_function_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersion
+  outputType: UpdateAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyAggregateName
+      type: Varchar!
+    - name: keyFunctionName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: AggregateScalarFunctionBoolExp
+      description: Update permission post-condition predicate over the
+        'aggregate_scalar_function' collection
+    - name: preCheck
+      type: AggregateScalarFunctionBoolExp
+      description: Update permission pre-condition predicate over the
+        'aggregate_scalar_function' collection
+    - name: updateColumns
+      type: UpdateAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_aggregate_scalar_function_by_aggregate_name_and_function_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyAggregateName: key_aggregate_name
+      keyFunctionName: key_function_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'aggregate_scalar_function' collection using
+    the 'aggregate_name', 'function_name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateAggregateScalarFunctionByAggregateNameAndFunctionNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

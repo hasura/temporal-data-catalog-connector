@@ -1,0 +1,127 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentDataConnectorHeaderObject
+  fields:
+    - name: connectorName
+      type: Varchar
+    - name: isResponseHeader
+      type: Bool
+    - name: key
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+    - name: value
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentDataConnectorHeaderObject
+    inputTypeName: InsertCurrentDataConnectorHeaderObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_data_connector_header_object
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        isResponseHeader:
+          column:
+            name: is_response_header
+        key:
+          column:
+            name: key
+        subgraphName:
+          column:
+            name: subgraph_name
+        value:
+          column:
+            name: value
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentDataConnectorHeaderObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - isResponseHeader
+          - key
+          - subgraphName
+          - value
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentDataConnectorHeaderResponse
+  description: Responses from the 'insert_current_data_connector_header' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentDataConnectorHeader!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentDataConnectorHeaderResponse
+    inputTypeName: InsertCurrentDataConnectorHeaderResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_data_connector_header_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentDataConnectorHeaderResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentDataConnectorHeader
+  outputType: InsertCurrentDataConnectorHeaderResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentDataConnectorHeaderObject!]!"
+    - name: postCheck
+      type: CurrentDataConnectorHeaderBoolExp
+      description: Insert permission predicate over the
+        'current_data_connector_header' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_data_connector_header
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentDataConnectorHeader
+    rootFieldKind: Mutation
+  description: Insert into the current_data_connector_header table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentDataConnectorHeader
+  permissions:
+    - role: admin
+      allowExecution: true
+

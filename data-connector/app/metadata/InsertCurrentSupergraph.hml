@@ -1,0 +1,101 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentSupergraphObject
+  fields:
+    - name: name
+      type: Varchar
+    - name: version
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentSupergraphObject
+    inputTypeName: InsertCurrentSupergraphObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_supergraph_object
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentSupergraphObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - name
+          - version
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentSupergraphResponse
+  description: Responses from the 'insert_current_supergraph' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentSupergraph!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentSupergraphResponse
+    inputTypeName: InsertCurrentSupergraphResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_supergraph_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentSupergraphResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentSupergraph
+  outputType: InsertCurrentSupergraphResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentSupergraphObject!]!"
+    - name: postCheck
+      type: CurrentSupergraphBoolExp
+      description: Insert permission predicate over the 'current_supergraph' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_supergraph
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentSupergraph
+    rootFieldKind: Mutation
+  description: Insert into the current_supergraph table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentSupergraph
+  permissions:
+    - role: admin
+      allowExecution: true
+

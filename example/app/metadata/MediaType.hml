@@ -1,0 +1,145 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: MediaType
+  fields:
+    - name: mediaTypeId
+      type: Int4!
+    - name: name
+      type: Varchar
+  graphql:
+    typeName: MediaType
+    inputTypeName: MediaTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: chinook
+      dataConnectorObjectType: media_type
+      fieldMapping:
+        mediaTypeId:
+          column:
+            name: media_type_id
+        name:
+          column:
+            name: name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: MediaType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - mediaTypeId
+          - name
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: MediaTypeBoolExp
+  operand:
+    object:
+      type: MediaType
+      comparableFields:
+        - fieldName: mediaTypeId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships:
+        - relationshipName: tracks
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: MediaTypeBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: MediaTypeAggExp
+  operand:
+    object:
+      aggregatedType: MediaType
+      aggregatableFields:
+        - fieldName: mediaTypeId
+          aggregateExpression: Int4AggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: MediaTypeAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: MediaType
+  objectType: MediaType
+  source:
+    dataConnectorName: chinook
+    collection: media_type
+  filterExpressionType: MediaTypeBoolExp
+  aggregateExpression: MediaTypeAggExp
+  orderableFields:
+    - fieldName: mediaTypeId
+      orderByDirections:
+        enableAll: true
+    - fieldName: name
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: mediaType
+      subscription:
+        rootField: mediaType
+    selectUniques:
+      - queryRootField: mediaTypeByMediaTypeId
+        uniqueIdentifier:
+          - mediaTypeId
+        subscription:
+          rootField: mediaTypeByMediaTypeId
+    orderByExpressionType: MediaTypeOrderBy
+    filterInputTypeName: MediaTypeFilterInput
+    aggregate:
+      queryRootField: mediaTypeAggregate
+      subscription:
+        rootField: mediaTypeAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: MediaType
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: tracks
+  sourceType: MediaType
+  target:
+    model:
+      name: Track
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: TrackAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: mediaTypeId
+      target:
+        modelField:
+          - fieldName: mediaTypeId
+  graphql:
+    aggregateFieldName: tracksAggregate
+

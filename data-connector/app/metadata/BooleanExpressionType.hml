@@ -1,0 +1,278 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: BooleanExpressionType
+  fields:
+    - name: graphqlTypeName
+      type: Varchar
+    - name: isNullEnabled
+      type: Bool!
+    - name: logicalOpsEnabled
+      type: Bool!
+    - name: name
+      type: Varchar!
+    - name: scalarType
+      type: Varchar
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+  graphql:
+    typeName: BooleanExpressionType
+    inputTypeName: BooleanExpressionTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: boolean_expression_type
+      fieldMapping:
+        graphqlTypeName:
+          column:
+            name: graphql_type_name
+        isNullEnabled:
+          column:
+            name: is_null_enabled
+        logicalOpsEnabled:
+          column:
+            name: logical_ops_enabled
+        name:
+          column:
+            name: name
+        scalarType:
+          column:
+            name: scalar_type
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: BooleanExpressionType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - graphqlTypeName
+          - isNullEnabled
+          - logicalOpsEnabled
+          - name
+          - scalarType
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: BooleanExpressionTypeBoolExp
+  operand:
+    object:
+      type: BooleanExpressionType
+      comparableFields:
+        - fieldName: graphqlTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: isNullEnabled
+          booleanExpressionType: BoolBoolExp
+        - fieldName: logicalOpsEnabled
+          booleanExpressionType: BoolBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: scalarType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: BooleanExpressionTypeBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: BooleanExpressionTypeAggExp
+  operand:
+    object:
+      aggregatedType: BooleanExpressionType
+      aggregatableFields:
+        - fieldName: graphqlTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: isNullEnabled
+          aggregateExpression: BoolAggExp
+        - fieldName: logicalOpsEnabled
+          aggregateExpression: BoolAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: scalarType
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: BooleanExpressionTypeAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: BooleanExpressionTypeOrderByExp
+  operand:
+    object:
+      orderedType: BooleanExpressionType
+      orderableFields:
+        - fieldName: graphqlTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: isNullEnabled
+          orderByExpression: BoolOrderByExp
+        - fieldName: logicalOpsEnabled
+          orderByExpression: BoolOrderByExp
+        - fieldName: name
+          orderByExpression: VarcharOrderByExp
+        - fieldName: scalarType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: BooleanExpressionTypeOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: BooleanExpressionType
+  objectType: BooleanExpressionType
+  source:
+    dataConnectorName: datamanagement
+    collection: boolean_expression_type
+  filterExpressionType: BooleanExpressionTypeBoolExp
+  aggregateExpression: BooleanExpressionTypeAggExp
+  orderByExpression: BooleanExpressionTypeOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: booleanExpressionType
+      subscription:
+        rootField: booleanExpressionType
+    selectUniques:
+      - queryRootField: booleanExpressionTypeByBooleanExpressionTypePkey
+        uniqueIdentifier:
+          - name
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: booleanExpressionTypeByBooleanExpressionTypePkey
+    filterInputTypeName: BooleanExpressionTypeFilterInput
+    aggregate:
+      queryRootField: booleanExpressionTypeAggregate
+      subscription:
+        rootField: booleanExpressionTypeAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: BooleanExpressionType
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

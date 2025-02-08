@@ -1,0 +1,960 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionCountDescription
+  description: Update the 'count_description' column in the 'aggregate_expression'
+    collection
+  fields:
+    - name: set
+      type: Text
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionCountDescription
+    inputTypeName: UpdateColumnAggregateExpressionCountDescriptionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_count_description
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionCountDescription
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionCountDistinctDescription
+  description: Update the 'count_distinct_description' column in the
+    'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Text
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionCountDistinctDescription
+    inputTypeName: UpdateColumnAggregateExpressionCountDistinctDescriptionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_count_distinct_description
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionCountDistinctDescription
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionCountDistinctEnabled
+  description: Update the 'count_distinct_enabled' column in the
+    'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Bool
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionCountDistinctEnabled
+    inputTypeName: UpdateColumnAggregateExpressionCountDistinctEnabledInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_count_distinct_enabled
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionCountDistinctEnabled
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionCountDistinctReturnType
+  description: Update the 'count_distinct_return_type' column in the
+    'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionCountDistinctReturnType
+    inputTypeName: UpdateColumnAggregateExpressionCountDistinctReturnTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_count_distinct_return_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionCountDistinctReturnType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionCountEnabled
+  description: Update the 'count_enabled' column in the 'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionCountEnabled
+    inputTypeName: UpdateColumnAggregateExpressionCountEnabledInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_count_enabled
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionCountEnabled
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionCountReturnType
+  description: Update the 'count_return_type' column in the 'aggregate_expression'
+    collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionCountReturnType
+    inputTypeName: UpdateColumnAggregateExpressionCountReturnTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_count_return_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionCountReturnType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionDescription
+  description: Update the 'description' column in the 'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Text
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionDescription
+    inputTypeName: UpdateColumnAggregateExpressionDescriptionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_description
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionDescription
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionGraphqlDeprecated
+  description: Update the 'graphql_deprecated' column in the
+    'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Bool
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionGraphqlDeprecated
+    inputTypeName: UpdateColumnAggregateExpressionGraphqlDeprecatedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_graphql_deprecated
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionGraphqlDeprecated
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionGraphqlSelectTypeName
+  description: Update the 'graphql_select_type_name' column in the
+    'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionGraphqlSelectTypeName
+    inputTypeName: UpdateColumnAggregateExpressionGraphqlSelectTypeNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_graphql_select_type_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionGraphqlSelectTypeName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionName
+  description: Update the 'name' column in the 'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionName
+    inputTypeName: UpdateColumnAggregateExpressionNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionOperandObjectAggregateType
+  description: Update the 'operand_object_aggregate_type' column in the
+    'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionOperandObjectAggregateType
+    inputTypeName: UpdateColumnAggregateExpressionOperandObjectAggregateTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_operand_object_aggregate_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionOperandObjectAggregateType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionOperandScalarType
+  description: Update the 'operand_scalar_type' column in the
+    'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionOperandScalarType
+    inputTypeName: UpdateColumnAggregateExpressionOperandScalarTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_operand_scalar_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionOperandScalarType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionSubgraphName
+  description: Update the 'subgraph_name' column in the 'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionSubgraphName
+    inputTypeName: UpdateColumnAggregateExpressionSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionTContentHash
+  description: Update the 't_content_hash' column in the 'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionTContentHash
+    inputTypeName: UpdateColumnAggregateExpressionTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionTCreatedAt
+  description: Update the 't_created_at' column in the 'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionTCreatedAt
+    inputTypeName: UpdateColumnAggregateExpressionTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionTDeletedAt
+  description: Update the 't_deleted_at' column in the 'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionTDeletedAt
+    inputTypeName: UpdateColumnAggregateExpressionTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionTId
+  description: Update the 't_id' column in the 'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionTId
+    inputTypeName: UpdateColumnAggregateExpressionTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionTIsCurrent
+  description: Update the 't_is_current' column in the 'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionTIsCurrent
+    inputTypeName: UpdateColumnAggregateExpressionTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionTIsDeleted
+  description: Update the 't_is_deleted' column in the 'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionTIsDeleted
+    inputTypeName: UpdateColumnAggregateExpressionTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionTUpdatedAt
+  description: Update the 't_updated_at' column in the 'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionTUpdatedAt
+    inputTypeName: UpdateColumnAggregateExpressionTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAggregateExpressionTVersion
+  description: Update the 't_version' column in the 'aggregate_expression' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAggregateExpressionTVersion
+    inputTypeName: UpdateColumnAggregateExpressionTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_aggregate_expression_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAggregateExpressionTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateAggregateExpressionByNameAndSubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'aggregate_expression' collection
+  fields:
+    - name: countDescription
+      type: UpdateColumnAggregateExpressionCountDescription
+      description: Update the 'count_description' column in the 'aggregate_expression'
+        collection.
+    - name: countDistinctDescription
+      type: UpdateColumnAggregateExpressionCountDistinctDescription
+      description: Update the 'count_distinct_description' column in the
+        'aggregate_expression' collection.
+    - name: countDistinctEnabled
+      type: UpdateColumnAggregateExpressionCountDistinctEnabled
+      description: Update the 'count_distinct_enabled' column in the
+        'aggregate_expression' collection.
+    - name: countDistinctReturnType
+      type: UpdateColumnAggregateExpressionCountDistinctReturnType
+      description: Update the 'count_distinct_return_type' column in the
+        'aggregate_expression' collection.
+    - name: countEnabled
+      type: UpdateColumnAggregateExpressionCountEnabled
+      description: Update the 'count_enabled' column in the 'aggregate_expression'
+        collection.
+    - name: countReturnType
+      type: UpdateColumnAggregateExpressionCountReturnType
+      description: Update the 'count_return_type' column in the 'aggregate_expression'
+        collection.
+    - name: description
+      type: UpdateColumnAggregateExpressionDescription
+      description: Update the 'description' column in the 'aggregate_expression' collection.
+    - name: graphqlDeprecated
+      type: UpdateColumnAggregateExpressionGraphqlDeprecated
+      description: Update the 'graphql_deprecated' column in the
+        'aggregate_expression' collection.
+    - name: graphqlSelectTypeName
+      type: UpdateColumnAggregateExpressionGraphqlSelectTypeName
+      description: Update the 'graphql_select_type_name' column in the
+        'aggregate_expression' collection.
+    - name: name
+      type: UpdateColumnAggregateExpressionName
+      description: Update the 'name' column in the 'aggregate_expression' collection.
+    - name: operandObjectAggregateType
+      type: UpdateColumnAggregateExpressionOperandObjectAggregateType
+      description: Update the 'operand_object_aggregate_type' column in the
+        'aggregate_expression' collection.
+    - name: operandScalarType
+      type: UpdateColumnAggregateExpressionOperandScalarType
+      description: Update the 'operand_scalar_type' column in the
+        'aggregate_expression' collection.
+    - name: subgraphName
+      type: UpdateColumnAggregateExpressionSubgraphName
+      description: Update the 'subgraph_name' column in the 'aggregate_expression'
+        collection.
+    - name: tContentHash
+      type: UpdateColumnAggregateExpressionTContentHash
+      description: Update the 't_content_hash' column in the 'aggregate_expression'
+        collection.
+    - name: tCreatedAt
+      type: UpdateColumnAggregateExpressionTCreatedAt
+      description: Update the 't_created_at' column in the 'aggregate_expression'
+        collection.
+    - name: tDeletedAt
+      type: UpdateColumnAggregateExpressionTDeletedAt
+      description: Update the 't_deleted_at' column in the 'aggregate_expression'
+        collection.
+    - name: tId
+      type: UpdateColumnAggregateExpressionTId
+      description: Update the 't_id' column in the 'aggregate_expression' collection.
+    - name: tIsCurrent
+      type: UpdateColumnAggregateExpressionTIsCurrent
+      description: Update the 't_is_current' column in the 'aggregate_expression'
+        collection.
+    - name: tIsDeleted
+      type: UpdateColumnAggregateExpressionTIsDeleted
+      description: Update the 't_is_deleted' column in the 'aggregate_expression'
+        collection.
+    - name: tUpdatedAt
+      type: UpdateColumnAggregateExpressionTUpdatedAt
+      description: Update the 't_updated_at' column in the 'aggregate_expression'
+        collection.
+    - name: tVersion
+      type: UpdateColumnAggregateExpressionTVersion
+      description: Update the 't_version' column in the 'aggregate_expression' collection.
+  graphql:
+    typeName: UpdateAggregateExpressionByNameAndSubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateAggregateExpressionByNameAndSubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_aggregate_expression_by_name_and_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        countDescription:
+          column:
+            name: count_description
+        countDistinctDescription:
+          column:
+            name: count_distinct_description
+        countDistinctEnabled:
+          column:
+            name: count_distinct_enabled
+        countDistinctReturnType:
+          column:
+            name: count_distinct_return_type
+        countEnabled:
+          column:
+            name: count_enabled
+        countReturnType:
+          column:
+            name: count_return_type
+        description:
+          column:
+            name: description
+        graphqlDeprecated:
+          column:
+            name: graphql_deprecated
+        graphqlSelectTypeName:
+          column:
+            name: graphql_select_type_name
+        name:
+          column:
+            name: name
+        operandObjectAggregateType:
+          column:
+            name: operand_object_aggregate_type
+        operandScalarType:
+          column:
+            name: operand_scalar_type
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateAggregateExpressionByNameAndSubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - countDescription
+          - countDistinctDescription
+          - countDistinctEnabled
+          - countDistinctReturnType
+          - countEnabled
+          - countReturnType
+          - description
+          - graphqlDeprecated
+          - graphqlSelectTypeName
+          - name
+          - operandObjectAggregateType
+          - operandScalarType
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateAggregateExpressionByNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_aggregate_expression_by_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[AggregateExpression!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateAggregateExpressionByNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: UpdateAggregateExpressionByNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_aggregate_expression_by_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateAggregateExpressionByNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateAggregateExpressionByNameAndSubgraphNameAndTVersion
+  outputType: UpdateAggregateExpressionByNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: AggregateExpressionBoolExp
+      description: Update permission post-condition predicate over the
+        'aggregate_expression' collection
+    - name: preCheck
+      type: AggregateExpressionBoolExp
+      description: Update permission pre-condition predicate over the
+        'aggregate_expression' collection
+    - name: updateColumns
+      type: UpdateAggregateExpressionByNameAndSubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_aggregate_expression_by_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyName: key_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateAggregateExpressionByNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'aggregate_expression' collection using the
+    'name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateAggregateExpressionByNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

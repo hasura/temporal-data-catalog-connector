@@ -1,0 +1,498 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSubgraphDescription
+  description: Update the 'description' column in the 'subgraph' collection
+  fields:
+    - name: set
+      type: Text
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSubgraphDescription
+    inputTypeName: UpdateColumnSubgraphDescriptionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_subgraph_description
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSubgraphDescription
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSubgraphName
+  description: Update the 'name' column in the 'subgraph' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSubgraphName
+    inputTypeName: UpdateColumnSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSubgraphTContentHash
+  description: Update the 't_content_hash' column in the 'subgraph' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSubgraphTContentHash
+    inputTypeName: UpdateColumnSubgraphTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_subgraph_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSubgraphTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSubgraphTCreatedAt
+  description: Update the 't_created_at' column in the 'subgraph' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSubgraphTCreatedAt
+    inputTypeName: UpdateColumnSubgraphTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_subgraph_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSubgraphTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSubgraphTDeletedAt
+  description: Update the 't_deleted_at' column in the 'subgraph' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSubgraphTDeletedAt
+    inputTypeName: UpdateColumnSubgraphTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_subgraph_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSubgraphTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSubgraphTId
+  description: Update the 't_id' column in the 'subgraph' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSubgraphTId
+    inputTypeName: UpdateColumnSubgraphTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_subgraph_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSubgraphTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSubgraphTIsCurrent
+  description: Update the 't_is_current' column in the 'subgraph' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSubgraphTIsCurrent
+    inputTypeName: UpdateColumnSubgraphTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_subgraph_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSubgraphTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSubgraphTIsDeleted
+  description: Update the 't_is_deleted' column in the 'subgraph' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSubgraphTIsDeleted
+    inputTypeName: UpdateColumnSubgraphTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_subgraph_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSubgraphTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSubgraphTUpdatedAt
+  description: Update the 't_updated_at' column in the 'subgraph' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSubgraphTUpdatedAt
+    inputTypeName: UpdateColumnSubgraphTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_subgraph_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSubgraphTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnSubgraphTVersion
+  description: Update the 't_version' column in the 'subgraph' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnSubgraphTVersion
+    inputTypeName: UpdateColumnSubgraphTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_subgraph_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnSubgraphTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateSubgraphByNameAndTVersionUpdateColumns
+  description: Update the columns of the 'subgraph' collection
+  fields:
+    - name: description
+      type: UpdateColumnSubgraphDescription
+      description: Update the 'description' column in the 'subgraph' collection.
+    - name: name
+      type: UpdateColumnSubgraphName
+      description: Update the 'name' column in the 'subgraph' collection.
+    - name: tContentHash
+      type: UpdateColumnSubgraphTContentHash
+      description: Update the 't_content_hash' column in the 'subgraph' collection.
+    - name: tCreatedAt
+      type: UpdateColumnSubgraphTCreatedAt
+      description: Update the 't_created_at' column in the 'subgraph' collection.
+    - name: tDeletedAt
+      type: UpdateColumnSubgraphTDeletedAt
+      description: Update the 't_deleted_at' column in the 'subgraph' collection.
+    - name: tId
+      type: UpdateColumnSubgraphTId
+      description: Update the 't_id' column in the 'subgraph' collection.
+    - name: tIsCurrent
+      type: UpdateColumnSubgraphTIsCurrent
+      description: Update the 't_is_current' column in the 'subgraph' collection.
+    - name: tIsDeleted
+      type: UpdateColumnSubgraphTIsDeleted
+      description: Update the 't_is_deleted' column in the 'subgraph' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnSubgraphTUpdatedAt
+      description: Update the 't_updated_at' column in the 'subgraph' collection.
+    - name: tVersion
+      type: UpdateColumnSubgraphTVersion
+      description: Update the 't_version' column in the 'subgraph' collection.
+  graphql:
+    typeName: UpdateSubgraphByNameAndTVersionUpdateColumns
+    inputTypeName: UpdateSubgraphByNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_subgraph_by_name_and_t_version_update_columns
+      fieldMapping:
+        description:
+          column:
+            name: description
+        name:
+          column:
+            name: name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateSubgraphByNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - description
+          - name
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateSubgraphByNameAndTVersionResponse
+  description: Responses from the 'update_subgraph_by_name_and_t_version' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[Subgraph!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateSubgraphByNameAndTVersionResponse
+    inputTypeName: UpdateSubgraphByNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_subgraph_by_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateSubgraphByNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateSubgraphByNameAndTVersion
+  outputType: UpdateSubgraphByNameAndTVersionResponse!
+  arguments:
+    - name: keyName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: SubgraphBoolExp
+      description: Update permission post-condition predicate over the 'subgraph' collection
+    - name: preCheck
+      type: SubgraphBoolExp
+      description: Update permission pre-condition predicate over the 'subgraph' collection
+    - name: updateColumns
+      type: UpdateSubgraphByNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_subgraph_by_name_and_t_version
+    argumentMapping:
+      keyName: key_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateSubgraphByNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'subgraph' collection using the 'name' and
+    't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateSubgraphByNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

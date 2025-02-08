@@ -1,0 +1,151 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentEnumValue
+  fields:
+    - name: connectorName
+      type: Varchar
+    - name: repName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+    - name: value
+      type: Varchar
+  graphql:
+    typeName: CurrentEnumValue
+    inputTypeName: CurrentEnumValueInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_enum_value
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        repName:
+          column:
+            name: rep_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        value:
+          column:
+            name: value
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentEnumValue
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - repName
+          - subgraphName
+          - value
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentEnumValueBoolExp
+  operand:
+    object:
+      type: CurrentEnumValue
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: repName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: value
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentEnumValueBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentEnumValueAggExp
+  operand:
+    object:
+      aggregatedType: CurrentEnumValue
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: repName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: value
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentEnumValueAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentEnumValueOrderByExp
+  operand:
+    object:
+      orderedType: CurrentEnumValue
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: repName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: value
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentEnumValueOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentEnumValue
+  objectType: CurrentEnumValue
+  source:
+    dataConnectorName: datamanagement
+    collection: current_enum_value
+  filterExpressionType: CurrentEnumValueBoolExp
+  aggregateExpression: CurrentEnumValueAggExp
+  orderByExpression: CurrentEnumValueOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentEnumValue
+      subscription:
+        rootField: currentEnumValue
+    selectUniques: []
+    filterInputTypeName: CurrentEnumValueFilterInput
+    aggregate:
+      queryRootField: currentEnumValueAggregate
+      subscription:
+        rootField: currentEnumValueAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentEnumValue
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

@@ -1,0 +1,704 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTargetModelIsCommand
+  description: Update the 'is_command' column in the 'target_model' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTargetModelIsCommand
+    inputTypeName: UpdateColumnTargetModelIsCommandInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_target_model_is_command
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTargetModelIsCommand
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTargetModelName
+  description: Update the 'name' column in the 'target_model' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTargetModelName
+    inputTypeName: UpdateColumnTargetModelNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_target_model_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTargetModelName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTargetModelRelationshipName
+  description: Update the 'relationship_name' column in the 'target_model' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTargetModelRelationshipName
+    inputTypeName: UpdateColumnTargetModelRelationshipNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_target_model_relationship_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTargetModelRelationshipName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTargetModelRelationshipType
+  description: Update the 'relationship_type' column in the 'target_model' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTargetModelRelationshipType
+    inputTypeName: UpdateColumnTargetModelRelationshipTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_target_model_relationship_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTargetModelRelationshipType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTargetModelSourceTypeName
+  description: Update the 'source_type_name' column in the 'target_model' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTargetModelSourceTypeName
+    inputTypeName: UpdateColumnTargetModelSourceTypeNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_target_model_source_type_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTargetModelSourceTypeName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTargetModelSubgraphName
+  description: Update the 'subgraph_name' column in the 'target_model' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTargetModelSubgraphName
+    inputTypeName: UpdateColumnTargetModelSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_target_model_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTargetModelSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTargetModelTContentHash
+  description: Update the 't_content_hash' column in the 'target_model' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTargetModelTContentHash
+    inputTypeName: UpdateColumnTargetModelTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_target_model_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTargetModelTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTargetModelTCreatedAt
+  description: Update the 't_created_at' column in the 'target_model' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTargetModelTCreatedAt
+    inputTypeName: UpdateColumnTargetModelTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_target_model_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTargetModelTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTargetModelTDeletedAt
+  description: Update the 't_deleted_at' column in the 'target_model' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTargetModelTDeletedAt
+    inputTypeName: UpdateColumnTargetModelTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_target_model_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTargetModelTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTargetModelTId
+  description: Update the 't_id' column in the 'target_model' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTargetModelTId
+    inputTypeName: UpdateColumnTargetModelTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_target_model_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTargetModelTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTargetModelTIsCurrent
+  description: Update the 't_is_current' column in the 'target_model' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTargetModelTIsCurrent
+    inputTypeName: UpdateColumnTargetModelTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_target_model_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTargetModelTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTargetModelTIsDeleted
+  description: Update the 't_is_deleted' column in the 'target_model' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTargetModelTIsDeleted
+    inputTypeName: UpdateColumnTargetModelTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_target_model_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTargetModelTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTargetModelTUpdatedAt
+  description: Update the 't_updated_at' column in the 'target_model' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTargetModelTUpdatedAt
+    inputTypeName: UpdateColumnTargetModelTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_target_model_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTargetModelTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTargetModelTVersion
+  description: Update the 't_version' column in the 'target_model' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTargetModelTVersion
+    inputTypeName: UpdateColumnTargetModelTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_target_model_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTargetModelTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTargetModelTargetSubgraph
+  description: Update the 'target_subgraph' column in the 'target_model' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTargetModelTargetSubgraph
+    inputTypeName: UpdateColumnTargetModelTargetSubgraphInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_target_model_target_subgraph
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTargetModelTargetSubgraph
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateTargetModelByRelationshipNameAndSourceTypeNameAndSubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'target_model' collection
+  fields:
+    - name: isCommand
+      type: UpdateColumnTargetModelIsCommand
+      description: Update the 'is_command' column in the 'target_model' collection.
+    - name: name
+      type: UpdateColumnTargetModelName
+      description: Update the 'name' column in the 'target_model' collection.
+    - name: relationshipName
+      type: UpdateColumnTargetModelRelationshipName
+      description: Update the 'relationship_name' column in the 'target_model' collection.
+    - name: relationshipType
+      type: UpdateColumnTargetModelRelationshipType
+      description: Update the 'relationship_type' column in the 'target_model' collection.
+    - name: sourceTypeName
+      type: UpdateColumnTargetModelSourceTypeName
+      description: Update the 'source_type_name' column in the 'target_model' collection.
+    - name: subgraphName
+      type: UpdateColumnTargetModelSubgraphName
+      description: Update the 'subgraph_name' column in the 'target_model' collection.
+    - name: tContentHash
+      type: UpdateColumnTargetModelTContentHash
+      description: Update the 't_content_hash' column in the 'target_model' collection.
+    - name: tCreatedAt
+      type: UpdateColumnTargetModelTCreatedAt
+      description: Update the 't_created_at' column in the 'target_model' collection.
+    - name: tDeletedAt
+      type: UpdateColumnTargetModelTDeletedAt
+      description: Update the 't_deleted_at' column in the 'target_model' collection.
+    - name: tId
+      type: UpdateColumnTargetModelTId
+      description: Update the 't_id' column in the 'target_model' collection.
+    - name: tIsCurrent
+      type: UpdateColumnTargetModelTIsCurrent
+      description: Update the 't_is_current' column in the 'target_model' collection.
+    - name: tIsDeleted
+      type: UpdateColumnTargetModelTIsDeleted
+      description: Update the 't_is_deleted' column in the 'target_model' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnTargetModelTUpdatedAt
+      description: Update the 't_updated_at' column in the 'target_model' collection.
+    - name: tVersion
+      type: UpdateColumnTargetModelTVersion
+      description: Update the 't_version' column in the 'target_model' collection.
+    - name: targetSubgraph
+      type: UpdateColumnTargetModelTargetSubgraph
+      description: Update the 'target_subgraph' column in the 'target_model' collection.
+  graphql:
+    typeName: UpdateTargetModelByRelationshipNameAndSourceTypeNameAndSubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateTargetModelByRelationshipNameAndSourceTypeNameAndSubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_target_model_by_relationship_name_and_source_type_name_and_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        isCommand:
+          column:
+            name: is_command
+        name:
+          column:
+            name: name
+        relationshipName:
+          column:
+            name: relationship_name
+        relationshipType:
+          column:
+            name: relationship_type
+        sourceTypeName:
+          column:
+            name: source_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        targetSubgraph:
+          column:
+            name: target_subgraph
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateTargetModelByRelationshipNameAndSourceTypeNameAndSubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - isCommand
+          - name
+          - relationshipName
+          - relationshipType
+          - sourceTypeName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - targetSubgraph
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateTargetModelByRelationshipNameAndSourceTypeNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_target_model_by_relationship_name_and_source_type_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[TargetModel!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateTargetModelByRelationshipNameAndSourceTypeNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: UpdateTargetModelByRelationshipNameAndSourceTypeNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_target_model_by_relationship_name_and_source_type_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateTargetModelByRelationshipNameAndSourceTypeNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateTargetModelByRelationshipNameAndSourceTypeNameAndSubgraphNameAndTVersion
+  outputType: UpdateTargetModelByRelationshipNameAndSourceTypeNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyRelationshipName
+      type: Varchar!
+    - name: keySourceTypeName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: TargetModelBoolExp
+      description: Update permission post-condition predicate over the 'target_model'
+        collection
+    - name: preCheck
+      type: TargetModelBoolExp
+      description: Update permission pre-condition predicate over the 'target_model'
+        collection
+    - name: updateColumns
+      type: UpdateTargetModelByRelationshipNameAndSourceTypeNameAndSubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_target_model_by_relationship_name_and_source_type_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyRelationshipName: key_relationship_name
+      keySourceTypeName: key_source_type_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateTargetModelByRelationshipNameAndSourceTypeNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'target_model' collection using the
+    'relationship_name', 'source_type_name', 'subgraph_name' and 't_version'
+    keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateTargetModelByRelationshipNameAndSourceTypeNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

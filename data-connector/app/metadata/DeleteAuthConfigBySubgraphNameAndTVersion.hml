@@ -1,0 +1,77 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteAuthConfigBySubgraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_auth_config_by_subgraph_name_and_t_version' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[AuthConfig!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteAuthConfigBySubgraphNameAndTVersionResponse
+    inputTypeName: DeleteAuthConfigBySubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_auth_config_by_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteAuthConfigBySubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteAuthConfigBySubgraphNameAndTVersion
+  outputType: DeleteAuthConfigBySubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: AuthConfigBoolExp
+      description: Delete permission predicate over the 'auth_config' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_auth_config_by_subgraph_name_and_t_version
+    argumentMapping:
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteAuthConfigBySubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'auth_config' collection using the
+    'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteAuthConfigBySubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

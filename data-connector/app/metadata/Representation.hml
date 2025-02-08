@@ -1,0 +1,255 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Representation
+  fields:
+    - name: connectorName
+      type: Varchar!
+    - name: name
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+    - name: type
+      type: Varchar!
+  graphql:
+    typeName: Representation
+    inputTypeName: RepresentationInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: representation
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        name:
+          column:
+            name: name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        type:
+          column:
+            name: type
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Representation
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - name
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - type
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: RepresentationBoolExp
+  operand:
+    object:
+      type: Representation
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+        - fieldName: type
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: RepresentationBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: RepresentationAggExp
+  operand:
+    object:
+      aggregatedType: Representation
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+        - fieldName: type
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: RepresentationAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: RepresentationOrderByExp
+  operand:
+    object:
+      orderedType: Representation
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: name
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+        - fieldName: type
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: RepresentationOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: Representation
+  objectType: Representation
+  source:
+    dataConnectorName: datamanagement
+    collection: representation
+  filterExpressionType: RepresentationBoolExp
+  aggregateExpression: RepresentationAggExp
+  orderByExpression: RepresentationOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: representation
+      subscription:
+        rootField: representation
+    selectUniques:
+      - queryRootField: representationByRepresentationPkey
+        uniqueIdentifier:
+          - connectorName
+          - name
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: representationByRepresentationPkey
+    filterInputTypeName: RepresentationFilterInput
+    aggregate:
+      queryRootField: representationAggregate
+      subscription:
+        rootField: representationAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Representation
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

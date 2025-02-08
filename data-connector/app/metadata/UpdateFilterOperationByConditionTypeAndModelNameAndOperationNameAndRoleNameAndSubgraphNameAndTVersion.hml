@@ -1,0 +1,671 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnFilterOperationConditionType
+  description: Update the 'condition_type' column in the 'filter_operation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnFilterOperationConditionType
+    inputTypeName: UpdateColumnFilterOperationConditionTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_filter_operation_condition_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnFilterOperationConditionType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnFilterOperationModelName
+  description: Update the 'model_name' column in the 'filter_operation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnFilterOperationModelName
+    inputTypeName: UpdateColumnFilterOperationModelNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_filter_operation_model_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnFilterOperationModelName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnFilterOperationOperationName
+  description: Update the 'operation_name' column in the 'filter_operation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnFilterOperationOperationName
+    inputTypeName: UpdateColumnFilterOperationOperationNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_filter_operation_operation_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnFilterOperationOperationName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnFilterOperationOperator
+  description: Update the 'operator' column in the 'filter_operation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnFilterOperationOperator
+    inputTypeName: UpdateColumnFilterOperationOperatorInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_filter_operation_operator
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnFilterOperationOperator
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnFilterOperationRoleName
+  description: Update the 'role_name' column in the 'filter_operation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnFilterOperationRoleName
+    inputTypeName: UpdateColumnFilterOperationRoleNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_filter_operation_role_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnFilterOperationRoleName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnFilterOperationSubgraphName
+  description: Update the 'subgraph_name' column in the 'filter_operation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnFilterOperationSubgraphName
+    inputTypeName: UpdateColumnFilterOperationSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_filter_operation_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnFilterOperationSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnFilterOperationTContentHash
+  description: Update the 't_content_hash' column in the 'filter_operation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnFilterOperationTContentHash
+    inputTypeName: UpdateColumnFilterOperationTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_filter_operation_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnFilterOperationTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnFilterOperationTCreatedAt
+  description: Update the 't_created_at' column in the 'filter_operation' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnFilterOperationTCreatedAt
+    inputTypeName: UpdateColumnFilterOperationTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_filter_operation_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnFilterOperationTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnFilterOperationTDeletedAt
+  description: Update the 't_deleted_at' column in the 'filter_operation' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnFilterOperationTDeletedAt
+    inputTypeName: UpdateColumnFilterOperationTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_filter_operation_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnFilterOperationTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnFilterOperationTId
+  description: Update the 't_id' column in the 'filter_operation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnFilterOperationTId
+    inputTypeName: UpdateColumnFilterOperationTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_filter_operation_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnFilterOperationTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnFilterOperationTIsCurrent
+  description: Update the 't_is_current' column in the 'filter_operation' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnFilterOperationTIsCurrent
+    inputTypeName: UpdateColumnFilterOperationTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_filter_operation_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnFilterOperationTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnFilterOperationTIsDeleted
+  description: Update the 't_is_deleted' column in the 'filter_operation' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnFilterOperationTIsDeleted
+    inputTypeName: UpdateColumnFilterOperationTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_filter_operation_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnFilterOperationTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnFilterOperationTUpdatedAt
+  description: Update the 't_updated_at' column in the 'filter_operation' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnFilterOperationTUpdatedAt
+    inputTypeName: UpdateColumnFilterOperationTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_filter_operation_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnFilterOperationTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnFilterOperationTVersion
+  description: Update the 't_version' column in the 'filter_operation' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnFilterOperationTVersion
+    inputTypeName: UpdateColumnFilterOperationTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_filter_operation_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnFilterOperationTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'filter_operation' collection
+  fields:
+    - name: conditionType
+      type: UpdateColumnFilterOperationConditionType
+      description: Update the 'condition_type' column in the 'filter_operation' collection.
+    - name: modelName
+      type: UpdateColumnFilterOperationModelName
+      description: Update the 'model_name' column in the 'filter_operation' collection.
+    - name: operationName
+      type: UpdateColumnFilterOperationOperationName
+      description: Update the 'operation_name' column in the 'filter_operation' collection.
+    - name: operator
+      type: UpdateColumnFilterOperationOperator
+      description: Update the 'operator' column in the 'filter_operation' collection.
+    - name: roleName
+      type: UpdateColumnFilterOperationRoleName
+      description: Update the 'role_name' column in the 'filter_operation' collection.
+    - name: subgraphName
+      type: UpdateColumnFilterOperationSubgraphName
+      description: Update the 'subgraph_name' column in the 'filter_operation' collection.
+    - name: tContentHash
+      type: UpdateColumnFilterOperationTContentHash
+      description: Update the 't_content_hash' column in the 'filter_operation' collection.
+    - name: tCreatedAt
+      type: UpdateColumnFilterOperationTCreatedAt
+      description: Update the 't_created_at' column in the 'filter_operation' collection.
+    - name: tDeletedAt
+      type: UpdateColumnFilterOperationTDeletedAt
+      description: Update the 't_deleted_at' column in the 'filter_operation' collection.
+    - name: tId
+      type: UpdateColumnFilterOperationTId
+      description: Update the 't_id' column in the 'filter_operation' collection.
+    - name: tIsCurrent
+      type: UpdateColumnFilterOperationTIsCurrent
+      description: Update the 't_is_current' column in the 'filter_operation' collection.
+    - name: tIsDeleted
+      type: UpdateColumnFilterOperationTIsDeleted
+      description: Update the 't_is_deleted' column in the 'filter_operation' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnFilterOperationTUpdatedAt
+      description: Update the 't_updated_at' column in the 'filter_operation' collection.
+    - name: tVersion
+      type: UpdateColumnFilterOperationTVersion
+      description: Update the 't_version' column in the 'filter_operation' collection.
+  graphql:
+    typeName: UpdateFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_filter_operation_by_condition_type_and_model_name_and_operation_name_and_role_name_and_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        conditionType:
+          column:
+            name: condition_type
+        modelName:
+          column:
+            name: model_name
+        operationName:
+          column:
+            name: operation_name
+        operator:
+          column:
+            name: operator
+        roleName:
+          column:
+            name: role_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - conditionType
+          - modelName
+          - operationName
+          - operator
+          - roleName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_filter_operation_by_condition_type_and_model_name_and_operation_name_and_role_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[FilterOperation!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: UpdateFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_filter_operation_by_condition_type_and_model_name_and_operation_name_and_role_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersion
+  outputType: UpdateFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyConditionType
+      type: Varchar!
+    - name: keyModelName
+      type: Varchar!
+    - name: keyOperationName
+      type: Varchar!
+    - name: keyRoleName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: FilterOperationBoolExp
+      description: Update permission post-condition predicate over the
+        'filter_operation' collection
+    - name: preCheck
+      type: FilterOperationBoolExp
+      description: Update permission pre-condition predicate over the
+        'filter_operation' collection
+    - name: updateColumns
+      type: UpdateFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_filter_operation_by_condition_type_and_model_name_and_operation_name_and_role_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyConditionType: key_condition_type
+      keyModelName: key_model_name
+      keyOperationName: key_operation_name
+      keyRoleName: key_role_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'filter_operation' collection using the
+    'condition_type', 'model_name', 'operation_name', 'role_name',
+    'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateFilterOperationByConditionTypeAndModelNameAndOperationNameAndRoleNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

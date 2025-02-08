@@ -1,0 +1,156 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertSubgraphObject
+  fields:
+    - name: description
+      type: Text
+    - name: name
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+  graphql:
+    typeName: InsertSubgraphObject
+    inputTypeName: InsertSubgraphObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_subgraph_object
+      fieldMapping:
+        description:
+          column:
+            name: description
+        name:
+          column:
+            name: name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertSubgraphObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - description
+          - name
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertSubgraphResponse
+  description: Responses from the 'insert_subgraph' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[Subgraph!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertSubgraphResponse
+    inputTypeName: InsertSubgraphResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_subgraph_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertSubgraphResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertSubgraph
+  outputType: InsertSubgraphResponse!
+  arguments:
+    - name: objects
+      type: "[InsertSubgraphObject!]!"
+    - name: postCheck
+      type: SubgraphBoolExp
+      description: Insert permission predicate over the 'subgraph' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_subgraph
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertSubgraph
+    rootFieldKind: Mutation
+  description: Insert into the subgraph table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertSubgraph
+  permissions:
+    - role: admin
+      allowExecution: true
+

@@ -1,0 +1,82 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_model_graphql_select_many_config_by_model_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[ModelGraphqlSelectManyConfig!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: DeleteModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_model_graphql_select_many_config_by_model_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersion
+  outputType: DeleteModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyModelName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: ModelGraphqlSelectManyConfigBoolExp
+      description: Delete permission predicate over the
+        'model_graphql_select_many_config' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_model_graphql_select_many_config_by_model_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyModelName: key_model_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'model_graphql_select_many_config' collection
+    using the 'model_name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteModelGraphqlSelectManyConfigByModelNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

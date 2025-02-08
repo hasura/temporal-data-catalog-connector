@@ -1,0 +1,101 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentSubgraphObject
+  fields:
+    - name: description
+      type: Text
+    - name: name
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentSubgraphObject
+    inputTypeName: InsertCurrentSubgraphObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_subgraph_object
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentSubgraphObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - description
+          - name
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentSubgraphResponse
+  description: Responses from the 'insert_current_subgraph' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentSubgraph!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentSubgraphResponse
+    inputTypeName: InsertCurrentSubgraphResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_subgraph_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentSubgraphResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentSubgraph
+  outputType: InsertCurrentSubgraphResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentSubgraphObject!]!"
+    - name: postCheck
+      type: CurrentSubgraphBoolExp
+      description: Insert permission predicate over the 'current_subgraph' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_subgraph
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentSubgraph
+    rootFieldKind: Mutation
+  description: Insert into the current_subgraph table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentSubgraph
+  permissions:
+    - role: admin
+      allowExecution: true
+

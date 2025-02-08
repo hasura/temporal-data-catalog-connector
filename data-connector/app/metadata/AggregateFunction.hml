@@ -1,0 +1,292 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: AggregateFunction
+  fields:
+    - name: connectorName
+      type: Varchar!
+    - name: functionName
+      type: Varchar!
+    - name: returnTypeConnectorName
+      type: Varchar!
+    - name: returnTypeName
+      type: Varchar!
+    - name: returnTypeSubgraphName
+      type: Varchar!
+    - name: scalarTypeName
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+  graphql:
+    typeName: AggregateFunction
+    inputTypeName: AggregateFunctionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: aggregate_function
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        functionName:
+          column:
+            name: function_name
+        returnTypeConnectorName:
+          column:
+            name: return_type_connector_name
+        returnTypeName:
+          column:
+            name: return_type_name
+        returnTypeSubgraphName:
+          column:
+            name: return_type_subgraph_name
+        scalarTypeName:
+          column:
+            name: scalar_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: AggregateFunction
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - functionName
+          - returnTypeConnectorName
+          - returnTypeName
+          - returnTypeSubgraphName
+          - scalarTypeName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: AggregateFunctionBoolExp
+  operand:
+    object:
+      type: AggregateFunction
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: functionName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: returnTypeConnectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: returnTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: returnTypeSubgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: scalarTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: AggregateFunctionBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: AggregateFunctionAggExp
+  operand:
+    object:
+      aggregatedType: AggregateFunction
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: functionName
+          aggregateExpression: VarcharAggExp
+        - fieldName: returnTypeConnectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: returnTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: returnTypeSubgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: scalarTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: AggregateFunctionAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: AggregateFunctionOrderByExp
+  operand:
+    object:
+      orderedType: AggregateFunction
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: functionName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: returnTypeConnectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: returnTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: returnTypeSubgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: scalarTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: AggregateFunctionOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: AggregateFunction
+  objectType: AggregateFunction
+  source:
+    dataConnectorName: datamanagement
+    collection: aggregate_function
+  filterExpressionType: AggregateFunctionBoolExp
+  aggregateExpression: AggregateFunctionAggExp
+  orderByExpression: AggregateFunctionOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: aggregateFunction
+      subscription:
+        rootField: aggregateFunction
+    selectUniques:
+      - queryRootField: aggregateFunctionByAggregateFunctionPkey
+        uniqueIdentifier:
+          - connectorName
+          - functionName
+          - scalarTypeName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: aggregateFunctionByAggregateFunctionPkey
+    filterInputTypeName: AggregateFunctionFilterInput
+    aggregate:
+      queryRootField: aggregateFunctionAggregate
+      subscription:
+        rootField: aggregateFunctionAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: AggregateFunction
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

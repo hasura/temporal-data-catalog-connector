@@ -1,0 +1,84 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_comparable_relationship_by_parent_name_and_relationship_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[ComparableRelationship!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: DeleteComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_comparable_relationship_by_parent_name_and_relationship_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersion
+  outputType: DeleteComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyParentName
+      type: Varchar!
+    - name: keyRelationshipName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: ComparableRelationshipBoolExp
+      description: Delete permission predicate over the 'comparable_relationship' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_comparable_relationship_by_parent_name_and_relationship_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyParentName: key_parent_name
+      keyRelationshipName: key_relationship_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'comparable_relationship' collection using
+    the 'parent_name', 'relationship_name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteComparableRelationshipByParentNameAndRelationshipNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

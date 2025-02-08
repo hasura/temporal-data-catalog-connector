@@ -1,0 +1,204 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertQueryCapabilityObject
+  fields:
+    - name: aggregatesEnabled
+      type: Bool!
+    - name: connectorName
+      type: Varchar!
+    - name: existsEnabled
+      type: Bool!
+    - name: explainEnabled
+      type: Bool!
+    - name: filterByEnabled
+      type: Bool!
+    - name: nestedCollectionsEnabled
+      type: Bool!
+    - name: nestedFieldsEnabled
+      type: Bool!
+    - name: orderByEnabled
+      type: Bool!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+    - name: variablesEnabled
+      type: Bool!
+  graphql:
+    typeName: InsertQueryCapabilityObject
+    inputTypeName: InsertQueryCapabilityObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_query_capability_object
+      fieldMapping:
+        aggregatesEnabled:
+          column:
+            name: aggregates_enabled
+        connectorName:
+          column:
+            name: connector_name
+        existsEnabled:
+          column:
+            name: exists_enabled
+        explainEnabled:
+          column:
+            name: explain_enabled
+        filterByEnabled:
+          column:
+            name: filter_by_enabled
+        nestedCollectionsEnabled:
+          column:
+            name: nested_collections_enabled
+        nestedFieldsEnabled:
+          column:
+            name: nested_fields_enabled
+        orderByEnabled:
+          column:
+            name: order_by_enabled
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        variablesEnabled:
+          column:
+            name: variables_enabled
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertQueryCapabilityObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregatesEnabled
+          - connectorName
+          - existsEnabled
+          - explainEnabled
+          - filterByEnabled
+          - nestedCollectionsEnabled
+          - nestedFieldsEnabled
+          - orderByEnabled
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - variablesEnabled
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertQueryCapabilityResponse
+  description: Responses from the 'insert_query_capability' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[QueryCapability!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertQueryCapabilityResponse
+    inputTypeName: InsertQueryCapabilityResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_query_capability_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertQueryCapabilityResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertQueryCapability
+  outputType: InsertQueryCapabilityResponse!
+  arguments:
+    - name: objects
+      type: "[InsertQueryCapabilityObject!]!"
+    - name: postCheck
+      type: QueryCapabilityBoolExp
+      description: Insert permission predicate over the 'query_capability' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_query_capability
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertQueryCapability
+    rootFieldKind: Mutation
+  description: Insert into the query_capability table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertQueryCapability
+  permissions:
+    - role: admin
+      allowExecution: true
+

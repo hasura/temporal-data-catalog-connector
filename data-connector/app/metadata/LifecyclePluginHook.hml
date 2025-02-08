@@ -1,0 +1,278 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: LifecyclePluginHook
+  fields:
+    - name: config
+      type: Json!
+    - name: name
+      type: Varchar!
+    - name: preHook
+      type: Bool!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+    - name: url
+      type: Varchar!
+    - name: version
+      type: Varchar!
+  graphql:
+    typeName: LifecyclePluginHook
+    inputTypeName: LifecyclePluginHookInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: lifecycle_plugin_hook
+      fieldMapping:
+        config:
+          column:
+            name: config
+        name:
+          column:
+            name: name
+        preHook:
+          column:
+            name: pre_hook
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        url:
+          column:
+            name: url
+        version:
+          column:
+            name: version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: LifecyclePluginHook
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - config
+          - name
+          - preHook
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - url
+          - version
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: LifecyclePluginHookBoolExp
+  operand:
+    object:
+      type: LifecyclePluginHook
+      comparableFields:
+        - fieldName: config
+          booleanExpressionType: JsonBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: preHook
+          booleanExpressionType: BoolBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+        - fieldName: url
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: version
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: LifecyclePluginHookBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: LifecyclePluginHookAggExp
+  operand:
+    object:
+      aggregatedType: LifecyclePluginHook
+      aggregatableFields:
+        - fieldName: config
+          aggregateExpression: JsonAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: preHook
+          aggregateExpression: BoolAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+        - fieldName: url
+          aggregateExpression: VarcharAggExp
+        - fieldName: version
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: LifecyclePluginHookAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: LifecyclePluginHookOrderByExp
+  operand:
+    object:
+      orderedType: LifecyclePluginHook
+      orderableFields:
+        - fieldName: config
+          orderByExpression: JsonOrderByExp
+        - fieldName: name
+          orderByExpression: VarcharOrderByExp
+        - fieldName: preHook
+          orderByExpression: BoolOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+        - fieldName: url
+          orderByExpression: VarcharOrderByExp
+        - fieldName: version
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: LifecyclePluginHookOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: LifecyclePluginHook
+  objectType: LifecyclePluginHook
+  source:
+    dataConnectorName: datamanagement
+    collection: lifecycle_plugin_hook
+  filterExpressionType: LifecyclePluginHookBoolExp
+  aggregateExpression: LifecyclePluginHookAggExp
+  orderByExpression: LifecyclePluginHookOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: lifecyclePluginHook
+      subscription:
+        rootField: lifecyclePluginHook
+    selectUniques:
+      - queryRootField: lifecyclePluginHookByLifecyclePluginHookPkey
+        uniqueIdentifier:
+          - name
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: lifecyclePluginHookByLifecyclePluginHookPkey
+    filterInputTypeName: LifecyclePluginHookFilterInput
+    aggregate:
+      queryRootField: lifecyclePluginHookAggregate
+      subscription:
+        rootField: lifecyclePluginHookAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: LifecyclePluginHook
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

@@ -1,0 +1,267 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DataConnectorHeader
+  fields:
+    - name: connectorName
+      type: Varchar!
+    - name: isResponseHeader
+      type: Bool!
+    - name: key
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+    - name: value
+      type: Varchar!
+  graphql:
+    typeName: DataConnectorHeader
+    inputTypeName: DataConnectorHeaderInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: data_connector_header
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        isResponseHeader:
+          column:
+            name: is_response_header
+        key:
+          column:
+            name: key
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        value:
+          column:
+            name: value
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DataConnectorHeader
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - isResponseHeader
+          - key
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - value
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: DataConnectorHeaderBoolExp
+  operand:
+    object:
+      type: DataConnectorHeader
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: isResponseHeader
+          booleanExpressionType: BoolBoolExp
+        - fieldName: key
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+        - fieldName: value
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: DataConnectorHeaderBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: DataConnectorHeaderAggExp
+  operand:
+    object:
+      aggregatedType: DataConnectorHeader
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: isResponseHeader
+          aggregateExpression: BoolAggExp
+        - fieldName: key
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+        - fieldName: value
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: DataConnectorHeaderAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: DataConnectorHeaderOrderByExp
+  operand:
+    object:
+      orderedType: DataConnectorHeader
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: isResponseHeader
+          orderByExpression: BoolOrderByExp
+        - fieldName: key
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+        - fieldName: value
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: DataConnectorHeaderOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: DataConnectorHeader
+  objectType: DataConnectorHeader
+  source:
+    dataConnectorName: datamanagement
+    collection: data_connector_header
+  filterExpressionType: DataConnectorHeaderBoolExp
+  aggregateExpression: DataConnectorHeaderAggExp
+  orderByExpression: DataConnectorHeaderOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: dataConnectorHeader
+      subscription:
+        rootField: dataConnectorHeader
+    selectUniques:
+      - queryRootField: dataConnectorHeaderByDataConnectorHeaderPkey
+        uniqueIdentifier:
+          - connectorName
+          - key
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: dataConnectorHeaderByDataConnectorHeaderPkey
+    filterInputTypeName: DataConnectorHeaderFilterInput
+    aggregate:
+      queryRootField: dataConnectorHeaderAggregate
+      subscription:
+        rootField: dataConnectorHeaderAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: DataConnectorHeader
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

@@ -1,0 +1,139 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentCollectionForeignKeyObject
+  fields:
+    - name: collectionName
+      type: Varchar
+    - name: connectorName
+      type: Varchar
+    - name: fieldName
+      type: Varchar
+    - name: fkName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+    - name: targetCollection
+      type: Varchar
+    - name: targetField
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentCollectionForeignKeyObject
+    inputTypeName: InsertCurrentCollectionForeignKeyObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_collection_foreign_key_object
+      fieldMapping:
+        collectionName:
+          column:
+            name: collection_name
+        connectorName:
+          column:
+            name: connector_name
+        fieldName:
+          column:
+            name: field_name
+        fkName:
+          column:
+            name: fk_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        targetCollection:
+          column:
+            name: target_collection
+        targetField:
+          column:
+            name: target_field
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentCollectionForeignKeyObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - collectionName
+          - connectorName
+          - fieldName
+          - fkName
+          - subgraphName
+          - targetCollection
+          - targetField
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentCollectionForeignKeyResponse
+  description: Responses from the 'insert_current_collection_foreign_key' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentCollectionForeignKey!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentCollectionForeignKeyResponse
+    inputTypeName: InsertCurrentCollectionForeignKeyResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_collection_foreign_key_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentCollectionForeignKeyResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentCollectionForeignKey
+  outputType: InsertCurrentCollectionForeignKeyResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentCollectionForeignKeyObject!]!"
+    - name: postCheck
+      type: CurrentCollectionForeignKeyBoolExp
+      description: Insert permission predicate over the
+        'current_collection_foreign_key' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_collection_foreign_key
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentCollectionForeignKey
+    rootFieldKind: Mutation
+  description: Insert into the current_collection_foreign_key table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentCollectionForeignKey
+  permissions:
+    - role: admin
+      allowExecution: true
+

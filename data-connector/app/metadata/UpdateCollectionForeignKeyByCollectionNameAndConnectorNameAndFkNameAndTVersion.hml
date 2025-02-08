@@ -1,0 +1,717 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCollectionForeignKeyCollectionName
+  description: Update the 'collection_name' column in the 'collection_foreign_key'
+    collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCollectionForeignKeyCollectionName
+    inputTypeName: UpdateColumnCollectionForeignKeyCollectionNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_collection_foreign_key_collection_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCollectionForeignKeyCollectionName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCollectionForeignKeyConnectorName
+  description: Update the 'connector_name' column in the 'collection_foreign_key' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCollectionForeignKeyConnectorName
+    inputTypeName: UpdateColumnCollectionForeignKeyConnectorNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_collection_foreign_key_connector_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCollectionForeignKeyConnectorName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCollectionForeignKeyFieldName
+  description: Update the 'field_name' column in the 'collection_foreign_key' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCollectionForeignKeyFieldName
+    inputTypeName: UpdateColumnCollectionForeignKeyFieldNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_collection_foreign_key_field_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCollectionForeignKeyFieldName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCollectionForeignKeyFkName
+  description: Update the 'fk_name' column in the 'collection_foreign_key' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCollectionForeignKeyFkName
+    inputTypeName: UpdateColumnCollectionForeignKeyFkNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_collection_foreign_key_fk_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCollectionForeignKeyFkName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCollectionForeignKeySubgraphName
+  description: Update the 'subgraph_name' column in the 'collection_foreign_key' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCollectionForeignKeySubgraphName
+    inputTypeName: UpdateColumnCollectionForeignKeySubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_collection_foreign_key_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCollectionForeignKeySubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCollectionForeignKeyTContentHash
+  description: Update the 't_content_hash' column in the 'collection_foreign_key' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCollectionForeignKeyTContentHash
+    inputTypeName: UpdateColumnCollectionForeignKeyTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_collection_foreign_key_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCollectionForeignKeyTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCollectionForeignKeyTCreatedAt
+  description: Update the 't_created_at' column in the 'collection_foreign_key' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCollectionForeignKeyTCreatedAt
+    inputTypeName: UpdateColumnCollectionForeignKeyTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_collection_foreign_key_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCollectionForeignKeyTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCollectionForeignKeyTDeletedAt
+  description: Update the 't_deleted_at' column in the 'collection_foreign_key' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCollectionForeignKeyTDeletedAt
+    inputTypeName: UpdateColumnCollectionForeignKeyTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_collection_foreign_key_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCollectionForeignKeyTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCollectionForeignKeyTId
+  description: Update the 't_id' column in the 'collection_foreign_key' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCollectionForeignKeyTId
+    inputTypeName: UpdateColumnCollectionForeignKeyTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_collection_foreign_key_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCollectionForeignKeyTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCollectionForeignKeyTIsCurrent
+  description: Update the 't_is_current' column in the 'collection_foreign_key' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCollectionForeignKeyTIsCurrent
+    inputTypeName: UpdateColumnCollectionForeignKeyTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_collection_foreign_key_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCollectionForeignKeyTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCollectionForeignKeyTIsDeleted
+  description: Update the 't_is_deleted' column in the 'collection_foreign_key' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCollectionForeignKeyTIsDeleted
+    inputTypeName: UpdateColumnCollectionForeignKeyTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_collection_foreign_key_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCollectionForeignKeyTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCollectionForeignKeyTUpdatedAt
+  description: Update the 't_updated_at' column in the 'collection_foreign_key' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCollectionForeignKeyTUpdatedAt
+    inputTypeName: UpdateColumnCollectionForeignKeyTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_collection_foreign_key_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCollectionForeignKeyTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCollectionForeignKeyTVersion
+  description: Update the 't_version' column in the 'collection_foreign_key' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCollectionForeignKeyTVersion
+    inputTypeName: UpdateColumnCollectionForeignKeyTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_collection_foreign_key_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCollectionForeignKeyTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCollectionForeignKeyTargetCollection
+  description: Update the 'target_collection' column in the
+    'collection_foreign_key' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCollectionForeignKeyTargetCollection
+    inputTypeName: UpdateColumnCollectionForeignKeyTargetCollectionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_collection_foreign_key_target_collection
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCollectionForeignKeyTargetCollection
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCollectionForeignKeyTargetField
+  description: Update the 'target_field' column in the 'collection_foreign_key' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCollectionForeignKeyTargetField
+    inputTypeName: UpdateColumnCollectionForeignKeyTargetFieldInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_collection_foreign_key_target_field
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCollectionForeignKeyTargetField
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateCollectionForeignKeyByCollectionNameAndConnectorNameAndFkNameAndTVersionUpdateColumns
+  description: Update the columns of the 'collection_foreign_key' collection
+  fields:
+    - name: collectionName
+      type: UpdateColumnCollectionForeignKeyCollectionName
+      description: Update the 'collection_name' column in the 'collection_foreign_key'
+        collection.
+    - name: connectorName
+      type: UpdateColumnCollectionForeignKeyConnectorName
+      description: Update the 'connector_name' column in the 'collection_foreign_key'
+        collection.
+    - name: fieldName
+      type: UpdateColumnCollectionForeignKeyFieldName
+      description: Update the 'field_name' column in the 'collection_foreign_key'
+        collection.
+    - name: fkName
+      type: UpdateColumnCollectionForeignKeyFkName
+      description: Update the 'fk_name' column in the 'collection_foreign_key' collection.
+    - name: subgraphName
+      type: UpdateColumnCollectionForeignKeySubgraphName
+      description: Update the 'subgraph_name' column in the 'collection_foreign_key'
+        collection.
+    - name: tContentHash
+      type: UpdateColumnCollectionForeignKeyTContentHash
+      description: Update the 't_content_hash' column in the 'collection_foreign_key'
+        collection.
+    - name: tCreatedAt
+      type: UpdateColumnCollectionForeignKeyTCreatedAt
+      description: Update the 't_created_at' column in the 'collection_foreign_key'
+        collection.
+    - name: tDeletedAt
+      type: UpdateColumnCollectionForeignKeyTDeletedAt
+      description: Update the 't_deleted_at' column in the 'collection_foreign_key'
+        collection.
+    - name: tId
+      type: UpdateColumnCollectionForeignKeyTId
+      description: Update the 't_id' column in the 'collection_foreign_key' collection.
+    - name: tIsCurrent
+      type: UpdateColumnCollectionForeignKeyTIsCurrent
+      description: Update the 't_is_current' column in the 'collection_foreign_key'
+        collection.
+    - name: tIsDeleted
+      type: UpdateColumnCollectionForeignKeyTIsDeleted
+      description: Update the 't_is_deleted' column in the 'collection_foreign_key'
+        collection.
+    - name: tUpdatedAt
+      type: UpdateColumnCollectionForeignKeyTUpdatedAt
+      description: Update the 't_updated_at' column in the 'collection_foreign_key'
+        collection.
+    - name: tVersion
+      type: UpdateColumnCollectionForeignKeyTVersion
+      description: Update the 't_version' column in the 'collection_foreign_key' collection.
+    - name: targetCollection
+      type: UpdateColumnCollectionForeignKeyTargetCollection
+      description: Update the 'target_collection' column in the
+        'collection_foreign_key' collection.
+    - name: targetField
+      type: UpdateColumnCollectionForeignKeyTargetField
+      description: Update the 'target_field' column in the 'collection_foreign_key'
+        collection.
+  graphql:
+    typeName: UpdateCollectionForeignKeyByCollectionNameAndConnectorNameAndFkNameAndTVersionUpdateColumns
+    inputTypeName: UpdateCollectionForeignKeyByCollectionNameAndConnectorNameAndFkNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_collection_foreign_key_by_collection_name_and_connector_name_and_fk_name_and_t_version_update_columns
+      fieldMapping:
+        collectionName:
+          column:
+            name: collection_name
+        connectorName:
+          column:
+            name: connector_name
+        fieldName:
+          column:
+            name: field_name
+        fkName:
+          column:
+            name: fk_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        targetCollection:
+          column:
+            name: target_collection
+        targetField:
+          column:
+            name: target_field
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateCollectionForeignKeyByCollectionNameAndConnectorNameAndFkNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - collectionName
+          - connectorName
+          - fieldName
+          - fkName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - targetCollection
+          - targetField
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateCollectionForeignKeyByCollectionNameAndConnectorNameAndFkNameAndTVersionResponse
+  description: Responses from the
+    'update_collection_foreign_key_by_collection_name_and_connector_name_and_fk_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CollectionForeignKey!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateCollectionForeignKeyByCollectionNameAndConnectorNameAndFkNameAndTVersionResponse
+    inputTypeName: UpdateCollectionForeignKeyByCollectionNameAndConnectorNameAndFkNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_collection_foreign_key_by_collection_name_and_connector_name_and_fk_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateCollectionForeignKeyByCollectionNameAndConnectorNameAndFkNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateCollectionForeignKeyByCollectionNameAndConnectorNameAndFkNameAndTVersion
+  outputType: UpdateCollectionForeignKeyByCollectionNameAndConnectorNameAndFkNameAndTVersionResponse!
+  arguments:
+    - name: keyCollectionName
+      type: Varchar!
+    - name: keyConnectorName
+      type: Varchar!
+    - name: keyFkName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: CollectionForeignKeyBoolExp
+      description: Update permission post-condition predicate over the
+        'collection_foreign_key' collection
+    - name: preCheck
+      type: CollectionForeignKeyBoolExp
+      description: Update permission pre-condition predicate over the
+        'collection_foreign_key' collection
+    - name: updateColumns
+      type: UpdateCollectionForeignKeyByCollectionNameAndConnectorNameAndFkNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_collection_foreign_key_by_collection_name_and_connector_name_and_fk_name_and_t_version
+    argumentMapping:
+      keyCollectionName: key_collection_name
+      keyConnectorName: key_connector_name
+      keyFkName: key_fk_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateCollectionForeignKeyByCollectionNameAndConnectorNameAndFkNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'collection_foreign_key' collection using the
+    'collection_name', 'connector_name', 'fk_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateCollectionForeignKeyByCollectionNameAndConnectorNameAndFkNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

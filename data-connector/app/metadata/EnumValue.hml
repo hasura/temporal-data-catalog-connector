@@ -1,0 +1,256 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: EnumValue
+  fields:
+    - name: connectorName
+      type: Varchar!
+    - name: repName
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+    - name: value
+      type: Varchar!
+  graphql:
+    typeName: EnumValue
+    inputTypeName: EnumValueInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: enum_value
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        repName:
+          column:
+            name: rep_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        value:
+          column:
+            name: value
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: EnumValue
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - repName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - value
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: EnumValueBoolExp
+  operand:
+    object:
+      type: EnumValue
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: repName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+        - fieldName: value
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: EnumValueBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: EnumValueAggExp
+  operand:
+    object:
+      aggregatedType: EnumValue
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: repName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+        - fieldName: value
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: EnumValueAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: EnumValueOrderByExp
+  operand:
+    object:
+      orderedType: EnumValue
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: repName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+        - fieldName: value
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: EnumValueOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: EnumValue
+  objectType: EnumValue
+  source:
+    dataConnectorName: datamanagement
+    collection: enum_value
+  filterExpressionType: EnumValueBoolExp
+  aggregateExpression: EnumValueAggExp
+  orderByExpression: EnumValueOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: enumValue
+      subscription:
+        rootField: enumValue
+    selectUniques:
+      - queryRootField: enumValueByEnumValuePkey
+        uniqueIdentifier:
+          - connectorName
+          - repName
+          - subgraphName
+          - tVersion
+          - value
+        subscription:
+          rootField: enumValueByEnumValuePkey
+    filterInputTypeName: EnumValueFilterInput
+    aggregate:
+      queryRootField: enumValueAggregate
+      subscription:
+        rootField: enumValueAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: EnumValue
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

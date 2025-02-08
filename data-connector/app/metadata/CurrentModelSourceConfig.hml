@@ -1,0 +1,151 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentModelSourceConfig
+  fields:
+    - name: collection
+      type: Varchar
+    - name: dataConnectorName
+      type: Varchar
+    - name: modelName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: CurrentModelSourceConfig
+    inputTypeName: CurrentModelSourceConfigInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_model_source_config
+      fieldMapping:
+        collection:
+          column:
+            name: collection
+        dataConnectorName:
+          column:
+            name: data_connector_name
+        modelName:
+          column:
+            name: model_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentModelSourceConfig
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - collection
+          - dataConnectorName
+          - modelName
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentModelSourceConfigBoolExp
+  operand:
+    object:
+      type: CurrentModelSourceConfig
+      comparableFields:
+        - fieldName: collection
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: dataConnectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentModelSourceConfigBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentModelSourceConfigAggExp
+  operand:
+    object:
+      aggregatedType: CurrentModelSourceConfig
+      aggregatableFields:
+        - fieldName: collection
+          aggregateExpression: VarcharAggExp
+        - fieldName: dataConnectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentModelSourceConfigAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentModelSourceConfigOrderByExp
+  operand:
+    object:
+      orderedType: CurrentModelSourceConfig
+      orderableFields:
+        - fieldName: collection
+          orderByExpression: VarcharOrderByExp
+        - fieldName: dataConnectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: modelName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentModelSourceConfigOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentModelSourceConfig
+  objectType: CurrentModelSourceConfig
+  source:
+    dataConnectorName: datamanagement
+    collection: current_model_source_config
+  filterExpressionType: CurrentModelSourceConfigBoolExp
+  aggregateExpression: CurrentModelSourceConfigAggExp
+  orderByExpression: CurrentModelSourceConfigOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentModelSourceConfig
+      subscription:
+        rootField: currentModelSourceConfig
+    selectUniques: []
+    filterInputTypeName: CurrentModelSourceConfigFilterInput
+    aggregate:
+      queryRootField: currentModelSourceConfigAggregate
+      subscription:
+        rootField: currentModelSourceConfigAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentModelSourceConfig
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

@@ -1,0 +1,586 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRepresentationConnectorName
+  description: Update the 'connector_name' column in the 'representation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRepresentationConnectorName
+    inputTypeName: UpdateColumnRepresentationConnectorNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_representation_connector_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRepresentationConnectorName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRepresentationName
+  description: Update the 'name' column in the 'representation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRepresentationName
+    inputTypeName: UpdateColumnRepresentationNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_representation_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRepresentationName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRepresentationSubgraphName
+  description: Update the 'subgraph_name' column in the 'representation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRepresentationSubgraphName
+    inputTypeName: UpdateColumnRepresentationSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_representation_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRepresentationSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRepresentationTContentHash
+  description: Update the 't_content_hash' column in the 'representation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRepresentationTContentHash
+    inputTypeName: UpdateColumnRepresentationTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_representation_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRepresentationTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRepresentationTCreatedAt
+  description: Update the 't_created_at' column in the 'representation' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRepresentationTCreatedAt
+    inputTypeName: UpdateColumnRepresentationTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_representation_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRepresentationTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRepresentationTDeletedAt
+  description: Update the 't_deleted_at' column in the 'representation' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRepresentationTDeletedAt
+    inputTypeName: UpdateColumnRepresentationTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_representation_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRepresentationTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRepresentationTId
+  description: Update the 't_id' column in the 'representation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRepresentationTId
+    inputTypeName: UpdateColumnRepresentationTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_representation_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRepresentationTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRepresentationTIsCurrent
+  description: Update the 't_is_current' column in the 'representation' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRepresentationTIsCurrent
+    inputTypeName: UpdateColumnRepresentationTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_representation_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRepresentationTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRepresentationTIsDeleted
+  description: Update the 't_is_deleted' column in the 'representation' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRepresentationTIsDeleted
+    inputTypeName: UpdateColumnRepresentationTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_representation_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRepresentationTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRepresentationTUpdatedAt
+  description: Update the 't_updated_at' column in the 'representation' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRepresentationTUpdatedAt
+    inputTypeName: UpdateColumnRepresentationTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_representation_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRepresentationTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRepresentationTVersion
+  description: Update the 't_version' column in the 'representation' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRepresentationTVersion
+    inputTypeName: UpdateColumnRepresentationTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_representation_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRepresentationTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRepresentationType
+  description: Update the 'type' column in the 'representation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRepresentationType
+    inputTypeName: UpdateColumnRepresentationTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_representation_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRepresentationType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateRepresentationByConnectorNameAndNameAndSubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'representation' collection
+  fields:
+    - name: connectorName
+      type: UpdateColumnRepresentationConnectorName
+      description: Update the 'connector_name' column in the 'representation' collection.
+    - name: name
+      type: UpdateColumnRepresentationName
+      description: Update the 'name' column in the 'representation' collection.
+    - name: subgraphName
+      type: UpdateColumnRepresentationSubgraphName
+      description: Update the 'subgraph_name' column in the 'representation' collection.
+    - name: tContentHash
+      type: UpdateColumnRepresentationTContentHash
+      description: Update the 't_content_hash' column in the 'representation' collection.
+    - name: tCreatedAt
+      type: UpdateColumnRepresentationTCreatedAt
+      description: Update the 't_created_at' column in the 'representation' collection.
+    - name: tDeletedAt
+      type: UpdateColumnRepresentationTDeletedAt
+      description: Update the 't_deleted_at' column in the 'representation' collection.
+    - name: tId
+      type: UpdateColumnRepresentationTId
+      description: Update the 't_id' column in the 'representation' collection.
+    - name: tIsCurrent
+      type: UpdateColumnRepresentationTIsCurrent
+      description: Update the 't_is_current' column in the 'representation' collection.
+    - name: tIsDeleted
+      type: UpdateColumnRepresentationTIsDeleted
+      description: Update the 't_is_deleted' column in the 'representation' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnRepresentationTUpdatedAt
+      description: Update the 't_updated_at' column in the 'representation' collection.
+    - name: tVersion
+      type: UpdateColumnRepresentationTVersion
+      description: Update the 't_version' column in the 'representation' collection.
+    - name: type
+      type: UpdateColumnRepresentationType
+      description: Update the 'type' column in the 'representation' collection.
+  graphql:
+    typeName: UpdateRepresentationByConnectorNameAndNameAndSubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateRepresentationByConnectorNameAndNameAndSubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_representation_by_connector_name_and_name_and_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        name:
+          column:
+            name: name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        type:
+          column:
+            name: type
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateRepresentationByConnectorNameAndNameAndSubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - name
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - type
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateRepresentationByConnectorNameAndNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_representation_by_connector_name_and_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[Representation!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateRepresentationByConnectorNameAndNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: UpdateRepresentationByConnectorNameAndNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_representation_by_connector_name_and_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateRepresentationByConnectorNameAndNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateRepresentationByConnectorNameAndNameAndSubgraphNameAndTVersion
+  outputType: UpdateRepresentationByConnectorNameAndNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyConnectorName
+      type: Varchar!
+    - name: keyName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: RepresentationBoolExp
+      description: Update permission post-condition predicate over the
+        'representation' collection
+    - name: preCheck
+      type: RepresentationBoolExp
+      description: Update permission pre-condition predicate over the 'representation'
+        collection
+    - name: updateColumns
+      type: UpdateRepresentationByConnectorNameAndNameAndSubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_representation_by_connector_name_and_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyConnectorName: key_connector_name
+      keyName: key_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateRepresentationByConnectorNameAndNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'representation' collection using the
+    'connector_name', 'name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateRepresentationByConnectorNameAndNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

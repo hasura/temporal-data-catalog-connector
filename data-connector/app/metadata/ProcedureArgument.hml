@@ -1,0 +1,304 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ProcedureArgument
+  fields:
+    - name: connectorName
+      type: Varchar!
+    - name: description
+      type: Varchar
+    - name: name
+      type: Varchar!
+    - name: procedureName
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+    - name: typeDefinitionConnectorName
+      type: Varchar!
+    - name: typeDefinitionName
+      type: Varchar!
+    - name: typeDefinitionSubgraphName
+      type: Varchar!
+  graphql:
+    typeName: ProcedureArgument
+    inputTypeName: ProcedureArgumentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: procedure_argument
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        description:
+          column:
+            name: description
+        name:
+          column:
+            name: name
+        procedureName:
+          column:
+            name: procedure_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        typeDefinitionConnectorName:
+          column:
+            name: type_definition_connector_name
+        typeDefinitionName:
+          column:
+            name: type_definition_name
+        typeDefinitionSubgraphName:
+          column:
+            name: type_definition_subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ProcedureArgument
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - description
+          - name
+          - procedureName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - typeDefinitionConnectorName
+          - typeDefinitionName
+          - typeDefinitionSubgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ProcedureArgumentBoolExp
+  operand:
+    object:
+      type: ProcedureArgument
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: description
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: procedureName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp
+        - fieldName: typeDefinitionConnectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: typeDefinitionName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: typeDefinitionSubgraphName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ProcedureArgumentBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ProcedureArgumentAggExp
+  operand:
+    object:
+      aggregatedType: ProcedureArgument
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: description
+          aggregateExpression: VarcharAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: procedureName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp
+        - fieldName: typeDefinitionConnectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: typeDefinitionName
+          aggregateExpression: VarcharAggExp
+        - fieldName: typeDefinitionSubgraphName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: ProcedureArgumentAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ProcedureArgumentOrderByExp
+  operand:
+    object:
+      orderedType: ProcedureArgument
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: description
+          orderByExpression: VarcharOrderByExp
+        - fieldName: name
+          orderByExpression: VarcharOrderByExp
+        - fieldName: procedureName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tContentHash
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: VarcharOrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: BoolOrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: BoolOrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int4OrderByExp
+        - fieldName: typeDefinitionConnectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: typeDefinitionName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: typeDefinitionSubgraphName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: ProcedureArgumentOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: ProcedureArgument
+  objectType: ProcedureArgument
+  source:
+    dataConnectorName: datamanagement
+    collection: procedure_argument
+  filterExpressionType: ProcedureArgumentBoolExp
+  aggregateExpression: ProcedureArgumentAggExp
+  orderByExpression: ProcedureArgumentOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: procedureArgument
+      subscription:
+        rootField: procedureArgument
+    selectUniques:
+      - queryRootField: procedureArgumentByProcedureArgumentPkey
+        uniqueIdentifier:
+          - connectorName
+          - name
+          - procedureName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: procedureArgumentByProcedureArgumentPkey
+    filterInputTypeName: ProcedureArgumentFilterInput
+    aggregate:
+      queryRootField: procedureArgumentAggregate
+      subscription:
+        rootField: procedureArgumentAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: ProcedureArgument
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

@@ -1,0 +1,168 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertRepresentationObject
+  fields:
+    - name: connectorName
+      type: Varchar!
+    - name: name
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+    - name: type
+      type: Varchar!
+  graphql:
+    typeName: InsertRepresentationObject
+    inputTypeName: InsertRepresentationObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_representation_object
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        name:
+          column:
+            name: name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        type:
+          column:
+            name: type
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertRepresentationObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - name
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - type
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertRepresentationResponse
+  description: Responses from the 'insert_representation' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[Representation!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertRepresentationResponse
+    inputTypeName: InsertRepresentationResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_representation_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertRepresentationResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertRepresentation
+  outputType: InsertRepresentationResponse!
+  arguments:
+    - name: objects
+      type: "[InsertRepresentationObject!]!"
+    - name: postCheck
+      type: RepresentationBoolExp
+      description: Insert permission predicate over the 'representation' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_representation
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertRepresentation
+    rootFieldKind: Mutation
+  description: Insert into the representation table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertRepresentation
+  permissions:
+    - role: admin
+      allowExecution: true
+

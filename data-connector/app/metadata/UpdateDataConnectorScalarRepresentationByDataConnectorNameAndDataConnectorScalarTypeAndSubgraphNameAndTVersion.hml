@@ -1,0 +1,652 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorScalarRepresentationDataConnectorName
+  description: Update the 'data_connector_name' column in the
+    'data_connector_scalar_representation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorScalarRepresentationDataConnectorName
+    inputTypeName: UpdateColumnDataConnectorScalarRepresentationDataConnectorNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_scalar_representation_data_connector_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorScalarRepresentationDataConnectorName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorScalarRepresentationDataConnectorScalarType
+  description: Update the 'data_connector_scalar_type' column in the
+    'data_connector_scalar_representation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorScalarRepresentationDataConnectorScalarType
+    inputTypeName: UpdateColumnDataConnectorScalarRepresentationDataConnectorScalarTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_scalar_representation_data_connector_scalar_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorScalarRepresentationDataConnectorScalarType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorScalarRepresentationGraphqlComparisonExpressionTypeName
+  description: Update the 'graphql_comparison_expression_type_name' column in the
+    'data_connector_scalar_representation' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorScalarRepresentationGraphqlComparisonExpressionTypeName
+    inputTypeName: UpdateColumnDataConnectorScalarRepresentationGraphqlComparisonExpressionTypeNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_scalar_representation_graphql_comparison_expression_type_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorScalarRepresentationGraphqlComparisonExpressionTypeName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorScalarRepresentationScalarTypeName
+  description: Update the 'scalar_type_name' column in the
+    'data_connector_scalar_representation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorScalarRepresentationScalarTypeName
+    inputTypeName: UpdateColumnDataConnectorScalarRepresentationScalarTypeNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_scalar_representation_scalar_type_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorScalarRepresentationScalarTypeName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorScalarRepresentationSubgraphName
+  description: Update the 'subgraph_name' column in the
+    'data_connector_scalar_representation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorScalarRepresentationSubgraphName
+    inputTypeName: UpdateColumnDataConnectorScalarRepresentationSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_scalar_representation_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorScalarRepresentationSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorScalarRepresentationTContentHash
+  description: Update the 't_content_hash' column in the
+    'data_connector_scalar_representation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorScalarRepresentationTContentHash
+    inputTypeName: UpdateColumnDataConnectorScalarRepresentationTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_scalar_representation_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorScalarRepresentationTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorScalarRepresentationTCreatedAt
+  description: Update the 't_created_at' column in the
+    'data_connector_scalar_representation' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorScalarRepresentationTCreatedAt
+    inputTypeName: UpdateColumnDataConnectorScalarRepresentationTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_scalar_representation_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorScalarRepresentationTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorScalarRepresentationTDeletedAt
+  description: Update the 't_deleted_at' column in the
+    'data_connector_scalar_representation' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorScalarRepresentationTDeletedAt
+    inputTypeName: UpdateColumnDataConnectorScalarRepresentationTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_scalar_representation_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorScalarRepresentationTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorScalarRepresentationTId
+  description: Update the 't_id' column in the
+    'data_connector_scalar_representation' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorScalarRepresentationTId
+    inputTypeName: UpdateColumnDataConnectorScalarRepresentationTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_scalar_representation_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorScalarRepresentationTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorScalarRepresentationTIsCurrent
+  description: Update the 't_is_current' column in the
+    'data_connector_scalar_representation' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorScalarRepresentationTIsCurrent
+    inputTypeName: UpdateColumnDataConnectorScalarRepresentationTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_scalar_representation_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorScalarRepresentationTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorScalarRepresentationTIsDeleted
+  description: Update the 't_is_deleted' column in the
+    'data_connector_scalar_representation' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorScalarRepresentationTIsDeleted
+    inputTypeName: UpdateColumnDataConnectorScalarRepresentationTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_scalar_representation_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorScalarRepresentationTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorScalarRepresentationTUpdatedAt
+  description: Update the 't_updated_at' column in the
+    'data_connector_scalar_representation' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorScalarRepresentationTUpdatedAt
+    inputTypeName: UpdateColumnDataConnectorScalarRepresentationTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_scalar_representation_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorScalarRepresentationTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorScalarRepresentationTVersion
+  description: Update the 't_version' column in the
+    'data_connector_scalar_representation' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorScalarRepresentationTVersion
+    inputTypeName: UpdateColumnDataConnectorScalarRepresentationTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_scalar_representation_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorScalarRepresentationTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'data_connector_scalar_representation' collection
+  fields:
+    - name: dataConnectorName
+      type: UpdateColumnDataConnectorScalarRepresentationDataConnectorName
+      description: Update the 'data_connector_name' column in the
+        'data_connector_scalar_representation' collection.
+    - name: dataConnectorScalarType
+      type: UpdateColumnDataConnectorScalarRepresentationDataConnectorScalarType
+      description: Update the 'data_connector_scalar_type' column in the
+        'data_connector_scalar_representation' collection.
+    - name: graphqlComparisonExpressionTypeName
+      type: UpdateColumnDataConnectorScalarRepresentationGraphqlComparisonExpressionTypeName
+      description: Update the 'graphql_comparison_expression_type_name' column in the
+        'data_connector_scalar_representation' collection.
+    - name: scalarTypeName
+      type: UpdateColumnDataConnectorScalarRepresentationScalarTypeName
+      description: Update the 'scalar_type_name' column in the
+        'data_connector_scalar_representation' collection.
+    - name: subgraphName
+      type: UpdateColumnDataConnectorScalarRepresentationSubgraphName
+      description: Update the 'subgraph_name' column in the
+        'data_connector_scalar_representation' collection.
+    - name: tContentHash
+      type: UpdateColumnDataConnectorScalarRepresentationTContentHash
+      description: Update the 't_content_hash' column in the
+        'data_connector_scalar_representation' collection.
+    - name: tCreatedAt
+      type: UpdateColumnDataConnectorScalarRepresentationTCreatedAt
+      description: Update the 't_created_at' column in the
+        'data_connector_scalar_representation' collection.
+    - name: tDeletedAt
+      type: UpdateColumnDataConnectorScalarRepresentationTDeletedAt
+      description: Update the 't_deleted_at' column in the
+        'data_connector_scalar_representation' collection.
+    - name: tId
+      type: UpdateColumnDataConnectorScalarRepresentationTId
+      description: Update the 't_id' column in the
+        'data_connector_scalar_representation' collection.
+    - name: tIsCurrent
+      type: UpdateColumnDataConnectorScalarRepresentationTIsCurrent
+      description: Update the 't_is_current' column in the
+        'data_connector_scalar_representation' collection.
+    - name: tIsDeleted
+      type: UpdateColumnDataConnectorScalarRepresentationTIsDeleted
+      description: Update the 't_is_deleted' column in the
+        'data_connector_scalar_representation' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnDataConnectorScalarRepresentationTUpdatedAt
+      description: Update the 't_updated_at' column in the
+        'data_connector_scalar_representation' collection.
+    - name: tVersion
+      type: UpdateColumnDataConnectorScalarRepresentationTVersion
+      description: Update the 't_version' column in the
+        'data_connector_scalar_representation' collection.
+  graphql:
+    typeName: UpdateDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_data_connector_scalar_representation_by_data_connector_name_and_data_connector_scalar_type_and_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        dataConnectorName:
+          column:
+            name: data_connector_name
+        dataConnectorScalarType:
+          column:
+            name: data_connector_scalar_type
+        graphqlComparisonExpressionTypeName:
+          column:
+            name: graphql_comparison_expression_type_name
+        scalarTypeName:
+          column:
+            name: scalar_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - dataConnectorName
+          - dataConnectorScalarType
+          - graphqlComparisonExpressionTypeName
+          - scalarTypeName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_data_connector_scalar_representation_by_data_connector_name_and_data_connector_scalar_type_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[DataConnectorScalarRepresentation!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersionResponse
+    inputTypeName: UpdateDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_data_connector_scalar_representation_by_data_connector_name_and_data_connector_scalar_type_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersion
+  outputType: UpdateDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyDataConnectorName
+      type: Varchar!
+    - name: keyDataConnectorScalarType
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: DataConnectorScalarRepresentationBoolExp
+      description: Update permission post-condition predicate over the
+        'data_connector_scalar_representation' collection
+    - name: preCheck
+      type: DataConnectorScalarRepresentationBoolExp
+      description: Update permission pre-condition predicate over the
+        'data_connector_scalar_representation' collection
+    - name: updateColumns
+      type: UpdateDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_data_connector_scalar_representation_by_data_connector_name_and_data_connector_scalar_type_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyDataConnectorName: key_data_connector_name
+      keyDataConnectorScalarType: key_data_connector_scalar_type
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'data_connector_scalar_representation'
+    collection using the 'data_connector_name', 'data_connector_scalar_type',
+    'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateDataConnectorScalarRepresentationByDataConnectorNameAndDataConnectorScalarTypeAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

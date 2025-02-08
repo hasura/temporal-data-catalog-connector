@@ -1,0 +1,81 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteSubgraphSupergraphMapBySubgraphNameAndSupergraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_subgraph_supergraph_map_by_subgraph_name_and_supergraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[SubgraphSupergraphMap!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteSubgraphSupergraphMapBySubgraphNameAndSupergraphNameAndTVersionResponse
+    inputTypeName: DeleteSubgraphSupergraphMapBySubgraphNameAndSupergraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_subgraph_supergraph_map_by_subgraph_name_and_supergraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteSubgraphSupergraphMapBySubgraphNameAndSupergraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteSubgraphSupergraphMapBySubgraphNameAndSupergraphNameAndTVersion
+  outputType: DeleteSubgraphSupergraphMapBySubgraphNameAndSupergraphNameAndTVersionResponse!
+  arguments:
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keySupergraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: SubgraphSupergraphMapBoolExp
+      description: Delete permission predicate over the 'subgraph_supergraph_map' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_subgraph_supergraph_map_by_subgraph_name_and_supergraph_name_and_t_version
+    argumentMapping:
+      keySubgraphName: key_subgraph_name
+      keySupergraphName: key_supergraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteSubgraphSupergraphMapBySubgraphNameAndSupergraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'subgraph_supergraph_map' collection using
+    the 'subgraph_name', 'supergraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteSubgraphSupergraphMapBySubgraphNameAndSupergraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

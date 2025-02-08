@@ -1,0 +1,133 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentDataConnectorArgumentPresetObject
+  fields:
+    - name: argumentType
+      type: Varchar
+    - name: connectorName
+      type: Varchar
+    - name: id
+      type: Int4
+    - name: name
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+    - name: value
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentDataConnectorArgumentPresetObject
+    inputTypeName: InsertCurrentDataConnectorArgumentPresetObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_data_connector_argument_preset_object
+      fieldMapping:
+        argumentType:
+          column:
+            name: argument_type
+        connectorName:
+          column:
+            name: connector_name
+        id:
+          column:
+            name: id
+        name:
+          column:
+            name: name
+        subgraphName:
+          column:
+            name: subgraph_name
+        value:
+          column:
+            name: value
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentDataConnectorArgumentPresetObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - argumentType
+          - connectorName
+          - id
+          - name
+          - subgraphName
+          - value
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentDataConnectorArgumentPresetResponse
+  description: Responses from the 'insert_current_data_connector_argument_preset' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentDataConnectorArgumentPreset!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentDataConnectorArgumentPresetResponse
+    inputTypeName: InsertCurrentDataConnectorArgumentPresetResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_data_connector_argument_preset_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentDataConnectorArgumentPresetResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentDataConnectorArgumentPreset
+  outputType: InsertCurrentDataConnectorArgumentPresetResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentDataConnectorArgumentPresetObject!]!"
+    - name: postCheck
+      type: CurrentDataConnectorArgumentPresetBoolExp
+      description: Insert permission predicate over the
+        'current_data_connector_argument_preset' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_data_connector_argument_preset
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentDataConnectorArgumentPreset
+    rootFieldKind: Mutation
+  description: Insert into the current_data_connector_argument_preset table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentDataConnectorArgumentPreset
+  permissions:
+    - role: admin
+      allowExecution: true
+

@@ -1,0 +1,127 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentRelationshipAggregateObject
+  fields:
+    - name: aggregateExpression
+      type: Varchar
+    - name: description
+      type: Varchar
+    - name: relationshipName
+      type: Varchar
+    - name: sourceTypeName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentRelationshipAggregateObject
+    inputTypeName: InsertCurrentRelationshipAggregateObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_relationship_aggregate_object
+      fieldMapping:
+        aggregateExpression:
+          column:
+            name: aggregate_expression
+        description:
+          column:
+            name: description
+        relationshipName:
+          column:
+            name: relationship_name
+        sourceTypeName:
+          column:
+            name: source_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentRelationshipAggregateObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregateExpression
+          - description
+          - relationshipName
+          - sourceTypeName
+          - subgraphName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentRelationshipAggregateResponse
+  description: Responses from the 'insert_current_relationship_aggregate' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentRelationshipAggregate!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentRelationshipAggregateResponse
+    inputTypeName: InsertCurrentRelationshipAggregateResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_relationship_aggregate_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentRelationshipAggregateResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentRelationshipAggregate
+  outputType: InsertCurrentRelationshipAggregateResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentRelationshipAggregateObject!]!"
+    - name: postCheck
+      type: CurrentRelationshipAggregateBoolExp
+      description: Insert permission predicate over the
+        'current_relationship_aggregate' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_relationship_aggregate
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentRelationshipAggregate
+    rootFieldKind: Mutation
+  description: Insert into the current_relationship_aggregate table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentRelationshipAggregate
+  permissions:
+    - role: admin
+      allowExecution: true
+

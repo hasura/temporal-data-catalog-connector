@@ -1,0 +1,261 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Film
+  fields:
+    - name: description
+      type: Text
+    - name: filmId
+      type: Int4!
+    - name: fulltext
+      type: Tsvector!
+    - name: languageId
+      type: Int2!
+    - name: lastUpdate
+      type: Timestamp!
+    - name: length
+      type: Int2
+    - name: rating
+      type: Text
+    - name: releaseYear
+      type: Int4
+    - name: rentalDuration
+      type: Int2!
+    - name: rentalRate
+      type: Numeric!
+    - name: replacementCost
+      type: Numeric!
+    - name: specialFeatures
+      type: "[Text]"
+    - name: title
+      type: Varchar!
+  graphql:
+    typeName: Film
+    inputTypeName: FilmInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: chinook
+      dataConnectorObjectType: film
+      fieldMapping:
+        description:
+          column:
+            name: description
+        filmId:
+          column:
+            name: film_id
+        fulltext:
+          column:
+            name: fulltext
+        languageId:
+          column:
+            name: language_id
+        lastUpdate:
+          column:
+            name: last_update
+        length:
+          column:
+            name: length
+        rating:
+          column:
+            name: rating
+        releaseYear:
+          column:
+            name: release_year
+        rentalDuration:
+          column:
+            name: rental_duration
+        rentalRate:
+          column:
+            name: rental_rate
+        replacementCost:
+          column:
+            name: replacement_cost
+        specialFeatures:
+          column:
+            name: special_features
+        title:
+          column:
+            name: title
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Film
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - description
+          - filmId
+          - fulltext
+          - languageId
+          - lastUpdate
+          - length
+          - rating
+          - releaseYear
+          - rentalDuration
+          - rentalRate
+          - replacementCost
+          - specialFeatures
+          - title
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: FilmBoolExp
+  operand:
+    object:
+      type: Film
+      comparableFields:
+        - fieldName: description
+          booleanExpressionType: TextBoolExp
+        - fieldName: filmId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: fulltext
+          booleanExpressionType: TsvectorBoolExp
+        - fieldName: languageId
+          booleanExpressionType: Int2BoolExp
+        - fieldName: lastUpdate
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: length
+          booleanExpressionType: Int2BoolExp
+        - fieldName: rating
+          booleanExpressionType: TextBoolExp
+        - fieldName: releaseYear
+          booleanExpressionType: Int4BoolExp
+        - fieldName: rentalDuration
+          booleanExpressionType: Int2BoolExp
+        - fieldName: rentalRate
+          booleanExpressionType: NumericBoolExp
+        - fieldName: replacementCost
+          booleanExpressionType: NumericBoolExp
+        - fieldName: title
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: FilmBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: FilmAggExp
+  operand:
+    object:
+      aggregatedType: Film
+      aggregatableFields:
+        - fieldName: description
+          aggregateExpression: TextAggExp
+        - fieldName: filmId
+          aggregateExpression: Int4AggExp
+        - fieldName: fulltext
+          aggregateExpression: TsvectorAggExp
+        - fieldName: languageId
+          aggregateExpression: Int2AggExp
+        - fieldName: lastUpdate
+          aggregateExpression: TimestampAggExp
+        - fieldName: length
+          aggregateExpression: Int2AggExp
+        - fieldName: rating
+          aggregateExpression: TextAggExp
+        - fieldName: releaseYear
+          aggregateExpression: Int4AggExp
+        - fieldName: rentalDuration
+          aggregateExpression: Int2AggExp
+        - fieldName: rentalRate
+          aggregateExpression: NumericAggExp
+        - fieldName: replacementCost
+          aggregateExpression: NumericAggExp
+        - fieldName: title
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: FilmAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: Film
+  objectType: Film
+  source:
+    dataConnectorName: chinook
+    collection: film
+  filterExpressionType: FilmBoolExp
+  aggregateExpression: FilmAggExp
+  orderableFields:
+    - fieldName: description
+      orderByDirections:
+        enableAll: true
+    - fieldName: filmId
+      orderByDirections:
+        enableAll: true
+    - fieldName: fulltext
+      orderByDirections:
+        enableAll: true
+    - fieldName: languageId
+      orderByDirections:
+        enableAll: true
+    - fieldName: lastUpdate
+      orderByDirections:
+        enableAll: true
+    - fieldName: length
+      orderByDirections:
+        enableAll: true
+    - fieldName: rating
+      orderByDirections:
+        enableAll: true
+    - fieldName: releaseYear
+      orderByDirections:
+        enableAll: true
+    - fieldName: rentalDuration
+      orderByDirections:
+        enableAll: true
+    - fieldName: rentalRate
+      orderByDirections:
+        enableAll: true
+    - fieldName: replacementCost
+      orderByDirections:
+        enableAll: true
+    - fieldName: specialFeatures
+      orderByDirections:
+        enableAll: true
+    - fieldName: title
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: film
+      subscription:
+        rootField: film
+    selectUniques:
+      - queryRootField: filmByFilmId
+        uniqueIdentifier:
+          - filmId
+        subscription:
+          rootField: filmByFilmId
+    orderByExpressionType: FilmOrderBy
+    filterInputTypeName: FilmFilterInput
+    aggregate:
+      queryRootField: filmAggregate
+      subscription:
+        rootField: filmAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Film
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

@@ -1,0 +1,187 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentCollectionForeignKey
+  fields:
+    - name: collectionName
+      type: Varchar
+    - name: connectorName
+      type: Varchar
+    - name: fieldName
+      type: Varchar
+    - name: fkName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+    - name: targetCollection
+      type: Varchar
+    - name: targetField
+      type: Varchar
+  graphql:
+    typeName: CurrentCollectionForeignKey
+    inputTypeName: CurrentCollectionForeignKeyInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_collection_foreign_key
+      fieldMapping:
+        collectionName:
+          column:
+            name: collection_name
+        connectorName:
+          column:
+            name: connector_name
+        fieldName:
+          column:
+            name: field_name
+        fkName:
+          column:
+            name: fk_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        targetCollection:
+          column:
+            name: target_collection
+        targetField:
+          column:
+            name: target_field
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentCollectionForeignKey
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - collectionName
+          - connectorName
+          - fieldName
+          - fkName
+          - subgraphName
+          - targetCollection
+          - targetField
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentCollectionForeignKeyBoolExp
+  operand:
+    object:
+      type: CurrentCollectionForeignKey
+      comparableFields:
+        - fieldName: collectionName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: fieldName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: fkName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: targetCollection
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: targetField
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentCollectionForeignKeyBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentCollectionForeignKeyAggExp
+  operand:
+    object:
+      aggregatedType: CurrentCollectionForeignKey
+      aggregatableFields:
+        - fieldName: collectionName
+          aggregateExpression: VarcharAggExp
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: fieldName
+          aggregateExpression: VarcharAggExp
+        - fieldName: fkName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: targetCollection
+          aggregateExpression: VarcharAggExp
+        - fieldName: targetField
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentCollectionForeignKeyAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentCollectionForeignKeyOrderByExp
+  operand:
+    object:
+      orderedType: CurrentCollectionForeignKey
+      orderableFields:
+        - fieldName: collectionName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: fieldName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: fkName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: targetCollection
+          orderByExpression: VarcharOrderByExp
+        - fieldName: targetField
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentCollectionForeignKeyOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentCollectionForeignKey
+  objectType: CurrentCollectionForeignKey
+  source:
+    dataConnectorName: datamanagement
+    collection: current_collection_foreign_key
+  filterExpressionType: CurrentCollectionForeignKeyBoolExp
+  aggregateExpression: CurrentCollectionForeignKeyAggExp
+  orderByExpression: CurrentCollectionForeignKeyOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentCollectionForeignKey
+      subscription:
+        rootField: currentCollectionForeignKey
+    selectUniques: []
+    filterInputTypeName: CurrentCollectionForeignKeyFilterInput
+    aggregate:
+      queryRootField: currentCollectionForeignKeyAggregate
+      subscription:
+        rootField: currentCollectionForeignKeyAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentCollectionForeignKey
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

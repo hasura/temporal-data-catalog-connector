@@ -1,0 +1,681 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorArgumentPresetArgumentType
+  description: Update the 'argument_type' column in the
+    'data_connector_argument_preset' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorArgumentPresetArgumentType
+    inputTypeName: UpdateColumnDataConnectorArgumentPresetArgumentTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_argument_preset_argument_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorArgumentPresetArgumentType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorArgumentPresetConnectorName
+  description: Update the 'connector_name' column in the
+    'data_connector_argument_preset' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorArgumentPresetConnectorName
+    inputTypeName: UpdateColumnDataConnectorArgumentPresetConnectorNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_argument_preset_connector_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorArgumentPresetConnectorName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorArgumentPresetId
+  description: Update the 'id' column in the 'data_connector_argument_preset' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorArgumentPresetId
+    inputTypeName: UpdateColumnDataConnectorArgumentPresetIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_argument_preset_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorArgumentPresetId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorArgumentPresetName
+  description: Update the 'name' column in the 'data_connector_argument_preset' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorArgumentPresetName
+    inputTypeName: UpdateColumnDataConnectorArgumentPresetNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_argument_preset_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorArgumentPresetName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorArgumentPresetSubgraphName
+  description: Update the 'subgraph_name' column in the
+    'data_connector_argument_preset' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorArgumentPresetSubgraphName
+    inputTypeName: UpdateColumnDataConnectorArgumentPresetSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_argument_preset_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorArgumentPresetSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorArgumentPresetTContentHash
+  description: Update the 't_content_hash' column in the
+    'data_connector_argument_preset' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorArgumentPresetTContentHash
+    inputTypeName: UpdateColumnDataConnectorArgumentPresetTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_argument_preset_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorArgumentPresetTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorArgumentPresetTCreatedAt
+  description: Update the 't_created_at' column in the
+    'data_connector_argument_preset' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorArgumentPresetTCreatedAt
+    inputTypeName: UpdateColumnDataConnectorArgumentPresetTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_argument_preset_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorArgumentPresetTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorArgumentPresetTDeletedAt
+  description: Update the 't_deleted_at' column in the
+    'data_connector_argument_preset' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorArgumentPresetTDeletedAt
+    inputTypeName: UpdateColumnDataConnectorArgumentPresetTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_argument_preset_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorArgumentPresetTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorArgumentPresetTId
+  description: Update the 't_id' column in the 'data_connector_argument_preset' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorArgumentPresetTId
+    inputTypeName: UpdateColumnDataConnectorArgumentPresetTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_argument_preset_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorArgumentPresetTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorArgumentPresetTIsCurrent
+  description: Update the 't_is_current' column in the
+    'data_connector_argument_preset' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorArgumentPresetTIsCurrent
+    inputTypeName: UpdateColumnDataConnectorArgumentPresetTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_argument_preset_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorArgumentPresetTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorArgumentPresetTIsDeleted
+  description: Update the 't_is_deleted' column in the
+    'data_connector_argument_preset' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorArgumentPresetTIsDeleted
+    inputTypeName: UpdateColumnDataConnectorArgumentPresetTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_argument_preset_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorArgumentPresetTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorArgumentPresetTUpdatedAt
+  description: Update the 't_updated_at' column in the
+    'data_connector_argument_preset' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorArgumentPresetTUpdatedAt
+    inputTypeName: UpdateColumnDataConnectorArgumentPresetTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_argument_preset_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorArgumentPresetTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorArgumentPresetTVersion
+  description: Update the 't_version' column in the
+    'data_connector_argument_preset' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorArgumentPresetTVersion
+    inputTypeName: UpdateColumnDataConnectorArgumentPresetTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_argument_preset_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorArgumentPresetTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorArgumentPresetValue
+  description: Update the 'value' column in the 'data_connector_argument_preset' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorArgumentPresetValue
+    inputTypeName: UpdateColumnDataConnectorArgumentPresetValueInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_argument_preset_value
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorArgumentPresetValue
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateDataConnectorArgumentPresetByIdAndTVersionUpdateColumns
+  description: Update the columns of the 'data_connector_argument_preset' collection
+  fields:
+    - name: argumentType
+      type: UpdateColumnDataConnectorArgumentPresetArgumentType
+      description: Update the 'argument_type' column in the
+        'data_connector_argument_preset' collection.
+    - name: connectorName
+      type: UpdateColumnDataConnectorArgumentPresetConnectorName
+      description: Update the 'connector_name' column in the
+        'data_connector_argument_preset' collection.
+    - name: id
+      type: UpdateColumnDataConnectorArgumentPresetId
+      description: Update the 'id' column in the 'data_connector_argument_preset'
+        collection.
+    - name: name
+      type: UpdateColumnDataConnectorArgumentPresetName
+      description: Update the 'name' column in the 'data_connector_argument_preset'
+        collection.
+    - name: subgraphName
+      type: UpdateColumnDataConnectorArgumentPresetSubgraphName
+      description: Update the 'subgraph_name' column in the
+        'data_connector_argument_preset' collection.
+    - name: tContentHash
+      type: UpdateColumnDataConnectorArgumentPresetTContentHash
+      description: Update the 't_content_hash' column in the
+        'data_connector_argument_preset' collection.
+    - name: tCreatedAt
+      type: UpdateColumnDataConnectorArgumentPresetTCreatedAt
+      description: Update the 't_created_at' column in the
+        'data_connector_argument_preset' collection.
+    - name: tDeletedAt
+      type: UpdateColumnDataConnectorArgumentPresetTDeletedAt
+      description: Update the 't_deleted_at' column in the
+        'data_connector_argument_preset' collection.
+    - name: tId
+      type: UpdateColumnDataConnectorArgumentPresetTId
+      description: Update the 't_id' column in the 'data_connector_argument_preset'
+        collection.
+    - name: tIsCurrent
+      type: UpdateColumnDataConnectorArgumentPresetTIsCurrent
+      description: Update the 't_is_current' column in the
+        'data_connector_argument_preset' collection.
+    - name: tIsDeleted
+      type: UpdateColumnDataConnectorArgumentPresetTIsDeleted
+      description: Update the 't_is_deleted' column in the
+        'data_connector_argument_preset' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnDataConnectorArgumentPresetTUpdatedAt
+      description: Update the 't_updated_at' column in the
+        'data_connector_argument_preset' collection.
+    - name: tVersion
+      type: UpdateColumnDataConnectorArgumentPresetTVersion
+      description: Update the 't_version' column in the
+        'data_connector_argument_preset' collection.
+    - name: value
+      type: UpdateColumnDataConnectorArgumentPresetValue
+      description: Update the 'value' column in the 'data_connector_argument_preset'
+        collection.
+  graphql:
+    typeName: UpdateDataConnectorArgumentPresetByIdAndTVersionUpdateColumns
+    inputTypeName: UpdateDataConnectorArgumentPresetByIdAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_data_connector_argument_preset_by_id_and_t_version_update_columns
+      fieldMapping:
+        argumentType:
+          column:
+            name: argument_type
+        connectorName:
+          column:
+            name: connector_name
+        id:
+          column:
+            name: id
+        name:
+          column:
+            name: name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        value:
+          column:
+            name: value
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateDataConnectorArgumentPresetByIdAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - argumentType
+          - connectorName
+          - id
+          - name
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - value
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateDataConnectorArgumentPresetByIdAndTVersionResponse
+  description: Responses from the
+    'update_data_connector_argument_preset_by_id_and_t_version' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[DataConnectorArgumentPreset!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateDataConnectorArgumentPresetByIdAndTVersionResponse
+    inputTypeName: UpdateDataConnectorArgumentPresetByIdAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_data_connector_argument_preset_by_id_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateDataConnectorArgumentPresetByIdAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateDataConnectorArgumentPresetByIdAndTVersion
+  outputType: UpdateDataConnectorArgumentPresetByIdAndTVersionResponse!
+  arguments:
+    - name: keyId
+      type: Int4!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: DataConnectorArgumentPresetBoolExp
+      description: Update permission post-condition predicate over the
+        'data_connector_argument_preset' collection
+    - name: preCheck
+      type: DataConnectorArgumentPresetBoolExp
+      description: Update permission pre-condition predicate over the
+        'data_connector_argument_preset' collection
+    - name: updateColumns
+      type: UpdateDataConnectorArgumentPresetByIdAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_data_connector_argument_preset_by_id_and_t_version
+    argumentMapping:
+      keyId: key_id
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateDataConnectorArgumentPresetByIdAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'data_connector_argument_preset' collection
+    using the 'id' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateDataConnectorArgumentPresetByIdAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

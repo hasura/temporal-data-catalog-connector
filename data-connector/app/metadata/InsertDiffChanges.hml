@@ -1,0 +1,138 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertDiffChangesObject
+  fields:
+    - name: diffEntryId
+      type: Int4!
+    - name: fieldPath
+      type: Varchar!
+    - name: id
+      type: Int4
+    - name: newValue
+      type: Varchar
+    - name: oldValue
+      type: Varchar
+    - name: operation
+      type: Changeoperation!
+    - name: valueType
+      type: Varchar!
+  graphql:
+    typeName: InsertDiffChangesObject
+    inputTypeName: InsertDiffChangesObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_diff_changes_object
+      fieldMapping:
+        diffEntryId:
+          column:
+            name: diff_entry_id
+        fieldPath:
+          column:
+            name: field_path
+        id:
+          column:
+            name: id
+        newValue:
+          column:
+            name: new_value
+        oldValue:
+          column:
+            name: old_value
+        operation:
+          column:
+            name: operation
+        valueType:
+          column:
+            name: value_type
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertDiffChangesObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - diffEntryId
+          - fieldPath
+          - id
+          - newValue
+          - oldValue
+          - operation
+          - valueType
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertDiffChangesResponse
+  description: Responses from the 'insert_diff_changes' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[DiffChanges!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertDiffChangesResponse
+    inputTypeName: InsertDiffChangesResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_diff_changes_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertDiffChangesResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertDiffChanges
+  outputType: InsertDiffChangesResponse!
+  arguments:
+    - name: objects
+      type: "[InsertDiffChangesObject!]!"
+    - name: postCheck
+      type: DiffChangesBoolExp
+      description: Insert permission predicate over the 'diff_changes' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_diff_changes
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertDiffChanges
+    rootFieldKind: Mutation
+  description: Insert into the diff_changes table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertDiffChanges
+  permissions:
+    - role: admin
+      allowExecution: true
+

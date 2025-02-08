@@ -1,0 +1,130 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: FilmCategory
+  fields:
+    - name: categoryId
+      type: Int2!
+    - name: filmId
+      type: Int2!
+    - name: lastUpdate
+      type: Timestamp!
+  graphql:
+    typeName: FilmCategory
+    inputTypeName: FilmCategoryInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: chinook
+      dataConnectorObjectType: film_category
+      fieldMapping:
+        categoryId:
+          column:
+            name: category_id
+        filmId:
+          column:
+            name: film_id
+        lastUpdate:
+          column:
+            name: last_update
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: FilmCategory
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - categoryId
+          - filmId
+          - lastUpdate
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: FilmCategoryBoolExp
+  operand:
+    object:
+      type: FilmCategory
+      comparableFields:
+        - fieldName: categoryId
+          booleanExpressionType: Int2BoolExp
+        - fieldName: filmId
+          booleanExpressionType: Int2BoolExp
+        - fieldName: lastUpdate
+          booleanExpressionType: TimestampBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: FilmCategoryBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: FilmCategoryAggExp
+  operand:
+    object:
+      aggregatedType: FilmCategory
+      aggregatableFields:
+        - fieldName: categoryId
+          aggregateExpression: Int2AggExp
+        - fieldName: filmId
+          aggregateExpression: Int2AggExp
+        - fieldName: lastUpdate
+          aggregateExpression: TimestampAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: FilmCategoryAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: FilmCategory
+  objectType: FilmCategory
+  source:
+    dataConnectorName: chinook
+    collection: film_category
+  filterExpressionType: FilmCategoryBoolExp
+  aggregateExpression: FilmCategoryAggExp
+  orderableFields:
+    - fieldName: categoryId
+      orderByDirections:
+        enableAll: true
+    - fieldName: filmId
+      orderByDirections:
+        enableAll: true
+    - fieldName: lastUpdate
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: filmCategory
+      subscription:
+        rootField: filmCategory
+    selectUniques: []
+    orderByExpressionType: FilmCategoryOrderBy
+    filterInputTypeName: FilmCategoryFilterInput
+    aggregate:
+      queryRootField: filmCategoryAggregate
+      subscription:
+        rootField: filmCategoryAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: FilmCategory
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

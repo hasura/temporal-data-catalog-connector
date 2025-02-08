@@ -1,0 +1,84 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteDataConnectorHeaderByConnectorNameAndKeyAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_data_connector_header_by_connector_name_and_key_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[DataConnectorHeader!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteDataConnectorHeaderByConnectorNameAndKeyAndSubgraphNameAndTVersionResponse
+    inputTypeName: DeleteDataConnectorHeaderByConnectorNameAndKeyAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_data_connector_header_by_connector_name_and_key_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteDataConnectorHeaderByConnectorNameAndKeyAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteDataConnectorHeaderByConnectorNameAndKeyAndSubgraphNameAndTVersion
+  outputType: DeleteDataConnectorHeaderByConnectorNameAndKeyAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyConnectorName
+      type: Varchar!
+    - name: keyKey
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: DataConnectorHeaderBoolExp
+      description: Delete permission predicate over the 'data_connector_header' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_data_connector_header_by_connector_name_and_key_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyConnectorName: key_connector_name
+      keyKey: key_key
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteDataConnectorHeaderByConnectorNameAndKeyAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'data_connector_header' collection using the
+    'connector_name', 'key', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteDataConnectorHeaderByConnectorNameAndKeyAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

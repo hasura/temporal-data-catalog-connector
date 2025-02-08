@@ -1,0 +1,174 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertAggregateObjectFieldObject
+  fields:
+    - name: aggregateExpressionType
+      type: Varchar!
+    - name: aggregateName
+      type: Varchar!
+    - name: description
+      type: Text
+    - name: fieldName
+      type: Varchar!
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+  graphql:
+    typeName: InsertAggregateObjectFieldObject
+    inputTypeName: InsertAggregateObjectFieldObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_aggregate_object_field_object
+      fieldMapping:
+        aggregateExpressionType:
+          column:
+            name: aggregate_expression_type
+        aggregateName:
+          column:
+            name: aggregate_name
+        description:
+          column:
+            name: description
+        fieldName:
+          column:
+            name: field_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertAggregateObjectFieldObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregateExpressionType
+          - aggregateName
+          - description
+          - fieldName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertAggregateObjectFieldResponse
+  description: Responses from the 'insert_aggregate_object_field' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[AggregateObjectField!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertAggregateObjectFieldResponse
+    inputTypeName: InsertAggregateObjectFieldResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_aggregate_object_field_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertAggregateObjectFieldResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertAggregateObjectField
+  outputType: InsertAggregateObjectFieldResponse!
+  arguments:
+    - name: objects
+      type: "[InsertAggregateObjectFieldObject!]!"
+    - name: postCheck
+      type: AggregateObjectFieldBoolExp
+      description: Insert permission predicate over the 'aggregate_object_field' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_aggregate_object_field
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertAggregateObjectField
+    rootFieldKind: Mutation
+  description: Insert into the aggregate_object_field table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertAggregateObjectField
+  permissions:
+    - role: admin
+      allowExecution: true
+

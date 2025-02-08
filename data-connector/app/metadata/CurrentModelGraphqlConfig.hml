@@ -1,0 +1,175 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentModelGraphqlConfig
+  fields:
+    - name: apolloFederation
+      type: Varchar
+    - name: argumentsInputType
+      type: Varchar
+    - name: filterInputTypeName
+      type: Varchar
+    - name: modelName
+      type: Varchar
+    - name: orderByExpressionType
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: CurrentModelGraphqlConfig
+    inputTypeName: CurrentModelGraphqlConfigInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_model_graphql_config
+      fieldMapping:
+        apolloFederation:
+          column:
+            name: apollo_federation
+        argumentsInputType:
+          column:
+            name: arguments_input_type
+        filterInputTypeName:
+          column:
+            name: filter_input_type_name
+        modelName:
+          column:
+            name: model_name
+        orderByExpressionType:
+          column:
+            name: order_by_expression_type
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentModelGraphqlConfig
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - apolloFederation
+          - argumentsInputType
+          - filterInputTypeName
+          - modelName
+          - orderByExpressionType
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentModelGraphqlConfigBoolExp
+  operand:
+    object:
+      type: CurrentModelGraphqlConfig
+      comparableFields:
+        - fieldName: apolloFederation
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: argumentsInputType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: filterInputTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: orderByExpressionType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentModelGraphqlConfigBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentModelGraphqlConfigAggExp
+  operand:
+    object:
+      aggregatedType: CurrentModelGraphqlConfig
+      aggregatableFields:
+        - fieldName: apolloFederation
+          aggregateExpression: VarcharAggExp
+        - fieldName: argumentsInputType
+          aggregateExpression: VarcharAggExp
+        - fieldName: filterInputTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp
+        - fieldName: orderByExpressionType
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentModelGraphqlConfigAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentModelGraphqlConfigOrderByExp
+  operand:
+    object:
+      orderedType: CurrentModelGraphqlConfig
+      orderableFields:
+        - fieldName: apolloFederation
+          orderByExpression: VarcharOrderByExp
+        - fieldName: argumentsInputType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: filterInputTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: modelName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: orderByExpressionType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentModelGraphqlConfigOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentModelGraphqlConfig
+  objectType: CurrentModelGraphqlConfig
+  source:
+    dataConnectorName: datamanagement
+    collection: current_model_graphql_config
+  filterExpressionType: CurrentModelGraphqlConfigBoolExp
+  aggregateExpression: CurrentModelGraphqlConfigAggExp
+  orderByExpression: CurrentModelGraphqlConfigOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentModelGraphqlConfig
+      subscription:
+        rootField: currentModelGraphqlConfig
+    selectUniques: []
+    filterInputTypeName: CurrentModelGraphqlConfigFilterInput
+    aggregate:
+      queryRootField: currentModelGraphqlConfigAggregate
+      subscription:
+        rootField: currentModelGraphqlConfigAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentModelGraphqlConfig
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

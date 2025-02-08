@@ -1,0 +1,657 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnUniquenessConstraintColumnCollectionName
+  description: Update the 'collection_name' column in the
+    'uniqueness_constraint_column' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnUniquenessConstraintColumnCollectionName
+    inputTypeName: UpdateColumnUniquenessConstraintColumnCollectionNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_uniqueness_constraint_column_collection_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnUniquenessConstraintColumnCollectionName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnUniquenessConstraintColumnConnectorName
+  description: Update the 'connector_name' column in the
+    'uniqueness_constraint_column' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnUniquenessConstraintColumnConnectorName
+    inputTypeName: UpdateColumnUniquenessConstraintColumnConnectorNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_uniqueness_constraint_column_connector_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnUniquenessConstraintColumnConnectorName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnUniquenessConstraintColumnConstraintName
+  description: Update the 'constraint_name' column in the
+    'uniqueness_constraint_column' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnUniquenessConstraintColumnConstraintName
+    inputTypeName: UpdateColumnUniquenessConstraintColumnConstraintNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_uniqueness_constraint_column_constraint_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnUniquenessConstraintColumnConstraintName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnUniquenessConstraintColumnFieldName
+  description: Update the 'field_name' column in the
+    'uniqueness_constraint_column' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnUniquenessConstraintColumnFieldName
+    inputTypeName: UpdateColumnUniquenessConstraintColumnFieldNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_uniqueness_constraint_column_field_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnUniquenessConstraintColumnFieldName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnUniquenessConstraintColumnSubgraphName
+  description: Update the 'subgraph_name' column in the
+    'uniqueness_constraint_column' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnUniquenessConstraintColumnSubgraphName
+    inputTypeName: UpdateColumnUniquenessConstraintColumnSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_uniqueness_constraint_column_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnUniquenessConstraintColumnSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnUniquenessConstraintColumnTContentHash
+  description: Update the 't_content_hash' column in the
+    'uniqueness_constraint_column' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnUniquenessConstraintColumnTContentHash
+    inputTypeName: UpdateColumnUniquenessConstraintColumnTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_uniqueness_constraint_column_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnUniquenessConstraintColumnTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnUniquenessConstraintColumnTCreatedAt
+  description: Update the 't_created_at' column in the
+    'uniqueness_constraint_column' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnUniquenessConstraintColumnTCreatedAt
+    inputTypeName: UpdateColumnUniquenessConstraintColumnTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_uniqueness_constraint_column_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnUniquenessConstraintColumnTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnUniquenessConstraintColumnTDeletedAt
+  description: Update the 't_deleted_at' column in the
+    'uniqueness_constraint_column' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnUniquenessConstraintColumnTDeletedAt
+    inputTypeName: UpdateColumnUniquenessConstraintColumnTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_uniqueness_constraint_column_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnUniquenessConstraintColumnTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnUniquenessConstraintColumnTId
+  description: Update the 't_id' column in the 'uniqueness_constraint_column' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnUniquenessConstraintColumnTId
+    inputTypeName: UpdateColumnUniquenessConstraintColumnTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_uniqueness_constraint_column_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnUniquenessConstraintColumnTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnUniquenessConstraintColumnTIsCurrent
+  description: Update the 't_is_current' column in the
+    'uniqueness_constraint_column' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnUniquenessConstraintColumnTIsCurrent
+    inputTypeName: UpdateColumnUniquenessConstraintColumnTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_uniqueness_constraint_column_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnUniquenessConstraintColumnTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnUniquenessConstraintColumnTIsDeleted
+  description: Update the 't_is_deleted' column in the
+    'uniqueness_constraint_column' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnUniquenessConstraintColumnTIsDeleted
+    inputTypeName: UpdateColumnUniquenessConstraintColumnTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_uniqueness_constraint_column_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnUniquenessConstraintColumnTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnUniquenessConstraintColumnTUpdatedAt
+  description: Update the 't_updated_at' column in the
+    'uniqueness_constraint_column' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnUniquenessConstraintColumnTUpdatedAt
+    inputTypeName: UpdateColumnUniquenessConstraintColumnTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_uniqueness_constraint_column_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnUniquenessConstraintColumnTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnUniquenessConstraintColumnTVersion
+  description: Update the 't_version' column in the 'uniqueness_constraint_column'
+    collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnUniquenessConstraintColumnTVersion
+    inputTypeName: UpdateColumnUniquenessConstraintColumnTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_uniqueness_constraint_column_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnUniquenessConstraintColumnTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateUniquenessConstraintColumnByCollectionNameAndConnectorNameAndConstraintNameAndFieldNameAndSubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'uniqueness_constraint_column' collection
+  fields:
+    - name: collectionName
+      type: UpdateColumnUniquenessConstraintColumnCollectionName
+      description: Update the 'collection_name' column in the
+        'uniqueness_constraint_column' collection.
+    - name: connectorName
+      type: UpdateColumnUniquenessConstraintColumnConnectorName
+      description: Update the 'connector_name' column in the
+        'uniqueness_constraint_column' collection.
+    - name: constraintName
+      type: UpdateColumnUniquenessConstraintColumnConstraintName
+      description: Update the 'constraint_name' column in the
+        'uniqueness_constraint_column' collection.
+    - name: fieldName
+      type: UpdateColumnUniquenessConstraintColumnFieldName
+      description: Update the 'field_name' column in the
+        'uniqueness_constraint_column' collection.
+    - name: subgraphName
+      type: UpdateColumnUniquenessConstraintColumnSubgraphName
+      description: Update the 'subgraph_name' column in the
+        'uniqueness_constraint_column' collection.
+    - name: tContentHash
+      type: UpdateColumnUniquenessConstraintColumnTContentHash
+      description: Update the 't_content_hash' column in the
+        'uniqueness_constraint_column' collection.
+    - name: tCreatedAt
+      type: UpdateColumnUniquenessConstraintColumnTCreatedAt
+      description: Update the 't_created_at' column in the
+        'uniqueness_constraint_column' collection.
+    - name: tDeletedAt
+      type: UpdateColumnUniquenessConstraintColumnTDeletedAt
+      description: Update the 't_deleted_at' column in the
+        'uniqueness_constraint_column' collection.
+    - name: tId
+      type: UpdateColumnUniquenessConstraintColumnTId
+      description: Update the 't_id' column in the 'uniqueness_constraint_column'
+        collection.
+    - name: tIsCurrent
+      type: UpdateColumnUniquenessConstraintColumnTIsCurrent
+      description: Update the 't_is_current' column in the
+        'uniqueness_constraint_column' collection.
+    - name: tIsDeleted
+      type: UpdateColumnUniquenessConstraintColumnTIsDeleted
+      description: Update the 't_is_deleted' column in the
+        'uniqueness_constraint_column' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnUniquenessConstraintColumnTUpdatedAt
+      description: Update the 't_updated_at' column in the
+        'uniqueness_constraint_column' collection.
+    - name: tVersion
+      type: UpdateColumnUniquenessConstraintColumnTVersion
+      description: Update the 't_version' column in the 'uniqueness_constraint_column'
+        collection.
+  graphql:
+    typeName: UpdateUniquenessConstraintColumnByCollectionNameAndConnectorNameAndConstraintNameAndFieldNameAndSubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateUniquenessConstraintColumnByCollectionNameAndConnectorNameAndConstraintNameAndFieldNameAndSubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_uniqueness_constraint_column_by_collection_name_and_connector_name_and_constraint_name_and_field_name_and_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        collectionName:
+          column:
+            name: collection_name
+        connectorName:
+          column:
+            name: connector_name
+        constraintName:
+          column:
+            name: constraint_name
+        fieldName:
+          column:
+            name: field_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateUniquenessConstraintColumnByCollectionNameAndConnectorNameAndConstraintNameAndFieldNameAndSubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - collectionName
+          - connectorName
+          - constraintName
+          - fieldName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateUniquenessConstraintColumnByCollectionNameAndConnectorNameAndConstraintNameAndFieldNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_uniqueness_constraint_column_by_collection_name_and_connector_name_and_constraint_name_and_field_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[UniquenessConstraintColumn!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateUniquenessConstraintColumnByCollectionNameAndConnectorNameAndConstraintNameAndFieldNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: UpdateUniquenessConstraintColumnByCollectionNameAndConnectorNameAndConstraintNameAndFieldNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_uniqueness_constraint_column_by_collection_name_and_connector_name_and_constraint_name_and_field_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateUniquenessConstraintColumnByCollectionNameAndConnectorNameAndConstraintNameAndFieldNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateUniquenessConstraintColumnByCollectionNameAndConnectorNameAndConstraintNameAndFieldNameAndSubgraphNameAndTVersion
+  outputType: UpdateUniquenessConstraintColumnByCollectionNameAndConnectorNameAndConstraintNameAndFieldNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyCollectionName
+      type: Varchar!
+    - name: keyConnectorName
+      type: Varchar!
+    - name: keyConstraintName
+      type: Varchar!
+    - name: keyFieldName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: UniquenessConstraintColumnBoolExp
+      description: Update permission post-condition predicate over the
+        'uniqueness_constraint_column' collection
+    - name: preCheck
+      type: UniquenessConstraintColumnBoolExp
+      description: Update permission pre-condition predicate over the
+        'uniqueness_constraint_column' collection
+    - name: updateColumns
+      type: UpdateUniquenessConstraintColumnByCollectionNameAndConnectorNameAndConstraintNameAndFieldNameAndSubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_uniqueness_constraint_column_by_collection_name_and_connector_name_and_constraint_name_and_field_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyCollectionName: key_collection_name
+      keyConnectorName: key_connector_name
+      keyConstraintName: key_constraint_name
+      keyFieldName: key_field_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateUniquenessConstraintColumnByCollectionNameAndConnectorNameAndConstraintNameAndFieldNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'uniqueness_constraint_column' collection
+    using the 'collection_name', 'connector_name', 'constraint_name',
+    'field_name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateUniquenessConstraintColumnByCollectionNameAndConnectorNameAndConstraintNameAndFieldNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

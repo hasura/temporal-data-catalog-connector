@@ -1,0 +1,618 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAuthConfigDefaultRole
+  description: Update the 'default_role' column in the 'auth_config' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAuthConfigDefaultRole
+    inputTypeName: UpdateColumnAuthConfigDefaultRoleInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_auth_config_default_role
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAuthConfigDefaultRole
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAuthConfigModeType
+  description: Update the 'mode_type' column in the 'auth_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAuthConfigModeType
+    inputTypeName: UpdateColumnAuthConfigModeTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_auth_config_mode_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAuthConfigModeType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAuthConfigSessionVars
+  description: Update the 'session_vars' column in the 'auth_config' collection
+  fields:
+    - name: set
+      type: Json!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAuthConfigSessionVars
+    inputTypeName: UpdateColumnAuthConfigSessionVarsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_auth_config_session_vars
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAuthConfigSessionVars
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAuthConfigSubgraphName
+  description: Update the 'subgraph_name' column in the 'auth_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAuthConfigSubgraphName
+    inputTypeName: UpdateColumnAuthConfigSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_auth_config_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAuthConfigSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAuthConfigTContentHash
+  description: Update the 't_content_hash' column in the 'auth_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAuthConfigTContentHash
+    inputTypeName: UpdateColumnAuthConfigTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_auth_config_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAuthConfigTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAuthConfigTCreatedAt
+  description: Update the 't_created_at' column in the 'auth_config' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAuthConfigTCreatedAt
+    inputTypeName: UpdateColumnAuthConfigTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_auth_config_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAuthConfigTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAuthConfigTDeletedAt
+  description: Update the 't_deleted_at' column in the 'auth_config' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAuthConfigTDeletedAt
+    inputTypeName: UpdateColumnAuthConfigTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_auth_config_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAuthConfigTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAuthConfigTId
+  description: Update the 't_id' column in the 'auth_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAuthConfigTId
+    inputTypeName: UpdateColumnAuthConfigTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_auth_config_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAuthConfigTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAuthConfigTIsCurrent
+  description: Update the 't_is_current' column in the 'auth_config' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAuthConfigTIsCurrent
+    inputTypeName: UpdateColumnAuthConfigTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_auth_config_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAuthConfigTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAuthConfigTIsDeleted
+  description: Update the 't_is_deleted' column in the 'auth_config' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAuthConfigTIsDeleted
+    inputTypeName: UpdateColumnAuthConfigTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_auth_config_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAuthConfigTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAuthConfigTUpdatedAt
+  description: Update the 't_updated_at' column in the 'auth_config' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAuthConfigTUpdatedAt
+    inputTypeName: UpdateColumnAuthConfigTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_auth_config_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAuthConfigTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAuthConfigTVersion
+  description: Update the 't_version' column in the 'auth_config' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAuthConfigTVersion
+    inputTypeName: UpdateColumnAuthConfigTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_auth_config_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAuthConfigTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAuthConfigVersion
+  description: Update the 'version' column in the 'auth_config' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAuthConfigVersion
+    inputTypeName: UpdateColumnAuthConfigVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_auth_config_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAuthConfigVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateAuthConfigBySubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'auth_config' collection
+  fields:
+    - name: defaultRole
+      type: UpdateColumnAuthConfigDefaultRole
+      description: Update the 'default_role' column in the 'auth_config' collection.
+    - name: modeType
+      type: UpdateColumnAuthConfigModeType
+      description: Update the 'mode_type' column in the 'auth_config' collection.
+    - name: sessionVars
+      type: UpdateColumnAuthConfigSessionVars
+      description: Update the 'session_vars' column in the 'auth_config' collection.
+    - name: subgraphName
+      type: UpdateColumnAuthConfigSubgraphName
+      description: Update the 'subgraph_name' column in the 'auth_config' collection.
+    - name: tContentHash
+      type: UpdateColumnAuthConfigTContentHash
+      description: Update the 't_content_hash' column in the 'auth_config' collection.
+    - name: tCreatedAt
+      type: UpdateColumnAuthConfigTCreatedAt
+      description: Update the 't_created_at' column in the 'auth_config' collection.
+    - name: tDeletedAt
+      type: UpdateColumnAuthConfigTDeletedAt
+      description: Update the 't_deleted_at' column in the 'auth_config' collection.
+    - name: tId
+      type: UpdateColumnAuthConfigTId
+      description: Update the 't_id' column in the 'auth_config' collection.
+    - name: tIsCurrent
+      type: UpdateColumnAuthConfigTIsCurrent
+      description: Update the 't_is_current' column in the 'auth_config' collection.
+    - name: tIsDeleted
+      type: UpdateColumnAuthConfigTIsDeleted
+      description: Update the 't_is_deleted' column in the 'auth_config' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnAuthConfigTUpdatedAt
+      description: Update the 't_updated_at' column in the 'auth_config' collection.
+    - name: tVersion
+      type: UpdateColumnAuthConfigTVersion
+      description: Update the 't_version' column in the 'auth_config' collection.
+    - name: version
+      type: UpdateColumnAuthConfigVersion
+      description: Update the 'version' column in the 'auth_config' collection.
+  graphql:
+    typeName: UpdateAuthConfigBySubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateAuthConfigBySubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_auth_config_by_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        defaultRole:
+          column:
+            name: default_role
+        modeType:
+          column:
+            name: mode_type
+        sessionVars:
+          column:
+            name: session_vars
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        version:
+          column:
+            name: version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateAuthConfigBySubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - defaultRole
+          - modeType
+          - sessionVars
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - version
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateAuthConfigBySubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_auth_config_by_subgraph_name_and_t_version' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[AuthConfig!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateAuthConfigBySubgraphNameAndTVersionResponse
+    inputTypeName: UpdateAuthConfigBySubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_auth_config_by_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateAuthConfigBySubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateAuthConfigBySubgraphNameAndTVersion
+  outputType: UpdateAuthConfigBySubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: AuthConfigBoolExp
+      description: Update permission post-condition predicate over the 'auth_config'
+        collection
+    - name: preCheck
+      type: AuthConfigBoolExp
+      description: Update permission pre-condition predicate over the 'auth_config'
+        collection
+    - name: updateColumns
+      type: UpdateAuthConfigBySubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_auth_config_by_subgraph_name_and_t_version
+    argumentMapping:
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateAuthConfigBySubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'auth_config' collection using the
+    'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateAuthConfigBySubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

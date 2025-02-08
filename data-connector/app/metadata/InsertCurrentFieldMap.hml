@@ -1,0 +1,132 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentFieldMapObject
+  fields:
+    - name: collectionName
+      type: Varchar
+    - name: connectorName
+      type: Varchar
+    - name: logicalFieldName
+      type: Varchar
+    - name: objectTypeName
+      type: Varchar
+    - name: physicalFieldName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: InsertCurrentFieldMapObject
+    inputTypeName: InsertCurrentFieldMapObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_field_map_object
+      fieldMapping:
+        collectionName:
+          column:
+            name: collection_name
+        connectorName:
+          column:
+            name: connector_name
+        logicalFieldName:
+          column:
+            name: logical_field_name
+        objectTypeName:
+          column:
+            name: object_type_name
+        physicalFieldName:
+          column:
+            name: physical_field_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentFieldMapObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - collectionName
+          - connectorName
+          - logicalFieldName
+          - objectTypeName
+          - physicalFieldName
+          - subgraphName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCurrentFieldMapResponse
+  description: Responses from the 'insert_current_field_map' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CurrentFieldMap!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCurrentFieldMapResponse
+    inputTypeName: InsertCurrentFieldMapResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_current_field_map_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCurrentFieldMapResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCurrentFieldMap
+  outputType: InsertCurrentFieldMapResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCurrentFieldMapObject!]!"
+    - name: postCheck
+      type: CurrentFieldMapBoolExp
+      description: Insert permission predicate over the 'current_field_map' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_current_field_map
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCurrentFieldMap
+    rootFieldKind: Mutation
+  description: Insert into the current_field_map table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCurrentFieldMap
+  permissions:
+    - role: admin
+      allowExecution: true
+

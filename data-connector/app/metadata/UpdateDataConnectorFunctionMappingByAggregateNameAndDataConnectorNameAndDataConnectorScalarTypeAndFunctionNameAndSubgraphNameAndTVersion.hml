@@ -1,0 +1,699 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorFunctionMappingAggregateName
+  description: Update the 'aggregate_name' column in the
+    'data_connector_function_mapping' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorFunctionMappingAggregateName
+    inputTypeName: UpdateColumnDataConnectorFunctionMappingAggregateNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_function_mapping_aggregate_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorFunctionMappingAggregateName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorFunctionMappingDataConnectorName
+  description: Update the 'data_connector_name' column in the
+    'data_connector_function_mapping' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorFunctionMappingDataConnectorName
+    inputTypeName: UpdateColumnDataConnectorFunctionMappingDataConnectorNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_function_mapping_data_connector_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorFunctionMappingDataConnectorName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorFunctionMappingDataConnectorScalarType
+  description: Update the 'data_connector_scalar_type' column in the
+    'data_connector_function_mapping' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorFunctionMappingDataConnectorScalarType
+    inputTypeName: UpdateColumnDataConnectorFunctionMappingDataConnectorScalarTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_function_mapping_data_connector_scalar_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorFunctionMappingDataConnectorScalarType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorFunctionMappingFunctionName
+  description: Update the 'function_name' column in the
+    'data_connector_function_mapping' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorFunctionMappingFunctionName
+    inputTypeName: UpdateColumnDataConnectorFunctionMappingFunctionNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_function_mapping_function_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorFunctionMappingFunctionName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorFunctionMappingMappedFunctionName
+  description: Update the 'mapped_function_name' column in the
+    'data_connector_function_mapping' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorFunctionMappingMappedFunctionName
+    inputTypeName: UpdateColumnDataConnectorFunctionMappingMappedFunctionNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_function_mapping_mapped_function_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorFunctionMappingMappedFunctionName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorFunctionMappingSubgraphName
+  description: Update the 'subgraph_name' column in the
+    'data_connector_function_mapping' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorFunctionMappingSubgraphName
+    inputTypeName: UpdateColumnDataConnectorFunctionMappingSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_function_mapping_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorFunctionMappingSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorFunctionMappingTContentHash
+  description: Update the 't_content_hash' column in the
+    'data_connector_function_mapping' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorFunctionMappingTContentHash
+    inputTypeName: UpdateColumnDataConnectorFunctionMappingTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_function_mapping_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorFunctionMappingTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorFunctionMappingTCreatedAt
+  description: Update the 't_created_at' column in the
+    'data_connector_function_mapping' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorFunctionMappingTCreatedAt
+    inputTypeName: UpdateColumnDataConnectorFunctionMappingTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_function_mapping_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorFunctionMappingTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorFunctionMappingTDeletedAt
+  description: Update the 't_deleted_at' column in the
+    'data_connector_function_mapping' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorFunctionMappingTDeletedAt
+    inputTypeName: UpdateColumnDataConnectorFunctionMappingTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_function_mapping_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorFunctionMappingTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorFunctionMappingTId
+  description: Update the 't_id' column in the 'data_connector_function_mapping' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorFunctionMappingTId
+    inputTypeName: UpdateColumnDataConnectorFunctionMappingTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_function_mapping_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorFunctionMappingTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorFunctionMappingTIsCurrent
+  description: Update the 't_is_current' column in the
+    'data_connector_function_mapping' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorFunctionMappingTIsCurrent
+    inputTypeName: UpdateColumnDataConnectorFunctionMappingTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_function_mapping_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorFunctionMappingTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorFunctionMappingTIsDeleted
+  description: Update the 't_is_deleted' column in the
+    'data_connector_function_mapping' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorFunctionMappingTIsDeleted
+    inputTypeName: UpdateColumnDataConnectorFunctionMappingTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_function_mapping_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorFunctionMappingTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorFunctionMappingTUpdatedAt
+  description: Update the 't_updated_at' column in the
+    'data_connector_function_mapping' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorFunctionMappingTUpdatedAt
+    inputTypeName: UpdateColumnDataConnectorFunctionMappingTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_function_mapping_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorFunctionMappingTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnDataConnectorFunctionMappingTVersion
+  description: Update the 't_version' column in the
+    'data_connector_function_mapping' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnDataConnectorFunctionMappingTVersion
+    inputTypeName: UpdateColumnDataConnectorFunctionMappingTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_data_connector_function_mapping_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnDataConnectorFunctionMappingTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateDataConnectorFunctionMappingByAggregateNameAndDataConnectorNameAndDataConnectorScalarTypeAndFunctionNameAndSubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'data_connector_function_mapping' collection
+  fields:
+    - name: aggregateName
+      type: UpdateColumnDataConnectorFunctionMappingAggregateName
+      description: Update the 'aggregate_name' column in the
+        'data_connector_function_mapping' collection.
+    - name: dataConnectorName
+      type: UpdateColumnDataConnectorFunctionMappingDataConnectorName
+      description: Update the 'data_connector_name' column in the
+        'data_connector_function_mapping' collection.
+    - name: dataConnectorScalarType
+      type: UpdateColumnDataConnectorFunctionMappingDataConnectorScalarType
+      description: Update the 'data_connector_scalar_type' column in the
+        'data_connector_function_mapping' collection.
+    - name: functionName
+      type: UpdateColumnDataConnectorFunctionMappingFunctionName
+      description: Update the 'function_name' column in the
+        'data_connector_function_mapping' collection.
+    - name: mappedFunctionName
+      type: UpdateColumnDataConnectorFunctionMappingMappedFunctionName
+      description: Update the 'mapped_function_name' column in the
+        'data_connector_function_mapping' collection.
+    - name: subgraphName
+      type: UpdateColumnDataConnectorFunctionMappingSubgraphName
+      description: Update the 'subgraph_name' column in the
+        'data_connector_function_mapping' collection.
+    - name: tContentHash
+      type: UpdateColumnDataConnectorFunctionMappingTContentHash
+      description: Update the 't_content_hash' column in the
+        'data_connector_function_mapping' collection.
+    - name: tCreatedAt
+      type: UpdateColumnDataConnectorFunctionMappingTCreatedAt
+      description: Update the 't_created_at' column in the
+        'data_connector_function_mapping' collection.
+    - name: tDeletedAt
+      type: UpdateColumnDataConnectorFunctionMappingTDeletedAt
+      description: Update the 't_deleted_at' column in the
+        'data_connector_function_mapping' collection.
+    - name: tId
+      type: UpdateColumnDataConnectorFunctionMappingTId
+      description: Update the 't_id' column in the 'data_connector_function_mapping'
+        collection.
+    - name: tIsCurrent
+      type: UpdateColumnDataConnectorFunctionMappingTIsCurrent
+      description: Update the 't_is_current' column in the
+        'data_connector_function_mapping' collection.
+    - name: tIsDeleted
+      type: UpdateColumnDataConnectorFunctionMappingTIsDeleted
+      description: Update the 't_is_deleted' column in the
+        'data_connector_function_mapping' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnDataConnectorFunctionMappingTUpdatedAt
+      description: Update the 't_updated_at' column in the
+        'data_connector_function_mapping' collection.
+    - name: tVersion
+      type: UpdateColumnDataConnectorFunctionMappingTVersion
+      description: Update the 't_version' column in the
+        'data_connector_function_mapping' collection.
+  graphql:
+    typeName: UpdateDataConnectorFunctionMappingByAggregateNameAndDataConnectorNameAndDataConnectorScalarTypeAndFunctionNameAndSubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateDataConnectorFunctionMappingByAggregateNameAndDataConnectorNameAndDataConnectorScalarTypeAndFunctionNameAndSubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_data_connector_function_mapping_by_aggregate_name_and_data_connector_name_and_data_connector_scalar_type_and_function_name_and_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        aggregateName:
+          column:
+            name: aggregate_name
+        dataConnectorName:
+          column:
+            name: data_connector_name
+        dataConnectorScalarType:
+          column:
+            name: data_connector_scalar_type
+        functionName:
+          column:
+            name: function_name
+        mappedFunctionName:
+          column:
+            name: mapped_function_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateDataConnectorFunctionMappingByAggregateNameAndDataConnectorNameAndDataConnectorScalarTypeAndFunctionNameAndSubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregateName
+          - dataConnectorName
+          - dataConnectorScalarType
+          - functionName
+          - mappedFunctionName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateDataConnectorFunctionMappingByAggregateNameAndDataConnectorNameAndDataConnectorScalarTypeAndFunctionNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_data_connector_function_mapping_by_aggregate_name_and_data_connector_name_and_data_connector_scalar_type_and_function_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[DataConnectorFunctionMapping!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateDataConnectorFunctionMappingByAggregateNameAndDataConnectorNameAndDataConnectorScalarTypeAndFunctionNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: UpdateDataConnectorFunctionMappingByAggregateNameAndDataConnectorNameAndDataConnectorScalarTypeAndFunctionNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_data_connector_function_mapping_by_aggregate_name_and_data_connector_name_and_data_connector_scalar_type_and_function_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateDataConnectorFunctionMappingByAggregateNameAndDataConnectorNameAndDataConnectorScalarTypeAndFunctionNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateDataConnectorFunctionMappingByAggregateNameAndDataConnectorNameAndDataConnectorScalarTypeAndFunctionNameAndSubgraphNameAndTVersion
+  outputType: UpdateDataConnectorFunctionMappingByAggregateNameAndDataConnectorNameAndDataConnectorScalarTypeAndFunctionNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyAggregateName
+      type: Varchar!
+    - name: keyDataConnectorName
+      type: Varchar!
+    - name: keyDataConnectorScalarType
+      type: Varchar!
+    - name: keyFunctionName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: DataConnectorFunctionMappingBoolExp
+      description: Update permission post-condition predicate over the
+        'data_connector_function_mapping' collection
+    - name: preCheck
+      type: DataConnectorFunctionMappingBoolExp
+      description: Update permission pre-condition predicate over the
+        'data_connector_function_mapping' collection
+    - name: updateColumns
+      type: UpdateDataConnectorFunctionMappingByAggregateNameAndDataConnectorNameAndDataConnectorScalarTypeAndFunctionNameAndSubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_data_connector_function_mapping_by_aggregate_name_and_data_connector_name_and_data_connector_scalar_type_and_function_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyAggregateName: key_aggregate_name
+      keyDataConnectorName: key_data_connector_name
+      keyDataConnectorScalarType: key_data_connector_scalar_type
+      keyFunctionName: key_function_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateDataConnectorFunctionMappingByAggregateNameAndDataConnectorNameAndDataConnectorScalarTypeAndFunctionNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'data_connector_function_mapping' collection
+    using the 'aggregate_name', 'data_connector_name',
+    'data_connector_scalar_type', 'function_name', 'subgraph_name' and
+    't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateDataConnectorFunctionMappingByAggregateNameAndDataConnectorNameAndDataConnectorScalarTypeAndFunctionNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

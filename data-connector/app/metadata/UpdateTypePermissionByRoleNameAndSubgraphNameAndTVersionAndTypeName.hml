@@ -1,0 +1,547 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTypePermissionRoleName
+  description: Update the 'role_name' column in the 'type_permission' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTypePermissionRoleName
+    inputTypeName: UpdateColumnTypePermissionRoleNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_type_permission_role_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTypePermissionRoleName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTypePermissionSubgraphName
+  description: Update the 'subgraph_name' column in the 'type_permission' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTypePermissionSubgraphName
+    inputTypeName: UpdateColumnTypePermissionSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_type_permission_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTypePermissionSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTypePermissionTContentHash
+  description: Update the 't_content_hash' column in the 'type_permission' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTypePermissionTContentHash
+    inputTypeName: UpdateColumnTypePermissionTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_type_permission_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTypePermissionTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTypePermissionTCreatedAt
+  description: Update the 't_created_at' column in the 'type_permission' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTypePermissionTCreatedAt
+    inputTypeName: UpdateColumnTypePermissionTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_type_permission_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTypePermissionTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTypePermissionTDeletedAt
+  description: Update the 't_deleted_at' column in the 'type_permission' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTypePermissionTDeletedAt
+    inputTypeName: UpdateColumnTypePermissionTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_type_permission_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTypePermissionTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTypePermissionTId
+  description: Update the 't_id' column in the 'type_permission' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTypePermissionTId
+    inputTypeName: UpdateColumnTypePermissionTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_type_permission_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTypePermissionTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTypePermissionTIsCurrent
+  description: Update the 't_is_current' column in the 'type_permission' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTypePermissionTIsCurrent
+    inputTypeName: UpdateColumnTypePermissionTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_type_permission_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTypePermissionTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTypePermissionTIsDeleted
+  description: Update the 't_is_deleted' column in the 'type_permission' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTypePermissionTIsDeleted
+    inputTypeName: UpdateColumnTypePermissionTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_type_permission_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTypePermissionTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTypePermissionTUpdatedAt
+  description: Update the 't_updated_at' column in the 'type_permission' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTypePermissionTUpdatedAt
+    inputTypeName: UpdateColumnTypePermissionTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_type_permission_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTypePermissionTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTypePermissionTVersion
+  description: Update the 't_version' column in the 'type_permission' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTypePermissionTVersion
+    inputTypeName: UpdateColumnTypePermissionTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_type_permission_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTypePermissionTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnTypePermissionTypeName
+  description: Update the 'type_name' column in the 'type_permission' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnTypePermissionTypeName
+    inputTypeName: UpdateColumnTypePermissionTypeNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_type_permission_type_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnTypePermissionTypeName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateTypePermissionByRoleNameAndSubgraphNameAndTVersionAndTypeNameUpdateColumns
+  description: Update the columns of the 'type_permission' collection
+  fields:
+    - name: roleName
+      type: UpdateColumnTypePermissionRoleName
+      description: Update the 'role_name' column in the 'type_permission' collection.
+    - name: subgraphName
+      type: UpdateColumnTypePermissionSubgraphName
+      description: Update the 'subgraph_name' column in the 'type_permission' collection.
+    - name: tContentHash
+      type: UpdateColumnTypePermissionTContentHash
+      description: Update the 't_content_hash' column in the 'type_permission' collection.
+    - name: tCreatedAt
+      type: UpdateColumnTypePermissionTCreatedAt
+      description: Update the 't_created_at' column in the 'type_permission' collection.
+    - name: tDeletedAt
+      type: UpdateColumnTypePermissionTDeletedAt
+      description: Update the 't_deleted_at' column in the 'type_permission' collection.
+    - name: tId
+      type: UpdateColumnTypePermissionTId
+      description: Update the 't_id' column in the 'type_permission' collection.
+    - name: tIsCurrent
+      type: UpdateColumnTypePermissionTIsCurrent
+      description: Update the 't_is_current' column in the 'type_permission' collection.
+    - name: tIsDeleted
+      type: UpdateColumnTypePermissionTIsDeleted
+      description: Update the 't_is_deleted' column in the 'type_permission' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnTypePermissionTUpdatedAt
+      description: Update the 't_updated_at' column in the 'type_permission' collection.
+    - name: tVersion
+      type: UpdateColumnTypePermissionTVersion
+      description: Update the 't_version' column in the 'type_permission' collection.
+    - name: typeName
+      type: UpdateColumnTypePermissionTypeName
+      description: Update the 'type_name' column in the 'type_permission' collection.
+  graphql:
+    typeName: UpdateTypePermissionByRoleNameAndSubgraphNameAndTVersionAndTypeNameUpdateColumns
+    inputTypeName: UpdateTypePermissionByRoleNameAndSubgraphNameAndTVersionAndTypeNameUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_type_permission_by_role_name_and_subgraph_name_and_t_version_and_type_name_update_columns
+      fieldMapping:
+        roleName:
+          column:
+            name: role_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        typeName:
+          column:
+            name: type_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateTypePermissionByRoleNameAndSubgraphNameAndTVersionAndTypeNameUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - roleName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - typeName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateTypePermissionByRoleNameAndSubgraphNameAndTVersionAndTypeNameResponse
+  description: Responses from the
+    'update_type_permission_by_role_name_and_subgraph_name_and_t_version_and_type_name'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[TypePermission!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateTypePermissionByRoleNameAndSubgraphNameAndTVersionAndTypeNameResponse
+    inputTypeName: UpdateTypePermissionByRoleNameAndSubgraphNameAndTVersionAndTypeNameResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_type_permission_by_role_name_and_subgraph_name_and_t_version_and_type_name_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateTypePermissionByRoleNameAndSubgraphNameAndTVersionAndTypeNameResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateTypePermissionByRoleNameAndSubgraphNameAndTVersionAndTypeName
+  outputType: UpdateTypePermissionByRoleNameAndSubgraphNameAndTVersionAndTypeNameResponse!
+  arguments:
+    - name: keyRoleName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: keyTypeName
+      type: Varchar!
+    - name: postCheck
+      type: TypePermissionBoolExp
+      description: Update permission post-condition predicate over the
+        'type_permission' collection
+    - name: preCheck
+      type: TypePermissionBoolExp
+      description: Update permission pre-condition predicate over the
+        'type_permission' collection
+    - name: updateColumns
+      type: UpdateTypePermissionByRoleNameAndSubgraphNameAndTVersionAndTypeNameUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_type_permission_by_role_name_and_subgraph_name_and_t_version_and_type_name
+    argumentMapping:
+      keyRoleName: key_role_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      keyTypeName: key_type_name
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateTypePermissionByRoleNameAndSubgraphNameAndTVersionAndTypeName
+    rootFieldKind: Mutation
+  description: Update any row on the 'type_permission' collection using the
+    'role_name', 'subgraph_name', 't_version' and 'type_name' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateTypePermissionByRoleNameAndSubgraphNameAndTVersionAndTypeName
+  permissions:
+    - role: admin
+      allowExecution: true
+

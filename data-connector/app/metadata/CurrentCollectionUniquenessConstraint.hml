@@ -1,0 +1,151 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentCollectionUniquenessConstraint
+  fields:
+    - name: collectionName
+      type: Varchar
+    - name: connectorName
+      type: Varchar
+    - name: constraintName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: CurrentCollectionUniquenessConstraint
+    inputTypeName: CurrentCollectionUniquenessConstraintInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_collection_uniqueness_constraint
+      fieldMapping:
+        collectionName:
+          column:
+            name: collection_name
+        connectorName:
+          column:
+            name: connector_name
+        constraintName:
+          column:
+            name: constraint_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentCollectionUniquenessConstraint
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - collectionName
+          - connectorName
+          - constraintName
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentCollectionUniquenessConstraintBoolExp
+  operand:
+    object:
+      type: CurrentCollectionUniquenessConstraint
+      comparableFields:
+        - fieldName: collectionName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: constraintName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentCollectionUniquenessConstraintBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentCollectionUniquenessConstraintAggExp
+  operand:
+    object:
+      aggregatedType: CurrentCollectionUniquenessConstraint
+      aggregatableFields:
+        - fieldName: collectionName
+          aggregateExpression: VarcharAggExp
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: constraintName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentCollectionUniquenessConstraintAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentCollectionUniquenessConstraintOrderByExp
+  operand:
+    object:
+      orderedType: CurrentCollectionUniquenessConstraint
+      orderableFields:
+        - fieldName: collectionName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: constraintName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentCollectionUniquenessConstraintOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentCollectionUniquenessConstraint
+  objectType: CurrentCollectionUniquenessConstraint
+  source:
+    dataConnectorName: datamanagement
+    collection: current_collection_uniqueness_constraint
+  filterExpressionType: CurrentCollectionUniquenessConstraintBoolExp
+  aggregateExpression: CurrentCollectionUniquenessConstraintAggExp
+  orderByExpression: CurrentCollectionUniquenessConstraintOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentCollectionUniquenessConstraint
+      subscription:
+        rootField: currentCollectionUniquenessConstraint
+    selectUniques: []
+    filterInputTypeName: CurrentCollectionUniquenessConstraintFilterInput
+    aggregate:
+      queryRootField: currentCollectionUniquenessConstraintAggregate
+      subscription:
+        rootField: currentCollectionUniquenessConstraintAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentCollectionUniquenessConstraint
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

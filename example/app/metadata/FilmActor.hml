@@ -1,0 +1,136 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: FilmActor
+  fields:
+    - name: actorId
+      type: Int2!
+    - name: filmId
+      type: Int2!
+    - name: lastUpdate
+      type: Timestamp!
+  graphql:
+    typeName: FilmActor
+    inputTypeName: FilmActorInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: chinook
+      dataConnectorObjectType: film_actor
+      fieldMapping:
+        actorId:
+          column:
+            name: actor_id
+        filmId:
+          column:
+            name: film_id
+        lastUpdate:
+          column:
+            name: last_update
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: FilmActor
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - actorId
+          - filmId
+          - lastUpdate
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: FilmActorBoolExp
+  operand:
+    object:
+      type: FilmActor
+      comparableFields:
+        - fieldName: actorId
+          booleanExpressionType: Int2BoolExp
+        - fieldName: filmId
+          booleanExpressionType: Int2BoolExp
+        - fieldName: lastUpdate
+          booleanExpressionType: TimestampBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: FilmActorBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: FilmActorAggExp
+  operand:
+    object:
+      aggregatedType: FilmActor
+      aggregatableFields:
+        - fieldName: actorId
+          aggregateExpression: Int2AggExp
+        - fieldName: filmId
+          aggregateExpression: Int2AggExp
+        - fieldName: lastUpdate
+          aggregateExpression: TimestampAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: FilmActorAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: FilmActor
+  objectType: FilmActor
+  source:
+    dataConnectorName: chinook
+    collection: film_actor
+  filterExpressionType: FilmActorBoolExp
+  aggregateExpression: FilmActorAggExp
+  orderableFields:
+    - fieldName: actorId
+      orderByDirections:
+        enableAll: true
+    - fieldName: filmId
+      orderByDirections:
+        enableAll: true
+    - fieldName: lastUpdate
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: filmActor
+      subscription:
+        rootField: filmActor
+    selectUniques:
+      - queryRootField: filmActorByFilmActorPkey
+        uniqueIdentifier:
+          - actorId
+          - filmId
+        subscription:
+          rootField: filmActorByFilmActorPkey
+    orderByExpressionType: FilmActorOrderBy
+    filterInputTypeName: FilmActorFilterInput
+    aggregate:
+      queryRootField: filmActorAggregate
+      subscription:
+        rootField: filmActorAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: FilmActor
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

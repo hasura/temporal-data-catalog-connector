@@ -1,0 +1,19 @@
+kind: Subgraph
+version: v2
+definition:
+  name: data_quality
+  generator:
+    rootPath: .
+    namingConvention: graphql
+  includePaths:
+    - metadata
+  envMapping:
+    DATA_QUALITY_ANOMALY_AUTHORIZATION_HEADER:
+      fromEnv: DATA_QUALITY_ANOMALY_AUTHORIZATION_HEADER
+    DATA_QUALITY_ANOMALY_READ_URL:
+      fromEnv: DATA_QUALITY_ANOMALY_READ_URL
+    DATA_QUALITY_ANOMALY_WRITE_URL:
+      fromEnv: DATA_QUALITY_ANOMALY_WRITE_URL
+  connectors:
+    - path: connector/anomaly/connector.yaml
+      connectorLinkName: anomaly

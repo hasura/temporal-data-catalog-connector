@@ -1,0 +1,3535 @@
+kind: DataConnectorLink
+version: v1
+definition:
+  name: anomaly
+  url:
+    readWriteUrls:
+      read:
+        valueFromEnv: DATA_QUALITY_ANOMALY_READ_URL
+      write:
+        valueFromEnv: DATA_QUALITY_ANOMALY_WRITE_URL
+  headers:
+    Authorization:
+      valueFromEnv: DATA_QUALITY_ANOMALY_AUTHORIZATION_HEADER
+  schema:
+    version: v0.1
+    schema:
+      scalar_types:
+        bool:
+          representation:
+            type: boolean
+          aggregate_functions:
+            bool_and:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            bool_or:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            every:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: bool
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: bool
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: bool
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: bool
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: bool
+        bytea:
+          aggregate_functions: {}
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: bytea
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: bytea
+            _in:
+              type: in
+            _like:
+              type: custom
+              argument_type:
+                type: named
+                name: bytea
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: bytea
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: bytea
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: bytea
+            _nlike:
+              type: custom
+              argument_type:
+                type: named
+                name: bytea
+        float8:
+          representation:
+            type: float64
+          aggregate_functions:
+            avg:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            stddev:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            stddev_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            stddev_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            sum:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            var_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            var_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            variance:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: float8
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: float8
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: float8
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: float8
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: float8
+        int4:
+          representation:
+            type: int32
+          aggregate_functions:
+            avg:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            bit_and:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            bit_or:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            bit_xor:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            stddev:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            sum:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            var_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            var_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            variance:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: int4
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: int4
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: int4
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: int4
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: int4
+        int8:
+          representation:
+            type: int64
+          aggregate_functions:
+            avg:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            bit_and:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            bit_or:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            bit_xor:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            stddev:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            sum:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            var_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            var_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            variance:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: int8
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: int8
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: int8
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: int8
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: int8
+        numeric:
+          representation:
+            type: bigdecimal
+          aggregate_functions:
+            avg:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            sum:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            var_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            var_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            variance:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: numeric
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: numeric
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: numeric
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: numeric
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: numeric
+        risklevel:
+          representation:
+            type: enum
+            one_of:
+              - LOW
+              - MEDIUM
+              - HIGH
+          aggregate_functions:
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: risklevel
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: risklevel
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: risklevel
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: risklevel
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: risklevel
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: risklevel
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: risklevel
+        text:
+          representation:
+            type: string
+          aggregate_functions:
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _ilike:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _in:
+              type: in
+            _iregex:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _like:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _nilike:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _niregex:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _nlike:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _nregex:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _regex:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            starts_with:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            ts_match_tt:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+        timestamptz:
+          representation:
+            type: timestamptz
+          aggregate_functions:
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamptz
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamptz
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamptz
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamptz
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamptz
+        varchar:
+          representation:
+            type: string
+          aggregate_functions:
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _ilike:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _in:
+              type: in
+            _iregex:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _like:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _nilike:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _niregex:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _nlike:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _nregex:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _regex:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            starts_with:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            ts_match_tt:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+      object_types:
+        anomaly_analyses:
+          fields:
+            analysis_mode:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            anomalies_detected:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            anomalous_records_count:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            historical_data_size:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            id:
+              type:
+                type: named
+                name: int4
+            operation_name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            processed_records:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            query_id:
+              type:
+                type: named
+                name: varchar
+            role:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            status:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            timestamp:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            user_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        anomaly_records:
+          fields:
+            analysis_id:
+              type:
+                type: named
+                name: int4
+            category:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            id:
+              type:
+                type: named
+                name: int4
+            reason:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+            record_index:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            risk_level:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: risklevel
+        delete_anomaly_analyses_by_id_response:
+          description: Responses from the 'delete_anomaly_analyses_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: anomaly_analyses
+        delete_anomaly_records_by_id_response:
+          description: Responses from the 'delete_anomaly_records_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: anomaly_records
+        delete_field_statistics_by_id_response:
+          description: Responses from the 'delete_field_statistics_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: field_statistics
+        delete_historical_data_by_id_response:
+          description: Responses from the 'delete_historical_data_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: historical_data
+        delete_query_concerns_by_id_response:
+          description: Responses from the 'delete_query_concerns_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: query_concerns
+        delete_recommendations_by_id_response:
+          description: Responses from the 'delete_recommendations_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: recommendations
+        delete_statistical_flags_by_id_response:
+          description: Responses from the 'delete_statistical_flags_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: statistical_flags
+        delete_trained_models_by_id_response:
+          description: Responses from the 'delete_trained_models_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: trained_models
+        delete_value_distributions_by_id_response:
+          description: Responses from the 'delete_value_distributions_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: value_distributions
+        field_statistics:
+          fields:
+            avg_length:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            field_name:
+              type:
+                type: named
+                name: varchar
+            field_type:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            id:
+              type:
+                type: named
+                name: int4
+            max_value:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            mean_value:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            median_value:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            min_value:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            record_id:
+              type:
+                type: named
+                name: int4
+            std_dev:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            unique_count:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            uniqueness_ratio:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+        historical_data:
+          fields:
+            created_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            data:
+              type:
+                type: named
+                name: text
+            id:
+              type:
+                type: named
+                name: int4
+            last_updated:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            query_id:
+              type:
+                type: named
+                name: varchar
+            record_count:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        insert_anomaly_analyses_object:
+          fields:
+            analysis_mode:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            anomalies_detected:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            anomalous_records_count:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            historical_data_size:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            operation_name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            processed_records:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            query_id:
+              type:
+                type: named
+                name: varchar
+            role:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            status:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            timestamp:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            user_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        insert_anomaly_analyses_response:
+          description: Responses from the 'insert_anomaly_analyses' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: anomaly_analyses
+        insert_anomaly_records_object:
+          fields:
+            analysis_id:
+              type:
+                type: named
+                name: int4
+            category:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            reason:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+            record_index:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            risk_level:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: risklevel
+        insert_anomaly_records_response:
+          description: Responses from the 'insert_anomaly_records' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: anomaly_records
+        insert_field_statistics_object:
+          fields:
+            avg_length:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            field_name:
+              type:
+                type: named
+                name: varchar
+            field_type:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            max_value:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            mean_value:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            median_value:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            min_value:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            record_id:
+              type:
+                type: named
+                name: int4
+            std_dev:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            unique_count:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            uniqueness_ratio:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+        insert_field_statistics_response:
+          description: Responses from the 'insert_field_statistics' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: field_statistics
+        insert_historical_data_object:
+          fields:
+            created_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            data:
+              type:
+                type: named
+                name: text
+            id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            last_updated:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            query_id:
+              type:
+                type: named
+                name: varchar
+            record_count:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        insert_historical_data_response:
+          description: Responses from the 'insert_historical_data' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: historical_data
+        insert_query_concerns_object:
+          fields:
+            analysis_id:
+              type:
+                type: named
+                name: int4
+            description:
+              type:
+                type: named
+                name: text
+            id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        insert_query_concerns_response:
+          description: Responses from the 'insert_query_concerns' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: query_concerns
+        insert_recommendations_object:
+          fields:
+            analysis_id:
+              type:
+                type: named
+                name: int4
+            description:
+              type:
+                type: named
+                name: text
+            id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        insert_recommendations_response:
+          description: Responses from the 'insert_recommendations' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: recommendations
+        insert_statistical_flags_object:
+          fields:
+            analysis_id:
+              type:
+                type: named
+                name: int4
+            description:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+            flag_type:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            severity:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+        insert_statistical_flags_response:
+          description: Responses from the 'insert_statistical_flags' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: statistical_flags
+        insert_trained_models_object:
+          fields:
+            created_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            features_count:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            last_updated:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            model_data:
+              type:
+                type: named
+                name: bytea
+            query_id:
+              type:
+                type: named
+                name: varchar
+            records_count:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        insert_trained_models_response:
+          description: Responses from the 'insert_trained_models' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: trained_models
+        insert_value_distributions_object:
+          fields:
+            count:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            field_statistic_id:
+              type:
+                type: named
+                name: int4
+            id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            value:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        insert_value_distributions_response:
+          description: Responses from the 'insert_value_distributions' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: value_distributions
+        query_concerns:
+          fields:
+            analysis_id:
+              type:
+                type: named
+                name: int4
+            description:
+              type:
+                type: named
+                name: text
+            id:
+              type:
+                type: named
+                name: int4
+        recommendations:
+          fields:
+            analysis_id:
+              type:
+                type: named
+                name: int4
+            description:
+              type:
+                type: named
+                name: text
+            id:
+              type:
+                type: named
+                name: int4
+        statistical_flags:
+          fields:
+            analysis_id:
+              type:
+                type: named
+                name: int4
+            description:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+            flag_type:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            id:
+              type:
+                type: named
+                name: int4
+            severity:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+        trained_models:
+          fields:
+            created_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            features_count:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            id:
+              type:
+                type: named
+                name: int4
+            last_updated:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            model_data:
+              type:
+                type: named
+                name: bytea
+            query_id:
+              type:
+                type: named
+                name: varchar
+            records_count:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        update_anomaly_analyses_by_id_response:
+          description: Responses from the 'update_anomaly_analyses_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: anomaly_analyses
+        update_anomaly_analyses_by_id_update_columns:
+          description: Update the columns of the 'anomaly_analyses' collection
+          fields:
+            analysis_mode:
+              description: Update the 'analysis_mode' column in the 'anomaly_analyses' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_analyses_analysis_mode
+            anomalies_detected:
+              description: Update the 'anomalies_detected' column in the 'anomaly_analyses' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_analyses_anomalies_detected
+            anomalous_records_count:
+              description: Update the 'anomalous_records_count' column in the 'anomaly_analyses' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_analyses_anomalous_records_count
+            historical_data_size:
+              description: Update the 'historical_data_size' column in the 'anomaly_analyses' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_analyses_historical_data_size
+            id:
+              description: Update the 'id' column in the 'anomaly_analyses' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_analyses_id
+            operation_name:
+              description: Update the 'operation_name' column in the 'anomaly_analyses' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_analyses_operation_name
+            processed_records:
+              description: Update the 'processed_records' column in the 'anomaly_analyses' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_analyses_processed_records
+            query_id:
+              description: Update the 'query_id' column in the 'anomaly_analyses' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_analyses_query_id
+            role:
+              description: Update the 'role' column in the 'anomaly_analyses' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_analyses_role
+            status:
+              description: Update the 'status' column in the 'anomaly_analyses' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_analyses_status
+            timestamp:
+              description: Update the 'timestamp' column in the 'anomaly_analyses' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_analyses_timestamp
+            user_id:
+              description: Update the 'user_id' column in the 'anomaly_analyses' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_analyses_user_id
+        update_anomaly_records_by_id_response:
+          description: Responses from the 'update_anomaly_records_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: anomaly_records
+        update_anomaly_records_by_id_update_columns:
+          description: Update the columns of the 'anomaly_records' collection
+          fields:
+            analysis_id:
+              description: Update the 'analysis_id' column in the 'anomaly_records' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_records_analysis_id
+            category:
+              description: Update the 'category' column in the 'anomaly_records' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_records_category
+            id:
+              description: Update the 'id' column in the 'anomaly_records' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_records_id
+            reason:
+              description: Update the 'reason' column in the 'anomaly_records' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_records_reason
+            record_index:
+              description: Update the 'record_index' column in the 'anomaly_records' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_records_record_index
+            risk_level:
+              description: Update the 'risk_level' column in the 'anomaly_records' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_anomaly_records_risk_level
+        update_column_anomaly_analyses_analysis_mode:
+          description: Update the 'analysis_mode' column in the 'anomaly_analyses' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_anomaly_analyses_anomalies_detected:
+          description: Update the 'anomalies_detected' column in the 'anomaly_analyses' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+        update_column_anomaly_analyses_anomalous_records_count:
+          description: Update the 'anomalous_records_count' column in the 'anomaly_analyses' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        update_column_anomaly_analyses_historical_data_size:
+          description: Update the 'historical_data_size' column in the 'anomaly_analyses' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        update_column_anomaly_analyses_id:
+          description: Update the 'id' column in the 'anomaly_analyses' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_anomaly_analyses_operation_name:
+          description: Update the 'operation_name' column in the 'anomaly_analyses' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_anomaly_analyses_processed_records:
+          description: Update the 'processed_records' column in the 'anomaly_analyses' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        update_column_anomaly_analyses_query_id:
+          description: Update the 'query_id' column in the 'anomaly_analyses' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: varchar
+        update_column_anomaly_analyses_role:
+          description: Update the 'role' column in the 'anomaly_analyses' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_anomaly_analyses_status:
+          description: Update the 'status' column in the 'anomaly_analyses' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_anomaly_analyses_timestamp:
+          description: Update the 'timestamp' column in the 'anomaly_analyses' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        update_column_anomaly_analyses_user_id:
+          description: Update the 'user_id' column in the 'anomaly_analyses' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_anomaly_records_analysis_id:
+          description: Update the 'analysis_id' column in the 'anomaly_records' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_anomaly_records_category:
+          description: Update the 'category' column in the 'anomaly_records' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_anomaly_records_id:
+          description: Update the 'id' column in the 'anomaly_records' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_anomaly_records_reason:
+          description: Update the 'reason' column in the 'anomaly_records' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+        update_column_anomaly_records_record_index:
+          description: Update the 'record_index' column in the 'anomaly_records' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        update_column_anomaly_records_risk_level:
+          description: Update the 'risk_level' column in the 'anomaly_records' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: risklevel
+        update_column_field_statistics_avg_length:
+          description: Update the 'avg_length' column in the 'field_statistics' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+        update_column_field_statistics_field_name:
+          description: Update the 'field_name' column in the 'field_statistics' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: varchar
+        update_column_field_statistics_field_type:
+          description: Update the 'field_type' column in the 'field_statistics' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_field_statistics_id:
+          description: Update the 'id' column in the 'field_statistics' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_field_statistics_max_value:
+          description: Update the 'max_value' column in the 'field_statistics' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+        update_column_field_statistics_mean_value:
+          description: Update the 'mean_value' column in the 'field_statistics' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+        update_column_field_statistics_median_value:
+          description: Update the 'median_value' column in the 'field_statistics' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+        update_column_field_statistics_min_value:
+          description: Update the 'min_value' column in the 'field_statistics' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+        update_column_field_statistics_record_id:
+          description: Update the 'record_id' column in the 'field_statistics' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_field_statistics_std_dev:
+          description: Update the 'std_dev' column in the 'field_statistics' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+        update_column_field_statistics_unique_count:
+          description: Update the 'unique_count' column in the 'field_statistics' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        update_column_field_statistics_uniqueness_ratio:
+          description: Update the 'uniqueness_ratio' column in the 'field_statistics' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+        update_column_historical_data_created_at:
+          description: Update the 'created_at' column in the 'historical_data' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        update_column_historical_data_data:
+          description: Update the 'data' column in the 'historical_data' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: text
+        update_column_historical_data_id:
+          description: Update the 'id' column in the 'historical_data' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_historical_data_last_updated:
+          description: Update the 'last_updated' column in the 'historical_data' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        update_column_historical_data_query_id:
+          description: Update the 'query_id' column in the 'historical_data' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: varchar
+        update_column_historical_data_record_count:
+          description: Update the 'record_count' column in the 'historical_data' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        update_column_query_concerns_analysis_id:
+          description: Update the 'analysis_id' column in the 'query_concerns' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_query_concerns_description:
+          description: Update the 'description' column in the 'query_concerns' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: text
+        update_column_query_concerns_id:
+          description: Update the 'id' column in the 'query_concerns' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_recommendations_analysis_id:
+          description: Update the 'analysis_id' column in the 'recommendations' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_recommendations_description:
+          description: Update the 'description' column in the 'recommendations' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: text
+        update_column_recommendations_id:
+          description: Update the 'id' column in the 'recommendations' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_statistical_flags_analysis_id:
+          description: Update the 'analysis_id' column in the 'statistical_flags' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_statistical_flags_description:
+          description: Update the 'description' column in the 'statistical_flags' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+        update_column_statistical_flags_flag_type:
+          description: Update the 'flag_type' column in the 'statistical_flags' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_statistical_flags_id:
+          description: Update the 'id' column in the 'statistical_flags' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_statistical_flags_severity:
+          description: Update the 'severity' column in the 'statistical_flags' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+        update_column_trained_models_created_at:
+          description: Update the 'created_at' column in the 'trained_models' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        update_column_trained_models_features_count:
+          description: Update the 'features_count' column in the 'trained_models' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        update_column_trained_models_id:
+          description: Update the 'id' column in the 'trained_models' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_trained_models_last_updated:
+          description: Update the 'last_updated' column in the 'trained_models' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        update_column_trained_models_model_data:
+          description: Update the 'model_data' column in the 'trained_models' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: bytea
+        update_column_trained_models_query_id:
+          description: Update the 'query_id' column in the 'trained_models' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: varchar
+        update_column_trained_models_records_count:
+          description: Update the 'records_count' column in the 'trained_models' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        update_column_value_distributions_count:
+          description: Update the 'count' column in the 'value_distributions' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        update_column_value_distributions_field_statistic_id:
+          description: Update the 'field_statistic_id' column in the 'value_distributions' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_value_distributions_id:
+          description: Update the 'id' column in the 'value_distributions' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_value_distributions_value:
+          description: Update the 'value' column in the 'value_distributions' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_field_statistics_by_id_response:
+          description: Responses from the 'update_field_statistics_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: field_statistics
+        update_field_statistics_by_id_update_columns:
+          description: Update the columns of the 'field_statistics' collection
+          fields:
+            avg_length:
+              description: Update the 'avg_length' column in the 'field_statistics' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_field_statistics_avg_length
+            field_name:
+              description: Update the 'field_name' column in the 'field_statistics' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_field_statistics_field_name
+            field_type:
+              description: Update the 'field_type' column in the 'field_statistics' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_field_statistics_field_type
+            id:
+              description: Update the 'id' column in the 'field_statistics' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_field_statistics_id
+            max_value:
+              description: Update the 'max_value' column in the 'field_statistics' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_field_statistics_max_value
+            mean_value:
+              description: Update the 'mean_value' column in the 'field_statistics' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_field_statistics_mean_value
+            median_value:
+              description: Update the 'median_value' column in the 'field_statistics' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_field_statistics_median_value
+            min_value:
+              description: Update the 'min_value' column in the 'field_statistics' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_field_statistics_min_value
+            record_id:
+              description: Update the 'record_id' column in the 'field_statistics' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_field_statistics_record_id
+            std_dev:
+              description: Update the 'std_dev' column in the 'field_statistics' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_field_statistics_std_dev
+            unique_count:
+              description: Update the 'unique_count' column in the 'field_statistics' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_field_statistics_unique_count
+            uniqueness_ratio:
+              description: Update the 'uniqueness_ratio' column in the 'field_statistics' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_field_statistics_uniqueness_ratio
+        update_historical_data_by_id_response:
+          description: Responses from the 'update_historical_data_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: historical_data
+        update_historical_data_by_id_update_columns:
+          description: Update the columns of the 'historical_data' collection
+          fields:
+            created_at:
+              description: Update the 'created_at' column in the 'historical_data' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_historical_data_created_at
+            data:
+              description: Update the 'data' column in the 'historical_data' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_historical_data_data
+            id:
+              description: Update the 'id' column in the 'historical_data' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_historical_data_id
+            last_updated:
+              description: Update the 'last_updated' column in the 'historical_data' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_historical_data_last_updated
+            query_id:
+              description: Update the 'query_id' column in the 'historical_data' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_historical_data_query_id
+            record_count:
+              description: Update the 'record_count' column in the 'historical_data' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_historical_data_record_count
+        update_query_concerns_by_id_response:
+          description: Responses from the 'update_query_concerns_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: query_concerns
+        update_query_concerns_by_id_update_columns:
+          description: Update the columns of the 'query_concerns' collection
+          fields:
+            analysis_id:
+              description: Update the 'analysis_id' column in the 'query_concerns' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_query_concerns_analysis_id
+            description:
+              description: Update the 'description' column in the 'query_concerns' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_query_concerns_description
+            id:
+              description: Update the 'id' column in the 'query_concerns' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_query_concerns_id
+        update_recommendations_by_id_response:
+          description: Responses from the 'update_recommendations_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: recommendations
+        update_recommendations_by_id_update_columns:
+          description: Update the columns of the 'recommendations' collection
+          fields:
+            analysis_id:
+              description: Update the 'analysis_id' column in the 'recommendations' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_recommendations_analysis_id
+            description:
+              description: Update the 'description' column in the 'recommendations' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_recommendations_description
+            id:
+              description: Update the 'id' column in the 'recommendations' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_recommendations_id
+        update_statistical_flags_by_id_response:
+          description: Responses from the 'update_statistical_flags_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: statistical_flags
+        update_statistical_flags_by_id_update_columns:
+          description: Update the columns of the 'statistical_flags' collection
+          fields:
+            analysis_id:
+              description: Update the 'analysis_id' column in the 'statistical_flags' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_statistical_flags_analysis_id
+            description:
+              description: Update the 'description' column in the 'statistical_flags' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_statistical_flags_description
+            flag_type:
+              description: Update the 'flag_type' column in the 'statistical_flags' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_statistical_flags_flag_type
+            id:
+              description: Update the 'id' column in the 'statistical_flags' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_statistical_flags_id
+            severity:
+              description: Update the 'severity' column in the 'statistical_flags' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_statistical_flags_severity
+        update_trained_models_by_id_response:
+          description: Responses from the 'update_trained_models_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: trained_models
+        update_trained_models_by_id_update_columns:
+          description: Update the columns of the 'trained_models' collection
+          fields:
+            created_at:
+              description: Update the 'created_at' column in the 'trained_models' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_trained_models_created_at
+            features_count:
+              description: Update the 'features_count' column in the 'trained_models' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_trained_models_features_count
+            id:
+              description: Update the 'id' column in the 'trained_models' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_trained_models_id
+            last_updated:
+              description: Update the 'last_updated' column in the 'trained_models' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_trained_models_last_updated
+            model_data:
+              description: Update the 'model_data' column in the 'trained_models' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_trained_models_model_data
+            query_id:
+              description: Update the 'query_id' column in the 'trained_models' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_trained_models_query_id
+            records_count:
+              description: Update the 'records_count' column in the 'trained_models' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_trained_models_records_count
+        update_value_distributions_by_id_response:
+          description: Responses from the 'update_value_distributions_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: value_distributions
+        update_value_distributions_by_id_update_columns:
+          description: Update the columns of the 'value_distributions' collection
+          fields:
+            count:
+              description: Update the 'count' column in the 'value_distributions' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_value_distributions_count
+            field_statistic_id:
+              description: Update the 'field_statistic_id' column in the 'value_distributions' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_value_distributions_field_statistic_id
+            id:
+              description: Update the 'id' column in the 'value_distributions' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_value_distributions_id
+            value:
+              description: Update the 'value' column in the 'value_distributions' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_value_distributions_value
+        value_distributions:
+          fields:
+            count:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            field_statistic_id:
+              type:
+                type: named
+                name: int4
+            id:
+              type:
+                type: named
+                name: int4
+            value:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+      collections:
+        - name: anomaly_analyses
+          arguments: {}
+          type: anomaly_analyses
+          uniqueness_constraints:
+            anomaly_analyses_pkey:
+              unique_columns:
+                - id
+          foreign_keys: {}
+        - name: anomaly_records
+          arguments: {}
+          type: anomaly_records
+          uniqueness_constraints:
+            anomaly_records_pkey:
+              unique_columns:
+                - id
+          foreign_keys:
+            anomaly_records_analysis_id_fkey:
+              column_mapping:
+                analysis_id: id
+              foreign_collection: anomaly_analyses
+        - name: field_statistics
+          arguments: {}
+          type: field_statistics
+          uniqueness_constraints:
+            field_statistics_pkey:
+              unique_columns:
+                - id
+          foreign_keys:
+            field_statistics_record_id_fkey:
+              column_mapping:
+                record_id: id
+              foreign_collection: anomaly_records
+        - name: historical_data
+          arguments: {}
+          type: historical_data
+          uniqueness_constraints:
+            historical_data_pkey:
+              unique_columns:
+                - id
+          foreign_keys: {}
+        - name: query_concerns
+          arguments: {}
+          type: query_concerns
+          uniqueness_constraints:
+            query_concerns_pkey:
+              unique_columns:
+                - id
+          foreign_keys:
+            query_concerns_analysis_id_fkey:
+              column_mapping:
+                analysis_id: id
+              foreign_collection: anomaly_analyses
+        - name: recommendations
+          arguments: {}
+          type: recommendations
+          uniqueness_constraints:
+            recommendations_pkey:
+              unique_columns:
+                - id
+          foreign_keys:
+            recommendations_analysis_id_fkey:
+              column_mapping:
+                analysis_id: id
+              foreign_collection: anomaly_analyses
+        - name: statistical_flags
+          arguments: {}
+          type: statistical_flags
+          uniqueness_constraints:
+            statistical_flags_pkey:
+              unique_columns:
+                - id
+          foreign_keys:
+            statistical_flags_analysis_id_fkey:
+              column_mapping:
+                analysis_id: id
+              foreign_collection: anomaly_analyses
+        - name: trained_models
+          arguments: {}
+          type: trained_models
+          uniqueness_constraints:
+            trained_models_pkey:
+              unique_columns:
+                - id
+          foreign_keys: {}
+        - name: value_distributions
+          arguments: {}
+          type: value_distributions
+          uniqueness_constraints:
+            value_distributions_pkey:
+              unique_columns:
+                - id
+          foreign_keys:
+            value_distributions_field_statistic_id_fkey:
+              column_mapping:
+                field_statistic_id: id
+              foreign_collection: field_statistics
+      functions: []
+      procedures:
+        - name: delete_anomaly_analyses_by_id
+          description: Delete any row on the 'anomaly_analyses' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            pre_check:
+              description: Delete permission predicate over the 'anomaly_analyses' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: anomaly_analyses
+          result_type:
+            type: named
+            name: delete_anomaly_analyses_by_id_response
+        - name: delete_anomaly_records_by_id
+          description: Delete any row on the 'anomaly_records' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            pre_check:
+              description: Delete permission predicate over the 'anomaly_records' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: anomaly_records
+          result_type:
+            type: named
+            name: delete_anomaly_records_by_id_response
+        - name: delete_field_statistics_by_id
+          description: Delete any row on the 'field_statistics' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            pre_check:
+              description: Delete permission predicate over the 'field_statistics' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: field_statistics
+          result_type:
+            type: named
+            name: delete_field_statistics_by_id_response
+        - name: delete_historical_data_by_id
+          description: Delete any row on the 'historical_data' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            pre_check:
+              description: Delete permission predicate over the 'historical_data' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: historical_data
+          result_type:
+            type: named
+            name: delete_historical_data_by_id_response
+        - name: delete_query_concerns_by_id
+          description: Delete any row on the 'query_concerns' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            pre_check:
+              description: Delete permission predicate over the 'query_concerns' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: query_concerns
+          result_type:
+            type: named
+            name: delete_query_concerns_by_id_response
+        - name: delete_recommendations_by_id
+          description: Delete any row on the 'recommendations' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            pre_check:
+              description: Delete permission predicate over the 'recommendations' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: recommendations
+          result_type:
+            type: named
+            name: delete_recommendations_by_id_response
+        - name: delete_statistical_flags_by_id
+          description: Delete any row on the 'statistical_flags' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            pre_check:
+              description: Delete permission predicate over the 'statistical_flags' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: statistical_flags
+          result_type:
+            type: named
+            name: delete_statistical_flags_by_id_response
+        - name: delete_trained_models_by_id
+          description: Delete any row on the 'trained_models' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            pre_check:
+              description: Delete permission predicate over the 'trained_models' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: trained_models
+          result_type:
+            type: named
+            name: delete_trained_models_by_id_response
+        - name: delete_value_distributions_by_id
+          description: Delete any row on the 'value_distributions' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            pre_check:
+              description: Delete permission predicate over the 'value_distributions' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: value_distributions
+          result_type:
+            type: named
+            name: delete_value_distributions_by_id_response
+        - name: insert_anomaly_analyses
+          description: Insert into the anomaly_analyses table
+          arguments:
+            objects:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: insert_anomaly_analyses_object
+            post_check:
+              description: Insert permission predicate over the 'anomaly_analyses' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: anomaly_analyses
+          result_type:
+            type: named
+            name: insert_anomaly_analyses_response
+        - name: insert_anomaly_records
+          description: Insert into the anomaly_records table
+          arguments:
+            objects:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: insert_anomaly_records_object
+            post_check:
+              description: Insert permission predicate over the 'anomaly_records' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: anomaly_records
+          result_type:
+            type: named
+            name: insert_anomaly_records_response
+        - name: insert_field_statistics
+          description: Insert into the field_statistics table
+          arguments:
+            objects:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: insert_field_statistics_object
+            post_check:
+              description: Insert permission predicate over the 'field_statistics' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: field_statistics
+          result_type:
+            type: named
+            name: insert_field_statistics_response
+        - name: insert_historical_data
+          description: Insert into the historical_data table
+          arguments:
+            objects:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: insert_historical_data_object
+            post_check:
+              description: Insert permission predicate over the 'historical_data' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: historical_data
+          result_type:
+            type: named
+            name: insert_historical_data_response
+        - name: insert_query_concerns
+          description: Insert into the query_concerns table
+          arguments:
+            objects:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: insert_query_concerns_object
+            post_check:
+              description: Insert permission predicate over the 'query_concerns' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: query_concerns
+          result_type:
+            type: named
+            name: insert_query_concerns_response
+        - name: insert_recommendations
+          description: Insert into the recommendations table
+          arguments:
+            objects:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: insert_recommendations_object
+            post_check:
+              description: Insert permission predicate over the 'recommendations' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: recommendations
+          result_type:
+            type: named
+            name: insert_recommendations_response
+        - name: insert_statistical_flags
+          description: Insert into the statistical_flags table
+          arguments:
+            objects:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: insert_statistical_flags_object
+            post_check:
+              description: Insert permission predicate over the 'statistical_flags' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: statistical_flags
+          result_type:
+            type: named
+            name: insert_statistical_flags_response
+        - name: insert_trained_models
+          description: Insert into the trained_models table
+          arguments:
+            objects:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: insert_trained_models_object
+            post_check:
+              description: Insert permission predicate over the 'trained_models' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: trained_models
+          result_type:
+            type: named
+            name: insert_trained_models_response
+        - name: insert_value_distributions
+          description: Insert into the value_distributions table
+          arguments:
+            objects:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: insert_value_distributions_object
+            post_check:
+              description: Insert permission predicate over the 'value_distributions' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: value_distributions
+          result_type:
+            type: named
+            name: insert_value_distributions_response
+        - name: update_anomaly_analyses_by_id
+          description: Update any row on the 'anomaly_analyses' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            post_check:
+              description: Update permission post-condition predicate over the 'anomaly_analyses' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: anomaly_analyses
+            pre_check:
+              description: Update permission pre-condition predicate over the 'anomaly_analyses' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: anomaly_analyses
+            update_columns:
+              type:
+                type: named
+                name: update_anomaly_analyses_by_id_update_columns
+          result_type:
+            type: named
+            name: update_anomaly_analyses_by_id_response
+        - name: update_anomaly_records_by_id
+          description: Update any row on the 'anomaly_records' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            post_check:
+              description: Update permission post-condition predicate over the 'anomaly_records' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: anomaly_records
+            pre_check:
+              description: Update permission pre-condition predicate over the 'anomaly_records' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: anomaly_records
+            update_columns:
+              type:
+                type: named
+                name: update_anomaly_records_by_id_update_columns
+          result_type:
+            type: named
+            name: update_anomaly_records_by_id_response
+        - name: update_field_statistics_by_id
+          description: Update any row on the 'field_statistics' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            post_check:
+              description: Update permission post-condition predicate over the 'field_statistics' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: field_statistics
+            pre_check:
+              description: Update permission pre-condition predicate over the 'field_statistics' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: field_statistics
+            update_columns:
+              type:
+                type: named
+                name: update_field_statistics_by_id_update_columns
+          result_type:
+            type: named
+            name: update_field_statistics_by_id_response
+        - name: update_historical_data_by_id
+          description: Update any row on the 'historical_data' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            post_check:
+              description: Update permission post-condition predicate over the 'historical_data' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: historical_data
+            pre_check:
+              description: Update permission pre-condition predicate over the 'historical_data' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: historical_data
+            update_columns:
+              type:
+                type: named
+                name: update_historical_data_by_id_update_columns
+          result_type:
+            type: named
+            name: update_historical_data_by_id_response
+        - name: update_query_concerns_by_id
+          description: Update any row on the 'query_concerns' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            post_check:
+              description: Update permission post-condition predicate over the 'query_concerns' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: query_concerns
+            pre_check:
+              description: Update permission pre-condition predicate over the 'query_concerns' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: query_concerns
+            update_columns:
+              type:
+                type: named
+                name: update_query_concerns_by_id_update_columns
+          result_type:
+            type: named
+            name: update_query_concerns_by_id_response
+        - name: update_recommendations_by_id
+          description: Update any row on the 'recommendations' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            post_check:
+              description: Update permission post-condition predicate over the 'recommendations' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: recommendations
+            pre_check:
+              description: Update permission pre-condition predicate over the 'recommendations' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: recommendations
+            update_columns:
+              type:
+                type: named
+                name: update_recommendations_by_id_update_columns
+          result_type:
+            type: named
+            name: update_recommendations_by_id_response
+        - name: update_statistical_flags_by_id
+          description: Update any row on the 'statistical_flags' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            post_check:
+              description: Update permission post-condition predicate over the 'statistical_flags' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: statistical_flags
+            pre_check:
+              description: Update permission pre-condition predicate over the 'statistical_flags' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: statistical_flags
+            update_columns:
+              type:
+                type: named
+                name: update_statistical_flags_by_id_update_columns
+          result_type:
+            type: named
+            name: update_statistical_flags_by_id_response
+        - name: update_trained_models_by_id
+          description: Update any row on the 'trained_models' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            post_check:
+              description: Update permission post-condition predicate over the 'trained_models' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: trained_models
+            pre_check:
+              description: Update permission pre-condition predicate over the 'trained_models' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: trained_models
+            update_columns:
+              type:
+                type: named
+                name: update_trained_models_by_id_update_columns
+          result_type:
+            type: named
+            name: update_trained_models_by_id_response
+        - name: update_value_distributions_by_id
+          description: Update any row on the 'value_distributions' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            post_check:
+              description: Update permission post-condition predicate over the 'value_distributions' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: value_distributions
+            pre_check:
+              description: Update permission pre-condition predicate over the 'value_distributions' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: value_distributions
+            update_columns:
+              type:
+                type: named
+                name: update_value_distributions_by_id_update_columns
+          result_type:
+            type: named
+            name: update_value_distributions_by_id_response
+    capabilities:
+      version: 0.1.6
+      capabilities:
+        query:
+          aggregates: {}
+          variables: {}
+          explain: {}
+          nested_fields:
+            filter_by: {}
+            order_by: {}
+          exists:
+            nested_collections: {}
+        mutation:
+          transactional: {}
+          explain: {}
+        relationships:
+          relation_comparisons: {}
+          order_by_aggregate: {}

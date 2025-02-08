@@ -1,0 +1,187 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentModel
+  fields:
+    - name: aggregateExpression
+      type: Varchar
+    - name: description
+      type: Text
+    - name: filterExpressionType
+      type: Varchar
+    - name: globalIdSource
+      type: Bool
+    - name: name
+      type: Varchar
+    - name: objectTypeName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: CurrentModel
+    inputTypeName: CurrentModelInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_model
+      fieldMapping:
+        aggregateExpression:
+          column:
+            name: aggregate_expression
+        description:
+          column:
+            name: description
+        filterExpressionType:
+          column:
+            name: filter_expression_type
+        globalIdSource:
+          column:
+            name: global_id_source
+        name:
+          column:
+            name: name
+        objectTypeName:
+          column:
+            name: object_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentModel
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregateExpression
+          - description
+          - filterExpressionType
+          - globalIdSource
+          - name
+          - objectTypeName
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentModelBoolExp
+  operand:
+    object:
+      type: CurrentModel
+      comparableFields:
+        - fieldName: aggregateExpression
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: description
+          booleanExpressionType: TextBoolExp
+        - fieldName: filterExpressionType
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: globalIdSource
+          booleanExpressionType: BoolBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: objectTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentModelBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentModelAggExp
+  operand:
+    object:
+      aggregatedType: CurrentModel
+      aggregatableFields:
+        - fieldName: aggregateExpression
+          aggregateExpression: VarcharAggExp
+        - fieldName: description
+          aggregateExpression: TextAggExp
+        - fieldName: filterExpressionType
+          aggregateExpression: VarcharAggExp
+        - fieldName: globalIdSource
+          aggregateExpression: BoolAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: objectTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentModelAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentModelOrderByExp
+  operand:
+    object:
+      orderedType: CurrentModel
+      orderableFields:
+        - fieldName: aggregateExpression
+          orderByExpression: VarcharOrderByExp
+        - fieldName: description
+          orderByExpression: TextOrderByExp
+        - fieldName: filterExpressionType
+          orderByExpression: VarcharOrderByExp
+        - fieldName: globalIdSource
+          orderByExpression: BoolOrderByExp
+        - fieldName: name
+          orderByExpression: VarcharOrderByExp
+        - fieldName: objectTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentModelOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentModel
+  objectType: CurrentModel
+  source:
+    dataConnectorName: datamanagement
+    collection: current_model
+  filterExpressionType: CurrentModelBoolExp
+  aggregateExpression: CurrentModelAggExp
+  orderByExpression: CurrentModelOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentModel
+      subscription:
+        rootField: currentModel
+    selectUniques: []
+    filterInputTypeName: CurrentModelFilterInput
+    aggregate:
+      queryRootField: currentModelAggregate
+      subscription:
+        rootField: currentModelAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentModel
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

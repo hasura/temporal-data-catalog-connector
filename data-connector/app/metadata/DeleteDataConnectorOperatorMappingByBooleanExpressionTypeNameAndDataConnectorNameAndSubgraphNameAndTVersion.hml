@@ -1,0 +1,86 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_data_connector_operator_mapping_by_boolean_expression_type_name_and_data_connector_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[DataConnectorOperatorMapping!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: DeleteDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_data_connector_operator_mapping_by_boolean_expression_type_name_and_data_connector_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersion
+  outputType: DeleteDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyBooleanExpressionTypeName
+      type: Varchar!
+    - name: keyDataConnectorName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: DataConnectorOperatorMappingBoolExp
+      description: Delete permission predicate over the
+        'data_connector_operator_mapping' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_data_connector_operator_mapping_by_boolean_expression_type_name_and_data_connector_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyBooleanExpressionTypeName: key_boolean_expression_type_name
+      keyDataConnectorName: key_data_connector_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'data_connector_operator_mapping' collection
+    using the 'boolean_expression_type_name', 'data_connector_name',
+    'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteDataConnectorOperatorMappingByBooleanExpressionTypeNameAndDataConnectorNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

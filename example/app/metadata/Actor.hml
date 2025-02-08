@@ -1,0 +1,148 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Actor
+  fields:
+    - name: actorId
+      type: Int4!
+    - name: firstName
+      type: Varchar!
+    - name: lastName
+      type: Varchar!
+    - name: lastUpdate
+      type: Timestamp!
+  graphql:
+    typeName: Actor
+    inputTypeName: ActorInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: chinook
+      dataConnectorObjectType: actor
+      fieldMapping:
+        actorId:
+          column:
+            name: actor_id
+        firstName:
+          column:
+            name: first_name
+        lastName:
+          column:
+            name: last_name
+        lastUpdate:
+          column:
+            name: last_update
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Actor
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - actorId
+          - firstName
+          - lastName
+          - lastUpdate
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ActorBoolExp
+  operand:
+    object:
+      type: Actor
+      comparableFields:
+        - fieldName: actorId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: firstName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: lastName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: lastUpdate
+          booleanExpressionType: TimestampBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ActorBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ActorAggExp
+  operand:
+    object:
+      aggregatedType: Actor
+      aggregatableFields:
+        - fieldName: actorId
+          aggregateExpression: Int4AggExp
+        - fieldName: firstName
+          aggregateExpression: VarcharAggExp
+        - fieldName: lastName
+          aggregateExpression: VarcharAggExp
+        - fieldName: lastUpdate
+          aggregateExpression: TimestampAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: ActorAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: Actor
+  objectType: Actor
+  source:
+    dataConnectorName: chinook
+    collection: actor
+  filterExpressionType: ActorBoolExp
+  aggregateExpression: ActorAggExp
+  orderableFields:
+    - fieldName: actorId
+      orderByDirections:
+        enableAll: true
+    - fieldName: firstName
+      orderByDirections:
+        enableAll: true
+    - fieldName: lastName
+      orderByDirections:
+        enableAll: true
+    - fieldName: lastUpdate
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: actor
+      subscription:
+        rootField: actor
+    selectUniques:
+      - queryRootField: actorByActorId
+        uniqueIdentifier:
+          - actorId
+        subscription:
+          rootField: actorByActorId
+    orderByExpressionType: ActorOrderBy
+    filterInputTypeName: ActorFilterInput
+    aggregate:
+      queryRootField: actorAggregate
+      subscription:
+        rootField: actorAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Actor
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

@@ -1,0 +1,181 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertDataConnectorFunctionMappingObject
+  fields:
+    - name: aggregateName
+      type: Varchar!
+    - name: dataConnectorName
+      type: Varchar!
+    - name: dataConnectorScalarType
+      type: Varchar!
+    - name: functionName
+      type: Varchar!
+    - name: mappedFunctionName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar!
+    - name: tContentHash
+      type: Varchar!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar!
+    - name: tIsCurrent
+      type: Bool!
+    - name: tIsDeleted
+      type: Bool!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4!
+  graphql:
+    typeName: InsertDataConnectorFunctionMappingObject
+    inputTypeName: InsertDataConnectorFunctionMappingObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_data_connector_function_mapping_object
+      fieldMapping:
+        aggregateName:
+          column:
+            name: aggregate_name
+        dataConnectorName:
+          column:
+            name: data_connector_name
+        dataConnectorScalarType:
+          column:
+            name: data_connector_scalar_type
+        functionName:
+          column:
+            name: function_name
+        mappedFunctionName:
+          column:
+            name: mapped_function_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertDataConnectorFunctionMappingObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregateName
+          - dataConnectorName
+          - dataConnectorScalarType
+          - functionName
+          - mappedFunctionName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertDataConnectorFunctionMappingResponse
+  description: Responses from the 'insert_data_connector_function_mapping' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[DataConnectorFunctionMapping!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertDataConnectorFunctionMappingResponse
+    inputTypeName: InsertDataConnectorFunctionMappingResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: insert_data_connector_function_mapping_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertDataConnectorFunctionMappingResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertDataConnectorFunctionMapping
+  outputType: InsertDataConnectorFunctionMappingResponse!
+  arguments:
+    - name: objects
+      type: "[InsertDataConnectorFunctionMappingObject!]!"
+    - name: postCheck
+      type: DataConnectorFunctionMappingBoolExp
+      description: Insert permission predicate over the
+        'data_connector_function_mapping' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: insert_data_connector_function_mapping
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertDataConnectorFunctionMapping
+    rootFieldKind: Mutation
+  description: Insert into the data_connector_function_mapping table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertDataConnectorFunctionMapping
+  permissions:
+    - role: admin
+      allowExecution: true
+

@@ -1,0 +1,151 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentModelArgumentPreset
+  fields:
+    - name: argumentName
+      type: Varchar
+    - name: modelName
+      type: Varchar
+    - name: roleName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+  graphql:
+    typeName: CurrentModelArgumentPreset
+    inputTypeName: CurrentModelArgumentPresetInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_model_argument_preset
+      fieldMapping:
+        argumentName:
+          column:
+            name: argument_name
+        modelName:
+          column:
+            name: model_name
+        roleName:
+          column:
+            name: role_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentModelArgumentPreset
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - argumentName
+          - modelName
+          - roleName
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentModelArgumentPresetBoolExp
+  operand:
+    object:
+      type: CurrentModelArgumentPreset
+      comparableFields:
+        - fieldName: argumentName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: roleName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentModelArgumentPresetBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentModelArgumentPresetAggExp
+  operand:
+    object:
+      aggregatedType: CurrentModelArgumentPreset
+      aggregatableFields:
+        - fieldName: argumentName
+          aggregateExpression: VarcharAggExp
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp
+        - fieldName: roleName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentModelArgumentPresetAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentModelArgumentPresetOrderByExp
+  operand:
+    object:
+      orderedType: CurrentModelArgumentPreset
+      orderableFields:
+        - fieldName: argumentName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: modelName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: roleName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentModelArgumentPresetOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentModelArgumentPreset
+  objectType: CurrentModelArgumentPreset
+  source:
+    dataConnectorName: datamanagement
+    collection: current_model_argument_preset
+  filterExpressionType: CurrentModelArgumentPresetBoolExp
+  aggregateExpression: CurrentModelArgumentPresetAggExp
+  orderByExpression: CurrentModelArgumentPresetOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentModelArgumentPreset
+      subscription:
+        rootField: currentModelArgumentPreset
+    selectUniques: []
+    filterInputTypeName: CurrentModelArgumentPresetFilterInput
+    aggregate:
+      queryRootField: currentModelArgumentPresetAggregate
+      subscription:
+        rootField: currentModelArgumentPresetAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentModelArgumentPreset
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

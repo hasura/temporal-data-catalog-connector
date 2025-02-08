@@ -1,0 +1,187 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentTypeDefinition
+  fields:
+    - name: childTypeName
+      type: Varchar
+    - name: collectionTypeName
+      type: Varchar
+    - name: connectorName
+      type: Varchar
+    - name: name
+      type: Varchar
+    - name: scalarTypeName
+      type: Varchar
+    - name: subgraphName
+      type: Varchar
+    - name: type
+      type: Typedefinitionkind
+  graphql:
+    typeName: CurrentTypeDefinition
+    inputTypeName: CurrentTypeDefinitionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: current_type_definition
+      fieldMapping:
+        childTypeName:
+          column:
+            name: child_type_name
+        collectionTypeName:
+          column:
+            name: collection_type_name
+        connectorName:
+          column:
+            name: connector_name
+        name:
+          column:
+            name: name
+        scalarTypeName:
+          column:
+            name: scalar_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        type:
+          column:
+            name: type
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentTypeDefinition
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - childTypeName
+          - collectionTypeName
+          - connectorName
+          - name
+          - scalarTypeName
+          - subgraphName
+          - type
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentTypeDefinitionBoolExp
+  operand:
+    object:
+      type: CurrentTypeDefinition
+      comparableFields:
+        - fieldName: childTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: collectionTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: scalarTypeName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: type
+          booleanExpressionType: TypedefinitionkindBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentTypeDefinitionBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentTypeDefinitionAggExp
+  operand:
+    object:
+      aggregatedType: CurrentTypeDefinition
+      aggregatableFields:
+        - fieldName: childTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: collectionTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: scalarTypeName
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp
+        - fieldName: type
+          aggregateExpression: TypedefinitionkindAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentTypeDefinitionAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentTypeDefinitionOrderByExp
+  operand:
+    object:
+      orderedType: CurrentTypeDefinition
+      orderableFields:
+        - fieldName: childTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: collectionTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: connectorName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: name
+          orderByExpression: VarcharOrderByExp
+        - fieldName: scalarTypeName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: type
+          orderByExpression: TypedefinitionkindOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentTypeDefinitionOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentTypeDefinition
+  objectType: CurrentTypeDefinition
+  source:
+    dataConnectorName: datamanagement
+    collection: current_type_definition
+  filterExpressionType: CurrentTypeDefinitionBoolExp
+  aggregateExpression: CurrentTypeDefinitionAggExp
+  orderByExpression: CurrentTypeDefinitionOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentTypeDefinition
+      subscription:
+        rootField: currentTypeDefinition
+    selectUniques: []
+    filterInputTypeName: CurrentTypeDefinitionFilterInput
+    aggregate:
+      queryRootField: currentTypeDefinitionAggregate
+      subscription:
+        rootField: currentTypeDefinitionAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentTypeDefinition
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

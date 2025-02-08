@@ -1,0 +1,861 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipAggregateExpression
+  description: Update the 'aggregate_expression' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipAggregateExpression
+    inputTypeName: UpdateColumnRelationshipAggregateExpressionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_aggregate_expression
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipAggregateExpression
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipDeprecated
+  description: Update the 'deprecated' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipDeprecated
+    inputTypeName: UpdateColumnRelationshipDeprecatedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_deprecated
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipDeprecated
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipDescription
+  description: Update the 'description' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipDescription
+    inputTypeName: UpdateColumnRelationshipDescriptionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_description
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipDescription
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipGraphqlFieldName
+  description: Update the 'graphql_field_name' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipGraphqlFieldName
+    inputTypeName: UpdateColumnRelationshipGraphqlFieldNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_graphql_field_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipGraphqlFieldName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipIsAggregate
+  description: Update the 'is_aggregate' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipIsAggregate
+    inputTypeName: UpdateColumnRelationshipIsAggregateInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_is_aggregate
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipIsAggregate
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipName
+  description: Update the 'name' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipName
+    inputTypeName: UpdateColumnRelationshipNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipRelationshipType
+  description: Update the 'relationship_type' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipRelationshipType
+    inputTypeName: UpdateColumnRelationshipRelationshipTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_relationship_type
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipRelationshipType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipSourceTypeName
+  description: Update the 'source_type_name' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipSourceTypeName
+    inputTypeName: UpdateColumnRelationshipSourceTypeNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_source_type_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipSourceTypeName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipSubgraphName
+  description: Update the 'subgraph_name' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipSubgraphName
+    inputTypeName: UpdateColumnRelationshipSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipTContentHash
+  description: Update the 't_content_hash' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipTContentHash
+    inputTypeName: UpdateColumnRelationshipTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipTCreatedAt
+  description: Update the 't_created_at' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipTCreatedAt
+    inputTypeName: UpdateColumnRelationshipTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipTDeletedAt
+  description: Update the 't_deleted_at' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipTDeletedAt
+    inputTypeName: UpdateColumnRelationshipTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipTId
+  description: Update the 't_id' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipTId
+    inputTypeName: UpdateColumnRelationshipTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipTIsCurrent
+  description: Update the 't_is_current' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipTIsCurrent
+    inputTypeName: UpdateColumnRelationshipTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipTIsDeleted
+  description: Update the 't_is_deleted' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipTIsDeleted
+    inputTypeName: UpdateColumnRelationshipTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipTUpdatedAt
+  description: Update the 't_updated_at' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipTUpdatedAt
+    inputTypeName: UpdateColumnRelationshipTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipTVersion
+  description: Update the 't_version' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipTVersion
+    inputTypeName: UpdateColumnRelationshipTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipTargetSubgraphName
+  description: Update the 'target_subgraph_name' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipTargetSubgraphName
+    inputTypeName: UpdateColumnRelationshipTargetSubgraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_target_subgraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipTargetSubgraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRelationshipTargetTypeName
+  description: Update the 'target_type_name' column in the 'relationship' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRelationshipTargetTypeName
+    inputTypeName: UpdateColumnRelationshipTargetTypeNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_relationship_target_type_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRelationshipTargetTypeName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateRelationshipByNameAndSourceTypeNameAndSubgraphNameAndTVersionUpdateColumns
+  description: Update the columns of the 'relationship' collection
+  fields:
+    - name: aggregateExpression
+      type: UpdateColumnRelationshipAggregateExpression
+      description: Update the 'aggregate_expression' column in the 'relationship'
+        collection.
+    - name: deprecated
+      type: UpdateColumnRelationshipDeprecated
+      description: Update the 'deprecated' column in the 'relationship' collection.
+    - name: description
+      type: UpdateColumnRelationshipDescription
+      description: Update the 'description' column in the 'relationship' collection.
+    - name: graphqlFieldName
+      type: UpdateColumnRelationshipGraphqlFieldName
+      description: Update the 'graphql_field_name' column in the 'relationship' collection.
+    - name: isAggregate
+      type: UpdateColumnRelationshipIsAggregate
+      description: Update the 'is_aggregate' column in the 'relationship' collection.
+    - name: name
+      type: UpdateColumnRelationshipName
+      description: Update the 'name' column in the 'relationship' collection.
+    - name: relationshipType
+      type: UpdateColumnRelationshipRelationshipType
+      description: Update the 'relationship_type' column in the 'relationship' collection.
+    - name: sourceTypeName
+      type: UpdateColumnRelationshipSourceTypeName
+      description: Update the 'source_type_name' column in the 'relationship' collection.
+    - name: subgraphName
+      type: UpdateColumnRelationshipSubgraphName
+      description: Update the 'subgraph_name' column in the 'relationship' collection.
+    - name: tContentHash
+      type: UpdateColumnRelationshipTContentHash
+      description: Update the 't_content_hash' column in the 'relationship' collection.
+    - name: tCreatedAt
+      type: UpdateColumnRelationshipTCreatedAt
+      description: Update the 't_created_at' column in the 'relationship' collection.
+    - name: tDeletedAt
+      type: UpdateColumnRelationshipTDeletedAt
+      description: Update the 't_deleted_at' column in the 'relationship' collection.
+    - name: tId
+      type: UpdateColumnRelationshipTId
+      description: Update the 't_id' column in the 'relationship' collection.
+    - name: tIsCurrent
+      type: UpdateColumnRelationshipTIsCurrent
+      description: Update the 't_is_current' column in the 'relationship' collection.
+    - name: tIsDeleted
+      type: UpdateColumnRelationshipTIsDeleted
+      description: Update the 't_is_deleted' column in the 'relationship' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnRelationshipTUpdatedAt
+      description: Update the 't_updated_at' column in the 'relationship' collection.
+    - name: tVersion
+      type: UpdateColumnRelationshipTVersion
+      description: Update the 't_version' column in the 'relationship' collection.
+    - name: targetSubgraphName
+      type: UpdateColumnRelationshipTargetSubgraphName
+      description: Update the 'target_subgraph_name' column in the 'relationship'
+        collection.
+    - name: targetTypeName
+      type: UpdateColumnRelationshipTargetTypeName
+      description: Update the 'target_type_name' column in the 'relationship' collection.
+  graphql:
+    typeName: UpdateRelationshipByNameAndSourceTypeNameAndSubgraphNameAndTVersionUpdateColumns
+    inputTypeName: UpdateRelationshipByNameAndSourceTypeNameAndSubgraphNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_relationship_by_name_and_source_type_name_and_subgraph_name_and_t_version_update_columns
+      fieldMapping:
+        aggregateExpression:
+          column:
+            name: aggregate_expression
+        deprecated:
+          column:
+            name: deprecated
+        description:
+          column:
+            name: description
+        graphqlFieldName:
+          column:
+            name: graphql_field_name
+        isAggregate:
+          column:
+            name: is_aggregate
+        name:
+          column:
+            name: name
+        relationshipType:
+          column:
+            name: relationship_type
+        sourceTypeName:
+          column:
+            name: source_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        targetSubgraphName:
+          column:
+            name: target_subgraph_name
+        targetTypeName:
+          column:
+            name: target_type_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateRelationshipByNameAndSourceTypeNameAndSubgraphNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregateExpression
+          - deprecated
+          - description
+          - graphqlFieldName
+          - isAggregate
+          - name
+          - relationshipType
+          - sourceTypeName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - targetSubgraphName
+          - targetTypeName
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateRelationshipByNameAndSourceTypeNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'update_relationship_by_name_and_source_type_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[Relationship!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateRelationshipByNameAndSourceTypeNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: UpdateRelationshipByNameAndSourceTypeNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_relationship_by_name_and_source_type_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateRelationshipByNameAndSourceTypeNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateRelationshipByNameAndSourceTypeNameAndSubgraphNameAndTVersion
+  outputType: UpdateRelationshipByNameAndSourceTypeNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyName
+      type: Varchar!
+    - name: keySourceTypeName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: RelationshipBoolExp
+      description: Update permission post-condition predicate over the 'relationship'
+        collection
+    - name: preCheck
+      type: RelationshipBoolExp
+      description: Update permission pre-condition predicate over the 'relationship'
+        collection
+    - name: updateColumns
+      type: UpdateRelationshipByNameAndSourceTypeNameAndSubgraphNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_relationship_by_name_and_source_type_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyName: key_name
+      keySourceTypeName: key_source_type_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateRelationshipByNameAndSourceTypeNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'relationship' collection using the 'name',
+    'source_type_name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateRelationshipByNameAndSourceTypeNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

@@ -1,0 +1,84 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteProcedureByConnectorNameAndNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_procedure_by_connector_name_and_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[Procedure!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteProcedureByConnectorNameAndNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: DeleteProcedureByConnectorNameAndNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_procedure_by_connector_name_and_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteProcedureByConnectorNameAndNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteProcedureByConnectorNameAndNameAndSubgraphNameAndTVersion
+  outputType: DeleteProcedureByConnectorNameAndNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyConnectorName
+      type: Varchar!
+    - name: keyName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: ProcedureBoolExp
+      description: Delete permission predicate over the 'procedure' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_procedure_by_connector_name_and_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyConnectorName: key_connector_name
+      keyName: key_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteProcedureByConnectorNameAndNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'procedure' collection using the
+    'connector_name', 'name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteProcedureByConnectorNameAndNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

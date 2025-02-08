@@ -1,0 +1,88 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteCollectionFieldByCollectionNameAndConnectorNameAndPhysicalFieldNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_collection_field_by_collection_name_and_connector_name_and_physical_field_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CollectionField!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteCollectionFieldByCollectionNameAndConnectorNameAndPhysicalFieldNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: DeleteCollectionFieldByCollectionNameAndConnectorNameAndPhysicalFieldNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_collection_field_by_collection_name_and_connector_name_and_physical_field_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteCollectionFieldByCollectionNameAndConnectorNameAndPhysicalFieldNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteCollectionFieldByCollectionNameAndConnectorNameAndPhysicalFieldNameAndSubgraphNameAndTVersion
+  outputType: DeleteCollectionFieldByCollectionNameAndConnectorNameAndPhysicalFieldNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyCollectionName
+      type: Varchar!
+    - name: keyConnectorName
+      type: Varchar!
+    - name: keyPhysicalFieldName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: CollectionFieldBoolExp
+      description: Delete permission predicate over the 'collection_field' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_collection_field_by_collection_name_and_connector_name_and_physical_field_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyCollectionName: key_collection_name
+      keyConnectorName: key_connector_name
+      keyPhysicalFieldName: key_physical_field_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteCollectionFieldByCollectionNameAndConnectorNameAndPhysicalFieldNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'collection_field' collection using the
+    'collection_name', 'connector_name', 'physical_field_name', 'subgraph_name'
+    and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteCollectionFieldByCollectionNameAndConnectorNameAndPhysicalFieldNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

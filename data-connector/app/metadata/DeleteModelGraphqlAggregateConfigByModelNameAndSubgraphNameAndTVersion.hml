@@ -1,0 +1,82 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteModelGraphqlAggregateConfigByModelNameAndSubgraphNameAndTVersionResponse
+  description: Responses from the
+    'delete_model_graphql_aggregate_config_by_model_name_and_subgraph_name_and_t_version'
+    procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[ModelGraphqlAggregateConfig!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteModelGraphqlAggregateConfigByModelNameAndSubgraphNameAndTVersionResponse
+    inputTypeName: DeleteModelGraphqlAggregateConfigByModelNameAndSubgraphNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: delete_model_graphql_aggregate_config_by_model_name_and_subgraph_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteModelGraphqlAggregateConfigByModelNameAndSubgraphNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteModelGraphqlAggregateConfigByModelNameAndSubgraphNameAndTVersion
+  outputType: DeleteModelGraphqlAggregateConfigByModelNameAndSubgraphNameAndTVersionResponse!
+  arguments:
+    - name: keyModelName
+      type: Varchar!
+    - name: keySubgraphName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: preCheck
+      type: ModelGraphqlAggregateConfigBoolExp
+      description: Delete permission predicate over the
+        'model_graphql_aggregate_config' collection
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: delete_model_graphql_aggregate_config_by_model_name_and_subgraph_name_and_t_version
+    argumentMapping:
+      keyModelName: key_model_name
+      keySubgraphName: key_subgraph_name
+      keyTVersion: key_t_version
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteModelGraphqlAggregateConfigByModelNameAndSubgraphNameAndTVersion
+    rootFieldKind: Mutation
+  description: Delete any row on the 'model_graphql_aggregate_config' collection
+    using the 'model_name', 'subgraph_name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteModelGraphqlAggregateConfigByModelNameAndSubgraphNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+

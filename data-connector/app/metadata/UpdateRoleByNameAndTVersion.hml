@@ -1,0 +1,536 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRoleDescription
+  description: Update the 'description' column in the 'role' collection
+  fields:
+    - name: set
+      type: Text
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRoleDescription
+    inputTypeName: UpdateColumnRoleDescriptionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_role_description
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRoleDescription
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRoleName
+  description: Update the 'name' column in the 'role' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRoleName
+    inputTypeName: UpdateColumnRoleNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_role_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRoleName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRoleSupergraphName
+  description: Update the 'supergraph_name' column in the 'role' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRoleSupergraphName
+    inputTypeName: UpdateColumnRoleSupergraphNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_role_supergraph_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRoleSupergraphName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRoleTContentHash
+  description: Update the 't_content_hash' column in the 'role' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRoleTContentHash
+    inputTypeName: UpdateColumnRoleTContentHashInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_role_t_content_hash
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRoleTContentHash
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRoleTCreatedAt
+  description: Update the 't_created_at' column in the 'role' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRoleTCreatedAt
+    inputTypeName: UpdateColumnRoleTCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_role_t_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRoleTCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRoleTDeletedAt
+  description: Update the 't_deleted_at' column in the 'role' collection
+  fields:
+    - name: set
+      type: Timestamp
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRoleTDeletedAt
+    inputTypeName: UpdateColumnRoleTDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_role_t_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRoleTDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRoleTId
+  description: Update the 't_id' column in the 'role' collection
+  fields:
+    - name: set
+      type: Varchar!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRoleTId
+    inputTypeName: UpdateColumnRoleTIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_role_t_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRoleTId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRoleTIsCurrent
+  description: Update the 't_is_current' column in the 'role' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRoleTIsCurrent
+    inputTypeName: UpdateColumnRoleTIsCurrentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_role_t_is_current
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRoleTIsCurrent
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRoleTIsDeleted
+  description: Update the 't_is_deleted' column in the 'role' collection
+  fields:
+    - name: set
+      type: Bool!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRoleTIsDeleted
+    inputTypeName: UpdateColumnRoleTIsDeletedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_role_t_is_deleted
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRoleTIsDeleted
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRoleTUpdatedAt
+  description: Update the 't_updated_at' column in the 'role' collection
+  fields:
+    - name: set
+      type: Timestamp!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRoleTUpdatedAt
+    inputTypeName: UpdateColumnRoleTUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_role_t_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRoleTUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnRoleTVersion
+  description: Update the 't_version' column in the 'role' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnRoleTVersion
+    inputTypeName: UpdateColumnRoleTVersionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_column_role_t_version
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnRoleTVersion
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateRoleByNameAndTVersionUpdateColumns
+  description: Update the columns of the 'role' collection
+  fields:
+    - name: description
+      type: UpdateColumnRoleDescription
+      description: Update the 'description' column in the 'role' collection.
+    - name: name
+      type: UpdateColumnRoleName
+      description: Update the 'name' column in the 'role' collection.
+    - name: supergraphName
+      type: UpdateColumnRoleSupergraphName
+      description: Update the 'supergraph_name' column in the 'role' collection.
+    - name: tContentHash
+      type: UpdateColumnRoleTContentHash
+      description: Update the 't_content_hash' column in the 'role' collection.
+    - name: tCreatedAt
+      type: UpdateColumnRoleTCreatedAt
+      description: Update the 't_created_at' column in the 'role' collection.
+    - name: tDeletedAt
+      type: UpdateColumnRoleTDeletedAt
+      description: Update the 't_deleted_at' column in the 'role' collection.
+    - name: tId
+      type: UpdateColumnRoleTId
+      description: Update the 't_id' column in the 'role' collection.
+    - name: tIsCurrent
+      type: UpdateColumnRoleTIsCurrent
+      description: Update the 't_is_current' column in the 'role' collection.
+    - name: tIsDeleted
+      type: UpdateColumnRoleTIsDeleted
+      description: Update the 't_is_deleted' column in the 'role' collection.
+    - name: tUpdatedAt
+      type: UpdateColumnRoleTUpdatedAt
+      description: Update the 't_updated_at' column in the 'role' collection.
+    - name: tVersion
+      type: UpdateColumnRoleTVersion
+      description: Update the 't_version' column in the 'role' collection.
+  graphql:
+    typeName: UpdateRoleByNameAndTVersionUpdateColumns
+    inputTypeName: UpdateRoleByNameAndTVersionUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_role_by_name_and_t_version_update_columns
+      fieldMapping:
+        description:
+          column:
+            name: description
+        name:
+          column:
+            name: name
+        supergraphName:
+          column:
+            name: supergraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateRoleByNameAndTVersionUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - description
+          - name
+          - supergraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateRoleByNameAndTVersionResponse
+  description: Responses from the 'update_role_by_name_and_t_version' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[Role!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateRoleByNameAndTVersionResponse
+    inputTypeName: UpdateRoleByNameAndTVersionResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: datamanagement
+      dataConnectorObjectType: update_role_by_name_and_t_version_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateRoleByNameAndTVersionResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateRoleByNameAndTVersion
+  outputType: UpdateRoleByNameAndTVersionResponse!
+  arguments:
+    - name: keyName
+      type: Varchar!
+    - name: keyTVersion
+      type: Int4!
+    - name: postCheck
+      type: RoleBoolExp
+      description: Update permission post-condition predicate over the 'role' collection
+    - name: preCheck
+      type: RoleBoolExp
+      description: Update permission pre-condition predicate over the 'role' collection
+    - name: updateColumns
+      type: UpdateRoleByNameAndTVersionUpdateColumns!
+  source:
+    dataConnectorName: datamanagement
+    dataConnectorCommand:
+      procedure: update_role_by_name_and_t_version
+    argumentMapping:
+      keyName: key_name
+      keyTVersion: key_t_version
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateRoleByNameAndTVersion
+    rootFieldKind: Mutation
+  description: Update any row on the 'role' collection using the 'name' and 't_version' keys
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateRoleByNameAndTVersion
+  permissions:
+    - role: admin
+      allowExecution: true
+
