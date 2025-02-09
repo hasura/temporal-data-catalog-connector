@@ -17,10 +17,13 @@ def create_engine_config(database_url: str):
     """Create engine with standard configuration."""
     return create_engine(
         database_url,
-        pool_size=5,
-        max_overflow=10,
-        pool_timeout=30,
-        pool_recycle=1800
+        pool_pre_ping=True,  # Detect stale connections
+        connect_args={
+            'keepalives': 1,
+            'keepalives_idle': 60,  # Seconds before sending keepalive
+            'keepalives_interval': 10,  # Seconds between keepalives
+            'keepalives_count': 5  # Failed keepalives before dropping
+        }
     )
 
 
