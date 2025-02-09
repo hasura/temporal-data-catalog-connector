@@ -9,6 +9,19 @@ from sqlalchemy.orm import sessionmaker
 from . import Supergraph
 from .generate_relationship_indices import apply_indices, apply_constraints
 from .utilities import SchemaHelper
+from .utilities import managed_session, transactional  # Assuming these exist
+logger = __import__("logging").getLogger(__name__)
+
+
+def create_engine_config(database_url: str):
+    """Create engine with standard configuration."""
+    return create_engine(
+        database_url,
+        pool_size=5,
+        max_overflow=10,
+        pool_timeout=30,
+        pool_recycle=1800
+    )
 
 
 def init_schema_from_build(session, clean_database=True,
@@ -31,13 +44,13 @@ def init_schema_from_build(session, clean_database=True,
             if existing_supergraph:
                 if existing_supergraph.version == "v2":
                     if existing_supergraph.t_updated_at >= timestamp:
-                        print(f"No changes detected in {engine_build}. Skipping schema import.")
+                        logger.debug(f"No changes detected in {engine_build}. Skipping schema import.")
                         return
                 else:
-                    print(f"Existing supergraph has version {existing_supergraph.version}. Skipping schema import.")
+                    logger.debug(f"Existing supergraph has version {existing_supergraph.version}. Skipping schema import.")
                     return
             else:
-                print(f"No existing supergraph found. Importing schema from {engine_build}.")
+                logger.debug(f"No existing supergraph found. Importing schema from {engine_build}.")
 
         supergraph = importer.import_file(engine_build)
 
@@ -55,16 +68,25 @@ def init_schema_from_build(session, clean_database=True,
 
 
 def init_with_session(clean_database=False):
+    """Initialize schema with environment configuration and proper resource cleanup."""
     clean_database = os.getenv('CLEAN_DATABASE', str(clean_database)).lower() in ['true', '1', 't', 'yes', 'y']
     engine_build = os.getenv('ENGINE_BUILD_PATH', './example/engine/build/metadata.json')
     database_url = os.getenv('DATABASE_URL',
-                             "postgresql://kenstott:rN8qOh6AEMCP@ep-yellow-salad-961725.us-west-2.aws.neon.tech/hasura_config?sslmode=require")  # Example: SQLite database stored in a file
+                             "postgresql://kenstott:rN8qOh6AEMCP@ep-yellow-salad-961725.us-west-2.aws.neon.tech/hasura_config?sslmode=require")
 
-    print(f"Engine build path: {engine_build}")
-    print(f"database url: {database_url}")
-    print(f"Clean Database: {clean_database}")
-    engine = create_engine(database_url)
-    session = sessionmaker(bind=engine)()
-    # from .base.base import Base
-    # apply_constraints(Base, engine=engine)
-    init_schema_from_build(session=session, clean_database=clean_database, engine_build=engine_build)
+    logger.info(f"Engine build path: {engine_build}")
+    logger.info(f"Database URL: {database_url}")
+    logger.info(f"Clean Database: {clean_database}")
+
+    engine = create_engine_config(database_url)
+    # SessionFactory = sessionmaker(bind=engine)
+
+    try:
+        with managed_session(engine) as session:
+            init_schema_from_build(
+                session=session,
+                clean_database=clean_database,
+                engine_build=engine_build
+            )
+    finally:
+        engine.dispose()

@@ -17,7 +17,7 @@ from ..utilities import SchemaHelper, compare_json_files, rdf_to_advanced_graph
 
 if TYPE_CHECKING:
     from ..boolean_expression_type import BooleanExpressionType
-    from .. import ModelPermission, ObjectType, Supergraph, Subgraph, init_with_session
+    from .. import ModelPermission, ObjectType, Supergraph, Subgraph, init_with_session, AuthConfig
     from ..aggregate_expression import AggregateExpression
     from ..data_connector.schema.scalar_type.scalar_type import ScalarType
     from ..data_connector_scalar_representation.data_connector_scalar_representation import \
@@ -56,7 +56,12 @@ def clean_directory():
 def session():
     database_url = "postgresql://kenstott:rN8qOh6AEMCP@ep-yellow-salad-961725.us-west-2.aws.neon.tech/hasura_config?sslmode=require"  # Example: SQLite database stored in a file
     engine = create_engine(database_url)
-    return sessionmaker(bind=engine)()
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    try:
+        yield session
+    finally:
+        session.close()
 
 
 def test_export_ddn_rdf(session):
@@ -80,19 +85,60 @@ def test_export_ddn_rdf(session):
 
 
 def test_export_rdf(session):
+    """
+    Export RDF definitions with proper transaction management and Neo4j sync
+    """
     from ..supergraph import Supergraph
 
-    Supergraph.configure_neo4j()
-    si = SchemaHelper(session)
-    graph = si.generate_rdf_definitions()
-    assert len(graph) > 0
-    si.convert_to_bidirectional(graph, NS_HASURA, ("#HAS_MANY", "#HAS_ONE"), "HAS")
-    # Write the output to a file named 'ddn.ttl'
-    rdf_output = graph.serialize(format="turtle")
-    with open("./ddn-instance.ttl", "w") as file:
-        file.write(rdf_output)
-    Supergraph.sync_all_to_neo4j(session=session, source_graph=graph)
-    logger.debug(rdf_output)
+    try:
+        # Initialize Neo4j configuration in its own transaction
+        with session.begin_nested():
+            Supergraph.configure_neo4j()
+
+        # Generate RDF definitions in a separate transaction
+        with session.begin_nested():
+            si = SchemaHelper(session)
+            graph = si.generate_rdf_definitions()
+
+            # Verify graph generation succeeded
+            assert len(graph) > 0, "Generated RDF graph is empty"
+
+            # Convert to bidirectional within same transaction
+            si.convert_to_bidirectional(
+                graph,
+                NS_HASURA,
+                ("#HAS_MANY", "#HAS_ONE"),
+                "HAS"
+            )
+
+        # Serialize RDF output - not in transaction as it's memory operation
+        rdf_output = graph.serialize(format="turtle")
+
+        # Write to file - separate from DB operations
+        try:
+            with open("./ddn-instance.ttl", "w") as file:
+                file.write(rdf_output)
+        except IOError as e:
+            logger.error(f"Failed to write RDF output: {str(e)}")
+            raise
+
+        # Sync to Neo4j in final transaction
+        with session.begin_nested():
+            Supergraph.sync_all_to_neo4j(
+                session=session,
+                source_graph=graph
+            )
+
+        # Log output for debugging
+        logger.debug(rdf_output)
+
+        # Commit all changes if everything succeeded
+        session.commit()
+
+    except Exception as e:
+        session.rollback()
+        logger.error(f"RDF export failed: {str(e)}")
+        raise
 
 
 def test_export_node_from_rdf(session):
@@ -271,188 +317,167 @@ def test_export_node_from_rdf2(session):
 
 def test_container_init(session):
     from .. import init_with_session
+    session.close()
     init_with_session(clean_database=True)
 
 
 def test_schema_import(session, clean_database=True,
-                       engine_build: str = './example/engine/build/metadata.json'):  # Add flag to control cleanup
-    # Capture and logger.debug warnings
+                       engine_build: str = './example/engine/build/metadata.json'):
+    # Capture warnings
     with warnings.catch_warnings(record=True) as w:
-        # Cause all warnings to always be triggered
         warnings.simplefilter("always")
 
-        importer = SchemaHelper(session)
+        try:
+            # Initial setup transaction
+            with session.begin_nested():
+                importer = SchemaHelper(session)
+                if clean_database:
+                    importer.cleanup_database_with_cascade()
 
-        # Only cleanup if flag is set
-        if clean_database:
-            importer.cleanup_database_with_cascade()
+            # Main import transaction
+            with session.begin_nested():
+                supergraph = importer.import_file(engine_build)
 
-        supergraph = importer.import_file(engine_build)
+                # Verify import success
+                assert supergraph.name == "default"
+                assert supergraph.version == "v2"
 
-        assert supergraph.name == "default"
-        assert supergraph.version == "v2"
+                # Register temporal views
+                from ..mixins.temporal import register_temporal_views
+                from ..base.core_base import CoreBase
+                register_temporal_views(CoreBase, engine=importer.engine)
 
-        # Register temporal views after schema is loaded
-        from ..mixins.temporal import register_temporal_views
-        from ..base.core_base import CoreBase
+            # Separate transaction for each major data export operation
+            with session.begin_nested():
+                # AggregateExpressions export
+                aggregate_expressions = cast(List[AggregateExpression],
+                                             session.query(AggregateExpression).all())
+                json_output = [agg.to_json() for agg in aggregate_expressions]
+                with open('./aggregate_expressions.json', 'w') as f:
+                    json.dump(json_output, f, indent=2)
+                logger.debug(f"\nWrote {len(json_output)} aggregate expressions")
 
-        register_temporal_views(CoreBase, engine=importer.engine)
+            with session.begin_nested():
+                # AuthConfig export
+                auth_configs = cast(List[AuthConfig], session.query(AuthConfig).all())
+                json_output = [auth_config.to_json() for auth_config in auth_configs]
+                with open('./auth_configs.json', 'w') as f:
+                    json.dump(json_output, f, indent=2)
+                logger.debug(f"\nWrote {len(json_output)} auth configs")
 
-        from .. import ModelPermission, ObjectType, Supergraph, Subgraph
-        from ..aggregate_expression import AggregateExpression
-        from ..auth_config import AuthConfig
-        from ..data_connector.schema.scalar_type.scalar_type import ScalarType
-        from ..data_connector_scalar_representation.data_connector_scalar_representation import \
-            DataConnectorScalarRepresentation
+            with session.begin_nested():
+                # ScalarTypes export
+                scalar_types = cast(List[ScalarType], session.query(ScalarType).all())
+                json_output = [agg.to_json() for agg in scalar_types]
+                with open('./scalar_types.json', 'w') as f:
+                    json.dump(json_output, f, indent=2)
+                logger.debug(f"\nWrote {len(json_output)} scalar types")
 
-        # Get all AggregateExpressions and convert to JSON
-        aggregate_expressions = cast(List[AggregateExpression], session.query(AggregateExpression).all())
-        json_output = [agg.to_json() for agg in aggregate_expressions]
+            with session.begin_nested():
+                # BooleanExpressionTypes export
+                boolean_expression_types = cast(List[BooleanExpressionType],
+                                                session.query(BooleanExpressionType).all())
+                json_output = [agg.to_json() for agg in boolean_expression_types]
+                with open('./boolean_expression_types.json', 'w') as f:
+                    json.dump(json_output, f, indent=2)
+                logger.debug(f"\nWrote {len(json_output)} boolean expression types")
 
-        # Write to file
-        output_path = './aggregate_expressions.json'
-        with open(output_path, 'w') as f:
-            json.dump(json_output, f, indent=2)
+            with session.begin_nested():
+                # CompatibilityConfigs export
+                compatibility_configs = cast(List[CompatibilityConfig],
+                                             session.query(CompatibilityConfig).all())
+                json_output = [agg.to_json() for agg in compatibility_configs]
+                with open('./compatibility_configs.json', 'w') as f:
+                    json.dump(json_output, f, indent=2)
+                logger.debug(f"\nWrote {len(json_output)} compatibility configs")
 
-        logger.debug(f"\nWrote {len(json_output)} aggregate expressions to {output_path}")
+            with session.begin_nested():
+                # ModelPermissions export
+                model_permissions = cast(List[ModelPermission],
+                                         session.query(ModelPermission).all())
+                json_output = [agg.to_json() for agg in model_permissions]
+                with open('./model_permissions.json', 'w') as f:
+                    json.dump(json_output, f, indent=2)
+                logger.debug(f"\nWrote {len(json_output)} model permissions")
 
-        # Get all AuthConfig and convert to JSON
-        auth_configs = cast(List[AuthConfig], session.query(AuthConfig).all())
-        json_output = [auth_config.to_json() for auth_config in auth_configs]
+            with session.begin_nested():
+                # Relationships export
+                relationships = cast(List[Relationship], session.query(Relationship).all())
+                json_output = [agg.to_json() for agg in relationships]
+                with open('./relationships.json', 'w') as f:
+                    json.dump(json_output, f, indent=2)
+                logger.debug(f"\nWrote {len(json_output)} relationships")
 
-        # Write to file
-        output_path = './auth_configs.json'
-        with open(output_path, 'w') as f:
-            json.dump(json_output, f, indent=2)
+            with session.begin_nested():
+                # Models export
+                models = cast(List[Model], session.query(Model).all())
+                json_output = [agg.to_json() for agg in models]
+                with open('./models.json', 'w') as f:
+                    json.dump(json_output, f, indent=2)
+                logger.debug(f"\nWrote {len(json_output)} models")
 
-        logger.debug(f"\nWrote {len(json_output)} auth configs to {output_path}")
+            with session.begin_nested():
+                # ObjectTypes export
+                object_types = cast(List[ObjectType], session.query(ObjectType).all())
+                json_output = [agg.to_json() for agg in object_types]
+                with open('./object_types.json', 'w') as f:
+                    json.dump(json_output, f, indent=2)
+                logger.debug(f"\nWrote {len(json_output)} object types")
 
-        # Get all ScalarTypes and convert to JSON
-        scalar_types = cast(List[ScalarType], session.query(ScalarType).all())
-        json_output = [agg.to_json() for agg in scalar_types]
+            with session.begin_nested():
+                # DataConnectorScalarRepresentations export
+                scalar_representations = cast(List[DataConnectorScalarRepresentation],
+                                              session.query(DataConnectorScalarRepresentation).all())
+                json_output = [agg.to_json() for agg in scalar_representations]
+                with open('./data_connector_scalar_representations.json', 'w') as f:
+                    json.dump(json_output, f, indent=2)
+                logger.debug(f"\nWrote {len(json_output)} data connector scalar representations")
 
-        # Write to file
-        output_path = './scalar_types.json'
-        with open(output_path, 'w') as f:
-            json.dump(json_output, f, indent=2)
+            with session.begin_nested():
+                # Subgraphs export
+                subgraphs = cast(List[Subgraph], session.query(Subgraph).all())
+                json_output = [agg.to_json(session) for agg in subgraphs]
+                with open('./subgraphs.json', 'w') as f:
+                    json.dump(json_output, f, indent=2)
+                logger.debug(f"\nWrote {len(json_output)} subgraphs")
 
-        # Get all BooleanExpressionTypes and convert to JSON
-        from ..boolean_expression_type import BooleanExpressionType
-        boolean_expression_types = cast(List[BooleanExpressionType], session.query(BooleanExpressionType).all())
-        json_output = [agg.to_json() for agg in boolean_expression_types]
+            with session.begin_nested():
+                # Supergraph export
+                supergraph = cast(List[Supergraph], session.query(Supergraph).all())[0]
+                json_output = supergraph.to_json(session)
+                with open('./supergraph.json', 'w') as f:
+                    json.dump(json_output, f, indent=2)
+                logger.debug(f"\nWrote supergraph")
 
-        # Write to file
-        with open(output_path, 'w') as f:
-            json.dump(json_output, f, indent=2)
+            # Final comparison operations
+            is_equal, differences = compare_json_files(
+                './example/engine/build/metadata.json',
+                'supergraph.json',
+                [
+                    "kind;definition.sourceType;definition.name",
+                    "kind;definition.name",
+                    "kind;definition.modelName",
+                    "kind;definition.typeName",
+                    "kind;definition.dataConnectorScalarType",
+                    "name", "id", "key"
+                ]
+            )
+            logger.debug(f"Files are equivalent: {is_equal}")
+            if not is_equal:
+                logger.debug("Differences found:")
+                for diff in differences:
+                    logger.debug(f"- {diff}")
 
-        logger.debug(f"\nWrote {len(json_output)} boolean expression types to {output_path}")
+            # Print captured warnings
+            if len(w) > 0:
+                logger.debug("\nWarnings during test:")
+                for warning in w:
+                    logger.debug(f"Warning: {warning.message}")
 
-        # Get all CompatibilityConfigs and convert to JSON
-        compatibility_configs = cast(List[CompatibilityConfig], session.query(CompatibilityConfig).all())
-        json_output = [agg.to_json() for agg in compatibility_configs]
+            # Commit all changes if everything succeeded
+            session.commit()
 
-        # Write to file
-        output_path = './compatibility_configs.json'
-        with open(output_path, 'w') as f:
-            json.dump(json_output, f, indent=2)
-
-        logger.debug(f"\nWrote {len(json_output)} compatibility configs to {output_path}")
-
-        # Get all ModelPermissions and convert to JSON
-        model_permissions: List[ModelPermission] = cast(List[ModelPermission], session.query(ModelPermission).all())
-        json_output = [agg.to_json() for agg in model_permissions]
-
-        # Write to file
-        output_path = './model_permissions.json'
-        with open(output_path, 'w') as f:
-            json.dump(json_output, f, indent=2)
-
-        logger.debug(f"\nWrote {len(json_output)} model permissions to {output_path}")
-
-        # Get all Relationships and convert to JSON
-        relationships = cast(List[Relationship], session.query(Relationship).all())
-        json_output = [agg.to_json() for agg in relationships]
-
-        # Write to file
-        output_path = './relationships.json'
-        with open(output_path, 'w') as f:
-            json.dump(json_output, f, indent=2)
-
-        logger.debug(f"\nWrote {len(json_output)} relationships to {output_path}")
-
-        # Get all Models and convert to JSON
-        models = cast(List[Model], session.query(Model).all())
-        json_output = [agg.to_json() for agg in models]
-
-        # Write to file
-        output_path = './models.json'
-        with open(output_path, 'w') as f:
-            json.dump(json_output, f, indent=2)
-
-        logger.debug(f"\nWrote {len(json_output)} models to {output_path}")
-
-        # Get all ObjectTypes and convert to JSON
-        object_types = cast(List[ObjectType], session.query(ObjectType).all())
-        json_output = [agg.to_json() for agg in object_types]
-
-        # Write to file
-        output_path = './object_types.json'
-        with open(output_path, 'w') as f:
-            json.dump(json_output, f, indent=2)
-
-        logger.debug(f"\nWrote {len(json_output)} object types to {output_path}")
-
-        # Get all DataConnectorScalarRepresentations and convert to JSON
-        object_types = cast(List[DataConnectorScalarRepresentation],
-                            session.query(DataConnectorScalarRepresentation).all())
-        json_output = [agg.to_json() for agg in object_types]
-
-        # Write to file
-        output_path = './data_connector_scalar_representations.json'
-        with open(output_path, 'w') as f:
-            json.dump(json_output, f, indent=2)
-
-        logger.debug(f"\nWrote {len(json_output)} data connector scalar representations to {output_path}")
-
-        # Get all Subgraphs and convert to JSON
-        subgraphs = cast(List[Subgraph], session.query(Subgraph).all())
-        json_output = [agg.to_json(session) for agg in subgraphs]
-
-        # Write to file
-        output_path = './subgraphs.json'
-        with open(output_path, 'w') as f:
-            json.dump(json_output, f, indent=2)
-
-        logger.debug(f"\nWrote {len(json_output)} subgraphs to {output_path}")
-
-        # Get all Supergraphs and convert to JSON
-        supergraph = cast(List[Supergraph], session.query(Supergraph).all())[0]
-        json_output = supergraph.to_json(session)
-
-        # Write to file
-        output_path = './supergraph.json'
-        with open(output_path, 'w') as f:
-            json.dump(json_output, f, indent=2)
-
-        logger.debug(f"\nWrote {len(json_output)} supergraph to {output_path}")
-
-        # Compare files
-        is_equal, differences = compare_json_files('./example/engine/build/metadata.json', 'supergraph.json', [
-            "kind;definition.sourceType;definition.name",
-            "kind;definition.name",
-            "kind;definition.modelName",
-            "kind;definition.typeName",
-            "kind;definition.dataConnectorScalarType",
-            "name", "id", "key"
-        ])
-        logger.debug(f"Files are equivalent: {is_equal}")
-        if not is_equal:
-            logger.debug("Differences found:")
-            for diff in differences:
-                logger.debug(f"- {diff}")
-
-        # Print any warnings that were captured
-        if len(w) > 0:
-            logger.debug("\nWarnings during test:")
-            for warning in w:
-                logger.debug(f"Warning: {warning.message}")
+        except Exception as e:
+            session.rollback()
+            logger.error(f"Schema import failed: {str(e)}")
+            raise
