@@ -14,6 +14,14 @@ definition:
       fromEnv: DATA_QUALITY_ANOMALY_READ_URL
     DATA_QUALITY_ANOMALY_WRITE_URL:
       fromEnv: DATA_QUALITY_ANOMALY_WRITE_URL
+    DATA_QUALITY_MDATA_AUTHORIZATION_HEADER:
+      fromEnv: DATA_QUALITY_MDATA_AUTHORIZATION_HEADER
+    DATA_QUALITY_MDATA_READ_URL:
+      fromEnv: DATA_QUALITY_MDATA_READ_URL
+    DATA_QUALITY_MDATA_WRITE_URL:
+      fromEnv: DATA_QUALITY_MDATA_WRITE_URL
   connectors:
     - path: connector/anomaly/connector.yaml
       connectorLinkName: anomaly
+    - path: connector/mdata/connector.yaml
+      connectorLinkName: mdata

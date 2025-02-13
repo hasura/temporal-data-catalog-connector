@@ -1,0 +1,187 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentAggregateFunction
+  fields:
+    - name: connectorName
+      type: Varchar_1
+    - name: functionName
+      type: Varchar_1
+    - name: returnTypeConnectorName
+      type: Varchar_1
+    - name: returnTypeName
+      type: Varchar_1
+    - name: returnTypeSubgraphName
+      type: Varchar_1
+    - name: scalarTypeName
+      type: Varchar_1
+    - name: subgraphName
+      type: Varchar_1
+  graphql:
+    typeName: CurrentAggregateFunction
+    inputTypeName: CurrentAggregateFunctionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: current_aggregate_function
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        functionName:
+          column:
+            name: function_name
+        returnTypeConnectorName:
+          column:
+            name: return_type_connector_name
+        returnTypeName:
+          column:
+            name: return_type_name
+        returnTypeSubgraphName:
+          column:
+            name: return_type_subgraph_name
+        scalarTypeName:
+          column:
+            name: scalar_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentAggregateFunction
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - functionName
+          - returnTypeConnectorName
+          - returnTypeName
+          - returnTypeSubgraphName
+          - scalarTypeName
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentAggregateFunctionBoolExp
+  operand:
+    object:
+      type: CurrentAggregateFunction
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: functionName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: returnTypeConnectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: returnTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: returnTypeSubgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: scalarTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentAggregateFunctionBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentAggregateFunctionAggExp
+  operand:
+    object:
+      aggregatedType: CurrentAggregateFunction
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: functionName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: returnTypeConnectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: returnTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: returnTypeSubgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: scalarTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentAggregateFunctionAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentAggregateFunctionOrderByExp
+  operand:
+    object:
+      orderedType: CurrentAggregateFunction
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: functionName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: returnTypeConnectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: returnTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: returnTypeSubgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: scalarTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentAggregateFunctionOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentAggregateFunction
+  objectType: CurrentAggregateFunction
+  source:
+    dataConnectorName: mdata
+    collection: current_aggregate_function
+  filterExpressionType: CurrentAggregateFunctionBoolExp
+  aggregateExpression: CurrentAggregateFunctionAggExp
+  orderByExpression: CurrentAggregateFunctionOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentAggregateFunction
+      subscription:
+        rootField: currentAggregateFunction
+    selectUniques: []
+    filterInputTypeName: CurrentAggregateFunctionFilterInput
+    aggregate:
+      queryRootField: currentAggregateFunctionAggregate
+      subscription:
+        rootField: currentAggregateFunctionAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentAggregateFunction
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

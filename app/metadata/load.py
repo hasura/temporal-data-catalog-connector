@@ -27,38 +27,43 @@ def create_engine_config(database_url: str):
     )
 
 
-def init_schema_from_build(session, clean_database=True,
-                           engine_build: str = './example/engine/build/metadata.json'):  # Add flag to control cleanup
+def init_schema_from_build(
+        database_url: str,
+        clean_database=True,
+        engine_build: str = './example/engine/build/metadata.json'):  # Add flag to control cleanup
+
     # Capture and logger.debug warnings
     with warnings.catch_warnings(record=True) as w:
         # Cause all warnings to always be triggered
         warnings.simplefilter("always")
 
-        importer = SchemaHelper(session)
+        engine = create_engine_config(database_url)
+        with managed_session(engine) as session:
+            importer = SchemaHelper(session)
 
-        # Only cleanup if flag is set
-        if clean_database:
-            importer.cleanup_database_with_cascade()
+            # Only cleanup if flag is set
+            if clean_database:
+                importer.cleanup_database_with_cascade()
 
-        else:
-            existing_supergraph = cast(Supergraph, session.query(Supergraph).filter_by(t_is_current=True,
-                                                                                       t_is_deleted=False).first())
-            timestamp = datetime.fromtimestamp(os.path.getmtime(engine_build))
-            if existing_supergraph:
-                if existing_supergraph.version == "v2":
-                    if existing_supergraph.t_updated_at >= timestamp:
-                        logger.debug(f"No changes detected in {engine_build}. Skipping schema import.")
+            else:
+                existing_supergraph = cast(Supergraph, session.query(Supergraph).filter_by(t_is_current=True,
+                                                                                           t_is_deleted=False).first())
+                timestamp = datetime.fromtimestamp(os.path.getmtime(engine_build))
+                if existing_supergraph:
+                    if existing_supergraph.version == "v2":
+                        if existing_supergraph.t_updated_at >= timestamp:
+                            logger.debug(f"No changes detected in {engine_build}. Skipping schema import.")
+                            return
+                    else:
+                        logger.debug(f"Existing supergraph has version {existing_supergraph.version}. Skipping schema import.")
                         return
                 else:
-                    logger.debug(f"Existing supergraph has version {existing_supergraph.version}. Skipping schema import.")
-                    return
-            else:
-                logger.debug(f"No existing supergraph found. Importing schema from {engine_build}.")
+                    logger.debug(f"No existing supergraph found. Importing schema from {engine_build}.")
 
-        supergraph = importer.import_file(engine_build)
+            supergraph = importer.import_file(engine_build)
 
-        assert supergraph.name == "default"
-        assert supergraph.version == "v2"
+            assert supergraph.name == "default"
+            assert supergraph.version == "v2"
 
         # Register temporal views after schema is loaded
         from .mixins.temporal import register_temporal_views
@@ -68,6 +73,7 @@ def init_schema_from_build(session, clean_database=True,
         register_temporal_views(CoreBase, engine=importer.engine)
         apply_indices(Base, engine=importer.engine)
         apply_constraints(Base, engine=importer.engine)
+        engine.dispose()
 
 
 def init_with_session(clean_database=False):
@@ -81,15 +87,9 @@ def init_with_session(clean_database=False):
     logger.info(f"Database URL: {database_url}")
     logger.info(f"Clean Database: {clean_database}")
 
-    engine = create_engine_config(database_url)
-    # SessionFactory = sessionmaker(bind=engine)
+    init_schema_from_build(
+        database_url=database_url,
+        clean_database=clean_database,
+        engine_build=engine_build
+    )
 
-    try:
-        with managed_session(engine) as session:
-            init_schema_from_build(
-                session=session,
-                clean_database=clean_database,
-                engine_build=engine_build
-            )
-    finally:
-        engine.dispose()

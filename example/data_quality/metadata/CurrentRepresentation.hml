@@ -1,0 +1,151 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentRepresentation
+  fields:
+    - name: connectorName
+      type: Varchar_1
+    - name: name
+      type: Varchar_1
+    - name: subgraphName
+      type: Varchar_1
+    - name: type
+      type: Varchar_1
+  graphql:
+    typeName: CurrentRepresentation
+    inputTypeName: CurrentRepresentationInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: current_representation
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        name:
+          column:
+            name: name
+        subgraphName:
+          column:
+            name: subgraph_name
+        type:
+          column:
+            name: type
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentRepresentation
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - name
+          - subgraphName
+          - type
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentRepresentationBoolExp
+  operand:
+    object:
+      type: CurrentRepresentation
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: type
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentRepresentationBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentRepresentationAggExp
+  operand:
+    object:
+      aggregatedType: CurrentRepresentation
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: name
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: type
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentRepresentationAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentRepresentationOrderByExp
+  operand:
+    object:
+      orderedType: CurrentRepresentation
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: name
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: type
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentRepresentationOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentRepresentation
+  objectType: CurrentRepresentation
+  source:
+    dataConnectorName: mdata
+    collection: current_representation
+  filterExpressionType: CurrentRepresentationBoolExp
+  aggregateExpression: CurrentRepresentationAggExp
+  orderByExpression: CurrentRepresentationOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentRepresentation
+      subscription:
+        rootField: currentRepresentation
+    selectUniques: []
+    filterInputTypeName: CurrentRepresentationFilterInput
+    aggregate:
+      queryRootField: currentRepresentationAggregate
+      subscription:
+        rootField: currentRepresentationAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentRepresentation
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

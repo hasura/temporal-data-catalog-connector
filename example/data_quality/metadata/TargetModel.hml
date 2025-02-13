@@ -1,0 +1,291 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: TargetModel
+  fields:
+    - name: isCommand
+      type: Bool_1!
+    - name: name
+      type: Varchar_1!
+    - name: relationshipName
+      type: Varchar_1!
+    - name: relationshipType
+      type: Varchar_1!
+    - name: sourceTypeName
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+    - name: targetSubgraph
+      type: Varchar_1
+  graphql:
+    typeName: TargetModel
+    inputTypeName: TargetModelInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: target_model
+      fieldMapping:
+        isCommand:
+          column:
+            name: is_command
+        name:
+          column:
+            name: name
+        relationshipName:
+          column:
+            name: relationship_name
+        relationshipType:
+          column:
+            name: relationship_type
+        sourceTypeName:
+          column:
+            name: source_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        targetSubgraph:
+          column:
+            name: target_subgraph
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: TargetModel
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - isCommand
+          - name
+          - relationshipName
+          - relationshipType
+          - sourceTypeName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - targetSubgraph
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: TargetModelBoolExp
+  operand:
+    object:
+      type: TargetModel
+      comparableFields:
+        - fieldName: isCommand
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: relationshipName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: relationshipType
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: sourceTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+        - fieldName: targetSubgraph
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: TargetModelBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: TargetModelAggExp
+  operand:
+    object:
+      aggregatedType: TargetModel
+      aggregatableFields:
+        - fieldName: isCommand
+          aggregateExpression: BoolAggExp_1
+        - fieldName: name
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: relationshipName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: relationshipType
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: sourceTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+        - fieldName: targetSubgraph
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: TargetModelAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: TargetModelOrderByExp
+  operand:
+    object:
+      orderedType: TargetModel
+      orderableFields:
+        - fieldName: isCommand
+          orderByExpression: Bool1OrderByExp
+        - fieldName: name
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: relationshipName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: relationshipType
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: sourceTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+        - fieldName: targetSubgraph
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: TargetModelOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: TargetModel
+  objectType: TargetModel
+  source:
+    dataConnectorName: mdata
+    collection: target_model
+  filterExpressionType: TargetModelBoolExp
+  aggregateExpression: TargetModelAggExp
+  orderByExpression: TargetModelOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: targetModel
+      subscription:
+        rootField: targetModel
+    selectUniques:
+      - queryRootField: targetModelByTargetModelPkey
+        uniqueIdentifier:
+          - relationshipName
+          - sourceTypeName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: targetModelByTargetModelPkey
+    filterInputTypeName: TargetModelFilterInput
+    aggregate:
+      queryRootField: targetModelAggregate
+      subscription:
+        rootField: targetModelAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: TargetModel
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

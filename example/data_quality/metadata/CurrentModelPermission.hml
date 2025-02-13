@@ -1,0 +1,151 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentModelPermission
+  fields:
+    - name: allowSubscriptions
+      type: Bool_1
+    - name: modelName
+      type: Varchar_1
+    - name: roleName
+      type: Varchar_1
+    - name: subgraphName
+      type: Varchar_1
+  graphql:
+    typeName: CurrentModelPermission
+    inputTypeName: CurrentModelPermissionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: current_model_permission
+      fieldMapping:
+        allowSubscriptions:
+          column:
+            name: allow_subscriptions
+        modelName:
+          column:
+            name: model_name
+        roleName:
+          column:
+            name: role_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentModelPermission
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - allowSubscriptions
+          - modelName
+          - roleName
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentModelPermissionBoolExp
+  operand:
+    object:
+      type: CurrentModelPermission
+      comparableFields:
+        - fieldName: allowSubscriptions
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: roleName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentModelPermissionBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentModelPermissionAggExp
+  operand:
+    object:
+      aggregatedType: CurrentModelPermission
+      aggregatableFields:
+        - fieldName: allowSubscriptions
+          aggregateExpression: BoolAggExp_1
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: roleName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentModelPermissionAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentModelPermissionOrderByExp
+  operand:
+    object:
+      orderedType: CurrentModelPermission
+      orderableFields:
+        - fieldName: allowSubscriptions
+          orderByExpression: Bool1OrderByExp
+        - fieldName: modelName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: roleName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentModelPermissionOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentModelPermission
+  objectType: CurrentModelPermission
+  source:
+    dataConnectorName: mdata
+    collection: current_model_permission
+  filterExpressionType: CurrentModelPermissionBoolExp
+  aggregateExpression: CurrentModelPermissionAggExp
+  orderByExpression: CurrentModelPermissionOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentModelPermission
+      subscription:
+        rootField: currentModelPermission
+    selectUniques: []
+    filterInputTypeName: CurrentModelPermissionFilterInput
+    aggregate:
+      queryRootField: currentModelPermissionAggregate
+      subscription:
+        rootField: currentModelPermissionAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentModelPermission
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

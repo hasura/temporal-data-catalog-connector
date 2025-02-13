@@ -1,0 +1,397 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ModelPermission
+  fields:
+    - name: allowSubscriptions
+      type: Bool_1!
+    - name: modelName
+      type: Varchar_1!
+    - name: roleName
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+  graphql:
+    typeName: ModelPermission
+    inputTypeName: ModelPermissionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: model_permission
+      fieldMapping:
+        allowSubscriptions:
+          column:
+            name: allow_subscriptions
+        modelName:
+          column:
+            name: model_name
+        roleName:
+          column:
+            name: role_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ModelPermission
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - allowSubscriptions
+          - modelName
+          - roleName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ModelPermissionBoolExp
+  operand:
+    object:
+      type: ModelPermission
+      comparableFields:
+        - fieldName: allowSubscriptions
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: roleName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships:
+        - relationshipName: filterConditions
+        - relationshipName: modelArgumentPresets
+        - relationshipName: model
+        - relationshipName: role
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ModelPermissionBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ModelPermissionAggExp
+  operand:
+    object:
+      aggregatedType: ModelPermission
+      aggregatableFields:
+        - fieldName: allowSubscriptions
+          aggregateExpression: BoolAggExp_1
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: roleName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: ModelPermissionAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ModelPermissionOrderByExp
+  operand:
+    object:
+      orderedType: ModelPermission
+      orderableFields:
+        - fieldName: allowSubscriptions
+          orderByExpression: Bool1OrderByExp
+        - fieldName: modelName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: roleName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships:
+        - relationshipName: model
+        - relationshipName: role
+  graphql:
+    expressionTypeName: ModelPermissionOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: ModelPermission
+  objectType: ModelPermission
+  source:
+    dataConnectorName: mdata
+    collection: model_permission
+  filterExpressionType: ModelPermissionBoolExp
+  aggregateExpression: ModelPermissionAggExp
+  orderByExpression: ModelPermissionOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: modelPermission
+      subscription:
+        rootField: modelPermission
+    selectUniques:
+      - queryRootField: modelPermissionByModelPermissionPkey
+        uniqueIdentifier:
+          - modelName
+          - roleName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: modelPermissionByModelPermissionPkey
+      - queryRootField: modelPermissionByUqModelPermission99E9B4B726
+        uniqueIdentifier:
+          - modelName
+          - roleName
+          - subgraphName
+          - tIsCurrent
+        subscription:
+          rootField: modelPermissionByUqModelPermission99E9B4B726
+    filterInputTypeName: ModelPermissionFilterInput
+    aggregate:
+      queryRootField: modelPermissionAggregate
+      subscription:
+        rootField: modelPermissionAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: ModelPermission
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: filterConditions
+  sourceType: ModelPermission
+  target:
+    model:
+      name: FilterCondition
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: FilterConditionAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: modelName
+      target:
+        modelField:
+          - fieldName: modelName
+    - source:
+        fieldPath:
+          - fieldName: roleName
+      target:
+        modelField:
+          - fieldName: roleName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: filterConditionsAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: modelArgumentPresets
+  sourceType: ModelPermission
+  target:
+    model:
+      name: ModelArgumentPreset
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: ModelArgumentPresetAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: modelName
+      target:
+        modelField:
+          - fieldName: modelName
+    - source:
+        fieldPath:
+          - fieldName: roleName
+      target:
+        modelField:
+          - fieldName: roleName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: modelArgumentPresetsAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: model
+  sourceType: ModelPermission
+  target:
+    model:
+      name: Model
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: modelName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: role
+  sourceType: ModelPermission
+  target:
+    model:
+      name: Role
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: roleName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

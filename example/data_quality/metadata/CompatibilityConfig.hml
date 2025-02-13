@@ -1,0 +1,261 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CompatibilityConfig
+  fields:
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+    - name: targetDate
+      type: Timestamp!
+  graphql:
+    typeName: CompatibilityConfig
+    inputTypeName: CompatibilityConfigInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: compatibility_config
+      fieldMapping:
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        targetDate:
+          column:
+            name: target_date
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CompatibilityConfig
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - targetDate
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CompatibilityConfigBoolExp
+  operand:
+    object:
+      type: CompatibilityConfig
+      comparableFields:
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+        - fieldName: targetDate
+          booleanExpressionType: TimestampBoolExp
+      comparableRelationships:
+        - relationshipName: subgraph
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CompatibilityConfigBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CompatibilityConfigAggExp
+  operand:
+    object:
+      aggregatedType: CompatibilityConfig
+      aggregatableFields:
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+        - fieldName: targetDate
+          aggregateExpression: TimestampAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CompatibilityConfigAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CompatibilityConfigOrderByExp
+  operand:
+    object:
+      orderedType: CompatibilityConfig
+      orderableFields:
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+        - fieldName: targetDate
+          orderByExpression: TimestampOrderByExp
+      orderableRelationships:
+        - relationshipName: subgraph
+  graphql:
+    expressionTypeName: CompatibilityConfigOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CompatibilityConfig
+  objectType: CompatibilityConfig
+  source:
+    dataConnectorName: mdata
+    collection: compatibility_config
+  filterExpressionType: CompatibilityConfigBoolExp
+  aggregateExpression: CompatibilityConfigAggExp
+  orderByExpression: CompatibilityConfigOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: compatibilityConfig
+      subscription:
+        rootField: compatibilityConfig
+    selectUniques:
+      - queryRootField: compatibilityConfigByCompatibilityConfigPkey
+        uniqueIdentifier:
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: compatibilityConfigByCompatibilityConfigPkey
+      - queryRootField: compatibilityConfigByUqCompatibilityConfigSubgraphNameTIsCurrent
+        uniqueIdentifier:
+          - subgraphName
+          - tIsCurrent
+        subscription:
+          rootField: compatibilityConfigByUqCompatibilityConfigSubgraphNameTIsCurrent
+    filterInputTypeName: CompatibilityConfigFilterInput
+    aggregate:
+      queryRootField: compatibilityConfigAggregate
+      subscription:
+        rootField: compatibilityConfigAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CompatibilityConfig
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: subgraph
+  sourceType: CompatibilityConfig
+  target:
+    model:
+      name: Subgraph
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

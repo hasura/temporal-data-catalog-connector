@@ -1,0 +1,309 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DataConnectorArgumentPreset
+  fields:
+    - name: argumentType
+      type: Varchar_1!
+    - name: connectorName
+      type: Varchar_1!
+    - name: id
+      type: Int4_1!
+    - name: name
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+    - name: value
+      type: Varchar_1!
+  graphql:
+    typeName: DataConnectorArgumentPreset
+    inputTypeName: DataConnectorArgumentPresetInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: data_connector_argument_preset
+      fieldMapping:
+        argumentType:
+          column:
+            name: argument_type
+        connectorName:
+          column:
+            name: connector_name
+        id:
+          column:
+            name: id
+        name:
+          column:
+            name: name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        value:
+          column:
+            name: value
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DataConnectorArgumentPreset
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - argumentType
+          - connectorName
+          - id
+          - name
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - value
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: DataConnectorArgumentPresetBoolExp
+  operand:
+    object:
+      type: DataConnectorArgumentPreset
+      comparableFields:
+        - fieldName: argumentType
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: id
+          booleanExpressionType: Int4BoolExp_1
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+        - fieldName: value
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships:
+        - relationshipName: dataConnector
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: DataConnectorArgumentPresetBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: DataConnectorArgumentPresetAggExp
+  operand:
+    object:
+      aggregatedType: DataConnectorArgumentPreset
+      aggregatableFields:
+        - fieldName: argumentType
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: id
+          aggregateExpression: Int4AggExp_1
+        - fieldName: name
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+        - fieldName: value
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: DataConnectorArgumentPresetAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: DataConnectorArgumentPresetOrderByExp
+  operand:
+    object:
+      orderedType: DataConnectorArgumentPreset
+      orderableFields:
+        - fieldName: argumentType
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: connectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: id
+          orderByExpression: Int41OrderByExp
+        - fieldName: name
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+        - fieldName: value
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships:
+        - relationshipName: dataConnector
+  graphql:
+    expressionTypeName: DataConnectorArgumentPresetOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: DataConnectorArgumentPreset
+  objectType: DataConnectorArgumentPreset
+  source:
+    dataConnectorName: mdata
+    collection: data_connector_argument_preset
+  filterExpressionType: DataConnectorArgumentPresetBoolExp
+  aggregateExpression: DataConnectorArgumentPresetAggExp
+  orderByExpression: DataConnectorArgumentPresetOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: dataConnectorArgumentPreset
+      subscription:
+        rootField: dataConnectorArgumentPreset
+    selectUniques:
+      - queryRootField: dataConnectorArgumentPresetByDataConnectorArgumentPresetPkey
+        uniqueIdentifier:
+          - id
+          - tVersion
+        subscription:
+          rootField: dataConnectorArgumentPresetByDataConnectorArgumentPresetPkey
+    filterInputTypeName: DataConnectorArgumentPresetFilterInput
+    aggregate:
+      queryRootField: dataConnectorArgumentPresetAggregate
+      subscription:
+        rootField: dataConnectorArgumentPresetAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: DataConnectorArgumentPreset
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: dataConnector
+  sourceType: DataConnectorArgumentPreset
+  target:
+    model:
+      name: DataConnector
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

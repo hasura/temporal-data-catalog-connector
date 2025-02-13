@@ -1,0 +1,139 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentRole
+  fields:
+    - name: description
+      type: Text_1
+    - name: name
+      type: Varchar_1
+    - name: supergraphName
+      type: Varchar_1
+  graphql:
+    typeName: CurrentRole
+    inputTypeName: CurrentRoleInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: current_role
+      fieldMapping:
+        description:
+          column:
+            name: description
+        name:
+          column:
+            name: name
+        supergraphName:
+          column:
+            name: supergraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentRole
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - description
+          - name
+          - supergraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentRoleBoolExp
+  operand:
+    object:
+      type: CurrentRole
+      comparableFields:
+        - fieldName: description
+          booleanExpressionType: TextBoolExp_1
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: supergraphName
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentRoleBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentRoleAggExp
+  operand:
+    object:
+      aggregatedType: CurrentRole
+      aggregatableFields:
+        - fieldName: description
+          aggregateExpression: TextAggExp_1
+        - fieldName: name
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: supergraphName
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentRoleAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentRoleOrderByExp
+  operand:
+    object:
+      orderedType: CurrentRole
+      orderableFields:
+        - fieldName: description
+          orderByExpression: Text1OrderByExp
+        - fieldName: name
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: supergraphName
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentRoleOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentRole
+  objectType: CurrentRole
+  source:
+    dataConnectorName: mdata
+    collection: current_role
+  filterExpressionType: CurrentRoleBoolExp
+  aggregateExpression: CurrentRoleAggExp
+  orderByExpression: CurrentRoleOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentRole
+      subscription:
+        rootField: currentRole
+    selectUniques: []
+    filterInputTypeName: CurrentRoleFilterInput
+    aggregate:
+      queryRootField: currentRoleAggregate
+      subscription:
+        rootField: currentRoleAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentRole
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

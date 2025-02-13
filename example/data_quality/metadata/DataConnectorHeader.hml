@@ -1,0 +1,299 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DataConnectorHeader
+  fields:
+    - name: connectorName
+      type: Varchar_1!
+    - name: isResponseHeader
+      type: Bool_1!
+    - name: key
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+    - name: value
+      type: Varchar_1!
+  graphql:
+    typeName: DataConnectorHeader
+    inputTypeName: DataConnectorHeaderInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: data_connector_header
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        isResponseHeader:
+          column:
+            name: is_response_header
+        key:
+          column:
+            name: key
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        value:
+          column:
+            name: value
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DataConnectorHeader
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - isResponseHeader
+          - key
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - value
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: DataConnectorHeaderBoolExp
+  operand:
+    object:
+      type: DataConnectorHeader
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: isResponseHeader
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: key
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+        - fieldName: value
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships:
+        - relationshipName: dataConnector
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: DataConnectorHeaderBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: DataConnectorHeaderAggExp
+  operand:
+    object:
+      aggregatedType: DataConnectorHeader
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: isResponseHeader
+          aggregateExpression: BoolAggExp_1
+        - fieldName: key
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+        - fieldName: value
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: DataConnectorHeaderAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: DataConnectorHeaderOrderByExp
+  operand:
+    object:
+      orderedType: DataConnectorHeader
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: isResponseHeader
+          orderByExpression: Bool1OrderByExp
+        - fieldName: key
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+        - fieldName: value
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships:
+        - relationshipName: dataConnector
+  graphql:
+    expressionTypeName: DataConnectorHeaderOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: DataConnectorHeader
+  objectType: DataConnectorHeader
+  source:
+    dataConnectorName: mdata
+    collection: data_connector_header
+  filterExpressionType: DataConnectorHeaderBoolExp
+  aggregateExpression: DataConnectorHeaderAggExp
+  orderByExpression: DataConnectorHeaderOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: dataConnectorHeader
+      subscription:
+        rootField: dataConnectorHeader
+    selectUniques:
+      - queryRootField: dataConnectorHeaderByDataConnectorHeaderPkey
+        uniqueIdentifier:
+          - connectorName
+          - key
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: dataConnectorHeaderByDataConnectorHeaderPkey
+    filterInputTypeName: DataConnectorHeaderFilterInput
+    aggregate:
+      queryRootField: dataConnectorHeaderAggregate
+      subscription:
+        rootField: dataConnectorHeaderAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: DataConnectorHeader
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: dataConnector
+  sourceType: DataConnectorHeader
+  target:
+    model:
+      name: DataConnector
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

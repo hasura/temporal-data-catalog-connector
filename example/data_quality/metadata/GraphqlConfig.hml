@@ -1,0 +1,278 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: GraphqlConfig
+  fields:
+    - name: apolloFederationEnabled
+      type: Bool_1!
+    - name: key
+      type: Varchar_1!
+    - name: operationType
+      type: Varchar_1!
+    - name: rootOperationTypeName
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+    - name: value
+      type: Json!
+  graphql:
+    typeName: GraphqlConfig
+    inputTypeName: GraphqlConfigInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: graphql_config
+      fieldMapping:
+        apolloFederationEnabled:
+          column:
+            name: apollo_federation_enabled
+        key:
+          column:
+            name: key
+        operationType:
+          column:
+            name: operation_type
+        rootOperationTypeName:
+          column:
+            name: root_operation_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        value:
+          column:
+            name: value
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: GraphqlConfig
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - apolloFederationEnabled
+          - key
+          - operationType
+          - rootOperationTypeName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - value
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: GraphqlConfigBoolExp
+  operand:
+    object:
+      type: GraphqlConfig
+      comparableFields:
+        - fieldName: apolloFederationEnabled
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: key
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: operationType
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: rootOperationTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+        - fieldName: value
+          booleanExpressionType: JsonBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: GraphqlConfigBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: GraphqlConfigAggExp
+  operand:
+    object:
+      aggregatedType: GraphqlConfig
+      aggregatableFields:
+        - fieldName: apolloFederationEnabled
+          aggregateExpression: BoolAggExp_1
+        - fieldName: key
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: operationType
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: rootOperationTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+        - fieldName: value
+          aggregateExpression: JsonAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: GraphqlConfigAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: GraphqlConfigOrderByExp
+  operand:
+    object:
+      orderedType: GraphqlConfig
+      orderableFields:
+        - fieldName: apolloFederationEnabled
+          orderByExpression: Bool1OrderByExp
+        - fieldName: key
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: operationType
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: rootOperationTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+        - fieldName: value
+          orderByExpression: JsonOrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: GraphqlConfigOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: GraphqlConfig
+  objectType: GraphqlConfig
+  source:
+    dataConnectorName: mdata
+    collection: graphql_config
+  filterExpressionType: GraphqlConfigBoolExp
+  aggregateExpression: GraphqlConfigAggExp
+  orderByExpression: GraphqlConfigOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: graphqlConfig
+      subscription:
+        rootField: graphqlConfig
+    selectUniques:
+      - queryRootField: graphqlConfigByGraphqlConfigPkey
+        uniqueIdentifier:
+          - key
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: graphqlConfigByGraphqlConfigPkey
+    filterInputTypeName: GraphqlConfigFilterInput
+    aggregate:
+      queryRootField: graphqlConfigAggregate
+      subscription:
+        rootField: graphqlConfigAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: GraphqlConfig
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

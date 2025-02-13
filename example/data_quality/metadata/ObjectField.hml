@@ -1,0 +1,481 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ObjectField
+  fields:
+    - name: defaultValue
+      type: Text_1
+    - name: deprecationReason
+      type: Text_1
+    - name: description
+      type: Text_1
+    - name: isArray
+      type: Bool_1!
+    - name: isDeprecated
+      type: Bool_1!
+    - name: isNullable
+      type: Bool_1!
+    - name: logicalFieldName
+      type: Varchar_1!
+    - name: objectTypeName
+      type: Varchar_1!
+    - name: scalarTypeName
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+  graphql:
+    typeName: ObjectField
+    inputTypeName: ObjectFieldInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: object_field
+      fieldMapping:
+        defaultValue:
+          column:
+            name: default_value
+        deprecationReason:
+          column:
+            name: deprecation_reason
+        description:
+          column:
+            name: description
+        isArray:
+          column:
+            name: is_array
+        isDeprecated:
+          column:
+            name: is_deprecated
+        isNullable:
+          column:
+            name: is_nullable
+        logicalFieldName:
+          column:
+            name: logical_field_name
+        objectTypeName:
+          column:
+            name: object_type_name
+        scalarTypeName:
+          column:
+            name: scalar_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ObjectField
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - defaultValue
+          - deprecationReason
+          - description
+          - isArray
+          - isDeprecated
+          - isNullable
+          - logicalFieldName
+          - objectTypeName
+          - scalarTypeName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ObjectFieldBoolExp
+  operand:
+    object:
+      type: ObjectField
+      comparableFields:
+        - fieldName: defaultValue
+          booleanExpressionType: TextBoolExp_1
+        - fieldName: deprecationReason
+          booleanExpressionType: TextBoolExp_1
+        - fieldName: description
+          booleanExpressionType: TextBoolExp_1
+        - fieldName: isArray
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: isDeprecated
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: isNullable
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: logicalFieldName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: objectTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: scalarTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships:
+        - relationshipName: allowedFields
+        - relationshipName: fieldMaps
+        - relationshipName: objectType
+        - relationshipName: scalarType
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ObjectFieldBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ObjectFieldAggExp
+  operand:
+    object:
+      aggregatedType: ObjectField
+      aggregatableFields:
+        - fieldName: defaultValue
+          aggregateExpression: TextAggExp_1
+        - fieldName: deprecationReason
+          aggregateExpression: TextAggExp_1
+        - fieldName: description
+          aggregateExpression: TextAggExp_1
+        - fieldName: isArray
+          aggregateExpression: BoolAggExp_1
+        - fieldName: isDeprecated
+          aggregateExpression: BoolAggExp_1
+        - fieldName: isNullable
+          aggregateExpression: BoolAggExp_1
+        - fieldName: logicalFieldName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: objectTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: scalarTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: ObjectFieldAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ObjectFieldOrderByExp
+  operand:
+    object:
+      orderedType: ObjectField
+      orderableFields:
+        - fieldName: defaultValue
+          orderByExpression: Text1OrderByExp
+        - fieldName: deprecationReason
+          orderByExpression: Text1OrderByExp
+        - fieldName: description
+          orderByExpression: Text1OrderByExp
+        - fieldName: isArray
+          orderByExpression: Bool1OrderByExp
+        - fieldName: isDeprecated
+          orderByExpression: Bool1OrderByExp
+        - fieldName: isNullable
+          orderByExpression: Bool1OrderByExp
+        - fieldName: logicalFieldName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: objectTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: scalarTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships:
+        - relationshipName: objectType
+        - relationshipName: scalarType
+  graphql:
+    expressionTypeName: ObjectFieldOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: ObjectField
+  objectType: ObjectField
+  source:
+    dataConnectorName: mdata
+    collection: object_field
+  filterExpressionType: ObjectFieldBoolExp
+  aggregateExpression: ObjectFieldAggExp
+  orderByExpression: ObjectFieldOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: objectField
+      subscription:
+        rootField: objectField
+    selectUniques:
+      - queryRootField: objectFieldByObjectFieldPkey
+        uniqueIdentifier:
+          - logicalFieldName
+          - objectTypeName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: objectFieldByObjectFieldPkey
+      - queryRootField: objectFieldByUqObjectFieldA89236C84B
+        uniqueIdentifier:
+          - logicalFieldName
+          - objectTypeName
+          - subgraphName
+          - tIsCurrent
+        subscription:
+          rootField: objectFieldByUqObjectFieldA89236C84B
+    filterInputTypeName: ObjectFieldFilterInput
+    aggregate:
+      queryRootField: objectFieldAggregate
+      subscription:
+        rootField: objectFieldAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: ObjectField
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: allowedFields
+  sourceType: ObjectField
+  target:
+    model:
+      name: AllowedField
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: AllowedFieldAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: logicalFieldName
+      target:
+        modelField:
+          - fieldName: fieldName
+    - source:
+        fieldPath:
+          - fieldName: objectTypeName
+      target:
+        modelField:
+          - fieldName: objectTypeName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: allowedFieldsAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: fieldMaps
+  sourceType: ObjectField
+  target:
+    model:
+      name: FieldMap
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: FieldMapAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: logicalFieldName
+      target:
+        modelField:
+          - fieldName: logicalFieldName
+    - source:
+        fieldPath:
+          - fieldName: objectTypeName
+      target:
+        modelField:
+          - fieldName: objectTypeName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: fieldMapsAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: objectType
+  sourceType: ObjectField
+  target:
+    model:
+      name: ObjectType
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: objectTypeName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: scalarType
+  sourceType: ObjectField
+  target:
+    model:
+      name: ScalarType
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: scalarTypeName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

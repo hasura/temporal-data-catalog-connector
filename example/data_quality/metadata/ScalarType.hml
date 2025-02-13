@@ -1,0 +1,462 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ScalarType
+  fields:
+    - name: graphqlTypeName
+      type: Varchar_1!
+    - name: name
+      type: Varchar_1!
+    - name: representationName
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+  graphql:
+    typeName: ScalarType
+    inputTypeName: ScalarTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: scalar_type
+      fieldMapping:
+        graphqlTypeName:
+          column:
+            name: graphql_type_name
+        name:
+          column:
+            name: name
+        representationName:
+          column:
+            name: representation_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ScalarType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - graphqlTypeName
+          - name
+          - representationName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ScalarTypeBoolExp
+  operand:
+    object:
+      type: ScalarType
+      comparableFields:
+        - fieldName: graphqlTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: representationName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships:
+        - relationshipName: dataConnectorScalarRepresentations
+        - relationshipName: functions
+        - relationshipName: functionArguments
+        - relationshipName: objectFields
+        - relationshipName: presetValues
+        - relationshipName: subgraph
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ScalarTypeBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ScalarTypeAggExp
+  operand:
+    object:
+      aggregatedType: ScalarType
+      aggregatableFields:
+        - fieldName: graphqlTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: name
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: representationName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: ScalarTypeAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ScalarTypeOrderByExp
+  operand:
+    object:
+      orderedType: ScalarType
+      orderableFields:
+        - fieldName: graphqlTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: name
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: representationName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships:
+        - relationshipName: subgraph
+  graphql:
+    expressionTypeName: ScalarTypeOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: ScalarType
+  objectType: ScalarType
+  source:
+    dataConnectorName: mdata
+    collection: scalar_type
+  filterExpressionType: ScalarTypeBoolExp
+  aggregateExpression: ScalarTypeAggExp
+  orderByExpression: ScalarTypeOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: scalarType
+      subscription:
+        rootField: scalarType
+    selectUniques:
+      - queryRootField: scalarTypeByScalarTypePkey
+        uniqueIdentifier:
+          - name
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: scalarTypeByScalarTypePkey
+      - queryRootField: scalarTypeByUqScalarTypeNameSubgraphNameTIsCurrent
+        uniqueIdentifier:
+          - name
+          - subgraphName
+          - tIsCurrent
+        subscription:
+          rootField: scalarTypeByUqScalarTypeNameSubgraphNameTIsCurrent
+    filterInputTypeName: ScalarTypeFilterInput
+    aggregate:
+      queryRootField: scalarTypeAggregate
+      subscription:
+        rootField: scalarTypeAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: ScalarType
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: dataConnectorScalarRepresentations
+  sourceType: ScalarType
+  target:
+    model:
+      name: DataConnectorScalarRepresentation
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: DataConnectorScalarRepresentationAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: name
+      target:
+        modelField:
+          - fieldName: scalarTypeName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: dataConnectorScalarRepresentationsAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: functions
+  sourceType: ScalarType
+  target:
+    model:
+      name: Function
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: FunctionAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: name
+      target:
+        modelField:
+          - fieldName: returnTypeName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: functionsAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: functionArguments
+  sourceType: ScalarType
+  target:
+    model:
+      name: FunctionArgument
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: FunctionArgumentAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: name
+      target:
+        modelField:
+          - fieldName: scalarTypeName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: functionArgumentsAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: objectFields
+  sourceType: ScalarType
+  target:
+    model:
+      name: ObjectField
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: ObjectFieldAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: name
+      target:
+        modelField:
+          - fieldName: scalarTypeName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: objectFieldsAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: presetValues
+  sourceType: ScalarType
+  target:
+    model:
+      name: PresetValue
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: PresetValueAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: name
+      target:
+        modelField:
+          - fieldName: scalarTypeName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: presetValuesAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: subgraph
+  sourceType: ScalarType
+  target:
+    model:
+      name: Subgraph
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

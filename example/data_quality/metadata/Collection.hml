@@ -1,0 +1,518 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Collection
+  fields:
+    - name: connectorName
+      type: Varchar_1!
+    - name: description
+      type: Text_1
+    - name: modelName
+      type: Varchar_1
+    - name: name
+      type: Varchar_1!
+    - name: objectTypeName
+      type: Varchar_1
+    - name: physicalCollectionName
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+  graphql:
+    typeName: Collection
+    inputTypeName: CollectionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: collection
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        description:
+          column:
+            name: description
+        modelName:
+          column:
+            name: model_name
+        name:
+          column:
+            name: name
+        objectTypeName:
+          column:
+            name: object_type_name
+        physicalCollectionName:
+          column:
+            name: physical_collection_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Collection
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - description
+          - modelName
+          - name
+          - objectTypeName
+          - physicalCollectionName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CollectionBoolExp
+  operand:
+    object:
+      type: Collection
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: description
+          booleanExpressionType: TextBoolExp_1
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: objectTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: physicalCollectionName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships:
+        - relationshipName: dataConnector
+        - relationshipName: model
+        - relationshipName: objectType
+        - relationshipName: collectionFields
+        - relationshipName: collectionForeignKeys
+        - relationshipName: collectionUniquenessConstraints
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CollectionBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CollectionAggExp
+  operand:
+    object:
+      aggregatedType: Collection
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: description
+          aggregateExpression: TextAggExp_1
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: name
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: objectTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: physicalCollectionName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CollectionAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CollectionOrderByExp
+  operand:
+    object:
+      orderedType: Collection
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: description
+          orderByExpression: Text1OrderByExp
+        - fieldName: modelName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: name
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: objectTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: physicalCollectionName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships:
+        - relationshipName: dataConnector
+        - relationshipName: model
+        - relationshipName: objectType
+  graphql:
+    expressionTypeName: CollectionOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: Collection
+  objectType: Collection
+  source:
+    dataConnectorName: mdata
+    collection: collection
+  filterExpressionType: CollectionBoolExp
+  aggregateExpression: CollectionAggExp
+  orderByExpression: CollectionOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: collection
+      subscription:
+        rootField: collection
+    selectUniques:
+      - queryRootField: collectionByCollectionPkey
+        uniqueIdentifier:
+          - connectorName
+          - name
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: collectionByCollectionPkey
+      - queryRootField: collectionByUqCollectionNameConnectorNameSubgraphNameTIsCurrent
+        uniqueIdentifier:
+          - connectorName
+          - name
+          - subgraphName
+          - tIsCurrent
+        subscription:
+          rootField: collectionByUqCollectionNameConnectorNameSubgraphNameTIsCurrent
+    filterInputTypeName: CollectionFilterInput
+    aggregate:
+      queryRootField: collectionAggregate
+      subscription:
+        rootField: collectionAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Collection
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: dataConnector
+  sourceType: Collection
+  target:
+    model:
+      name: DataConnector
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: model
+  sourceType: Collection
+  target:
+    model:
+      name: Model
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: modelName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: objectType
+  sourceType: Collection
+  target:
+    model:
+      name: ObjectType
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: objectTypeName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: collectionFields
+  sourceType: Collection
+  target:
+    model:
+      name: CollectionField
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: CollectionFieldAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: name
+      target:
+        modelField:
+          - fieldName: collectionName
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: connectorName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: collectionFieldsAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: collectionForeignKeys
+  sourceType: Collection
+  target:
+    model:
+      name: CollectionForeignKey
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: CollectionForeignKeyAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: name
+      target:
+        modelField:
+          - fieldName: collectionName
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: connectorName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: collectionForeignKeysAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: collectionUniquenessConstraints
+  sourceType: Collection
+  target:
+    model:
+      name: CollectionUniquenessConstraint
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: CollectionUniquenessConstraintAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: name
+      target:
+        modelField:
+          - fieldName: collectionName
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: connectorName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: collectionUniquenessConstraintsAggregate
+

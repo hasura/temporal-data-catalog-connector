@@ -69,6 +69,9 @@
                 },
                 {
                   "$ref": "#/$defs/dataConnectorLink"
+                },
+                {
+                  "$ref": "#/$defs/orderByExpression"
                 }
               ]
             }
@@ -1014,6 +1017,9 @@
                             "type": "boolean"
                           }
                         }
+                      },
+                      "orderByExpression": {
+                        "type": "string"
                       }
                     }
                   }
@@ -1742,6 +1748,139 @@
           ]
         }
       }
+    },
+    "orderByExpression": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "OrderByExpression"
+            },
+            "definition": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "graphql": {
+                  "type": "object",
+                  "properties": {
+                    "expressionTypeName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "expressionTypeName"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "operand": {
+                  "type": "object",
+                  "oneOf": [
+                    {
+                      "properties": {
+                        "scalar": {
+                          "type": "object",
+                          "properties": {
+                            "enableOrderByDirections": {
+                              "type": "object",
+                              "properties": {
+                                "enableAll": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "enableAll"
+                              ]
+                            },
+                            "orderedType": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "enableOrderByDirections",
+                            "orderedType"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "scalar"
+                      ]
+                    },
+                    {
+                      "properties": {
+                        "object": {
+                          "type": "object",
+                          "properties": {
+                            "orderableFields": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "fieldName": {
+                                    "type": "string"
+                                  },
+                                  "orderByDirections": {
+                                    "type": "object",
+                                    "properties": {
+                                      "enableAll": {
+                                        "type": "boolean"
+                                      }
+                                    }
+                                  },
+                                  "orderByExpression": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "orderableRelationships": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "orderByExpression": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
+                                  "relationshipName": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "orderedType": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "orderableFields",
+                            "orderableRelationships",
+                            "orderedType"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "object"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
     }
   }
 }

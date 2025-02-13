@@ -1,0 +1,187 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentModelGraphqlAggregateConfig
+  fields:
+    - name: deprecated
+      type: Varchar_1
+    - name: description
+      type: Varchar_1
+    - name: modelName
+      type: Varchar_1
+    - name: queryRootField
+      type: Varchar_1
+    - name: subgraphName
+      type: Varchar_1
+    - name: subscriptionPollingIntervalMs
+      type: Int4_1
+    - name: subscriptionRootField
+      type: Varchar_1
+  graphql:
+    typeName: CurrentModelGraphqlAggregateConfig
+    inputTypeName: CurrentModelGraphqlAggregateConfigInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: current_model_graphql_aggregate_config
+      fieldMapping:
+        deprecated:
+          column:
+            name: deprecated
+        description:
+          column:
+            name: description
+        modelName:
+          column:
+            name: model_name
+        queryRootField:
+          column:
+            name: query_root_field
+        subgraphName:
+          column:
+            name: subgraph_name
+        subscriptionPollingIntervalMs:
+          column:
+            name: subscription_polling_interval_ms
+        subscriptionRootField:
+          column:
+            name: subscription_root_field
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentModelGraphqlAggregateConfig
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - deprecated
+          - description
+          - modelName
+          - queryRootField
+          - subgraphName
+          - subscriptionPollingIntervalMs
+          - subscriptionRootField
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentModelGraphqlAggregateConfigBoolExp
+  operand:
+    object:
+      type: CurrentModelGraphqlAggregateConfig
+      comparableFields:
+        - fieldName: deprecated
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: description
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: queryRootField
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subscriptionPollingIntervalMs
+          booleanExpressionType: Int4BoolExp_1
+        - fieldName: subscriptionRootField
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentModelGraphqlAggregateConfigBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentModelGraphqlAggregateConfigAggExp
+  operand:
+    object:
+      aggregatedType: CurrentModelGraphqlAggregateConfig
+      aggregatableFields:
+        - fieldName: deprecated
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: description
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: queryRootField
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subscriptionPollingIntervalMs
+          aggregateExpression: Int4AggExp_1
+        - fieldName: subscriptionRootField
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentModelGraphqlAggregateConfigAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentModelGraphqlAggregateConfigOrderByExp
+  operand:
+    object:
+      orderedType: CurrentModelGraphqlAggregateConfig
+      orderableFields:
+        - fieldName: deprecated
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: description
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: modelName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: queryRootField
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subscriptionPollingIntervalMs
+          orderByExpression: Int41OrderByExp
+        - fieldName: subscriptionRootField
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentModelGraphqlAggregateConfigOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentModelGraphqlAggregateConfig
+  objectType: CurrentModelGraphqlAggregateConfig
+  source:
+    dataConnectorName: mdata
+    collection: current_model_graphql_aggregate_config
+  filterExpressionType: CurrentModelGraphqlAggregateConfigBoolExp
+  aggregateExpression: CurrentModelGraphqlAggregateConfigAggExp
+  orderByExpression: CurrentModelGraphqlAggregateConfigOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentModelGraphqlAggregateConfig
+      subscription:
+        rootField: currentModelGraphqlAggregateConfig
+    selectUniques: []
+    filterInputTypeName: CurrentModelGraphqlAggregateConfigFilterInput
+    aggregate:
+      queryRootField: currentModelGraphqlAggregateConfigAggregate
+      subscription:
+        rootField: currentModelGraphqlAggregateConfigAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentModelGraphqlAggregateConfig
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

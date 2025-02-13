@@ -1,0 +1,175 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentAggregateScalarFunction
+  fields:
+    - name: aggregateName
+      type: Varchar_1
+    - name: aggregatedType
+      type: Varchar_1
+    - name: description
+      type: Text_1
+    - name: functionName
+      type: Varchar_1
+    - name: returnType
+      type: Varchar_1
+    - name: subgraphName
+      type: Varchar_1
+  graphql:
+    typeName: CurrentAggregateScalarFunction
+    inputTypeName: CurrentAggregateScalarFunctionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: current_aggregate_scalar_function
+      fieldMapping:
+        aggregateName:
+          column:
+            name: aggregate_name
+        aggregatedType:
+          column:
+            name: aggregated_type
+        description:
+          column:
+            name: description
+        functionName:
+          column:
+            name: function_name
+        returnType:
+          column:
+            name: return_type
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentAggregateScalarFunction
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregateName
+          - aggregatedType
+          - description
+          - functionName
+          - returnType
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentAggregateScalarFunctionBoolExp
+  operand:
+    object:
+      type: CurrentAggregateScalarFunction
+      comparableFields:
+        - fieldName: aggregateName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: aggregatedType
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: description
+          booleanExpressionType: TextBoolExp_1
+        - fieldName: functionName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: returnType
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentAggregateScalarFunctionBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentAggregateScalarFunctionAggExp
+  operand:
+    object:
+      aggregatedType: CurrentAggregateScalarFunction
+      aggregatableFields:
+        - fieldName: aggregateName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: aggregatedType
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: description
+          aggregateExpression: TextAggExp_1
+        - fieldName: functionName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: returnType
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentAggregateScalarFunctionAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentAggregateScalarFunctionOrderByExp
+  operand:
+    object:
+      orderedType: CurrentAggregateScalarFunction
+      orderableFields:
+        - fieldName: aggregateName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: aggregatedType
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: description
+          orderByExpression: Text1OrderByExp
+        - fieldName: functionName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: returnType
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentAggregateScalarFunctionOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentAggregateScalarFunction
+  objectType: CurrentAggregateScalarFunction
+  source:
+    dataConnectorName: mdata
+    collection: current_aggregate_scalar_function
+  filterExpressionType: CurrentAggregateScalarFunctionBoolExp
+  aggregateExpression: CurrentAggregateScalarFunctionAggExp
+  orderByExpression: CurrentAggregateScalarFunctionOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentAggregateScalarFunction
+      subscription:
+        rootField: currentAggregateScalarFunction
+    selectUniques: []
+    filterInputTypeName: CurrentAggregateScalarFunctionFilterInput
+    aggregate:
+      queryRootField: currentAggregateScalarFunctionAggregate
+      subscription:
+        rootField: currentAggregateScalarFunctionAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentAggregateScalarFunction
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

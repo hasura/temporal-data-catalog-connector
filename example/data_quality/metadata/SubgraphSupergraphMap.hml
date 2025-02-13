@@ -1,0 +1,282 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: SubgraphSupergraphMap
+  fields:
+    - name: subgraphName
+      type: Varchar_1!
+    - name: supergraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+  graphql:
+    typeName: SubgraphSupergraphMap
+    inputTypeName: SubgraphSupergraphMapInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: subgraph_supergraph_map
+      fieldMapping:
+        subgraphName:
+          column:
+            name: subgraph_name
+        supergraphName:
+          column:
+            name: supergraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: SubgraphSupergraphMap
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - subgraphName
+          - supergraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: SubgraphSupergraphMapBoolExp
+  operand:
+    object:
+      type: SubgraphSupergraphMap
+      comparableFields:
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: supergraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships:
+        - relationshipName: subgraph
+        - relationshipName: supergraph
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: SubgraphSupergraphMapBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: SubgraphSupergraphMapAggExp
+  operand:
+    object:
+      aggregatedType: SubgraphSupergraphMap
+      aggregatableFields:
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: supergraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: SubgraphSupergraphMapAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: SubgraphSupergraphMapOrderByExp
+  operand:
+    object:
+      orderedType: SubgraphSupergraphMap
+      orderableFields:
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: supergraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships:
+        - relationshipName: subgraph
+        - relationshipName: supergraph
+  graphql:
+    expressionTypeName: SubgraphSupergraphMapOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: SubgraphSupergraphMap
+  objectType: SubgraphSupergraphMap
+  source:
+    dataConnectorName: mdata
+    collection: subgraph_supergraph_map
+  filterExpressionType: SubgraphSupergraphMapBoolExp
+  aggregateExpression: SubgraphSupergraphMapAggExp
+  orderByExpression: SubgraphSupergraphMapOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: subgraphSupergraphMap
+      subscription:
+        rootField: subgraphSupergraphMap
+    selectUniques:
+      - queryRootField: subgraphSupergraphMapBySubgraphSupergraphMapPkey
+        uniqueIdentifier:
+          - subgraphName
+          - supergraphName
+          - tVersion
+        subscription:
+          rootField: subgraphSupergraphMapBySubgraphSupergraphMapPkey
+    filterInputTypeName: SubgraphSupergraphMapFilterInput
+    aggregate:
+      queryRootField: subgraphSupergraphMapAggregate
+      subscription:
+        rootField: subgraphSupergraphMapAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: SubgraphSupergraphMap
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: subgraph
+  sourceType: SubgraphSupergraphMap
+  target:
+    model:
+      name: Subgraph
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: supergraph
+  sourceType: SubgraphSupergraphMap
+  target:
+    model:
+      name: Supergraph
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: supergraphName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

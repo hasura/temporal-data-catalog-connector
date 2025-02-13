@@ -1,0 +1,163 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentRelationshipAggregate
+  fields:
+    - name: aggregateExpression
+      type: Varchar_1
+    - name: description
+      type: Varchar_1
+    - name: relationshipName
+      type: Varchar_1
+    - name: sourceTypeName
+      type: Varchar_1
+    - name: subgraphName
+      type: Varchar_1
+  graphql:
+    typeName: CurrentRelationshipAggregate
+    inputTypeName: CurrentRelationshipAggregateInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: current_relationship_aggregate
+      fieldMapping:
+        aggregateExpression:
+          column:
+            name: aggregate_expression
+        description:
+          column:
+            name: description
+        relationshipName:
+          column:
+            name: relationship_name
+        sourceTypeName:
+          column:
+            name: source_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentRelationshipAggregate
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregateExpression
+          - description
+          - relationshipName
+          - sourceTypeName
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentRelationshipAggregateBoolExp
+  operand:
+    object:
+      type: CurrentRelationshipAggregate
+      comparableFields:
+        - fieldName: aggregateExpression
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: description
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: relationshipName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: sourceTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentRelationshipAggregateBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentRelationshipAggregateAggExp
+  operand:
+    object:
+      aggregatedType: CurrentRelationshipAggregate
+      aggregatableFields:
+        - fieldName: aggregateExpression
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: description
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: relationshipName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: sourceTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentRelationshipAggregateAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentRelationshipAggregateOrderByExp
+  operand:
+    object:
+      orderedType: CurrentRelationshipAggregate
+      orderableFields:
+        - fieldName: aggregateExpression
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: description
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: relationshipName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: sourceTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentRelationshipAggregateOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentRelationshipAggregate
+  objectType: CurrentRelationshipAggregate
+  source:
+    dataConnectorName: mdata
+    collection: current_relationship_aggregate
+  filterExpressionType: CurrentRelationshipAggregateBoolExp
+  aggregateExpression: CurrentRelationshipAggregateAggExp
+  orderByExpression: CurrentRelationshipAggregateOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentRelationshipAggregate_1
+      subscription:
+        rootField: currentRelationshipAggregate_1
+    selectUniques: []
+    filterInputTypeName: CurrentRelationshipAggregateFilterInput
+    aggregate:
+      queryRootField: currentRelationshipAggregateAggregate
+      subscription:
+        rootField: currentRelationshipAggregateAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentRelationshipAggregate
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

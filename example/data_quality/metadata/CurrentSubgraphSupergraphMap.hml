@@ -1,0 +1,127 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentSubgraphSupergraphMap
+  fields:
+    - name: subgraphName
+      type: Varchar_1
+    - name: supergraphName
+      type: Varchar_1
+  graphql:
+    typeName: CurrentSubgraphSupergraphMap
+    inputTypeName: CurrentSubgraphSupergraphMapInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: current_subgraph_supergraph_map
+      fieldMapping:
+        subgraphName:
+          column:
+            name: subgraph_name
+        supergraphName:
+          column:
+            name: supergraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentSubgraphSupergraphMap
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - subgraphName
+          - supergraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentSubgraphSupergraphMapBoolExp
+  operand:
+    object:
+      type: CurrentSubgraphSupergraphMap
+      comparableFields:
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: supergraphName
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentSubgraphSupergraphMapBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentSubgraphSupergraphMapAggExp
+  operand:
+    object:
+      aggregatedType: CurrentSubgraphSupergraphMap
+      aggregatableFields:
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: supergraphName
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentSubgraphSupergraphMapAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentSubgraphSupergraphMapOrderByExp
+  operand:
+    object:
+      orderedType: CurrentSubgraphSupergraphMap
+      orderableFields:
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: supergraphName
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentSubgraphSupergraphMapOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentSubgraphSupergraphMap
+  objectType: CurrentSubgraphSupergraphMap
+  source:
+    dataConnectorName: mdata
+    collection: current_subgraph_supergraph_map
+  filterExpressionType: CurrentSubgraphSupergraphMapBoolExp
+  aggregateExpression: CurrentSubgraphSupergraphMapAggExp
+  orderByExpression: CurrentSubgraphSupergraphMapOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentSubgraphSupergraphMap
+      subscription:
+        rootField: currentSubgraphSupergraphMap
+    selectUniques: []
+    filterInputTypeName: CurrentSubgraphSupergraphMapFilterInput
+    aggregate:
+      queryRootField: currentSubgraphSupergraphMapAggregate
+      subscription:
+        rootField: currentSubgraphSupergraphMapAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentSubgraphSupergraphMap
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

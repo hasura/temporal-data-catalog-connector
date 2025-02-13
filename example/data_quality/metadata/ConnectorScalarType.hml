@@ -1,0 +1,415 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ConnectorScalarType
+  fields:
+    - name: connectorName
+      type: Varchar_1!
+    - name: name
+      type: Varchar_1!
+    - name: representationName
+      type: Varchar_1
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+  graphql:
+    typeName: ConnectorScalarType
+    inputTypeName: ConnectorScalarTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: connector_scalar_type
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        name:
+          column:
+            name: name
+        representationName:
+          column:
+            name: representation_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ConnectorScalarType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - name
+          - representationName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ConnectorScalarTypeBoolExp
+  operand:
+    object:
+      type: ConnectorScalarType
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: representationName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships:
+        - relationshipName: comparisonOperators
+        - relationshipName: representation
+        - relationshipName: dataConnector
+        - relationshipName: dataConnectorScalarRepresentations
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ConnectorScalarTypeBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ConnectorScalarTypeAggExp
+  operand:
+    object:
+      aggregatedType: ConnectorScalarType
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: name
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: representationName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: ConnectorScalarTypeAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ConnectorScalarTypeOrderByExp
+  operand:
+    object:
+      orderedType: ConnectorScalarType
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: name
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: representationName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships:
+        - relationshipName: representation
+        - relationshipName: dataConnector
+  graphql:
+    expressionTypeName: ConnectorScalarTypeOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: ConnectorScalarType
+  objectType: ConnectorScalarType
+  source:
+    dataConnectorName: mdata
+    collection: connector_scalar_type
+  filterExpressionType: ConnectorScalarTypeBoolExp
+  aggregateExpression: ConnectorScalarTypeAggExp
+  orderByExpression: ConnectorScalarTypeOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: connectorScalarType
+      subscription:
+        rootField: connectorScalarType
+    selectUniques:
+      - queryRootField: connectorScalarTypeByConnectorScalarTypePkey
+        uniqueIdentifier:
+          - connectorName
+          - name
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: connectorScalarTypeByConnectorScalarTypePkey
+      - queryRootField: connectorScalarTypeByUqConnectorScalarTypeB52966Dd72
+        uniqueIdentifier:
+          - connectorName
+          - name
+          - subgraphName
+          - tIsCurrent
+        subscription:
+          rootField: connectorScalarTypeByUqConnectorScalarTypeB52966Dd72
+    filterInputTypeName: ConnectorScalarTypeFilterInput
+    aggregate:
+      queryRootField: connectorScalarTypeAggregate
+      subscription:
+        rootField: connectorScalarTypeAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: ConnectorScalarType
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: comparisonOperators
+  sourceType: ConnectorScalarType
+  target:
+    model:
+      name: ComparisonOperator
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: ComparisonOperatorAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: scalarTypeConnectorName
+    - source:
+        fieldPath:
+          - fieldName: name
+      target:
+        modelField:
+          - fieldName: scalarTypeName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: scalarTypeSubgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: comparisonOperatorsAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: representation
+  sourceType: ConnectorScalarType
+  target:
+    model:
+      name: Representation
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: connectorName
+    - source:
+        fieldPath:
+          - fieldName: representationName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: dataConnector
+  sourceType: ConnectorScalarType
+  target:
+    model:
+      name: DataConnector
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: dataConnectorScalarRepresentations
+  sourceType: ConnectorScalarType
+  target:
+    model:
+      name: DataConnectorScalarRepresentation
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: DataConnectorScalarRepresentationAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: dataConnectorName
+    - source:
+        fieldPath:
+          - fieldName: name
+      target:
+        modelField:
+          - fieldName: dataConnectorScalarType
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: dataConnectorScalarRepresentationsAggregate
+

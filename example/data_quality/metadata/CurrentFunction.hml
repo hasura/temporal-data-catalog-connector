@@ -1,0 +1,175 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentFunction
+  fields:
+    - name: connectorName
+      type: Varchar_1
+    - name: description
+      type: Text_1
+    - name: name
+      type: Varchar_1
+    - name: returnTypeConnector
+      type: Varchar_1
+    - name: returnTypeName
+      type: Varchar_1
+    - name: subgraphName
+      type: Varchar_1
+  graphql:
+    typeName: CurrentFunction
+    inputTypeName: CurrentFunctionInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: current_function
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        description:
+          column:
+            name: description
+        name:
+          column:
+            name: name
+        returnTypeConnector:
+          column:
+            name: return_type_connector
+        returnTypeName:
+          column:
+            name: return_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentFunction
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - description
+          - name
+          - returnTypeConnector
+          - returnTypeName
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentFunctionBoolExp
+  operand:
+    object:
+      type: CurrentFunction
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: description
+          booleanExpressionType: TextBoolExp_1
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: returnTypeConnector
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: returnTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentFunctionBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentFunctionAggExp
+  operand:
+    object:
+      aggregatedType: CurrentFunction
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: description
+          aggregateExpression: TextAggExp_1
+        - fieldName: name
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: returnTypeConnector
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: returnTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentFunctionAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentFunctionOrderByExp
+  operand:
+    object:
+      orderedType: CurrentFunction
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: description
+          orderByExpression: Text1OrderByExp
+        - fieldName: name
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: returnTypeConnector
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: returnTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentFunctionOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentFunction
+  objectType: CurrentFunction
+  source:
+    dataConnectorName: mdata
+    collection: current_function
+  filterExpressionType: CurrentFunctionBoolExp
+  aggregateExpression: CurrentFunctionAggExp
+  orderByExpression: CurrentFunctionOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentFunction
+      subscription:
+        rootField: currentFunction
+    selectUniques: []
+    filterInputTypeName: CurrentFunctionFilterInput
+    aggregate:
+      queryRootField: currentFunctionAggregate
+      subscription:
+        rootField: currentFunctionAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentFunction
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

@@ -1,0 +1,287 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ModelSourceArgumentMapping
+  fields:
+    - name: key
+      type: Varchar_1!
+    - name: modelName
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+    - name: value
+      type: Varchar_1!
+  graphql:
+    typeName: ModelSourceArgumentMapping
+    inputTypeName: ModelSourceArgumentMappingInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: model_source_argument_mapping
+      fieldMapping:
+        key:
+          column:
+            name: key
+        modelName:
+          column:
+            name: model_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        value:
+          column:
+            name: value
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ModelSourceArgumentMapping
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - key
+          - modelName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - value
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ModelSourceArgumentMappingBoolExp
+  operand:
+    object:
+      type: ModelSourceArgumentMapping
+      comparableFields:
+        - fieldName: key
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+        - fieldName: value
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships:
+        - relationshipName: modelSourceConfig
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ModelSourceArgumentMappingBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ModelSourceArgumentMappingAggExp
+  operand:
+    object:
+      aggregatedType: ModelSourceArgumentMapping
+      aggregatableFields:
+        - fieldName: key
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+        - fieldName: value
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: ModelSourceArgumentMappingAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ModelSourceArgumentMappingOrderByExp
+  operand:
+    object:
+      orderedType: ModelSourceArgumentMapping
+      orderableFields:
+        - fieldName: key
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: modelName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+        - fieldName: value
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships:
+        - relationshipName: modelSourceConfig
+  graphql:
+    expressionTypeName: ModelSourceArgumentMappingOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: ModelSourceArgumentMapping
+  objectType: ModelSourceArgumentMapping
+  source:
+    dataConnectorName: mdata
+    collection: model_source_argument_mapping
+  filterExpressionType: ModelSourceArgumentMappingBoolExp
+  aggregateExpression: ModelSourceArgumentMappingAggExp
+  orderByExpression: ModelSourceArgumentMappingOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: modelSourceArgumentMapping
+      subscription:
+        rootField: modelSourceArgumentMapping
+    selectUniques:
+      - queryRootField: modelSourceArgumentMappingByModelSourceArgumentMappingPkey
+        uniqueIdentifier:
+          - key
+          - modelName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: modelSourceArgumentMappingByModelSourceArgumentMappingPkey
+    filterInputTypeName: ModelSourceArgumentMappingFilterInput
+    aggregate:
+      queryRootField: modelSourceArgumentMappingAggregate
+      subscription:
+        rootField: modelSourceArgumentMappingAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: ModelSourceArgumentMapping
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: modelSourceConfig
+  sourceType: ModelSourceArgumentMapping
+  target:
+    model:
+      name: ModelSourceConfig
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: modelName
+      target:
+        modelField:
+          - fieldName: modelName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

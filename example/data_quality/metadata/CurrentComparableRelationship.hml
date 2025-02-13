@@ -1,0 +1,163 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentComparableRelationship
+  fields:
+    - name: aggregateBooleanExpressionTypeName
+      type: Varchar_1
+    - name: booleanExpressionTypeName
+      type: Varchar_1
+    - name: parentName
+      type: Varchar_1
+    - name: relationshipName
+      type: Varchar_1
+    - name: subgraphName
+      type: Varchar_1
+  graphql:
+    typeName: CurrentComparableRelationship
+    inputTypeName: CurrentComparableRelationshipInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: current_comparable_relationship
+      fieldMapping:
+        aggregateBooleanExpressionTypeName:
+          column:
+            name: aggregate_boolean_expression_type_name
+        booleanExpressionTypeName:
+          column:
+            name: boolean_expression_type_name
+        parentName:
+          column:
+            name: parent_name
+        relationshipName:
+          column:
+            name: relationship_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentComparableRelationship
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregateBooleanExpressionTypeName
+          - booleanExpressionTypeName
+          - parentName
+          - relationshipName
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentComparableRelationshipBoolExp
+  operand:
+    object:
+      type: CurrentComparableRelationship
+      comparableFields:
+        - fieldName: aggregateBooleanExpressionTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: booleanExpressionTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: parentName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: relationshipName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentComparableRelationshipBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentComparableRelationshipAggExp
+  operand:
+    object:
+      aggregatedType: CurrentComparableRelationship
+      aggregatableFields:
+        - fieldName: aggregateBooleanExpressionTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: booleanExpressionTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: parentName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: relationshipName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentComparableRelationshipAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentComparableRelationshipOrderByExp
+  operand:
+    object:
+      orderedType: CurrentComparableRelationship
+      orderableFields:
+        - fieldName: aggregateBooleanExpressionTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: booleanExpressionTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: parentName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: relationshipName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentComparableRelationshipOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentComparableRelationship
+  objectType: CurrentComparableRelationship
+  source:
+    dataConnectorName: mdata
+    collection: current_comparable_relationship
+  filterExpressionType: CurrentComparableRelationshipBoolExp
+  aggregateExpression: CurrentComparableRelationshipAggExp
+  orderByExpression: CurrentComparableRelationshipOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentComparableRelationship
+      subscription:
+        rootField: currentComparableRelationship
+    selectUniques: []
+    filterInputTypeName: CurrentComparableRelationshipFilterInput
+    aggregate:
+      queryRootField: currentComparableRelationshipAggregate
+      subscription:
+        rootField: currentComparableRelationshipAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentComparableRelationship
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

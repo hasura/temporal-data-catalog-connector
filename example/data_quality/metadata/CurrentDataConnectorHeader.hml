@@ -1,0 +1,163 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentDataConnectorHeader
+  fields:
+    - name: connectorName
+      type: Varchar_1
+    - name: isResponseHeader
+      type: Bool_1
+    - name: key
+      type: Varchar_1
+    - name: subgraphName
+      type: Varchar_1
+    - name: value
+      type: Varchar_1
+  graphql:
+    typeName: CurrentDataConnectorHeader
+    inputTypeName: CurrentDataConnectorHeaderInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: current_data_connector_header
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        isResponseHeader:
+          column:
+            name: is_response_header
+        key:
+          column:
+            name: key
+        subgraphName:
+          column:
+            name: subgraph_name
+        value:
+          column:
+            name: value
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentDataConnectorHeader
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - isResponseHeader
+          - key
+          - subgraphName
+          - value
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentDataConnectorHeaderBoolExp
+  operand:
+    object:
+      type: CurrentDataConnectorHeader
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: isResponseHeader
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: key
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: value
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentDataConnectorHeaderBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentDataConnectorHeaderAggExp
+  operand:
+    object:
+      aggregatedType: CurrentDataConnectorHeader
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: isResponseHeader
+          aggregateExpression: BoolAggExp_1
+        - fieldName: key
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: value
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentDataConnectorHeaderAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentDataConnectorHeaderOrderByExp
+  operand:
+    object:
+      orderedType: CurrentDataConnectorHeader
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: isResponseHeader
+          orderByExpression: Bool1OrderByExp
+        - fieldName: key
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: value
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentDataConnectorHeaderOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentDataConnectorHeader
+  objectType: CurrentDataConnectorHeader
+  source:
+    dataConnectorName: mdata
+    collection: current_data_connector_header
+  filterExpressionType: CurrentDataConnectorHeaderBoolExp
+  aggregateExpression: CurrentDataConnectorHeaderAggExp
+  orderByExpression: CurrentDataConnectorHeaderOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentDataConnectorHeader
+      subscription:
+        rootField: currentDataConnectorHeader
+    selectUniques: []
+    filterInputTypeName: CurrentDataConnectorHeaderFilterInput
+    aggregate:
+      queryRootField: currentDataConnectorHeaderAggregate
+      subscription:
+        rootField: currentDataConnectorHeaderAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentDataConnectorHeader
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

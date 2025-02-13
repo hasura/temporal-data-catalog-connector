@@ -3,6 +3,7 @@ from contextlib import contextmanager
 from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy import create_engine
 
+logger = __import__("logging").getLogger(__name__)
 
 @contextmanager
 def managed_session(engine_or_session_factory):
@@ -28,7 +29,8 @@ def managed_session(engine_or_session_factory):
     try:
         yield session
         session.commit()
-    except Exception:
+    except Exception as e:
+        logger.debug(e)
         session.rollback()
         raise
     finally:

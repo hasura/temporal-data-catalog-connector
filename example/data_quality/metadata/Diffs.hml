@@ -1,0 +1,203 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Diffs
+  fields:
+    - name: createdAt
+      type: Timestamp!
+    - name: entityType
+      type: Varchar_1!
+    - name: fromVersion
+      type: Int4_1!
+    - name: id
+      type: Int4_1!
+    - name: tId
+      type: Varchar_1!
+    - name: toVersion
+      type: Int4_1!
+  graphql:
+    typeName: Diffs
+    inputTypeName: DiffsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: diffs
+      fieldMapping:
+        createdAt:
+          column:
+            name: created_at
+        entityType:
+          column:
+            name: entity_type
+        fromVersion:
+          column:
+            name: from_version
+        id:
+          column:
+            name: id
+        tId:
+          column:
+            name: t_id
+        toVersion:
+          column:
+            name: to_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Diffs
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - createdAt
+          - entityType
+          - fromVersion
+          - id
+          - tId
+          - toVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: DiffsBoolExp
+  operand:
+    object:
+      type: Diffs
+      comparableFields:
+        - fieldName: createdAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: entityType
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: fromVersion
+          booleanExpressionType: Int4BoolExp_1
+        - fieldName: id
+          booleanExpressionType: Int4BoolExp_1
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: toVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships:
+        - relationshipName: diffChanges
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: DiffsBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: DiffsAggExp
+  operand:
+    object:
+      aggregatedType: Diffs
+      aggregatableFields:
+        - fieldName: createdAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: entityType
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: fromVersion
+          aggregateExpression: Int4AggExp_1
+        - fieldName: id
+          aggregateExpression: Int4AggExp_1
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: toVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: DiffsAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: DiffsOrderByExp
+  operand:
+    object:
+      orderedType: Diffs
+      orderableFields:
+        - fieldName: createdAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: entityType
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: fromVersion
+          orderByExpression: Int41OrderByExp
+        - fieldName: id
+          orderByExpression: Int41OrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: toVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: DiffsOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: Diffs
+  objectType: Diffs
+  source:
+    dataConnectorName: mdata
+    collection: diffs
+  filterExpressionType: DiffsBoolExp
+  aggregateExpression: DiffsAggExp
+  orderByExpression: DiffsOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: diffs
+      subscription:
+        rootField: diffs
+    selectUniques:
+      - queryRootField: diffsById
+        uniqueIdentifier:
+          - id
+        subscription:
+          rootField: diffsById
+    filterInputTypeName: DiffsFilterInput
+    aggregate:
+      queryRootField: diffsAggregate
+      subscription:
+        rootField: diffsAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Diffs
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: diffChanges
+  sourceType: Diffs
+  target:
+    model:
+      name: DiffChanges
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: DiffChangesAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: id
+      target:
+        modelField:
+          - fieldName: diffEntryId
+  graphql:
+    aggregateFieldName: diffChangesAggregate
+

@@ -1,0 +1,319 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ComparableField
+  fields:
+    - name: booleanExpressionTypeName
+      type: Varchar_1!
+    - name: fieldName
+      type: Varchar_1!
+    - name: parentName
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+  graphql:
+    typeName: ComparableField
+    inputTypeName: ComparableFieldInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: comparable_field
+      fieldMapping:
+        booleanExpressionTypeName:
+          column:
+            name: boolean_expression_type_name
+        fieldName:
+          column:
+            name: field_name
+        parentName:
+          column:
+            name: parent_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ComparableField
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - booleanExpressionTypeName
+          - fieldName
+          - parentName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ComparableFieldBoolExp
+  operand:
+    object:
+      type: ComparableField
+      comparableFields:
+        - fieldName: booleanExpressionTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: fieldName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: parentName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships:
+        - relationshipName: booleanExpressionType
+        - relationshipName: booleanExpressionTypeByParentNameAndSubgraphNameAndTIsCurrent
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ComparableFieldBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ComparableFieldAggExp
+  operand:
+    object:
+      aggregatedType: ComparableField
+      aggregatableFields:
+        - fieldName: booleanExpressionTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: fieldName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: parentName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: ComparableFieldAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ComparableFieldOrderByExp
+  operand:
+    object:
+      orderedType: ComparableField
+      orderableFields:
+        - fieldName: booleanExpressionTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: fieldName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: parentName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships:
+        - relationshipName: booleanExpressionType
+        - relationshipName: booleanExpressionTypeByParentNameAndSubgraphNameAndTIsCurrent
+  graphql:
+    expressionTypeName: ComparableFieldOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: ComparableField
+  objectType: ComparableField
+  source:
+    dataConnectorName: mdata
+    collection: comparable_field
+  filterExpressionType: ComparableFieldBoolExp
+  aggregateExpression: ComparableFieldAggExp
+  orderByExpression: ComparableFieldOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: comparableField
+      subscription:
+        rootField: comparableField
+    selectUniques:
+      - queryRootField: comparableFieldByComparableFieldPkey
+        uniqueIdentifier:
+          - fieldName
+          - parentName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: comparableFieldByComparableFieldPkey
+    filterInputTypeName: ComparableFieldFilterInput
+    aggregate:
+      queryRootField: comparableFieldAggregate
+      subscription:
+        rootField: comparableFieldAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: ComparableField
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: booleanExpressionType
+  sourceType: ComparableField
+  target:
+    model:
+      name: BooleanExpressionType
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: booleanExpressionTypeName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: booleanExpressionTypeByParentNameAndSubgraphNameAndTIsCurrent
+  sourceType: ComparableField
+  target:
+    model:
+      name: BooleanExpressionType
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: parentName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

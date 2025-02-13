@@ -1,7 +1,7 @@
 include:
   - path: app/connector/chinook/compose.yaml
   - path: data_quality/connector/anomaly/compose.yaml
-#  - path: ../compose.yaml
+  - path: data_quality/connector/mdata/compose.yaml
 services:
   engine:
     build:
@@ -12,8 +12,8 @@ services:
       pull: true
     develop:
       watch:
-        - path: engine/build
-          action: sync+restart
+        - action: sync+restart
+          path: engine/build
           target: /md/
     env_file:
       - engine/.env.engine
@@ -23,6 +23,17 @@ services:
       io.hasura.ddn.service-name: engine
     ports:
       - 3280:3000
+  metadata-app:
+    depends_on:
+      - engine
+    environment:
+      - ENGINE_BUILD_PATH=/build/metadata.json
+      - CLEAN_DATABASE=False
+      - DATABASE_URL=postgresql://kenstott:rN8qOh6AEMCP@ep-yellow-salad-961725.us-west-2.aws.neon.tech/hasura_config?sslmode=require
+      - PYTHONPATH=/workspace
+    image: kenstott/mdata:latest
+    volumes:
+      - ./engine/build:/build
   otel-collector:
     command:
       - --config=/etc/otel-collector-config.yaml
@@ -40,10 +51,10 @@ services:
       CORS_ORIGINS: ${CORS_ORIGINS:-https://console.hasura.io}
       ENGINE_URL: ${HASURA_DDN_URL:-http://engine:3000/v1/sql}
       LLM: ${LLM:-anthropic}
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
-      OTEL_LOG_LEVEL: trace
       LOG_LEVEL: debug
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
       OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://host.docker.internal:4317}
+      OTEL_LOG_LEVEL: trace
       PROMPTQL_SECRET_KEY: ${PROMPTQL_SECRET_KEY}
       PROMPTQL_URI: ${PROMPTQL_URI:-wss://runtime.promptql.pro.hasura.io}
     image: us-east4-docker.pkg.dev/promptql-execution-service/promptql-public/promptql-playground-local
@@ -51,14 +62,3 @@ services:
       io.hasura.ddn.service-name: promptql-playground
     ports:
       - 3282:5000
-  metadata-init:
-    image: metadata-init:latest
-    depends_on:
-      - engine
-    environment:
-      - ENGINE_BUILD_PATH=/build/metadata.json
-      - CLEAN_DATABASE=False
-      - DATABASE_URL=postgresql://kenstott:rN8qOh6AEMCP@ep-yellow-salad-961725.us-west-2.aws.neon.tech/hasura_config?sslmode=require
-      - PYTHONPATH=/app
-    volumes:
-      - ./engine/build:/build

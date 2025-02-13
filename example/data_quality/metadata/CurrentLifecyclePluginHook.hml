@@ -1,0 +1,175 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentLifecyclePluginHook
+  fields:
+    - name: config
+      type: Json
+    - name: name
+      type: Varchar_1
+    - name: preHook
+      type: Bool_1
+    - name: subgraphName
+      type: Varchar_1
+    - name: url
+      type: Varchar_1
+    - name: version
+      type: Varchar_1
+  graphql:
+    typeName: CurrentLifecyclePluginHook
+    inputTypeName: CurrentLifecyclePluginHookInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: current_lifecycle_plugin_hook
+      fieldMapping:
+        config:
+          column:
+            name: config
+        name:
+          column:
+            name: name
+        preHook:
+          column:
+            name: pre_hook
+        subgraphName:
+          column:
+            name: subgraph_name
+        url:
+          column:
+            name: url
+        version:
+          column:
+            name: version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentLifecyclePluginHook
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - config
+          - name
+          - preHook
+          - subgraphName
+          - url
+          - version
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentLifecyclePluginHookBoolExp
+  operand:
+    object:
+      type: CurrentLifecyclePluginHook
+      comparableFields:
+        - fieldName: config
+          booleanExpressionType: JsonBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: preHook
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: url
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: version
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentLifecyclePluginHookBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentLifecyclePluginHookAggExp
+  operand:
+    object:
+      aggregatedType: CurrentLifecyclePluginHook
+      aggregatableFields:
+        - fieldName: config
+          aggregateExpression: JsonAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: preHook
+          aggregateExpression: BoolAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: url
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: version
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentLifecyclePluginHookAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentLifecyclePluginHookOrderByExp
+  operand:
+    object:
+      orderedType: CurrentLifecyclePluginHook
+      orderableFields:
+        - fieldName: config
+          orderByExpression: JsonOrderByExp
+        - fieldName: name
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: preHook
+          orderByExpression: Bool1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: url
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: version
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentLifecyclePluginHookOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentLifecyclePluginHook
+  objectType: CurrentLifecyclePluginHook
+  source:
+    dataConnectorName: mdata
+    collection: current_lifecycle_plugin_hook
+  filterExpressionType: CurrentLifecyclePluginHookBoolExp
+  aggregateExpression: CurrentLifecyclePluginHookAggExp
+  orderByExpression: CurrentLifecyclePluginHookOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentLifecyclePluginHook
+      subscription:
+        rootField: currentLifecyclePluginHook
+    selectUniques: []
+    filterInputTypeName: CurrentLifecyclePluginHookFilterInput
+    aggregate:
+      queryRootField: currentLifecyclePluginHookAggregate
+      subscription:
+        rootField: currentLifecyclePluginHookAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentLifecyclePluginHook
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

@@ -1,0 +1,334 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DataConnectorCapability
+  fields:
+    - name: connectorName
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: supportsAggregates
+      type: Bool_1!
+    - name: supportsFieldFilters
+      type: Bool_1!
+    - name: supportsNestedFields
+      type: Bool_1!
+    - name: supportsTransactions
+      type: Bool_1!
+    - name: supportsVariables
+      type: Bool_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+    - name: version
+      type: Varchar_1!
+  graphql:
+    typeName: DataConnectorCapability
+    inputTypeName: DataConnectorCapabilityInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: data_connector_capability
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        supportsAggregates:
+          column:
+            name: supports_aggregates
+        supportsFieldFilters:
+          column:
+            name: supports_field_filters
+        supportsNestedFields:
+          column:
+            name: supports_nested_fields
+        supportsTransactions:
+          column:
+            name: supports_transactions
+        supportsVariables:
+          column:
+            name: supports_variables
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        version:
+          column:
+            name: version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DataConnectorCapability
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - subgraphName
+          - supportsAggregates
+          - supportsFieldFilters
+          - supportsNestedFields
+          - supportsTransactions
+          - supportsVariables
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - version
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: DataConnectorCapabilityBoolExp
+  operand:
+    object:
+      type: DataConnectorCapability
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: supportsAggregates
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: supportsFieldFilters
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: supportsNestedFields
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: supportsTransactions
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: supportsVariables
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+        - fieldName: version
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships:
+        - relationshipName: dataConnector
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: DataConnectorCapabilityBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: DataConnectorCapabilityAggExp
+  operand:
+    object:
+      aggregatedType: DataConnectorCapability
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: supportsAggregates
+          aggregateExpression: BoolAggExp_1
+        - fieldName: supportsFieldFilters
+          aggregateExpression: BoolAggExp_1
+        - fieldName: supportsNestedFields
+          aggregateExpression: BoolAggExp_1
+        - fieldName: supportsTransactions
+          aggregateExpression: BoolAggExp_1
+        - fieldName: supportsVariables
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+        - fieldName: version
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: DataConnectorCapabilityAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: DataConnectorCapabilityOrderByExp
+  operand:
+    object:
+      orderedType: DataConnectorCapability
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: supportsAggregates
+          orderByExpression: Bool1OrderByExp
+        - fieldName: supportsFieldFilters
+          orderByExpression: Bool1OrderByExp
+        - fieldName: supportsNestedFields
+          orderByExpression: Bool1OrderByExp
+        - fieldName: supportsTransactions
+          orderByExpression: Bool1OrderByExp
+        - fieldName: supportsVariables
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+        - fieldName: version
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships:
+        - relationshipName: dataConnector
+  graphql:
+    expressionTypeName: DataConnectorCapabilityOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: DataConnectorCapability
+  objectType: DataConnectorCapability
+  source:
+    dataConnectorName: mdata
+    collection: data_connector_capability
+  filterExpressionType: DataConnectorCapabilityBoolExp
+  aggregateExpression: DataConnectorCapabilityAggExp
+  orderByExpression: DataConnectorCapabilityOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: dataConnectorCapability
+      subscription:
+        rootField: dataConnectorCapability
+    selectUniques:
+      - queryRootField: dataConnectorCapabilityByDataConnectorCapabilityPkey
+        uniqueIdentifier:
+          - connectorName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: dataConnectorCapabilityByDataConnectorCapabilityPkey
+    filterInputTypeName: DataConnectorCapabilityFilterInput
+    aggregate:
+      queryRootField: dataConnectorCapabilityAggregate
+      subscription:
+        rootField: dataConnectorCapabilityAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: DataConnectorCapability
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: dataConnector
+  sourceType: DataConnectorCapability
+  target:
+    model:
+      name: DataConnector
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

@@ -1,0 +1,358 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: QueryCapability
+  fields:
+    - name: aggregatesEnabled
+      type: Bool_1!
+    - name: connectorName
+      type: Varchar_1!
+    - name: existsEnabled
+      type: Bool_1!
+    - name: explainEnabled
+      type: Bool_1!
+    - name: filterByEnabled
+      type: Bool_1!
+    - name: nestedCollectionsEnabled
+      type: Bool_1!
+    - name: nestedFieldsEnabled
+      type: Bool_1!
+    - name: orderByEnabled
+      type: Bool_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+    - name: variablesEnabled
+      type: Bool_1!
+  graphql:
+    typeName: QueryCapability
+    inputTypeName: QueryCapabilityInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: query_capability
+      fieldMapping:
+        aggregatesEnabled:
+          column:
+            name: aggregates_enabled
+        connectorName:
+          column:
+            name: connector_name
+        existsEnabled:
+          column:
+            name: exists_enabled
+        explainEnabled:
+          column:
+            name: explain_enabled
+        filterByEnabled:
+          column:
+            name: filter_by_enabled
+        nestedCollectionsEnabled:
+          column:
+            name: nested_collections_enabled
+        nestedFieldsEnabled:
+          column:
+            name: nested_fields_enabled
+        orderByEnabled:
+          column:
+            name: order_by_enabled
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        variablesEnabled:
+          column:
+            name: variables_enabled
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: QueryCapability
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregatesEnabled
+          - connectorName
+          - existsEnabled
+          - explainEnabled
+          - filterByEnabled
+          - nestedCollectionsEnabled
+          - nestedFieldsEnabled
+          - orderByEnabled
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - variablesEnabled
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: QueryCapabilityBoolExp
+  operand:
+    object:
+      type: QueryCapability
+      comparableFields:
+        - fieldName: aggregatesEnabled
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: existsEnabled
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: explainEnabled
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: filterByEnabled
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: nestedCollectionsEnabled
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: nestedFieldsEnabled
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: orderByEnabled
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+        - fieldName: variablesEnabled
+          booleanExpressionType: BoolBoolExp_1
+      comparableRelationships:
+        - relationshipName: dataConnector
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: QueryCapabilityBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: QueryCapabilityAggExp
+  operand:
+    object:
+      aggregatedType: QueryCapability
+      aggregatableFields:
+        - fieldName: aggregatesEnabled
+          aggregateExpression: BoolAggExp_1
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: existsEnabled
+          aggregateExpression: BoolAggExp_1
+        - fieldName: explainEnabled
+          aggregateExpression: BoolAggExp_1
+        - fieldName: filterByEnabled
+          aggregateExpression: BoolAggExp_1
+        - fieldName: nestedCollectionsEnabled
+          aggregateExpression: BoolAggExp_1
+        - fieldName: nestedFieldsEnabled
+          aggregateExpression: BoolAggExp_1
+        - fieldName: orderByEnabled
+          aggregateExpression: BoolAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+        - fieldName: variablesEnabled
+          aggregateExpression: BoolAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: QueryCapabilityAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: QueryCapabilityOrderByExp
+  operand:
+    object:
+      orderedType: QueryCapability
+      orderableFields:
+        - fieldName: aggregatesEnabled
+          orderByExpression: Bool1OrderByExp
+        - fieldName: connectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: existsEnabled
+          orderByExpression: Bool1OrderByExp
+        - fieldName: explainEnabled
+          orderByExpression: Bool1OrderByExp
+        - fieldName: filterByEnabled
+          orderByExpression: Bool1OrderByExp
+        - fieldName: nestedCollectionsEnabled
+          orderByExpression: Bool1OrderByExp
+        - fieldName: nestedFieldsEnabled
+          orderByExpression: Bool1OrderByExp
+        - fieldName: orderByEnabled
+          orderByExpression: Bool1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+        - fieldName: variablesEnabled
+          orderByExpression: Bool1OrderByExp
+      orderableRelationships:
+        - relationshipName: dataConnector
+  graphql:
+    expressionTypeName: QueryCapabilityOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: QueryCapability
+  objectType: QueryCapability
+  source:
+    dataConnectorName: mdata
+    collection: query_capability
+  filterExpressionType: QueryCapabilityBoolExp
+  aggregateExpression: QueryCapabilityAggExp
+  orderByExpression: QueryCapabilityOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: queryCapability
+      subscription:
+        rootField: queryCapability
+    selectUniques:
+      - queryRootField: queryCapabilityByQueryCapabilityPkey
+        uniqueIdentifier:
+          - connectorName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: queryCapabilityByQueryCapabilityPkey
+    filterInputTypeName: QueryCapabilityFilterInput
+    aggregate:
+      queryRootField: queryCapabilityAggregate
+      subscription:
+        rootField: queryCapabilityAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: QueryCapability
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: dataConnector
+  sourceType: QueryCapability
+  target:
+    model:
+      name: DataConnector
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

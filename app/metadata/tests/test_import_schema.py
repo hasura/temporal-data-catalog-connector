@@ -315,9 +315,8 @@ def test_export_node_from_rdf2(session):
         raise
 
 
-def test_container_init(session):
+def test_container_init():
     from .. import init_with_session
-    session.close()
     init_with_session(clean_database=True)
 
 

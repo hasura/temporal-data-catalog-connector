@@ -1,0 +1,151 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentConnectorScalarType
+  fields:
+    - name: connectorName
+      type: Varchar_1
+    - name: name
+      type: Varchar_1
+    - name: representationName
+      type: Varchar_1
+    - name: subgraphName
+      type: Varchar_1
+  graphql:
+    typeName: CurrentConnectorScalarType
+    inputTypeName: CurrentConnectorScalarTypeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: current_connector_scalar_type
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        name:
+          column:
+            name: name
+        representationName:
+          column:
+            name: representation_name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentConnectorScalarType
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - name
+          - representationName
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentConnectorScalarTypeBoolExp
+  operand:
+    object:
+      type: CurrentConnectorScalarType
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: representationName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentConnectorScalarTypeBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentConnectorScalarTypeAggExp
+  operand:
+    object:
+      aggregatedType: CurrentConnectorScalarType
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: name
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: representationName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentConnectorScalarTypeAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentConnectorScalarTypeOrderByExp
+  operand:
+    object:
+      orderedType: CurrentConnectorScalarType
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: name
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: representationName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentConnectorScalarTypeOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentConnectorScalarType
+  objectType: CurrentConnectorScalarType
+  source:
+    dataConnectorName: mdata
+    collection: current_connector_scalar_type
+  filterExpressionType: CurrentConnectorScalarTypeBoolExp
+  aggregateExpression: CurrentConnectorScalarTypeAggExp
+  orderByExpression: CurrentConnectorScalarTypeOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentConnectorScalarType
+      subscription:
+        rootField: currentConnectorScalarType
+    selectUniques: []
+    filterInputTypeName: CurrentConnectorScalarTypeFilterInput
+    aggregate:
+      queryRootField: currentConnectorScalarTypeAggregate
+      subscription:
+        rootField: currentConnectorScalarTypeAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentConnectorScalarType
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

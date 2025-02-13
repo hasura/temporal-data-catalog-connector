@@ -1,0 +1,467 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ComparisonOperator
+  fields:
+    - name: argumentTypeConnectorName
+      type: Varchar_1
+    - name: argumentTypeName
+      type: Varchar_1
+    - name: booleanExpressionTypeName
+      type: Varchar_1!
+    - name: connectorName
+      type: Varchar_1!
+    - name: name
+      type: Varchar_1!
+    - name: operatorType
+      type: Varchar_1!
+    - name: scalarTypeConnectorName
+      type: Varchar_1
+    - name: scalarTypeName
+      type: Varchar_1
+    - name: scalarTypeSubgraphName
+      type: Varchar_1
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+  graphql:
+    typeName: ComparisonOperator
+    inputTypeName: ComparisonOperatorInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: comparison_operator
+      fieldMapping:
+        argumentTypeConnectorName:
+          column:
+            name: argument_type_connector_name
+        argumentTypeName:
+          column:
+            name: argument_type_name
+        booleanExpressionTypeName:
+          column:
+            name: boolean_expression_type_name
+        connectorName:
+          column:
+            name: connector_name
+        name:
+          column:
+            name: name
+        operatorType:
+          column:
+            name: operator_type
+        scalarTypeConnectorName:
+          column:
+            name: scalar_type_connector_name
+        scalarTypeName:
+          column:
+            name: scalar_type_name
+        scalarTypeSubgraphName:
+          column:
+            name: scalar_type_subgraph_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ComparisonOperator
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - argumentTypeConnectorName
+          - argumentTypeName
+          - booleanExpressionTypeName
+          - connectorName
+          - name
+          - operatorType
+          - scalarTypeConnectorName
+          - scalarTypeName
+          - scalarTypeSubgraphName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ComparisonOperatorBoolExp
+  operand:
+    object:
+      type: ComparisonOperator
+      comparableFields:
+        - fieldName: argumentTypeConnectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: argumentTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: booleanExpressionTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: operatorType
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: scalarTypeConnectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: scalarTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: scalarTypeSubgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships:
+        - relationshipName: booleanExpressionType
+        - relationshipName: connectorScalarType
+        - relationshipName: typeDefinition
+        - relationshipName: dataConnector
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ComparisonOperatorBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ComparisonOperatorAggExp
+  operand:
+    object:
+      aggregatedType: ComparisonOperator
+      aggregatableFields:
+        - fieldName: argumentTypeConnectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: argumentTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: booleanExpressionTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: name
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: operatorType
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: scalarTypeConnectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: scalarTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: scalarTypeSubgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: ComparisonOperatorAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ComparisonOperatorOrderByExp
+  operand:
+    object:
+      orderedType: ComparisonOperator
+      orderableFields:
+        - fieldName: argumentTypeConnectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: argumentTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: booleanExpressionTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: connectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: name
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: operatorType
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: scalarTypeConnectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: scalarTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: scalarTypeSubgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships:
+        - relationshipName: booleanExpressionType
+        - relationshipName: connectorScalarType
+        - relationshipName: typeDefinition
+        - relationshipName: dataConnector
+  graphql:
+    expressionTypeName: ComparisonOperatorOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: ComparisonOperator
+  objectType: ComparisonOperator
+  source:
+    dataConnectorName: mdata
+    collection: comparison_operator
+  filterExpressionType: ComparisonOperatorBoolExp
+  aggregateExpression: ComparisonOperatorAggExp
+  orderByExpression: ComparisonOperatorOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: comparisonOperator
+      subscription:
+        rootField: comparisonOperator
+    selectUniques:
+      - queryRootField: comparisonOperatorByComparisonOperatorPkey
+        uniqueIdentifier:
+          - booleanExpressionTypeName
+          - name
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: comparisonOperatorByComparisonOperatorPkey
+    filterInputTypeName: ComparisonOperatorFilterInput
+    aggregate:
+      queryRootField: comparisonOperatorAggregate
+      subscription:
+        rootField: comparisonOperatorAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: ComparisonOperator
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: booleanExpressionType
+  sourceType: ComparisonOperator
+  target:
+    model:
+      name: BooleanExpressionType
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: booleanExpressionTypeName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: connectorScalarType
+  sourceType: ComparisonOperator
+  target:
+    model:
+      name: ConnectorScalarType
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: scalarTypeConnectorName
+      target:
+        modelField:
+          - fieldName: connectorName
+    - source:
+        fieldPath:
+          - fieldName: scalarTypeName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: scalarTypeSubgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: typeDefinition
+  sourceType: ComparisonOperator
+  target:
+    model:
+      name: TypeDefinition
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: argumentTypeConnectorName
+      target:
+        modelField:
+          - fieldName: connectorName
+    - source:
+        fieldPath:
+          - fieldName: argumentTypeName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: dataConnector
+  sourceType: ComparisonOperator
+  target:
+    model:
+      name: DataConnector
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

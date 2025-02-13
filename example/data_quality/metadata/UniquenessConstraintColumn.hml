@@ -1,0 +1,313 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UniquenessConstraintColumn
+  fields:
+    - name: collectionName
+      type: Varchar_1!
+    - name: connectorName
+      type: Varchar_1!
+    - name: constraintName
+      type: Varchar_1!
+    - name: fieldName
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+  graphql:
+    typeName: UniquenessConstraintColumn
+    inputTypeName: UniquenessConstraintColumnInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: uniqueness_constraint_column
+      fieldMapping:
+        collectionName:
+          column:
+            name: collection_name
+        connectorName:
+          column:
+            name: connector_name
+        constraintName:
+          column:
+            name: constraint_name
+        fieldName:
+          column:
+            name: field_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UniquenessConstraintColumn
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - collectionName
+          - connectorName
+          - constraintName
+          - fieldName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: UniquenessConstraintColumnBoolExp
+  operand:
+    object:
+      type: UniquenessConstraintColumn
+      comparableFields:
+        - fieldName: collectionName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: constraintName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: fieldName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships:
+        - relationshipName: collectionUniquenessConstraint
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: UniquenessConstraintColumnBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: UniquenessConstraintColumnAggExp
+  operand:
+    object:
+      aggregatedType: UniquenessConstraintColumn
+      aggregatableFields:
+        - fieldName: collectionName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: constraintName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: fieldName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: UniquenessConstraintColumnAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: UniquenessConstraintColumnOrderByExp
+  operand:
+    object:
+      orderedType: UniquenessConstraintColumn
+      orderableFields:
+        - fieldName: collectionName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: connectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: constraintName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: fieldName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships:
+        - relationshipName: collectionUniquenessConstraint
+  graphql:
+    expressionTypeName: UniquenessConstraintColumnOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: UniquenessConstraintColumn
+  objectType: UniquenessConstraintColumn
+  source:
+    dataConnectorName: mdata
+    collection: uniqueness_constraint_column
+  filterExpressionType: UniquenessConstraintColumnBoolExp
+  aggregateExpression: UniquenessConstraintColumnAggExp
+  orderByExpression: UniquenessConstraintColumnOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: uniquenessConstraintColumn
+      subscription:
+        rootField: uniquenessConstraintColumn
+    selectUniques:
+      - queryRootField: uniquenessConstraintColumnByUniquenessConstraintColumnPkey
+        uniqueIdentifier:
+          - collectionName
+          - connectorName
+          - constraintName
+          - fieldName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: uniquenessConstraintColumnByUniquenessConstraintColumnPkey
+    filterInputTypeName: UniquenessConstraintColumnFilterInput
+    aggregate:
+      queryRootField: uniquenessConstraintColumnAggregate
+      subscription:
+        rootField: uniquenessConstraintColumnAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: UniquenessConstraintColumn
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: collectionUniquenessConstraint
+  sourceType: UniquenessConstraintColumn
+  target:
+    model:
+      name: CollectionUniquenessConstraint
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: collectionName
+      target:
+        modelField:
+          - fieldName: collectionName
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: connectorName
+    - source:
+        fieldPath:
+          - fieldName: constraintName
+      target:
+        modelField:
+          - fieldName: constraintName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

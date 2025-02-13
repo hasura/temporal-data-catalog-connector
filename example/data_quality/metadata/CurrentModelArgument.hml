@@ -1,0 +1,139 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CurrentModelArgument
+  fields:
+    - name: modelName
+      type: Varchar_1
+    - name: name
+      type: Varchar_1
+    - name: subgraphName
+      type: Varchar_1
+  graphql:
+    typeName: CurrentModelArgument
+    inputTypeName: CurrentModelArgumentInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: current_model_argument
+      fieldMapping:
+        modelName:
+          column:
+            name: model_name
+        name:
+          column:
+            name: name
+        subgraphName:
+          column:
+            name: subgraph_name
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CurrentModelArgument
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - modelName
+          - name
+          - subgraphName
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CurrentModelArgumentBoolExp
+  operand:
+    object:
+      type: CurrentModelArgument
+      comparableFields:
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CurrentModelArgumentBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CurrentModelArgumentAggExp
+  operand:
+    object:
+      aggregatedType: CurrentModelArgument
+      aggregatableFields:
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: name
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CurrentModelArgumentAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: CurrentModelArgumentOrderByExp
+  operand:
+    object:
+      orderedType: CurrentModelArgument
+      orderableFields:
+        - fieldName: modelName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: name
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: CurrentModelArgumentOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: CurrentModelArgument
+  objectType: CurrentModelArgument
+  source:
+    dataConnectorName: mdata
+    collection: current_model_argument
+  filterExpressionType: CurrentModelArgumentBoolExp
+  aggregateExpression: CurrentModelArgumentAggExp
+  orderByExpression: CurrentModelArgumentOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: currentModelArgument
+      subscription:
+        rootField: currentModelArgument
+    selectUniques: []
+    filterInputTypeName: CurrentModelArgumentFilterInput
+    aggregate:
+      queryRootField: currentModelArgumentAggregate
+      subscription:
+        rootField: currentModelArgumentAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CurrentModelArgument
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

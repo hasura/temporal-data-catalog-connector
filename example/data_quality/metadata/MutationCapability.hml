@@ -1,0 +1,296 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: MutationCapability
+  fields:
+    - name: connectorName
+      type: Varchar_1!
+    - name: explainEnabled
+      type: Bool_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+    - name: transactionalEnabled
+      type: Bool_1!
+  graphql:
+    typeName: MutationCapability
+    inputTypeName: MutationCapabilityInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: mutation_capability
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        explainEnabled:
+          column:
+            name: explain_enabled
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+        transactionalEnabled:
+          column:
+            name: transactional_enabled
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: MutationCapability
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - explainEnabled
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+          - transactionalEnabled
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: MutationCapabilityBoolExp
+  operand:
+    object:
+      type: MutationCapability
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: explainEnabled
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+        - fieldName: transactionalEnabled
+          booleanExpressionType: BoolBoolExp_1
+      comparableRelationships:
+        - relationshipName: dataConnectors
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: MutationCapabilityBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: MutationCapabilityAggExp
+  operand:
+    object:
+      aggregatedType: MutationCapability
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: explainEnabled
+          aggregateExpression: BoolAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+        - fieldName: transactionalEnabled
+          aggregateExpression: BoolAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: MutationCapabilityAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: MutationCapabilityOrderByExp
+  operand:
+    object:
+      orderedType: MutationCapability
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: explainEnabled
+          orderByExpression: Bool1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+        - fieldName: transactionalEnabled
+          orderByExpression: Bool1OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: MutationCapabilityOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: MutationCapability
+  objectType: MutationCapability
+  source:
+    dataConnectorName: mdata
+    collection: mutation_capability
+  filterExpressionType: MutationCapabilityBoolExp
+  aggregateExpression: MutationCapabilityAggExp
+  orderByExpression: MutationCapabilityOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: mutationCapability
+      subscription:
+        rootField: mutationCapability
+    selectUniques:
+      - queryRootField: mutationCapabilityByMutationCapabilityPkey
+        uniqueIdentifier:
+          - connectorName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: mutationCapabilityByMutationCapabilityPkey
+      - queryRootField: mutationCapabilityByUqMutationCapabilityB33D8881E1
+        uniqueIdentifier:
+          - connectorName
+          - subgraphName
+          - tIsCurrent
+        subscription:
+          rootField: mutationCapabilityByUqMutationCapabilityB33D8881E1
+    filterInputTypeName: MutationCapabilityFilterInput
+    aggregate:
+      queryRootField: mutationCapabilityAggregate
+      subscription:
+        rootField: mutationCapabilityAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: MutationCapability
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: dataConnectors
+  sourceType: MutationCapability
+  target:
+    model:
+      name: DataConnector
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: DataConnectorAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: dataConnectorsAggregate
+

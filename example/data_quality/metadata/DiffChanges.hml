@@ -1,0 +1,212 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DiffChanges
+  fields:
+    - name: diffEntryId
+      type: Int4_1!
+    - name: fieldPath
+      type: Varchar_1!
+    - name: id
+      type: Int4_1!
+    - name: newValue
+      type: Varchar_1
+    - name: oldValue
+      type: Varchar_1
+    - name: operation
+      type: Changeoperation!
+    - name: valueType
+      type: Varchar_1!
+  graphql:
+    typeName: DiffChanges
+    inputTypeName: DiffChangesInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: diff_changes
+      fieldMapping:
+        diffEntryId:
+          column:
+            name: diff_entry_id
+        fieldPath:
+          column:
+            name: field_path
+        id:
+          column:
+            name: id
+        newValue:
+          column:
+            name: new_value
+        oldValue:
+          column:
+            name: old_value
+        operation:
+          column:
+            name: operation
+        valueType:
+          column:
+            name: value_type
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DiffChanges
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - diffEntryId
+          - fieldPath
+          - id
+          - newValue
+          - oldValue
+          - operation
+          - valueType
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: DiffChangesBoolExp
+  operand:
+    object:
+      type: DiffChanges
+      comparableFields:
+        - fieldName: diffEntryId
+          booleanExpressionType: Int4BoolExp_1
+        - fieldName: fieldPath
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: id
+          booleanExpressionType: Int4BoolExp_1
+        - fieldName: newValue
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: oldValue
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: operation
+          booleanExpressionType: ChangeoperationBoolExp
+        - fieldName: valueType
+          booleanExpressionType: VarcharBoolExp_1
+      comparableRelationships:
+        - relationshipName: diff
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: DiffChangesBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: DiffChangesAggExp
+  operand:
+    object:
+      aggregatedType: DiffChanges
+      aggregatableFields:
+        - fieldName: diffEntryId
+          aggregateExpression: Int4AggExp_1
+        - fieldName: fieldPath
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: id
+          aggregateExpression: Int4AggExp_1
+        - fieldName: newValue
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: oldValue
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: operation
+          aggregateExpression: ChangeoperationAggExp
+        - fieldName: valueType
+          aggregateExpression: VarcharAggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: DiffChangesAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: DiffChangesOrderByExp
+  operand:
+    object:
+      orderedType: DiffChanges
+      orderableFields:
+        - fieldName: diffEntryId
+          orderByExpression: Int41OrderByExp
+        - fieldName: fieldPath
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: id
+          orderByExpression: Int41OrderByExp
+        - fieldName: newValue
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: oldValue
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: operation
+          orderByExpression: ChangeoperationOrderByExp
+        - fieldName: valueType
+          orderByExpression: Varchar1OrderByExp
+      orderableRelationships:
+        - relationshipName: diff
+  graphql:
+    expressionTypeName: DiffChangesOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: DiffChanges
+  objectType: DiffChanges
+  source:
+    dataConnectorName: mdata
+    collection: diff_changes
+  filterExpressionType: DiffChangesBoolExp
+  aggregateExpression: DiffChangesAggExp
+  orderByExpression: DiffChangesOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: diffChanges
+      subscription:
+        rootField: diffChanges
+    selectUniques:
+      - queryRootField: diffChangesById
+        uniqueIdentifier:
+          - id
+        subscription:
+          rootField: diffChangesById
+    filterInputTypeName: DiffChangesFilterInput
+    aggregate:
+      queryRootField: diffChangesAggregate
+      subscription:
+        rootField: diffChangesAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: DiffChanges
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: diff
+  sourceType: DiffChanges
+  target:
+    model:
+      name: Diffs
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: diffEntryId
+      target:
+        modelField:
+          - fieldName: id
+

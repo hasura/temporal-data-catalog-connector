@@ -1,0 +1,299 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DataConnectorOperatorMapping
+  fields:
+    - name: booleanExpressionTypeName
+      type: Varchar_1!
+    - name: dataConnectorName
+      type: Varchar_1!
+    - name: dataConnectorScalarType
+      type: Varchar_1!
+    - name: operatorMapping
+      type: Json!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+  graphql:
+    typeName: DataConnectorOperatorMapping
+    inputTypeName: DataConnectorOperatorMappingInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: data_connector_operator_mapping
+      fieldMapping:
+        booleanExpressionTypeName:
+          column:
+            name: boolean_expression_type_name
+        dataConnectorName:
+          column:
+            name: data_connector_name
+        dataConnectorScalarType:
+          column:
+            name: data_connector_scalar_type
+        operatorMapping:
+          column:
+            name: operator_mapping
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DataConnectorOperatorMapping
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - booleanExpressionTypeName
+          - dataConnectorName
+          - dataConnectorScalarType
+          - operatorMapping
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: DataConnectorOperatorMappingBoolExp
+  operand:
+    object:
+      type: DataConnectorOperatorMapping
+      comparableFields:
+        - fieldName: booleanExpressionTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: dataConnectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: dataConnectorScalarType
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: operatorMapping
+          booleanExpressionType: JsonBoolExp
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships:
+        - relationshipName: booleanExpressionType
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: DataConnectorOperatorMappingBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: DataConnectorOperatorMappingAggExp
+  operand:
+    object:
+      aggregatedType: DataConnectorOperatorMapping
+      aggregatableFields:
+        - fieldName: booleanExpressionTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: dataConnectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: dataConnectorScalarType
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: operatorMapping
+          aggregateExpression: JsonAggExp
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: DataConnectorOperatorMappingAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: DataConnectorOperatorMappingOrderByExp
+  operand:
+    object:
+      orderedType: DataConnectorOperatorMapping
+      orderableFields:
+        - fieldName: booleanExpressionTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: dataConnectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: dataConnectorScalarType
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: operatorMapping
+          orderByExpression: JsonOrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships:
+        - relationshipName: booleanExpressionType
+  graphql:
+    expressionTypeName: DataConnectorOperatorMappingOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: DataConnectorOperatorMapping
+  objectType: DataConnectorOperatorMapping
+  source:
+    dataConnectorName: mdata
+    collection: data_connector_operator_mapping
+  filterExpressionType: DataConnectorOperatorMappingBoolExp
+  aggregateExpression: DataConnectorOperatorMappingAggExp
+  orderByExpression: DataConnectorOperatorMappingOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: dataConnectorOperatorMapping
+      subscription:
+        rootField: dataConnectorOperatorMapping
+    selectUniques:
+      - queryRootField: dataConnectorOperatorMappingByDataConnectorOperatorMappingPkey
+        uniqueIdentifier:
+          - booleanExpressionTypeName
+          - dataConnectorName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: dataConnectorOperatorMappingByDataConnectorOperatorMappingPkey
+    filterInputTypeName: DataConnectorOperatorMappingFilterInput
+    aggregate:
+      queryRootField: dataConnectorOperatorMappingAggregate
+      subscription:
+        rootField: dataConnectorOperatorMappingAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: DataConnectorOperatorMapping
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: booleanExpressionType
+  sourceType: DataConnectorOperatorMapping
+  target:
+    model:
+      name: BooleanExpressionType
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: booleanExpressionTypeName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

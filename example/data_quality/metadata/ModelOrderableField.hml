@@ -1,0 +1,281 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ModelOrderableField
+  fields:
+    - name: enableAllDirections
+      type: Bool_1!
+    - name: fieldName
+      type: Varchar_1!
+    - name: modelName
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+  graphql:
+    typeName: ModelOrderableField
+    inputTypeName: ModelOrderableFieldInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: model_orderable_field
+      fieldMapping:
+        enableAllDirections:
+          column:
+            name: enable_all_directions
+        fieldName:
+          column:
+            name: field_name
+        modelName:
+          column:
+            name: model_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ModelOrderableField
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - enableAllDirections
+          - fieldName
+          - modelName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ModelOrderableFieldBoolExp
+  operand:
+    object:
+      type: ModelOrderableField
+      comparableFields:
+        - fieldName: enableAllDirections
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: fieldName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships:
+        - relationshipName: model
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ModelOrderableFieldBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ModelOrderableFieldAggExp
+  operand:
+    object:
+      aggregatedType: ModelOrderableField
+      aggregatableFields:
+        - fieldName: enableAllDirections
+          aggregateExpression: BoolAggExp_1
+        - fieldName: fieldName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: ModelOrderableFieldAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ModelOrderableFieldOrderByExp
+  operand:
+    object:
+      orderedType: ModelOrderableField
+      orderableFields:
+        - fieldName: enableAllDirections
+          orderByExpression: Bool1OrderByExp
+        - fieldName: fieldName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: modelName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships:
+        - relationshipName: model
+  graphql:
+    expressionTypeName: ModelOrderableFieldOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: ModelOrderableField
+  objectType: ModelOrderableField
+  source:
+    dataConnectorName: mdata
+    collection: model_orderable_field
+  filterExpressionType: ModelOrderableFieldBoolExp
+  aggregateExpression: ModelOrderableFieldAggExp
+  orderByExpression: ModelOrderableFieldOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: modelOrderableField
+      subscription:
+        rootField: modelOrderableField
+    selectUniques:
+      - queryRootField: modelOrderableFieldByModelOrderableFieldPkey
+        uniqueIdentifier:
+          - fieldName
+          - modelName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: modelOrderableFieldByModelOrderableFieldPkey
+    filterInputTypeName: ModelOrderableFieldFilterInput
+    aggregate:
+      queryRootField: modelOrderableFieldAggregate
+      subscription:
+        rootField: modelOrderableFieldAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: ModelOrderableField
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: model
+  sourceType: ModelOrderableField
+  target:
+    model:
+      name: Model
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: modelName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

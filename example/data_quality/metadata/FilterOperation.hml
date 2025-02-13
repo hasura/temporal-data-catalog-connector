@@ -1,0 +1,388 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: FilterOperation
+  fields:
+    - name: conditionType
+      type: Varchar_1!
+    - name: modelName
+      type: Varchar_1!
+    - name: operationName
+      type: Varchar_1!
+    - name: operator
+      type: Varchar_1!
+    - name: roleName
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+  graphql:
+    typeName: FilterOperation
+    inputTypeName: FilterOperationInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: filter_operation
+      fieldMapping:
+        conditionType:
+          column:
+            name: condition_type
+        modelName:
+          column:
+            name: model_name
+        operationName:
+          column:
+            name: operation_name
+        operator:
+          column:
+            name: operator
+        roleName:
+          column:
+            name: role_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: FilterOperation
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - conditionType
+          - modelName
+          - operationName
+          - operator
+          - roleName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: FilterOperationBoolExp
+  operand:
+    object:
+      type: FilterOperation
+      comparableFields:
+        - fieldName: conditionType
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: operationName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: operator
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: roleName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships:
+        - relationshipName: filterOperands
+        - relationshipName: filterCondition
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: FilterOperationBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: FilterOperationAggExp
+  operand:
+    object:
+      aggregatedType: FilterOperation
+      aggregatableFields:
+        - fieldName: conditionType
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: operationName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: operator
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: roleName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: FilterOperationAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: FilterOperationOrderByExp
+  operand:
+    object:
+      orderedType: FilterOperation
+      orderableFields:
+        - fieldName: conditionType
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: modelName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: operationName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: operator
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: roleName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships:
+        - relationshipName: filterCondition
+  graphql:
+    expressionTypeName: FilterOperationOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: FilterOperation
+  objectType: FilterOperation
+  source:
+    dataConnectorName: mdata
+    collection: filter_operation
+  filterExpressionType: FilterOperationBoolExp
+  aggregateExpression: FilterOperationAggExp
+  orderByExpression: FilterOperationOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: filterOperation
+      subscription:
+        rootField: filterOperation
+    selectUniques:
+      - queryRootField: filterOperationByFilterOperationPkey
+        uniqueIdentifier:
+          - conditionType
+          - modelName
+          - operationName
+          - roleName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: filterOperationByFilterOperationPkey
+      - queryRootField: filterOperationByUqFilterOperation9B040D1Bb3
+        uniqueIdentifier:
+          - conditionType
+          - modelName
+          - operationName
+          - roleName
+          - subgraphName
+          - tIsCurrent
+        subscription:
+          rootField: filterOperationByUqFilterOperation9B040D1Bb3
+    filterInputTypeName: FilterOperationFilterInput
+    aggregate:
+      queryRootField: filterOperationAggregate
+      subscription:
+        rootField: filterOperationAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: FilterOperation
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: filterOperands
+  sourceType: FilterOperation
+  target:
+    model:
+      name: FilterOperand
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: FilterOperandAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: conditionType
+      target:
+        modelField:
+          - fieldName: conditionType
+    - source:
+        fieldPath:
+          - fieldName: modelName
+      target:
+        modelField:
+          - fieldName: modelName
+    - source:
+        fieldPath:
+          - fieldName: operationName
+      target:
+        modelField:
+          - fieldName: operationName
+    - source:
+        fieldPath:
+          - fieldName: roleName
+      target:
+        modelField:
+          - fieldName: roleName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: filterOperandsAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: filterCondition
+  sourceType: FilterOperation
+  target:
+    model:
+      name: FilterCondition
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: conditionType
+      target:
+        modelField:
+          - fieldName: conditionType
+    - source:
+        fieldPath:
+          - fieldName: modelName
+      target:
+        modelField:
+          - fieldName: modelName
+    - source:
+        fieldPath:
+          - fieldName: roleName
+      target:
+        modelField:
+          - fieldName: roleName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+

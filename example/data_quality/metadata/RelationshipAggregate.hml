@@ -1,0 +1,267 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: RelationshipAggregate
+  fields:
+    - name: aggregateExpression
+      type: Varchar_1
+    - name: description
+      type: Varchar_1
+    - name: relationshipName
+      type: Varchar_1!
+    - name: sourceTypeName
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+  graphql:
+    typeName: RelationshipAggregate
+    inputTypeName: RelationshipAggregateInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: relationship_aggregate
+      fieldMapping:
+        aggregateExpression:
+          column:
+            name: aggregate_expression
+        description:
+          column:
+            name: description
+        relationshipName:
+          column:
+            name: relationship_name
+        sourceTypeName:
+          column:
+            name: source_type_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: RelationshipAggregate
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - aggregateExpression
+          - description
+          - relationshipName
+          - sourceTypeName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: RelationshipAggregateBoolExp
+  operand:
+    object:
+      type: RelationshipAggregate
+      comparableFields:
+        - fieldName: aggregateExpression
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: description
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: relationshipName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: sourceTypeName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: RelationshipAggregateBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: RelationshipAggregateAggExp
+  operand:
+    object:
+      aggregatedType: RelationshipAggregate
+      aggregatableFields:
+        - fieldName: aggregateExpression
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: description
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: relationshipName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: sourceTypeName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: RelationshipAggregateAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: RelationshipAggregateOrderByExp
+  operand:
+    object:
+      orderedType: RelationshipAggregate
+      orderableFields:
+        - fieldName: aggregateExpression
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: description
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: relationshipName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: sourceTypeName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships: []
+  graphql:
+    expressionTypeName: RelationshipAggregateOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: RelationshipAggregate
+  objectType: RelationshipAggregate
+  source:
+    dataConnectorName: mdata
+    collection: relationship_aggregate
+  filterExpressionType: RelationshipAggregateBoolExp
+  aggregateExpression: RelationshipAggregateAggExp
+  orderByExpression: RelationshipAggregateOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: relationshipAggregate_1
+      subscription:
+        rootField: relationshipAggregate_1
+    selectUniques:
+      - queryRootField: relationshipAggregateByRelationshipAggregatePkey
+        uniqueIdentifier:
+          - relationshipName
+          - sourceTypeName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: relationshipAggregateByRelationshipAggregatePkey
+    filterInputTypeName: RelationshipAggregateFilterInput
+    aggregate:
+      queryRootField: relationshipAggregateAggregate
+      subscription:
+        rootField: relationshipAggregateAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: RelationshipAggregate
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+

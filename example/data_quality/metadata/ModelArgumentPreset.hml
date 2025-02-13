@@ -1,0 +1,350 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: ModelArgumentPreset
+  fields:
+    - name: argumentName
+      type: Varchar_1!
+    - name: modelName
+      type: Varchar_1!
+    - name: roleName
+      type: Varchar_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+  graphql:
+    typeName: ModelArgumentPreset
+    inputTypeName: ModelArgumentPresetInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: model_argument_preset
+      fieldMapping:
+        argumentName:
+          column:
+            name: argument_name
+        modelName:
+          column:
+            name: model_name
+        roleName:
+          column:
+            name: role_name
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: ModelArgumentPreset
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - argumentName
+          - modelName
+          - roleName
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ModelArgumentPresetBoolExp
+  operand:
+    object:
+      type: ModelArgumentPreset
+      comparableFields:
+        - fieldName: argumentName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: roleName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships:
+        - relationshipName: modelPermission
+        - relationshipName: presetValues
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ModelArgumentPresetBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ModelArgumentPresetAggExp
+  operand:
+    object:
+      aggregatedType: ModelArgumentPreset
+      aggregatableFields:
+        - fieldName: argumentName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: roleName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: ModelArgumentPresetAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: ModelArgumentPresetOrderByExp
+  operand:
+    object:
+      orderedType: ModelArgumentPreset
+      orderableFields:
+        - fieldName: argumentName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: modelName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: roleName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships:
+        - relationshipName: modelPermission
+  graphql:
+    expressionTypeName: ModelArgumentPresetOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: ModelArgumentPreset
+  objectType: ModelArgumentPreset
+  source:
+    dataConnectorName: mdata
+    collection: model_argument_preset
+  filterExpressionType: ModelArgumentPresetBoolExp
+  aggregateExpression: ModelArgumentPresetAggExp
+  orderByExpression: ModelArgumentPresetOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: modelArgumentPreset
+      subscription:
+        rootField: modelArgumentPreset
+    selectUniques:
+      - queryRootField: modelArgumentPresetByModelArgumentPresetPkey
+        uniqueIdentifier:
+          - argumentName
+          - modelName
+          - roleName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: modelArgumentPresetByModelArgumentPresetPkey
+      - queryRootField: modelArgumentPresetByUqModelArgumentPreset7118871F66
+        uniqueIdentifier:
+          - argumentName
+          - modelName
+          - roleName
+          - subgraphName
+          - tIsCurrent
+        subscription:
+          rootField: modelArgumentPresetByUqModelArgumentPreset7118871F66
+    filterInputTypeName: ModelArgumentPresetFilterInput
+    aggregate:
+      queryRootField: modelArgumentPresetAggregate
+      subscription:
+        rootField: modelArgumentPresetAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: ModelArgumentPreset
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: modelPermission
+  sourceType: ModelArgumentPreset
+  target:
+    model:
+      name: ModelPermission
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: modelName
+      target:
+        modelField:
+          - fieldName: modelName
+    - source:
+        fieldPath:
+          - fieldName: roleName
+      target:
+        modelField:
+          - fieldName: roleName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: presetValues
+  sourceType: ModelArgumentPreset
+  target:
+    model:
+      name: PresetValue
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: PresetValueAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: argumentName
+      target:
+        modelField:
+          - fieldName: argumentName
+    - source:
+        fieldPath:
+          - fieldName: modelName
+      target:
+        modelField:
+          - fieldName: modelName
+    - source:
+        fieldPath:
+          - fieldName: roleName
+      target:
+        modelField:
+          - fieldName: roleName
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+  graphql:
+    aggregateFieldName: presetValuesAggregate
+

@@ -1,0 +1,286 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: RelationshipCapability
+  fields:
+    - name: connectorName
+      type: Varchar_1!
+    - name: orderByAggregateEnabled
+      type: Bool_1!
+    - name: relationComparisonsEnabled
+      type: Bool_1!
+    - name: subgraphName
+      type: Varchar_1!
+    - name: tContentHash
+      type: Varchar_1!
+    - name: tCreatedAt
+      type: Timestamp!
+    - name: tDeletedAt
+      type: Timestamp
+    - name: tId
+      type: Varchar_1!
+    - name: tIsCurrent
+      type: Bool_1!
+    - name: tIsDeleted
+      type: Bool_1!
+    - name: tUpdatedAt
+      type: Timestamp!
+    - name: tVersion
+      type: Int4_1!
+  graphql:
+    typeName: RelationshipCapability
+    inputTypeName: RelationshipCapabilityInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mdata
+      dataConnectorObjectType: relationship_capability
+      fieldMapping:
+        connectorName:
+          column:
+            name: connector_name
+        orderByAggregateEnabled:
+          column:
+            name: order_by_aggregate_enabled
+        relationComparisonsEnabled:
+          column:
+            name: relation_comparisons_enabled
+        subgraphName:
+          column:
+            name: subgraph_name
+        tContentHash:
+          column:
+            name: t_content_hash
+        tCreatedAt:
+          column:
+            name: t_created_at
+        tDeletedAt:
+          column:
+            name: t_deleted_at
+        tId:
+          column:
+            name: t_id
+        tIsCurrent:
+          column:
+            name: t_is_current
+        tIsDeleted:
+          column:
+            name: t_is_deleted
+        tUpdatedAt:
+          column:
+            name: t_updated_at
+        tVersion:
+          column:
+            name: t_version
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: RelationshipCapability
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - connectorName
+          - orderByAggregateEnabled
+          - relationComparisonsEnabled
+          - subgraphName
+          - tContentHash
+          - tCreatedAt
+          - tDeletedAt
+          - tId
+          - tIsCurrent
+          - tIsDeleted
+          - tUpdatedAt
+          - tVersion
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: RelationshipCapabilityBoolExp
+  operand:
+    object:
+      type: RelationshipCapability
+      comparableFields:
+        - fieldName: connectorName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: orderByAggregateEnabled
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: relationComparisonsEnabled
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: subgraphName
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tContentHash
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tCreatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tDeletedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tId
+          booleanExpressionType: VarcharBoolExp_1
+        - fieldName: tIsCurrent
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tIsDeleted
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: tUpdatedAt
+          booleanExpressionType: TimestampBoolExp
+        - fieldName: tVersion
+          booleanExpressionType: Int4BoolExp_1
+      comparableRelationships:
+        - relationshipName: dataConnector
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: RelationshipCapabilityBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: RelationshipCapabilityAggExp
+  operand:
+    object:
+      aggregatedType: RelationshipCapability
+      aggregatableFields:
+        - fieldName: connectorName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: orderByAggregateEnabled
+          aggregateExpression: BoolAggExp_1
+        - fieldName: relationComparisonsEnabled
+          aggregateExpression: BoolAggExp_1
+        - fieldName: subgraphName
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tContentHash
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tCreatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tDeletedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tId
+          aggregateExpression: VarcharAggExp_1
+        - fieldName: tIsCurrent
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tIsDeleted
+          aggregateExpression: BoolAggExp_1
+        - fieldName: tUpdatedAt
+          aggregateExpression: TimestampAggExp
+        - fieldName: tVersion
+          aggregateExpression: Int4AggExp_1
+  count:
+    enable: true
+  graphql:
+    selectTypeName: RelationshipCapabilityAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: RelationshipCapabilityOrderByExp
+  operand:
+    object:
+      orderedType: RelationshipCapability
+      orderableFields:
+        - fieldName: connectorName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: orderByAggregateEnabled
+          orderByExpression: Bool1OrderByExp
+        - fieldName: relationComparisonsEnabled
+          orderByExpression: Bool1OrderByExp
+        - fieldName: subgraphName
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tContentHash
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tCreatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tDeletedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tId
+          orderByExpression: Varchar1OrderByExp
+        - fieldName: tIsCurrent
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tIsDeleted
+          orderByExpression: Bool1OrderByExp
+        - fieldName: tUpdatedAt
+          orderByExpression: TimestampOrderByExp
+        - fieldName: tVersion
+          orderByExpression: Int41OrderByExp
+      orderableRelationships:
+        - relationshipName: dataConnector
+  graphql:
+    expressionTypeName: RelationshipCapabilityOrderByExp
+
+---
+kind: Model
+version: v2
+definition:
+  name: RelationshipCapability
+  objectType: RelationshipCapability
+  source:
+    dataConnectorName: mdata
+    collection: relationship_capability
+  filterExpressionType: RelationshipCapabilityBoolExp
+  aggregateExpression: RelationshipCapabilityAggExp
+  orderByExpression: RelationshipCapabilityOrderByExp
+  graphql:
+    selectMany:
+      queryRootField: relationshipCapability
+      subscription:
+        rootField: relationshipCapability
+    selectUniques:
+      - queryRootField: relationshipCapabilityByRelationshipCapabilityPkey
+        uniqueIdentifier:
+          - connectorName
+          - subgraphName
+          - tVersion
+        subscription:
+          rootField: relationshipCapabilityByRelationshipCapabilityPkey
+    filterInputTypeName: RelationshipCapabilityFilterInput
+    aggregate:
+      queryRootField: relationshipCapabilityAggregate
+      subscription:
+        rootField: relationshipCapabilityAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: RelationshipCapability
+  permissions:
+    - role: admin
+      select:
+        filter: null
+        allowSubscriptions: true
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: dataConnector
+  sourceType: RelationshipCapability
+  target:
+    model:
+      name: DataConnector
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: connectorName
+      target:
+        modelField:
+          - fieldName: name
+    - source:
+        fieldPath:
+          - fieldName: subgraphName
+      target:
+        modelField:
+          - fieldName: subgraphName
+    - source:
+        fieldPath:
+          - fieldName: tIsCurrent
+      target:
+        modelField:
+          - fieldName: tIsCurrent
+
