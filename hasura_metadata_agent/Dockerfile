@@ -4,11 +4,10 @@ FROM python:3.9-slim
 WORKDIR /workspace
 
 # Copy requirements and install dependencies
-COPY ./requirements.txt .
+COPY ./hasura_metadata_agent /workspace
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code maintaining the app package structure
-COPY ./app /workspace/app
 COPY ./example/engine/build/metadata.json /build/metadata.json
 
 # Environment variables
@@ -17,4 +16,4 @@ ENV ENGINE_BUILD_PATH=/build/metadata.json \
     PYTHONPATH=/workspace
 
 # Set the default command
-CMD ["python", "-m", "app.metadata.run", "--log-cli-level=DEBUG"]
+CMD ["python", "/workspace/run.py", "--log-cli-level=DEBUG"]
