@@ -1,6 +1,7 @@
 from typing import List, Type, Dict, Any, TYPE_CHECKING
 
 from sqlalchemy.orm import Mapped, Session
+import os
 
 from .subgraph_base import Subgraph as BaseSubgraph
 from ..compatibility_config import CompatibilityConfig
@@ -158,17 +159,21 @@ class Subgraph(BaseSubgraph):
             "AuthConfig",
             "GraphqlConfig",  # Depends on the availability of other object types
             "DataConnectorScalarRepresentation",
+            "Command",
+            "CommandPermissions",
 
             # Physical Layer
             "DataConnectorLink",  # Bridge between logical and physical
         ]
 
         from ..auth_config import AuthConfig
+        excluded_objects = os.getenv('EXCLUDED_OBJECTS', '').split(',') if os.getenv('EXCLUDED_OBJECTS') else []
 
         # Process objects in specified order
         for kind in ordered_kinds:
             if "objects" in json_data:
-                for obj in [obj for obj in json_data["objects"] if obj.get("kind") == kind.split('.')[0]]:
+                for obj in [obj for obj in json_data["objects"] if obj.get("kind") == kind.split('.')[0] and obj.get(
+                        "definition", {}).get("name") not in excluded_objects]:
                     try:
                         if kind == "DataConnectorLink":
                             dc = DataConnector.from_json(obj, subgraph, session)
@@ -258,6 +263,16 @@ class Subgraph(BaseSubgraph):
                             mp = mp_module.ModelPermission.from_json(obj, subgraph, session)
                             if mp:
                                 session.flush()
+                        elif kind == "CommandPermissions":
+                            from ..command_permissions import command_permissions as cp_module
+                            cp = cp_module.CommandPermissions.from_json(obj, subgraph.name, session)
+                            if cp:
+                                session.flush()
+                        elif kind == "Command":
+                            from ..command import command as c_module
+                            c = c_module.Command.from_json(obj, subgraph.name, session)
+                            if c:
+                                session.flush()
                                 # session.commit()
                     except Exception as e:
                         # Log error but continue processing other objects
@@ -301,10 +316,10 @@ class Subgraph(BaseSubgraph):
 
     def to_json(self, session: Session):
         """
-        Prepare the Subgraph for JSON serialization in metadata.json format.
+        Prepare the Subgraph for JSON serialization in hasura_metadata_manager.json format.
 
         Returns:
-            dict: A dictionary representing the Subgraph with 'kind' and other metadata
+            dict: A dictionary representing the Subgraph with 'kind' and other hasura_metadata_manager
         """
         # Start with the basic dictionary from to_dict()
         json_dict = self.to_dict()
@@ -320,7 +335,7 @@ class Subgraph(BaseSubgraph):
         from ..data_connector_scalar_representation.data_connector_scalar_representation import \
             DataConnectorScalarRepresentation
 
-        # Configuration and metadata objects to collect
+        # Configuration and hasura_metadata_manager objects to collect
         object_types = [
             (LifecyclePluginHook, 'LifecyclePluginHook'),
             (AuthConfig, 'AuthConfig'),

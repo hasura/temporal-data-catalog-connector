@@ -89,7 +89,7 @@ class ObjectType(BaseObjectType):
             graphql_input_type_name=def_data.get("graphql", {}).get("inputTypeName")
         )
         session.add(object_type)
-        
+
 
         session.flush()
 
@@ -101,7 +101,7 @@ class ObjectType(BaseObjectType):
         return object_type
 
     def to_json(self) -> dict:
-        """Convert ObjectType to JSON representation matching metadata format."""
+        """Convert ObjectType to JSON representation matching hasura_metadata_manager format."""
         fields_data = [field.to_json() for field in self.fields]
 
         definition = {

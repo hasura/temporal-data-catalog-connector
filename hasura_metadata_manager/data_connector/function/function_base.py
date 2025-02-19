@@ -14,4 +14,5 @@ class Function(Base):
     name: Mapped[str] = mapped_column(String(255), primary_key=True)
     description: Mapped[Optional[str]] = mapped_column(Text)
     return_type_name: Mapped[str] = mapped_column(String(255))
+    return_type_type: Mapped[str] = mapped_column(String(255))
     return_type_connector: Mapped[str] = mapped_column(String(255))

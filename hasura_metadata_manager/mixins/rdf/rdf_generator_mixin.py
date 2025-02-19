@@ -37,7 +37,7 @@ class RDFGeneratorMixin(ModelRDFMixin, InstanceRDFMixin):
             metadata_type: str = "instance",
             translator: Optional[RDFTranslator[T]] = None
     ) -> Union[Graph, T]:
-        """Generate an RDF graph for either model or instance metadata with caching"""
+        """Generate an RDF graph for either model or instance hasura_metadata_manager with caching"""
         if metadata_type == "model":
             return cls.translate_to_model_metadata(session, translator)
         else:

@@ -61,12 +61,12 @@ class ObjectField(BaseObjectField):
         )
         session.add(field)
         session.flush()
-        
+
 
         return field
 
     def to_json(self) -> dict:
-        """Convert ObjectField to JSON representation matching metadata format."""
+        """Convert ObjectField to JSON representation matching hasura_metadata_manager format."""
         type_name = self.scalar_type_name
         if self.is_array:
             type_name = f"[{type_name}]"

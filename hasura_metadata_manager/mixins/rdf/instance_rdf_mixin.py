@@ -16,7 +16,7 @@ from .rdf_translator import RDFTranslator
 
 
 class InstanceRDFMixin(BaseRDFMixin):
-    """Mixin class for handling instance-level RDF metadata."""
+    """Mixin class for handling instance-level RDF hasura_metadata_manager."""
 
     @classmethod
     def get_rdf_properties(cls) -> List[str]:
@@ -57,7 +57,7 @@ class InstanceRDFMixin(BaseRDFMixin):
         return uri
 
     def _add_property_triples(self, graph: Graph, subject_uri: URIRef) -> str:
-        """Add property triples to the graph for instance metadata"""
+        """Add property triples to the graph for instance hasura_metadata_manager"""
         logger.debug(f"Adding property triples for subject: {subject_uri}")
         properties_added = 0
         query_params = []
@@ -79,7 +79,7 @@ class InstanceRDFMixin(BaseRDFMixin):
         return "&".join(query_params)
 
     def _add_relationship_triples(self, graph: Graph, subject_uri: URIRef) -> None:
-        """Add relationship triples to the graph for instance metadata"""
+        """Add relationship triples to the graph for instance hasura_metadata_manager"""
         logger.debug(f"Adding relationship triples for subject: {subject_uri}")
         relationships_added = 0
 
@@ -103,7 +103,7 @@ class InstanceRDFMixin(BaseRDFMixin):
         logger.debug(f"Added {relationships_added} relationship triples to graph")
 
     def _generate_instance_rdf(self, session: Session) -> Graph:
-        """Generate instance-specific RDF metadata"""
+        """Generate instance-specific RDF hasura_metadata_manager"""
         graph = Graph()
         bind_namespaces(graph)
 
@@ -135,8 +135,8 @@ class InstanceRDFMixin(BaseRDFMixin):
 
     @classmethod
     def generate_instance_metadata_graph(cls, session: Session) -> Graph:
-        """Generate RDF graph representing metadata for specific supergraph instances"""
-        logger.debug(f"Generating instance metadata RDF graph for {cls.__name__}")
+        """Generate RDF graph representing hasura_metadata_manager for specific supergraph instances"""
+        logger.debug(f"Generating instance hasura_metadata_manager RDF graph for {cls.__name__}")
         all_graphs = Graph()
         bind_namespaces(all_graphs)
         instance_count = 0
@@ -146,9 +146,9 @@ class InstanceRDFMixin(BaseRDFMixin):
             all_graphs += instance_graph
             instance_count += 1
             if instance_count % 100 == 0:
-                logger.debug(f"Processed {instance_count} instance metadata entries")
+                logger.debug(f"Processed {instance_count} instance hasura_metadata_manager entries")
 
-        logger.debug(f"Completed instance metadata graph generation. Total instances: {instance_count}")
+        logger.debug(f"Completed instance hasura_metadata_manager graph generation. Total instances: {instance_count}")
         return all_graphs
 
     @classmethod
@@ -167,7 +167,7 @@ class InstanceRDFMixin(BaseRDFMixin):
             session: Session,
             translator: Optional[RDFTranslator[T]] = None
     ) -> Union[Graph, T]:
-        """Generate and optionally translate instance metadata"""
+        """Generate and optionally translate instance hasura_metadata_manager"""
         cls._ensure_cache_configured()
 
         if not cls._cache_manager:

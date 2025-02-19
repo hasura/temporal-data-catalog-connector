@@ -9,7 +9,6 @@ from ..mixins.temporal.temporal_relationship import TemporalRelationship
 
 if TYPE_CHECKING:
     from ..boolean_expression_type.boolean_expression_type_base import BooleanExpressionType
-    from .. import DataConnector
     from .scalar_type.connector_scalar_type import ConnectorScalarType
 
 logger = __import__("logging").getLogger(__name__)
@@ -85,7 +84,7 @@ class ComparisonOperator(Base):
 
     @classmethod
     def from_json(cls, name: str, json_data: Dict[str, Any], parent: "BooleanExpressionType",
-                  connector: "DataConnector", session: Session,
+                  connector_name: str, session: Session,
                   scalar_type: Optional["ConnectorScalarType"] = None) -> "ComparisonOperator":
         """
         Create a ComparisonOperator from JSON data, handling both simple and custom operators.
@@ -94,7 +93,7 @@ class ComparisonOperator(Base):
             name: operator name
             json_data: Dictionary containing operator information
             parent: Parent BooleanExpressionType instance
-            connector: Associated DataConnector instance
+            connector_name: Associated DataConnector instance
             session: SQLAlchemy session
             scalar_type: Optional ConnectorScalarType instance this operator belongs to
 
@@ -110,7 +109,7 @@ class ComparisonOperator(Base):
             "name": name,
             "subgraph_name": parent.subgraph_name,
             "boolean_expression_type_name": parent.name,
-            "connector_name": connector.name,
+            "connector_name": connector_name,
             "operator_type": operator_type
         }
 
@@ -127,7 +126,7 @@ class ComparisonOperator(Base):
             # Create or get the TypeDefinition instance
             argument_type = TypeDefinition.from_json(
                 type_info={"type": argument_type_info},
-                connector_name=connector.name,
+                connector_name=connector_name,
                 subgraph_name=parent.subgraph_name,
                 session=session
             )

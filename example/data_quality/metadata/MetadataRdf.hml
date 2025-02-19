@@ -1,0 +1,31 @@
+---
+kind: Command
+version: v1
+definition:
+  name: MetadataRdf
+  outputType: String!
+  arguments:
+    - name: centerNode
+      type: String!
+    - name: hops
+      type: Int!
+  source:
+    dataConnectorName: mdatax
+    dataConnectorCommand:
+      function: metadata_rdf
+    argumentMapping:
+      centerNode: center_node
+      hops: hops
+  graphql:
+    rootFieldName: metadataRdf
+    rootFieldKind: Query
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: MetadataRdf
+  permissions:
+    - role: admin
+      allowExecution: true
+

@@ -19,7 +19,7 @@ class TemporalSerializerMixin:
         """
         Automatically creates a filter based on primary key columns.
         """
-        # Get primary key columns from SQLAlchemy metadata
+        # Get primary key columns from SQLAlchemy hasura_metadata_manager
         primary_key_columns = [col for col in cls.__table__.columns if col.primary_key]
 
         if not primary_key_columns:

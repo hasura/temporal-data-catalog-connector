@@ -82,9 +82,9 @@ jobs:
             registry: ${{ env.DOCKER_REGISTRY }}
             username: ${{ github.actor }}
             password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Extract metadata (tags, labels) for Docker
-        id: docker-metadata
-        uses: docker/metadata-action@v5
+      - name: Extract hasura_metadata_manager (tags, labels) for Docker
+        id: docker-hasura_metadata_manager
+        uses: docker/hasura_metadata_manager-action@v5
         with:
             images: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}
       - name: Build and push Docker image
@@ -93,9 +93,9 @@ jobs:
             context: .
             push: true
             platforms: linux/amd64,linux/arm64
-            tags: ${{ steps.docker-metadata.outputs.tags }}
-            labels: ${{ steps.docker-metadata.outputs.labels }}
-  
+            tags: ${{ steps.docker-hasura_metadata_manager.outputs.tags }}
+            labels: ${{ steps.docker-hasura_metadata_manager.outputs.labels }}
+
   release-connector:
     name: Release connector
     runs-on: ubuntu-latest

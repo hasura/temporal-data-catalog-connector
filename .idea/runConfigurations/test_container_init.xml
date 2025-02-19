@@ -6,6 +6,17 @@
     <option name="PARENT_ENVS" value="true" />
     <envs>
       <env name="CLEAN_DATABASE" value="true" />
+      <env name="CONNECT_TIMEOUT" value="60" />
+      <env name="DATABASE_URL" value="postgresql://postgres:password@localhost:32100/postgres" />
+      <env name="ENGINE_BUILD_PATH" value="./example/engine/build/metadata.json" />
+      <env name="EXCLUDED_SUBGRAPHS" value="data_quality" />
+      <env name="KEEPALIVES" value="1" />
+      <env name="KEEPALIVES_COUNT" value="20" />
+      <env name="KEEPALIVES_IDLE" value="1800" />
+      <env name="KEEPALIVES_INTERNAL" value="60" />
+      <env name="MAX_OVERFLOW" value="30" />
+      <env name="POOL_PRE_PING" value="yes" />
+      <env name="POOL_SIZE" value="20" />
     </envs>
     <option name="SDK_HOME" value="" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -26,7 +37,7 @@
     <option name="_new_keywords" value="&quot;&quot;" />
     <option name="_new_parameters" value="&quot;&quot;" />
     <option name="_new_additionalArguments" value="&quot;--log-cli-level\u003dDEBUG -s&quot;" />
-    <option name="_new_target" value="&quot;metadata.tests.test_import_schema.test_container_init&quot;" />
+    <option name="_new_target" value="&quot;tests.test_import_schema.test_container_init&quot;" />
     <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     <method v="2" />
   </configuration>

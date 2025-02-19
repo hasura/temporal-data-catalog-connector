@@ -2,7 +2,7 @@ kind: Connector
 version: v2
 definition:
   name: chinook
-  subgraph: app
+  subgraph: src
   source: hasura/postgres:v1.2.0
   context: .
   envMapping:

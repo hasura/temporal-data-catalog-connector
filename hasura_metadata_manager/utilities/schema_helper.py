@@ -37,6 +37,7 @@ class SchemaHelper:
 
     def __init__(self, session: Session):
         self._schema = None
+        assert session is not None, "Session not passed to SchemaHelper"
         self.session = session
 
     @property
@@ -58,8 +59,7 @@ class SchemaHelper:
 
         try:
             # Load the JSON schema
-            with open("./src/metadata/schema.json", "r") as f:
-                schema = json.load(f)
+            schema = json.load(open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'schema.json'), 'r'))
 
             # Validate the JSON data against the schema
             validate(instance=json_data, schema=schema)
@@ -243,7 +243,7 @@ class SchemaHelper:
         :return: A single RDFLib Graph containing triples from all models.
         """
         # Initialize a combined RDF graph
-        combined_graph = Graph(identifier="metadata")
+        combined_graph = Graph(identifier="hasura_metadata_manager")
         bind_namespaces(combined_graph)
 
         # Iterate over all mapped classes in declarative `Base`
@@ -336,8 +336,8 @@ class SchemaHelper:
 
             # Check if the class has ModelRDFMixin
             if issubclass(clazz, ModelRDFMixin):
-                logger.debug(f"Generating RDF model metadata for {clazz.__name__}")
-                # Generate only model metadata using ModelRDFMixin
+                logger.debug(f"Generating RDF model hasura_metadata_manager for {clazz.__name__}")
+                # Generate only model hasura_metadata_manager using ModelRDFMixin
                 model_graph = clazz.translate_to_model_metadata(self.session)
                 combined_graph += model_graph
 

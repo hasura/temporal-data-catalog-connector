@@ -72,6 +72,12 @@
                 },
                 {
                   "$ref": "#/$defs/orderByExpression"
+                },
+                {
+                  "$ref": "#/$defs/command"
+                },
+                {
+                  "$ref": "#/$defs/commandPermissions"
                 }
               ]
             }
@@ -99,6 +105,141 @@
           ]
         }
       }
+    },
+    "command": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "Command"
+            },
+            "definition": {
+              "type": "object",
+              "required": [
+                "name",
+                "outputType"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "arguments": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/fieldArgument"
+                  }
+                },
+                "graphql": {
+                  "type": "object",
+                  "properties": {
+                    "deprecated": {
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "rootFieldKind": {
+                      "type": "string",
+                      "enum": [
+                        "Query",
+                        "Mutation"
+                      ]
+                    },
+                    "rootFieldName": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "outputType": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "argumentMapping": {
+                      "type": "object"
+                    },
+                    "dataConnectorCommand": {
+                      "type": "object",
+                      "properties": {
+                        "function": {
+                          "type": "string"
+                        },
+                        "procedure": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "dataConnectorName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "argumentMapping",
+                    "dataConnectorCommand",
+                    "dataConnectorName"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "commandPermissions": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseObject"
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "CommandPermissions"
+            },
+            "definition": {
+              "type": "object",
+              "required": [
+                "commandName",
+                "permissions"
+              ],
+              "properties": {
+                "commandName": {
+                  "type": "string"
+                },
+                "permissions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "role"
+                    ],
+                    "properties": {
+                      "role": {
+                        "type": "string"
+                      },
+                      "allowExecution": {
+                        "type": "boolean"
+                      },
+                      "argumentPresets": {
+                        "type": "array"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "lifecyclePluginHook": {
       "allOf": [

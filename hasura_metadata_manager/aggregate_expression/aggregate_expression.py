@@ -29,7 +29,7 @@ class AggregateExpression(BaseAggregateExpression):
     Methods:
      - `to_json`: Converts the aggregate expression and its associated data into a JSON representation that follows the original structure defined for such aggregates.
         - Logs the overall serialization process.
-        - Includes information such as description, count configuration, GraphQL metadata, operands (objects and scalars), and their associated mappings.
+        - Includes information such as description, count configuration, GraphQL hasura_metadata_manager, operands (objects and scalars), and their associated mappings.
      - `from_json`: Class method that reconstructs an aggregate expression from its JSON representation.
         - Verifies the correctness and type of the input JSON structure.
         - Maps the operand data (object and scalar types) to appropriate attributes.

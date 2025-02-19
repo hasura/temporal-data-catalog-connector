@@ -16,11 +16,11 @@ logger = logging.getLogger(__name__)
 
 
 class RelationshipRDFMixin(RDFGeneratorMixin):
-    """RDF generation mixin specifically for relationship instance metadata"""
+    """RDF generation mixin specifically for relationship instance hasura_metadata_manager"""
 
     def _generate_instance_rdf(self, session: Session) -> Graph:
-        """Generate instance-specific RDF metadata for relationships"""
-        logger.debug("Starting instance metadata generation for %s", self.__class__.__name__)
+        """Generate instance-specific RDF hasura_metadata_manager for relationships"""
+        logger.debug("Starting instance hasura_metadata_manager generation for %s", self.__class__.__name__)
         graph = Graph()
         bind_namespaces(graph)
 
@@ -29,7 +29,7 @@ class RelationshipRDFMixin(RDFGeneratorMixin):
         from .relationship_field_mapping import RelationshipFieldMapping
 
         if isinstance(self, Relationship):
-            logger.debug("Generating instance metadata for Relationship: subgraph=%s, name=%s",
+            logger.debug("Generating instance hasura_metadata_manager for Relationship: subgraph=%s, name=%s",
                          self.subgraph_name, self.name)
 
             # Create direct relationship URI and add type info
@@ -42,18 +42,18 @@ class RelationshipRDFMixin(RDFGeneratorMixin):
             logger.debug("Adding triple: %s -> %s -> %s", source_type, rel_uri, target_type)
             graph.add((source_type, rel_uri, target_type))
 
-            # Add instance metadata triples
+            # Add instance hasura_metadata_manager triples
             self._add_property_triples(graph, rel_uri)
             self._add_relationship_triples(graph, rel_uri)
 
         elif isinstance(self, RelationshipFieldMapping):
-            logger.debug("Generating instance metadata for FieldMapping: source=%s, target=%s",
+            logger.debug("Generating instance hasura_metadata_manager for FieldMapping: source=%s, target=%s",
                          self.source_field, self.target_field)
 
             field_uri = URIRef(NS_HASURA[f"FieldMap#{self.subgraph_name}_{self.source_field}_{self.target_field}"])
             logger.debug("Created field mapping URI: %s", field_uri)
 
-            # Add instance metadata triples
+            # Add instance hasura_metadata_manager triples
             self._add_property_triples(graph, field_uri)
 
             # Add specific connection to parent relationship if it exists
@@ -66,16 +66,16 @@ class RelationshipRDFMixin(RDFGeneratorMixin):
                 logger.debug("No parent relationship found for field mapping")
 
         elif isinstance(self, RelationshipAggregate):
-            logger.debug("Generating instance metadata for RelationshipAggregate: subgraph=%s, relationship=%s",
+            logger.debug("Generating instance hasura_metadata_manager for RelationshipAggregate: subgraph=%s, relationship=%s",
                          self.subgraph_name, self.relationship_name)
 
             agg_uri = URIRef(
                 NS_HASURA[f"ObjectAggregateRelationship#Agg_{self.subgraph_name}_{self.relationship_name}"])
             logger.debug("Created aggregate URI: %s", agg_uri)
 
-            # Add instance metadata triples
+            # Add instance hasura_metadata_manager triples
             self._add_property_triples(graph, agg_uri)
             self._add_relationship_triples(graph, agg_uri)
 
-        logger.debug("Completed instance metadata generation. Total triples: %d", len(graph))
+        logger.debug("Completed instance hasura_metadata_manager generation. Total triples: %d", len(graph))
         return graph

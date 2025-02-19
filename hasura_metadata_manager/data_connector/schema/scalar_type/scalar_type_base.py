@@ -1,4 +1,4 @@
-# src/metadata/scalar_type_base.py
+# src/hasura_metadata_manager/scalar_type_base.py
 
 import logging
 

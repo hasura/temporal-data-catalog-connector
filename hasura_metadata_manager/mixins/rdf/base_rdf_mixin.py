@@ -37,7 +37,7 @@ class BaseRDFMixin:
 
     @classmethod
     def clear_caches(cls) -> None:
-        """Clear all cached metadata"""
+        """Clear all cached hasura_metadata_manager"""
         if cls._cache_manager:
             cls._cache_manager.clear_all()
 

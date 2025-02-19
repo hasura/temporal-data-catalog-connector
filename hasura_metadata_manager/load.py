@@ -3,7 +3,8 @@ import warnings
 from datetime import datetime
 from typing import cast
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, exc
+from sqlalchemy.orm import sessionmaker
 
 from . import Supergraph
 from .generate_relationship_indices import apply_indices, apply_constraints
@@ -13,21 +14,36 @@ from .utilities import managed_session  # Assuming these exist
 logger = __import__("logging").getLogger(__name__)
 
 
+def database_exists(url):
+    session = None
+    try:
+        engine = create_engine(url)
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        session.query(Supergraph).first()
+        return True
+    except exc.OperationalError:
+        return False
+    finally:
+        if session is not None:
+            session.close()
+
+
 def create_engine_config(database_url: str):
     """Create engine with standard configuration."""
     connect_args = {
-        'connect_timeout': int(os.getenv('CONNECT_TIMEOUT',60)),
+        'connect_timeout': int(os.getenv('CONNECT_TIMEOUT', 60)),
     }
-    keepalives = int(os.getenv('KEEPALIVES',-1))
+    keepalives = int(os.getenv('KEEPALIVES', -1))
     if keepalives > 0:
         connect_args['keepalives'] = keepalives
-    keepalives_idle = int(os.getenv('KEEPALIVES_IDLE',-1))
+    keepalives_idle = int(os.getenv('KEEPALIVES_IDLE', -1))
     if keepalives_idle > 0:
         connect_args['keepalives_idle'] = keepalives_idle
-    keepalives_interval = int(os.getenv('KEEPALIVES_INTERNAL',-1))
+    keepalives_interval = int(os.getenv('KEEPALIVES_INTERNAL', -1))
     if keepalives_interval > 0:
         connect_args['keepalives_interval'] = keepalives_interval
-    keepalives_count = int(os.getenv('KEEPALIVES_COUNT',-1))
+    keepalives_count = int(os.getenv('KEEPALIVES_COUNT', -1))
     if keepalives_count > 0:
         connect_args['keepalives_count'] = keepalives_count
 
@@ -43,7 +59,7 @@ def create_engine_config(database_url: str):
 def init_schema_from_build(
         database_url: str,
         clean_database=True,
-        engine_build: str = './example/engine/build/metadata.json'):
+        engine_build: str = './example/engine/build/hasura_metadata_manager.json'):
     # Capture and logger.debug warnings
     with warnings.catch_warnings():
         # Cause all warnings to always be triggered
@@ -52,7 +68,7 @@ def init_schema_from_build(
         engine = create_engine_config(database_url)
 
         # Do cleanup in its own connection if needed
-        if clean_database:
+        if clean_database or not database_exists(database_url):
             with managed_session(engine) as session:
                 importer = SchemaHelper(session)
                 importer.cleanup_database_with_cascade()
@@ -103,7 +119,7 @@ def init_schema_from_build(
 def init_with_session(clean_database=False):
     """Initialize schema with environment configuration and proper resource cleanup."""
     clean_database = os.getenv('CLEAN_DATABASE', str(clean_database)).lower() in ['true', '1', 't', 'yes', 'y']
-    engine_build = os.getenv('ENGINE_BUILD_PATH', './example/engine/build/metadata.json')
+    engine_build = os.getenv('ENGINE_BUILD_PATH', './example/engine/build/hasura_metadata_manager.json')
     database_url = os.getenv('DATABASE_URL', '')
 
     logger.info(f"Engine build path: {engine_build}")
@@ -115,3 +131,4 @@ def init_with_session(clean_database=False):
         clean_database=clean_database,
         engine_build=engine_build
     )
+

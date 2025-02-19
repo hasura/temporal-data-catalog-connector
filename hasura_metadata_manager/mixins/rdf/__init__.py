@@ -1,7 +1,7 @@
 """
 RDF Metadata Generation and Export Package
 
-This package provides capabilities for generating and managing RDF metadata for supergraph instances.
+This package provides capabilities for generating and managing RDF hasura_metadata_manager for supergraph instances.
 It includes core RDF generation, translation to other formats, and Neo4j export functionality.
 """
 

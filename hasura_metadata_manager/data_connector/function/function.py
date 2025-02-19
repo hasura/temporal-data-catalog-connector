@@ -48,7 +48,7 @@ class Function(BaseFunction):
     def from_json(cls: Type["Function"], json_data: Dict[str, Any], connector: "DataConnector",
                   session: Session) -> "Function":
         """Create a Function entity from JSON data."""
-        return_type_info = json_data.get("return_type", {})
+        return_type_info = json_data.get("result_type", {})
         if isinstance(return_type_info, dict):
             return_type_name = return_type_info.get("name")
         else:
@@ -60,18 +60,32 @@ class Function(BaseFunction):
             subgraph_name=connector.subgraph_name,
             description=json_data.get("description"),
             return_type_name=return_type_name,
+            return_type_type=return_type_info.get("type"),
             return_type_connector=connector.name
         )
 
         session.add(function)
         session.flush()
 
-
         if "arguments" in json_data:
-            for arg_data in json_data["arguments"]:
+            for name, arg_data in json_data.get("arguments", {}).items():
+                arg_data['name'] = name
                 FunctionArgument.from_json(arg_data, function, session)
 
         return function
 
     def to_json(self) -> Dict[str, Any]:
-        pass
+        # Create dictionary representation of Function
+        function_dict = {
+                'name': self.name,
+                'arguments': {
+                        arg.name: arg.to_json() for arg in self.arguments
+                },
+                'description': self.description,
+                'result_type': {
+                    'name': self.return_type_name,
+                    'type': self.return_type_type
+                }
+            }
+
+        return function_dict

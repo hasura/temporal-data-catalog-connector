@@ -37,7 +37,7 @@ class DocumentationReference(Base):
     content: Mapped[Optional[str]] = mapped_column(Text)
     url: Mapped[Optional[str]] = mapped_column(Text)
 
-    # Additional metadata
+    # Additional hasura_metadata_manager
     description: Mapped[Optional[str]] = mapped_column(Text)
     version: Mapped[Optional[str]] = mapped_column(String(50))
 

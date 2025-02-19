@@ -1,7 +1,8 @@
 include:
   - path: app/connector/chinook/compose.yaml
-  - path: data_quality/connector/anomaly/compose.yaml
   - path: data_quality/connector/mdata/compose.yaml
+  - path: ../hasura_metadata_agent/compose.yaml
+  - path: data_quality/connector/mdatax/compose.yaml
 services:
   engine:
     build:
@@ -23,17 +24,6 @@ services:
       io.hasura.ddn.service-name: engine
     ports:
       - 3280:3000
-  metadata-app:
-    depends_on:
-      - engine
-    environment:
-      - ENGINE_BUILD_PATH=/build/metadata.json
-      - CLEAN_DATABASE=False
-      - DATABASE_URL=postgresql://kenstott:rN8qOh6AEMCP@ep-yellow-salad-961725.us-west-2.aws.neon.tech/hasura_config?sslmode=require
-      - PYTHONPATH=/workspace
-    image: kenstott/mdata:latest
-    volumes:
-      - ./engine/build:/build
   otel-collector:
     command:
       - --config=/etc/otel-collector-config.yaml

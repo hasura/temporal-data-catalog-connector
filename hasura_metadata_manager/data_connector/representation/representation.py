@@ -5,7 +5,6 @@ from sqlalchemy.orm import Session, Mapped
 from ..representation.enum_value import EnumValue
 from ..representation.representation_base import Representation as BaseRepresentation
 from ...mixins.temporal.temporal_relationship import TemporalRelationship
-from tests.test_import_schema import session
 
 
 class Representation(BaseRepresentation):
@@ -67,7 +66,6 @@ class Representation(BaseRepresentation):
             for value in one_of:
                 ev = EnumValue.from_json(value, subgraph_name, connector_name, name)
                 session.add(ev)
-
 
                 session.flush()
         else:

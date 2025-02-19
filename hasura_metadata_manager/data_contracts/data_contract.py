@@ -15,7 +15,7 @@ from ..object_type.object_type_base import ObjectType
 
 class DataContract(Base):
     """
-    A class representing a data contract with additional metadata
+    A class representing a data contract with additional hasura_metadata_manager
     for a data product specification.
     """
     __tablename__ = "data_contract"
@@ -102,7 +102,7 @@ class DataContract(Base):
         """
         Create a DataContract from JSON data associated with an ObjectType.
 
-        :param json_data: Dictionary containing data contract metadata
+        :param json_data: Dictionary containing data contract hasura_metadata_manager
         :param object_type: The associated ObjectType
         :param session: SQLAlchemy session
         :return: Created DataContract instance

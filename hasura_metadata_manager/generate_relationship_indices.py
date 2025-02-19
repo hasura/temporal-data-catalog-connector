@@ -6,7 +6,7 @@ from sqlalchemy.orm import RelationshipProperty
 from sqlalchemy.sql.ddl import AddConstraint
 from sqlalchemy.sql.elements import BinaryExpression, BooleanClauseList
 
-from src.metadata.mixins.rdf.instance_rdf_mixin import logger
+from hasura_metadata_manager.mixins.rdf.instance_rdf_mixin import logger
 
 
 def parse_join_condition(condition: Any) -> List[Tuple[Column, Column]]:
@@ -307,7 +307,7 @@ def check_db_for_constraint(table, columns, engine):
 
 
 def needs_unique_constraint(table, columns, engine):
-    """Check if columns need a unique constraint by checking both metadata and database."""
+    """Check if columns need a unique constraint by checking both hasura_metadata_manager and database."""
     column_names = set(col.name for col in columns)
     print(f"[DEBUG] Checking columns: {column_names} on table {table.name}")
 
@@ -316,12 +316,12 @@ def needs_unique_constraint(table, columns, engine):
         print(f"[DEBUG] Found existing constraint in database for {table.name}")
         return False
 
-    # Then check metadata for completeness
+    # Then check hasura_metadata_manager for completeness
     for constraint in table.constraints:
         if isinstance(constraint, UniqueConstraint):
             constraint_col_names = set(col.name for col in constraint.columns)
             if column_names == constraint_col_names:
-                print(f"[DEBUG] Found matching constraint in metadata: {constraint.name}")
+                print(f"[DEBUG] Found matching constraint in hasura_metadata_manager: {constraint.name}")
                 return False
 
     print(f"[DEBUG] No matching unique constraint found for {table.name}")
@@ -344,12 +344,12 @@ def apply_constraints(base: Type[Any], engine: Any) -> None:
 
                     if needs_unique_constraint(referenced_table, referenced_cols, engine):
                         # Use separate connection for unique constraint
-                        with engine.connect().execution_options(timeout=30) as unique_conn:
-                            ensure_unique_constraint(referenced_table, referenced_cols, unique_conn)
+                        # with engine.connect().execution_options(timeout=30) as unique_conn:
+                        ensure_unique_constraint(referenced_table, referenced_cols, engine)
 
-                    # Add constraint to metadata
+                    # Add constraint to hasura_metadata_manager
                     mapped_class.__table__.append_constraint(constraint)
-                    print(f"Added constraint to metadata: {constraint.name} on table {table_name}")
+                    print(f"Added constraint to hasura_metadata_manager: {constraint.name} on table {table_name}")
 
                     # Create FK constraint - separate connection
                     with engine.connect().execution_options(timeout=30) as fk_conn:
@@ -366,7 +366,7 @@ def apply_constraints(base: Type[Any], engine: Any) -> None:
 def remove_relationship_constraints(base: Type[Any]) -> None:
     """
     Remove all foreign key constraints that were generated based on relationships.
-    This function will remove constraints by modifying table metadata.
+    This function will remove constraints by modifying table hasura_metadata_manager.
 
     Args:
         base: SQLAlchemy declarative base class
@@ -384,7 +384,7 @@ def remove_relationship_constraints(base: Type[Any]) -> None:
                and constraint.name.startswith('fk_')
         ]
 
-        # Remove constraints from table metadata
+        # Remove constraints from table hasura_metadata_manager
         for constraint in constraints_to_remove:
             table.constraints.remove(constraint)
             print(f"Removed constraint: {constraint.name} from table {table.name}")

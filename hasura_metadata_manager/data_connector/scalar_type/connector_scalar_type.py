@@ -85,20 +85,6 @@ class ConnectorScalarType(BaseConnectorScalarType):
             session.add(representation)
             session.flush()
 
-
-
-        # Create scalar type
-        scalar_type = cls(
-            name=name,
-            connector_name=connector.name,
-            subgraph_name=connector.subgraph_name,
-            representation_name=representation.name if representation else None
-        )
-        session.add(scalar_type)
-        session.flush()
-
-
-
         # Find appropriate boolean expression types
         from ...boolean_expression_type.boolean_expression_type import BooleanExpressionType, \
             DataConnectorOperatorMapping
@@ -107,28 +93,53 @@ class ConnectorScalarType(BaseConnectorScalarType):
         boolean_expression_types = cast(List[BooleanExpressionType], session.query(BooleanExpressionType).join(
             BooleanExpressionType.data_connector_mappings
         ).filter(and_(
-            BooleanExpressionType.subgraph_name == connector.subgraph_name,
-            DataConnectorOperatorMapping.data_connector_scalar_type == name,
-            DataConnectorOperatorMapping.data_connector_name == connector.name
+            # BooleanExpressionType.subgraph_name == connector.subgraph_name,
+            # DataConnectorOperatorMapping.data_connector_scalar_type == name,
+            # DataConnectorOperatorMapping.data_connector_name == connector.name
         )).all())
+
+        boolean_expression_types_filtered = [t for t in boolean_expression_types if
+                                             name in [x.data_connector_scalar_type for x in t.data_connector_mappings]]
+
+        if boolean_expression_types_filtered and len(boolean_expression_types_filtered) > 1:
+            boolean_expression_types_filtered = [t for t in boolean_expression_types_filtered if
+                                                 t.subgraph_name == connector.subgraph_name]
+
+        if boolean_expression_types_filtered:
+            # Create scalar type
+            scalar_type = cls(
+                name=name,
+                connector_name=boolean_expression_types_filtered[0].data_connector_mappings[0].data_connector_name,
+                subgraph_name=boolean_expression_types_filtered[0].data_connector_mappings[0].subgraph_name,
+                representation_name=representation.name if representation else None
+            )
+            session.add(scalar_type)
+            session.flush()
+        else:
+            # Create scalar type
+            scalar_type = cls(
+                name=name,
+                connector_name=connector.name,
+                subgraph_name=connector.subgraph_name,
+                representation_name=representation.name if representation else None
+            )
+            session.add(scalar_type)
+            session.flush()
+
+        # Use the first matching boolean expression type
+        boolean_expression_type = boolean_expression_types_filtered[0] if boolean_expression_types_filtered else None
 
         # Process comparison operators
         from ..comparison_operator import ComparisonOperator
         comparison_operators = type_data.get("comparison_operators", {})
         for op_name, op_details in comparison_operators.items():
-            if not boolean_expression_types:
-                raise ValueError(f"No boolean expression type found for scalar type {name}")
-
-            # Use the first matching boolean expression type
-            boolean_expression_type = boolean_expression_types[0]
-
             ComparisonOperator.from_json(
                 op_name,
                 op_details,
                 boolean_expression_type,
-                connector,
-                session,
-                scalar_type
+                connector_name=boolean_expression_type.data_connector_mappings[0].data_connector_name,
+                session=session,
+                scalar_type=scalar_type
             )
 
         # Process aggregate functions

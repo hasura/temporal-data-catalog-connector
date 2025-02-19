@@ -12,12 +12,12 @@ logger = __import__("logging").getLogger(__name__)
 
 
 class ModelRDFMixin(BaseRDFMixin):
-    """Mixin class for handling model-level RDF metadata."""
+    """Mixin class for handling model-level RDF hasura_metadata_manager."""
 
     @classmethod
     def generate_model_metadata_graph(cls, session: Session) -> Graph:
         """Generate RDF graph representing the supergraph model structure"""
-        logger.debug(f"Generating model metadata graph for {cls.__name__}")
+        logger.debug(f"Generating model hasura_metadata_manager graph for {cls.__name__}")
         graph = Graph()
         bind_namespaces(graph)
 
@@ -49,7 +49,7 @@ class ModelRDFMixin(BaseRDFMixin):
             graph.add((rel_uri, NS_HASURA_MODEL.cardinality,
                        Literal("many" if relationship.uselist else "one")))
 
-        logger.debug(f"Completed model metadata graph generation for {cls.__name__}")
+        logger.debug(f"Completed model hasura_metadata_manager graph generation for {cls.__name__}")
         return graph
 
     @classmethod
@@ -68,15 +68,16 @@ class ModelRDFMixin(BaseRDFMixin):
             session: Session,
             translator: Optional[RDFTranslator[T]] = None
     ) -> Union[Graph, T]:
-        """Generate and optionally translate model metadata"""
+        """Generate and optionally translate model hasura_metadata_manager"""
         cls._ensure_cache_configured()
 
         if not cls._cache_manager:
             logger.warning("Cache not configured, proceeding without caching")
-            graph = cls.generate_model_metadata_graph(session)
+            graph = cls.generate_model_metadata_graph(session=session)
         else:
             graph = cls._cache_manager.get_model_metadata(
                 cls=cls,
+                session=session,
                 generator_func=cls.generate_model_metadata_graph
             )
 

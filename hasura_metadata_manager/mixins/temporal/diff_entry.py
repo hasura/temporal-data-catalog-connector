@@ -7,7 +7,7 @@ from ...base.core_base import CoreBase
 
 
 class DiffEntry(CoreBase):
-    """Table for storing metadata about version changes"""
+    """Table for storing hasura_metadata_manager about version changes"""
     __tablename__ = 'diffs'
 
     id = Column(Integer, primary_key=True)

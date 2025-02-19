@@ -26,6 +26,7 @@ class FunctionArgument(Base):
 
     # Type information
     scalar_type_name: Mapped[str] = mapped_column(String(255))
+    scalar_type_type: Mapped[str] = mapped_column(String(255))
     description: Mapped[str] = mapped_column(String(1023), nullable=True)
     is_required: Mapped[bool] = mapped_column(default=False)
 
@@ -54,7 +55,7 @@ class FunctionArgument(Base):
                   function: "Function",
                   session: Session) -> "FunctionArgument":
         """Create a FunctionArgument from JSON data."""
-        type_info = json_data["type"]
+        type_info = json_data.get("type", {}).get('name')
 
         argument = cls(
             function_name=function.name,
@@ -62,6 +63,7 @@ class FunctionArgument(Base):
             subgraph_name=function.subgraph_name,
             name=json_data["name"],
             scalar_type_name=type_info.rstrip('!'),
+            scalar_type_type=json_data.get("type", {}).get('type'),
             description=json_data.get("description"),
             is_required=type_info.endswith('!')
         )
@@ -70,6 +72,14 @@ class FunctionArgument(Base):
         session.flush()
 
         return argument
+
+    def to_json(self) -> Dict[str, Any]:
+        return {
+            'type': {
+                'name': self.scalar_type_name,
+                'type': self.scalar_type_type
+            }
+        }
 
     def __repr__(self) -> str:
         """String representation of the FunctionArgument"""

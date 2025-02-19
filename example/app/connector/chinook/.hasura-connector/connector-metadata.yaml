@@ -4,7 +4,7 @@ packagingDefinition:
 supportedEnvironmentVariables:
 - name: CONNECTION_URI
   description: The PostgreSQL connection URI
-  defaultValue: postgresql://read_only_user:readonlyuser@35.236.11.122:5432/v3-docs-sample-app
+  defaultValue: postgresql://read_only_user:readonlyuser@35.236.11.122:5432/v3-docs-sample-src
 - name: CLIENT_CERT
   description: The SSL client certificate (Optional)
   defaultValue: ''

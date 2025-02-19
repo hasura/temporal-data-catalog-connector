@@ -71,7 +71,7 @@ class DataConnectorCapability(Base):
     def to_json(self) -> Dict[str, Any]:
         """
         Convert the DataConnectorCapability to a JSON-compatible dictionary
-        that matches the metadata.json structure.
+        that matches the hasura_metadata_manager.json structure.
         """
         # Prepare the capabilities details
         capabilities_details = {

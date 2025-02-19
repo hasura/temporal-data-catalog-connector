@@ -1,0 +1,5 @@
+.hasura-connector/
+*.hml
+__pycache__
+.env*
+compose.yaml

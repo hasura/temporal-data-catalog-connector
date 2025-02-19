@@ -475,40 +475,6 @@ definition:
     typeName: Int81
 
 ---
-kind: BooleanExpressionType
-version: v1
-definition:
-  name: Int8BoolExp_1
-  operand:
-    scalar:
-      type: Int8_1
-      comparisonOperators:
-        - name: _eq
-          argumentType: Int8_1!
-        - name: _gt
-          argumentType: Int8_1!
-        - name: _gte
-          argumentType: Int8_1!
-        - name: _in
-          argumentType: "[Int8_1!]!"
-        - name: _lt
-          argumentType: Int8_1!
-        - name: _lte
-          argumentType: Int8_1!
-        - name: _neq
-          argumentType: Int8_1!
-      dataConnectorOperatorMapping:
-        - dataConnectorName: mdata
-          dataConnectorScalarType: int8
-          operatorMapping: {}
-  logicalOperators:
-    enable: true
-  isNull:
-    enable: true
-  graphql:
-    typeName: Int8BoolExp1
-
----
 kind: DataConnectorScalarRepresentation
 version: v1
 definition:

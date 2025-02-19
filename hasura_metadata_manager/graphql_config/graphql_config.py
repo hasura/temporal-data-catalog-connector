@@ -94,7 +94,7 @@ class GraphQLConfig(BaseGraphQLConfig):
 
     def to_json(self) -> Dict[str, Any]:
         """
-        Convert GraphQLConfig instance to JSON format matching metadata.json structure.
+        Convert GraphQLConfig instance to JSON format matching hasura_metadata_manager.json structure.
 
         Returns:
             Dict[str, Any]: JSON representation of GraphQL configuration

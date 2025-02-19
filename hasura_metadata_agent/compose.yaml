@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:15
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - 32100:5432
+  metadata-app:
+    depends_on:
+      - db
+    build:
+      context: ..
+      dockerfile: hasura_metadata_agent/Dockerfile
+      # We can use ARGS in Docker Compose to pass parameters during the build process.
+      args:
+        - SRC_DIR=example
+    env_file:
+      - .env
+    environment:
+      - CLEAN_DATABASE=True
+      - DATABASE_URL=postgresql://postgres:password@db:5432
+volumes:
+  db_data:

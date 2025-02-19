@@ -1,4 +1,4 @@
-# src/metadata/aggregate_expression_base.py
+# src/hasura_metadata_manager/aggregate_expression_base.py
 from typing import Optional
 
 from sqlalchemy import String, Text, Boolean

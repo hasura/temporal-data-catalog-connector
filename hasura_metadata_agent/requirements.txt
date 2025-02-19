@@ -9,10 +9,11 @@ networkx~=3.2.1
 diskcache~=5.6.3
 rdflib~=7.1.2
 rdflib-neo4j~=1.1
+hasura-metadata-manager~=0.1.15
 
 
 pandas~=2.2.3
 numpy~=2.0.2
 
 opentelemetry-instrumentation-openai~=0.37.1
-pydantic~=2.10.5
+

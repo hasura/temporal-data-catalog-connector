@@ -1,4 +1,4 @@
-# In src/metadata/__init__.py
+# In src/hasura_metadata_manager/__init__.py
 import logging
 
 from sqlalchemy import MetaData, ForeignKeyConstraint
@@ -22,6 +22,8 @@ from .model_permission import ModelPermission
 from .role import Role
 from .supergraph import Supergraph
 from .type_permission import TypePermission
+from .command_permissions import CommandPermissions
+from .command import Command
 
 # Schema and Field dependencies
 # Ensure ScalarType is imported first since other models depend on it
@@ -44,7 +46,7 @@ from .relationship import RelationshipAggregate, \
     TargetModel  # Import TargetModel after dependencies like RelationshipAggregate
 
 
-# Helper function: Log and validate registered tables in the metadata
+# Helper function: Log and validate registered tables in the hasura_metadata_manager
 def log_registered_tables():
     from .base import Base  # Base is shared across all models
     logger.info("Registered tables:")
@@ -88,6 +90,7 @@ def create_viewonly_fk_constraints(metadata: MetaData, engine):
 
 
 from .load import init_with_session
+from .export_rdf import export_rdf
 
 __all__ = [
     'init_with_session',
@@ -110,5 +113,6 @@ __all__ = [
     'FilterOperation',
     'Role',
     'TypePermission',
-    'Collection'
+    'Collection',
+    'export_rdf'
 ]

@@ -8,20 +8,19 @@ import pytest
 from rdflib import Graph, URIRef
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+import os
+import time
 
-from ..compatibility_config import CompatibilityConfig
-from ..mixins.rdf import NS_HASURA, NS_HASURA_OBJ_REL, bind_namespaces
-from ..model import Model
-from ..relationship import Relationship
-from ..utilities import SchemaHelper, compare_json_files, rdf_to_advanced_graph
+from hasura_metadata_manager.compatibility_config import CompatibilityConfig
+from hasura_metadata_manager.mixins.rdf import NS_HASURA, NS_HASURA_OBJ_REL, bind_namespaces
+from hasura_metadata_manager.model import Model
+from hasura_metadata_manager.relationship import Relationship
+from hasura_metadata_manager.utilities import SchemaHelper, compare_json_files, rdf_to_advanced_graph
 
 if TYPE_CHECKING:
-    from ..boolean_expression_type import BooleanExpressionType
-    from .. import ModelPermission, ObjectType, Supergraph, Subgraph, init_with_session, AuthConfig
-    from ..aggregate_expression import AggregateExpression
-    from ..data_connector.schema.scalar_type.scalar_type import ScalarType
-    from ..data_connector_scalar_representation.data_connector_scalar_representation import \
-        DataConnectorScalarRepresentation
+    from hasura_metadata_manager import (BooleanExpressionType, ModelPermission, ObjectType, Supergraph, Subgraph,
+                                         init_with_session, AuthConfig, AggregateExpression, ScalarType,
+                                         DataConnectorScalarRepresentation)
 
 # Tell pytest to show warnings
 pytestmark = pytest.mark.filterwarnings("always")
@@ -65,7 +64,7 @@ def session():
 
 
 def test_export_ddn_rdf(session):
-    from ..supergraph import Supergraph
+    from hasura_metadata_manager.supergraph import Supergraph
 
     Supergraph.configure_neo4j()
     si = SchemaHelper(session)
@@ -88,7 +87,7 @@ def test_export_rdf(session):
     """
     Export RDF definitions with proper transaction management and Neo4j sync
     """
-    from ..supergraph import Supergraph
+    from hasura_metadata_manager.supergraph import Supergraph
 
     try:
         # Initialize Neo4j configuration in its own transaction
@@ -316,12 +315,29 @@ def test_export_node_from_rdf2(session):
 
 
 def test_container_init():
-    from .. import init_with_session
+    def format_json_file(filename):
+        # Save the original file's modification time
+        original_time = os.path.getmtime(filename)
+
+        # Read the JSON file
+        with open(filename, 'r') as f:
+            data = json.load(f)
+
+        # Write the formatted JSON data back to the file
+        with open(filename, 'w') as f:
+            json.dump(data, f, indent=4)
+
+        # Restore the original modification time
+        os.utime(filename, (time.time(), original_time))
+
+    from hasura_metadata_manager.load import init_with_session
+    engine_build = os.getenv('ENGINE_BUILD_PATH', './example/engine/build/hasura_metadata_manager.json')
+    format_json_file(engine_build)
     init_with_session()
 
 
 def test_schema_import(session, clean_database=True,
-                       engine_build: str = './example/engine/build/metadata.json'):
+                       engine_build: str = './example/engine/build/hasura_metadata_manager.json'):
     # Capture warnings
     with warnings.catch_warnings(record=True) as w:
         warnings.simplefilter("always")
@@ -342,8 +358,8 @@ def test_schema_import(session, clean_database=True,
                 assert supergraph.version == "v2"
 
                 # Register temporal views
-                from ..mixins.temporal import register_temporal_views
-                from ..base.core_base import CoreBase
+                from hasura_metadata_manager.mixins.temporal import register_temporal_views
+                from hasura_metadata_manager.base.core_base import CoreBase
                 register_temporal_views(CoreBase, engine=importer.engine)
 
             # Separate transaction for each major data export operation
@@ -450,7 +466,7 @@ def test_schema_import(session, clean_database=True,
 
             # Final comparison operations
             is_equal, differences = compare_json_files(
-                './example/engine/build/metadata.json',
+                './example/engine/build/hasura_metadata_manager.json',
                 'supergraph.json',
                 [
                     "kind;definition.sourceType;definition.name",
