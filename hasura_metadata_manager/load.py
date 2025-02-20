@@ -1,6 +1,6 @@
 import os
 import warnings
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import cast
 
 from sqlalchemy import create_engine, exc
@@ -8,7 +8,7 @@ from sqlalchemy.orm import sessionmaker
 
 from . import Supergraph
 from .generate_relationship_indices import apply_indices, apply_constraints
-from .utilities import SchemaHelper
+from .utilities import SchemaHelper, drop_all_fk_constraints
 from .utilities import managed_session  # Assuming these exist
 
 logger = __import__("logging").getLogger(__name__)
@@ -59,19 +59,24 @@ def create_engine_config(database_url: str):
 def init_schema_from_build(
         database_url: str,
         clean_database=True,
-        engine_build: str = './example/engine/build/hasura_metadata_manager.json'):
+        engine_build: str = './example/engine/build/metadata.json'):
     # Capture and logger.debug warnings
     with warnings.catch_warnings():
         # Cause all warnings to always be triggered
         warnings.simplefilter("always")
 
-        engine = create_engine_config(database_url)
+        try:
+            engine = create_engine_config(database_url)
 
-        # Do cleanup in its own connection if needed
-        if clean_database or not database_exists(database_url):
-            with managed_session(engine) as session:
-                importer = SchemaHelper(session)
-                importer.cleanup_database_with_cascade()
+            # Do cleanup in its own connection if needed
+            if clean_database or not database_exists(database_url):
+                with managed_session(engine) as session:
+                    importer = SchemaHelper(session)
+                    importer.cleanup_database_with_cascade()
+            else:
+                with managed_session(engine) as session:
+                    drop_all_fk_constraints(session)
+        finally:
             engine.dispose()
 
         # Create fresh engine for schema import
@@ -86,11 +91,15 @@ def init_schema_from_build(
                         t_is_current=True,
                         t_is_deleted=False
                     ).first())
-                    timestamp = datetime.fromtimestamp(os.path.getmtime(engine_build))
+                    # Get modification time in seconds since the epoch
+                    mod_time = os.path.getmtime(engine_build)
+
+                    # Convert to a datetime object in UTC
+                    timestamp = datetime.fromtimestamp(mod_time, tz=timezone.utc)
 
                     if existing_supergraph:
                         if existing_supergraph.version == "v2":
-                            if existing_supergraph.t_updated_at >= timestamp:
+                            if existing_supergraph.t_updated_at.replace(tzinfo=timezone.utc) >= timestamp:
                                 logger.debug(f"No changes detected in {engine_build}. Skipping schema import.")
                                 return
                         else:
@@ -119,7 +128,7 @@ def init_schema_from_build(
 def init_with_session(clean_database=False):
     """Initialize schema with environment configuration and proper resource cleanup."""
     clean_database = os.getenv('CLEAN_DATABASE', str(clean_database)).lower() in ['true', '1', 't', 'yes', 'y']
-    engine_build = os.getenv('ENGINE_BUILD_PATH', './example/engine/build/hasura_metadata_manager.json')
+    engine_build = os.getenv('ENGINE_BUILD_PATH', './example/engine/build/metadata.json')
     database_url = os.getenv('DATABASE_URL', '')
 
     logger.info(f"Engine build path: {engine_build}")

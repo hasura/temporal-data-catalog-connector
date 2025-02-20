@@ -433,9 +433,40 @@ class TemporalMixin:
 
 
 @event.listens_for(Session, 'before_flush')
-def handle_temporal_tracking(session: Session, context, instances) -> None:
+def handle_temporal_tracking(session: Session, flush_context, instances) -> None:
     """Handle temporal tracking before flush."""
 
+    logger.debug("Before flush triggered")
+
+    # Check new objects
+    logger.debug(f"Session new count: {len(session.new)}")
+    for obj in session.new:
+        try:
+            obj_type = type(obj)
+            logger.debug(f"New object type: {obj_type}")
+        except Exception as e:
+            logger.debug(f"Error accessing new object: {e}")
+            logger.debug(f"Raw new object: {obj}")
+
+    # Check dirty objects
+    logger.debug(f"Session dirty count: {len(session.dirty)}")
+    for obj in session.dirty:
+        try:
+            obj_type = type(obj)
+            logger.debug(f"Dirty object type: {obj_type}")
+        except Exception as e:
+            logger.debug(f"Error accessing dirty object: {e}")
+            logger.debug(f"Raw dirty object: {obj}")
+
+    # Check deleted objects
+    logger.debug(f"Session deleted count: {len(session.deleted)}")
+    for obj in session.deleted:
+        try:
+            obj_type = type(obj)
+            logger.debug(f"Deleted object type: {obj_type}")
+        except Exception as e:
+            logger.debug(f"Error accessing deleted object: {e}")
+            logger.debug(f"Raw deleted object: {obj}")
 
     # Handle deletes first
     for obj in session.deleted:
@@ -459,12 +490,27 @@ def handle_temporal_tracking(session: Session, context, instances) -> None:
 
             try:
                 business_key_filter = obj.build_business_key_filter()
-                # Query directly, removing the eager loading part
-                query = session.query(obj.__class__).filter_by(**business_key_filter)
-                if hasattr(obj.__class__, 't_is_current'):
-                    query = query.filter_by(t_is_current=True)
+                logger.debug(f"Checking existence with business key filter: {business_key_filter}")
 
-                existing = query.first()
+                # Create a new connection with READ COMMITTED isolation level
+                with session.get_bind().connect().execution_options(
+                        isolation_level="READ COMMITTED"
+                ) as conn:
+                    # Create a temporary session with this connection
+                    temp_session = Session(bind=conn)
+
+                    # Base query with business key filter
+                    query = temp_session.query(obj.__class__).filter_by(**business_key_filter)
+                    if hasattr(obj.__class__, 't_is_current'):
+                        query = query.filter_by(t_is_current=True)
+
+                    # Execute query
+                    existing = query.first()
+
+                    # Close temporary session
+                    temp_session.close()
+
+                logger.debug(f"Existence check result: {existing is not None}")
 
             except Exception as e:
                 logger.warning(
@@ -483,6 +529,7 @@ def handle_temporal_tracking(session: Session, context, instances) -> None:
                         existing.t_deleted_at = None
                         existing.t_updated_at = datetime.utcnow()
                         session.expunge(obj)
+                        logger.debug(f"After expunge - is obj in session: {obj in session}")
                         continue
                 else:
                     if existing.t_content_hash == new_hash:
@@ -508,6 +555,11 @@ def handle_temporal_tracking(session: Session, context, instances) -> None:
                         obj.t_content_hash = new_hash
                         obj.t_is_deleted = False
 
+                        # Control operation order through add sequence
+                        session.expunge(obj)
+                        session.add(existing)  # Add old version first to update t_is_current = False
+                        session.add(obj)
+
                         # Calculate and record changes
                         changes = obj.calculate_changes(existing)
                         if changes:
@@ -525,14 +577,16 @@ def handle_temporal_tracking(session: Session, context, instances) -> None:
 
                             for change in changes:
                                 diff_change = DiffChange(
-                                    diff_entry_id=diff_entry.id,
                                     operation=change['operation'],
                                     field_path=change['field_path'],
                                     old_value=change['old_value'],
                                     new_value=change['new_value'],
                                     value_type=change['value_type']
                                 )
-                                session.add(diff_change)
+                                diff_entry.changes.append(diff_change)
+
+                        logger.debug(f"After changes - obj version: {obj.t_version}")
+                        logger.debug(f"After changes - is obj in session: {obj in session}")
                         continue
 
             # Handle updates to existing records

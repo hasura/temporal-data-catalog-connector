@@ -89,7 +89,7 @@ class TypePermission(BaseTypePermission):
 
     def to_json(self) -> Dict[str, Any]:
         """
-        Convert TypePermission instance to JSON format matching hasura_metadata_manager.json structure.
+        Convert TypePermission instance to JSON format matching metadata.json structure.
 
         Returns:
             Dict[str, Any]: JSON representation of type permissions
@@ -105,7 +105,7 @@ class TypePermission(BaseTypePermission):
                 "permissions": [
                     {
                         "role": self.role_name,
-                        "input": None,  # Based on hasura_metadata_manager.json format
+                        "input": None,  # Based on metadata.json format
                         "output": {
                             "allowedFields": field_names
                         }

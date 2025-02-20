@@ -316,7 +316,7 @@ class Subgraph(BaseSubgraph):
 
     def to_json(self, session: Session):
         """
-        Prepare the Subgraph for JSON serialization in hasura_metadata_manager.json format.
+        Prepare the Subgraph for JSON serialization in metadata.json format.
 
         Returns:
             dict: A dictionary representing the Subgraph with 'kind' and other hasura_metadata_manager

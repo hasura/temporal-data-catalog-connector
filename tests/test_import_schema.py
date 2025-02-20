@@ -331,13 +331,13 @@ def test_container_init():
         os.utime(filename, (time.time(), original_time))
 
     from hasura_metadata_manager.load import init_with_session
-    engine_build = os.getenv('ENGINE_BUILD_PATH', './example/engine/build/hasura_metadata_manager.json')
+    engine_build = os.getenv('ENGINE_BUILD_PATH', './example/engine/build/metadata.json')
     format_json_file(engine_build)
     init_with_session()
 
 
 def test_schema_import(session, clean_database=True,
-                       engine_build: str = './example/engine/build/hasura_metadata_manager.json'):
+                       engine_build: str = './example/engine/build/metadata.json'):
     # Capture warnings
     with warnings.catch_warnings(record=True) as w:
         warnings.simplefilter("always")
@@ -466,7 +466,7 @@ def test_schema_import(session, clean_database=True,
 
             # Final comparison operations
             is_equal, differences = compare_json_files(
-                './example/engine/build/hasura_metadata_manager.json',
+                './example/engine/build/metadata.json',
                 'supergraph.json',
                 [
                     "kind;definition.sourceType;definition.name",

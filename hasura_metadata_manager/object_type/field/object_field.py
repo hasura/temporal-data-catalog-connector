@@ -62,7 +62,6 @@ class ObjectField(BaseObjectField):
         session.add(field)
         session.flush()
 
-
         return field
 
     def to_json(self) -> dict:

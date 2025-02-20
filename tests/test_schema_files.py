@@ -19,7 +19,7 @@ def test_schema_files():
         warnings.simplefilter("always")
 
         # Compare files
-        is_equal, differences = compare_json_files('./example/engine/build/hasura_metadata_manager.json', 'supergraph.json', [
+        is_equal, differences = compare_json_files('./example/engine/build/metadata.json', 'supergraph.json', [
             "kind;definition.sourceType;definition.name",
             "kind;definition.name",
             "kind;definition.modelName",

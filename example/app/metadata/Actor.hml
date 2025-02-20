@@ -4,7 +4,7 @@ version: v1
 definition:
   name: Actor
   fields:
-    - name: actorId
+    - name: actorKey
       type: Int4!
     - name: firstName
       type: Varchar!
@@ -19,7 +19,7 @@ definition:
     - dataConnectorName: chinook
       dataConnectorObjectType: actor
       fieldMapping:
-        actorId:
+        actorKey:
           column:
             name: actor_id
         firstName:
@@ -41,7 +41,7 @@ definition:
     - role: admin
       output:
         allowedFields:
-          - actorId
+          - actorKey
           - firstName
           - lastName
           - lastUpdate
@@ -55,7 +55,7 @@ definition:
     object:
       type: Actor
       comparableFields:
-        - fieldName: actorId
+        - fieldName: actorKey
           booleanExpressionType: Int4BoolExp
         - fieldName: firstName
           booleanExpressionType: VarcharBoolExp
@@ -80,7 +80,7 @@ definition:
     object:
       aggregatedType: Actor
       aggregatableFields:
-        - fieldName: actorId
+        - fieldName: actorKey
           aggregateExpression: Int4AggExp
         - fieldName: firstName
           aggregateExpression: VarcharAggExp
@@ -105,7 +105,7 @@ definition:
   filterExpressionType: ActorBoolExp
   aggregateExpression: ActorAggExp
   orderableFields:
-    - fieldName: actorId
+    - fieldName: actorKey
       orderByDirections:
         enableAll: true
     - fieldName: firstName
@@ -125,7 +125,7 @@ definition:
     selectUniques:
       - queryRootField: actorByActorId
         uniqueIdentifier:
-          - actorId
+          - actorKey
         subscription:
           rootField: actorByActorId
     orderByExpressionType: ActorOrderBy

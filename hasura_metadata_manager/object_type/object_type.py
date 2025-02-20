@@ -1,5 +1,6 @@
-from typing import Type, Dict, Any, List, TYPE_CHECKING
+from typing import Type, Dict, Any, List, TYPE_CHECKING, cast
 
+from sqlalchemy import inspect
 from sqlalchemy.orm import Mapped, Session
 
 from .field.object_field import ObjectField
@@ -60,7 +61,10 @@ class ObjectType(BaseObjectType):
         "Model",
         uselist=False,
         viewonly=True,
-        primaryjoin="and_(foreign(ObjectType.name)==Model.object_type_name)"
+        primaryjoin="""and_(
+            foreign(ObjectType.name)==Model.object_type_name,
+            foreign(ObjectType.subgraph_name)==Model.subgraph_name
+        )"""
     )
 
     @classmethod
@@ -78,6 +82,7 @@ class ObjectType(BaseObjectType):
         connector_obj_type = connector_mapping.get("dataConnectorObjectType")
         field_mapping = connector_mapping.get("fieldMapping", {})
 
+        # Create or update object type (TemporalMixin will handle versioning)
         object_type = cls(
             name=def_data.get("name"),
             connector_name=connector_name,
@@ -90,10 +95,59 @@ class ObjectType(BaseObjectType):
         )
         session.add(object_type)
 
-
         session.flush()
 
-        # Create fields that map to collection fields
+        # Get new field names from field_mapping
+        new_field_names = set(field_mapping.keys()) if field_mapping else set()
+
+        # Get fields to delete using a temporary session
+        with session.get_bind().connect().execution_options(
+                isolation_level="READ COMMITTED"
+        ) as conn:
+            # Create a temporary session
+            temp_session = Session(bind=conn)
+
+            # Query only primary key columns to avoid loading full objects
+            to_delete = temp_session.query(
+                ObjectField.object_type_name,
+                ObjectField.subgraph_name,
+                ObjectField.logical_field_name,
+                ObjectField.t_version
+            ).filter_by(
+                object_type_name=object_type.name,
+                subgraph_name=object_type.subgraph_name,
+                t_is_current=True,
+                t_is_deleted=False
+            ).filter(
+                ObjectField.logical_field_name.notin_(new_field_names)
+            ).all()
+
+            temp_session.close()
+
+        # Soft delete in main session
+        for type_name, subgraph_name, field_name, t_version in to_delete:
+            field = session.query(ObjectField).filter_by(
+                object_type_name=type_name,
+                subgraph_name=subgraph_name,
+                logical_field_name=field_name,
+                t_is_current=True
+            ).first()
+
+            if field:
+                def to_dict(instance):
+                    # Use SQLAlchemy's inspect to get the dictionary without _sa_instance_state
+                    return {
+                        c.key: getattr(instance, c.key)
+                        for c in inspect(instance).mapper.column_attrs
+                    }
+
+                # Create a new instance (shallow copy)
+                new_dict = to_dict(field)
+                session.expunge(field)
+                new_instance = ObjectField(**new_dict)
+                new_instance.soft_delete(session)
+
+        # Create new fields or update existing ones from field_mapping
         if "fields" in def_data:
             for field_data in def_data["fields"]:
                 ObjectField.from_json(field_data, object_type, session)
@@ -102,7 +156,7 @@ class ObjectType(BaseObjectType):
 
     def to_json(self) -> dict:
         """Convert ObjectType to JSON representation matching hasura_metadata_manager format."""
-        fields_data = [field.to_json() for field in self.fields]
+        fields_data = [field.to_json() for field in self.fields if not field.t_is_deleted]
 
         definition = {
             "dataConnectorTypeMapping": [

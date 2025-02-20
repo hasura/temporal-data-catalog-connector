@@ -71,7 +71,7 @@ class Supergraph(BaseSupergraph):
             session: SQLAlchemy session
 
         Returns:
-            Dictionary representing the Supergraph in hasura_metadata_manager.json format
+            Dictionary representing the Supergraph in metadata.json format
         """
         excluded_subgraphs = self._get_excluded_subgraphs()
 

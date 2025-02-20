@@ -6,7 +6,7 @@ from sqlalchemy.orm import relationship
 from ...base.core_base import CoreBase
 
 
-class DiffEntry(CoreBase):
+class   DiffEntry(CoreBase):
     """Table for storing hasura_metadata_manager about version changes"""
     __tablename__ = 'diffs'
 

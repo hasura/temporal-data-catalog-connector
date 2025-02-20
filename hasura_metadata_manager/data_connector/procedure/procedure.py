@@ -105,7 +105,7 @@ class Procedure(BaseProcedure):
     def to_json(self) -> Dict[str, Any]:
         """
         Convert the Procedure to a JSON-compatible dictionary
-        that matches the hasura_metadata_manager.json structure.
+        that matches the metadata.json structure.
         """
         procedure_dict = {
             "name": self.name
