@@ -43,6 +43,8 @@ class ScalarType(BaseScalarType):
         ).first()
 
         if existing:
+            session.add(existing)
+            session.flush()
             return existing
 
         scalar_type = cls(
@@ -53,7 +55,6 @@ class ScalarType(BaseScalarType):
         )
         session.add(scalar_type)
         session.flush()
-
 
         return scalar_type
 

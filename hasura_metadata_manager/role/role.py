@@ -76,6 +76,11 @@ class Role(BaseRole):
         ).first()
 
         if existing_role is not None:
+
+            # Always add the existing role to the session to ensure it's tracked
+            session.add(existing_role)
+            session.flush()  # Added flush here
+
             from ..type_permission import TypePermission
             TypePermission.from_json(json_data, subgraph, session)
             return existing_role
@@ -87,7 +92,7 @@ class Role(BaseRole):
         )
         session.add(new_role)
         session.flush()
-        
+
 
         from ..type_permission import TypePermission
         TypePermission.from_json(json_data, subgraph, session)

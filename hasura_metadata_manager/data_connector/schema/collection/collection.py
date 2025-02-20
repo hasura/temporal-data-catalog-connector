@@ -116,8 +116,9 @@ class Collection(BaseCollection):
             session.add(collection)
             session.flush()  # Added flush after collection creation
 
-
         else:
+            session.add(existing_collection)
+            session.flush()
             logger.warning(f"Collection with name {json_data.get('name')} already exists")
             return existing_collection
 

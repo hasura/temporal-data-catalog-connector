@@ -221,16 +221,21 @@ def generate_constraint_name(prefix: str, table_name: str, column_names: List[st
 
 def ensure_unique_constraint(table, columns, engine):
     """Ensure a unique constraint exists on the specified columns."""
+    # Add t_version if not already in columns
+    modified_columns = list(columns)
+    if not any(col.name == 't_version' for col in modified_columns):
+        modified_columns.append(table.c.t_version)
+
     constraint_name = generate_constraint_name(
         "uq",
         table.name,
-        [col.name for col in columns]
+        [col.name for col in modified_columns]
     )
 
     print(f"[DEBUG] Creating unique constraint {constraint_name} on {table.name}")
-    print(f"[DEBUG] Columns: {[col.name for col in columns]}")
+    print(f"[DEBUG] Columns: {[col.name for col in modified_columns]}")
 
-    unique_constraint = UniqueConstraint(*columns, name=constraint_name)
+    unique_constraint = UniqueConstraint(*modified_columns, name=constraint_name)
 
     # Create constraint - separate connection
     try:
@@ -248,12 +253,12 @@ def ensure_unique_constraint(table, columns, engine):
         with engine.connect().execution_options(timeout=30) as check_conn:
             with check_conn.begin():
                 # Create the query using column references
-                column_refs = [column.label(column.name) for column in columns]
+                column_refs = [column.label(column.name) for column in modified_columns]
                 duplicates_query = select(
                     *column_refs,
                     func.count().label('duplicate_count')
                 ).select_from(table).group_by(
-                    *columns
+                    *modified_columns
                 ).having(func.count() > 1)
 
                 result = check_conn.execute(duplicates_query)
@@ -264,7 +269,7 @@ def ensure_unique_constraint(table, columns, engine):
                     row_dict = row._mapping
                     duplicate = {
                         col.name: row_dict[col.name]
-                        for col in columns
+                        for col in modified_columns
                     }
                     duplicate['count'] = row_dict['duplicate_count']
                     duplicates.append(duplicate)

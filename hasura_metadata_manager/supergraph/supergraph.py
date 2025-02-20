@@ -60,7 +60,9 @@ class Supergraph(BaseSupergraph):
                 if subgraph_data.get('name') not in excluded_subgraphs:
                     Subgraph.from_json(subgraph_data, supergraph, session)
 
-        session.commit()
+        # Set t_created_at to current time just before commit
+        supergraph.t_created_at = datetime.utcnow()
+        supergraph.t_updated_at = supergraph.t_created_at
         return supergraph
 
     def to_json(self, session: Session) -> Dict[str, Any]:

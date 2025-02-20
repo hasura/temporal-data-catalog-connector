@@ -2,7 +2,7 @@ import hashlib
 import json
 import logging
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Dict, List, cast
 from typing import Optional
 
 from sqlalchemy import Column, DateTime, Integer, String, Boolean, event, inspect, and_, or_, Index, \
@@ -69,18 +69,51 @@ class TemporalMixin:
     # Version must be part of PK to allow multiple versions of same business entity
     t_version = Column(Integer, nullable=False, default=1)
 
+    @classmethod
+    def get_business_key_params(cls, obj) -> Dict[str, Any]:
+        """
+        Extract business key values from an object.
+
+        :param obj: The object to extract business key values from
+        :return: Dictionary of business key names to their values
+        """
+        params = {}
+        for pk in cls.get_business_keys():
+            value = getattr(obj, pk, None)
+            if value is None:
+                return None  # Return None if any business key is missing
+            params[pk] = value
+        return params
+
+    @classmethod
+    def generate_t_id(cls, params: Dict[str, Any] = None) -> str:
+        """
+        Generate t_id from business keys.
+
+        :param params: Optional dictionary of parameters. If None, uses current instance attributes.
+        :return: Generated t_id string
+        """
+        # If no params provided, use current instance's attributes
+        if params is None:
+            params = {}
+
+        pk_values = []
+        for pk in cls.get_business_keys():
+            # Try to get value from provided params
+            value = params.get(pk)
+            if value is None:
+                continue
+            pk_values.append(f"{pk}:{value}")
+
+        return f"{cls.__name__.lower()}:{'-'.join(pk_values)}" if pk_values else None
+
     @declared_attr
     def t_id(cls):
         """Generate t_id from business keys only (not version)"""
 
         def generate_t_id(context):
             params = context.get_current_parameters()
-            pk_values = []
-            for pk in cls.get_business_keys():
-                value = params.get(pk)
-                if value is not None:
-                    pk_values.append(f"{pk}:{value}")
-            return f"{cls.__name__.lower()}:{'-'.join(pk_values)}"
+            return cls._generate_t_id(params)
 
         return Column(
             't_id',
@@ -89,13 +122,85 @@ class TemporalMixin:
             default=generate_t_id
         )
 
+    # Add a flag to control timestamp generation
+    _override_created_at = False
+    _override_timestamp = None
+
+    @classmethod
+    def _generate_t_id(cls, params: Dict[str, Any] = None) -> str:
+        """
+        Generate t_id from business keys.
+
+        :param params: Optional dictionary of parameters. If None, uses current instance attributes.
+        :return: Generated t_id string
+        """
+        # If no params provided, use current instance's attributes
+        if params is None:
+            params = {}
+
+        pk_values = []
+        for pk in cls.get_business_keys():
+            # Try to get value from provided params, fall back to current instance if needed
+            value = params.get(pk)
+            if value is None:
+                continue
+            pk_values.append(f"{pk}:{value}")
+
+        return f"{cls.__name__.lower()}:{'-'.join(pk_values)}" if pk_values else None
+
+    @classmethod
+    def set_override_timestamp(cls, timestamp):
+        """
+        Set a global override timestamp for all new records
+        """
+        cls._override_created_at = True
+        cls._override_timestamp = timestamp
+
+    @classmethod
+    def clear_override_timestamp(cls):
+        """
+        Clear the override timestamp
+        """
+        cls._override_created_at = False
+        cls._override_timestamp = None
+
+    @declared_attr
+    def t_created_at(cls):
+        def generate_created_at():
+            if cls._override_created_at and cls._override_timestamp:
+                return cls._override_timestamp
+            return datetime.utcnow()
+
+        return Column(
+            't_created_at',
+            DateTime,
+            nullable=False,
+            default=generate_created_at
+        )
+
     # Temporal tracking columns
-    t_created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     t_updated_at = Column(DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
     t_is_current = Column(Boolean, nullable=False, default=True)
     t_content_hash = Column(String(64), nullable=False)  # SHA-256 hash
     t_is_deleted = Column(Boolean, nullable=False, default=False)  # Soft delete flag
     t_deleted_at = Column(DateTime, nullable=True)  # When the record was soft deleted
+
+    # Class variable to store initialization timestamp
+    _initialization_timestamp = None
+
+    @classmethod
+    def set_initialization_timestamp(cls, timestamp: datetime):
+        """
+        Set the global initialization timestamp
+        """
+        cls._initialization_timestamp = timestamp
+
+    @classmethod
+    def get_initialization_timestamp(cls) -> Optional[datetime]:
+        """
+        Retrieve the global initialization timestamp
+        """
+        return cls._initialization_timestamp
 
     @declared_attr
     def __tablename__(cls) -> str:
@@ -202,7 +307,7 @@ class TemporalMixin:
             and_(
                 cls.t_created_at <= timestamp,
                 or_(
-                    cls.t_updated_at == None,
+                    cls.t_updated_at is None,
                     cls.t_updated_at > timestamp
                 )
             )
@@ -232,6 +337,7 @@ class TemporalMixin:
         Excludes:
         - SQLAlchemy internal fields (starting with '_')
         - Temporal fields (starting with 't_')
+        - Known temporal-like fields
         - Relationships
         - Properties
         - Non-column attributes
@@ -239,6 +345,9 @@ class TemporalMixin:
         Returns:
             dict: Dictionary of column name to value pairs
         """
+        # Expanded list of temporal-like field names to exclude
+        TEMPORAL_FIELD_PREFIXES = ['t_', 'last_updated', 'created_', 'updated_']
+
         # Get the mapper for this class
         mapper = inspect(self).mapper
 
@@ -246,7 +355,7 @@ class TemporalMixin:
         column_attrs = {
             key: getattr(self, key)
             for key in sorted(mapper.columns.keys())  # Use columns from mapper
-            if not key.startswith('_') and not key.startswith('t_')
+            if not any(key.startswith(prefix) for prefix in TEMPORAL_FIELD_PREFIXES)
         }
 
         return column_attrs
@@ -257,8 +366,27 @@ class TemporalMixin:
         return hashlib.sha256(json.dumps(content, sort_keys=True, default=str).encode()).hexdigest()
 
     def calculate_changes(self, previous: Optional['TemporalMixin']) -> List[Dict[str, Any]]:
+
+        # If this is just a soft delete operation and no other changes, skip additional diff creation
+        if (self.t_is_deleted != previous.t_is_deleted and
+                self._get_non_temporal_attrs() == previous._get_non_temporal_attrs()):
+            return []
+
         """Calculate the changes between this version and the previous version"""
+        # If no previous version exists, check for new record tracking
         if not previous:
+            # Track as an add if it's the first version and created after initialization
+            if (self.t_version == 1 and
+                    self.t_created_at and
+                    self.get_initialization_timestamp() and
+                    self.t_created_at > self.get_initialization_timestamp()):
+                return [{
+                    'operation': ChangeOperation.ADD,
+                    'field_path': '/',
+                    'old_value': None,
+                    'new_value': self._serialize_value(self._get_non_temporal_attrs()),
+                    'value_type': 'dict'
+                }]
             return []
 
         current_state = self._get_non_temporal_attrs()
@@ -403,10 +531,51 @@ class TemporalMixin:
             return value
 
     def soft_delete(self, session: Session) -> None:
-        """Soft delete the current record"""
-        self.t_is_deleted = True
-        self.t_deleted_at = datetime.utcnow()
-        session.add(self)
+        """Soft delete the current record and create a new soft-deleted version"""
+        # Store the current state before deletion
+        previous_state = self._get_non_temporal_attrs()
+
+        logger.info(f"Soft-deleting temporal {self.t_id}")
+
+        # Create a new soft-deleted version
+        soft_deleted_obj = type(self)()
+
+        # Copy all attributes except temporal tracking
+        for key, value in self.__dict__.items():
+            if key != '_sa_instance_state':
+                setattr(soft_deleted_obj, key, value)
+
+        # Set soft delete specific attributes
+        soft_deleted_obj.t_id = self.t_id
+        soft_deleted_obj.t_is_deleted = True
+        soft_deleted_obj.t_deleted_at = datetime.utcnow()
+        soft_deleted_obj.t_updated_at = datetime.utcnow()
+
+        # Remove the original object from the session since we don't need it
+        session.expunge(self)
+
+        # Add the soft-deleted object to the session
+        session.add(soft_deleted_obj)
+
+        # Create diff entry for soft deletion
+        diff_entry = DiffEntry(
+            entity_type=self.__tablename__,
+            t_id=soft_deleted_obj.t_id,
+            from_version=self.t_version,
+            to_version=self.t_version + 1  # Let before_flush handle final version number
+        )
+        session.add(diff_entry)
+
+        # Create change record for soft deletion
+        diff_change = DiffChange(
+            diff_entry=diff_entry,
+            operation=ChangeOperation.DELETE,
+            field_path='/',  # Root-level operation
+            old_value=self._serialize_value(previous_state),
+            new_value=None,
+            value_type='dict'
+        )
+        session.add(diff_change)
 
     def get_change_history(self) -> List[Dict[str, Any]]:
         """Get the complete change history for this entity"""
@@ -432,11 +601,18 @@ class TemporalMixin:
         return history
 
 
+# track all records processed
+_processed_temporal_records = set()
+
+
 @event.listens_for(Session, 'before_flush')
-def handle_temporal_tracking(session: Session, flush_context, instances) -> None:
+def handle_temporal_tracking(session: Session, _flush_context, _instances) -> None:
     """Handle temporal tracking before flush."""
 
-    logger.debug("Before flush triggered")
+    logger.debug("Before flush triggered - tracking item")
+    for obj in session.new | session.dirty | session.deleted:
+        if isinstance(obj, TemporalMixin):
+            _processed_temporal_records.add((type(obj), obj.generate_t_id(obj.get_business_key_params(obj))))
 
     # Check new objects
     logger.debug(f"Session new count: {len(session.new)}")
@@ -505,7 +681,7 @@ def handle_temporal_tracking(session: Session, flush_context, instances) -> None
                         query = query.filter_by(t_is_current=True)
 
                     # Execute query
-                    existing = query.first()
+                    existing = cast(obj.__class__, query.first())
 
                     # Close temporary session
                     temp_session.close()
@@ -532,7 +708,7 @@ def handle_temporal_tracking(session: Session, flush_context, instances) -> None
                         logger.debug(f"After expunge - is obj in session: {obj in session}")
                         continue
                 else:
-                    if existing.t_content_hash == new_hash:
+                    if existing.t_content_hash == new_hash and (obj.t_is_deleted is None or (existing.t_is_deleted == obj.t_is_deleted)):
                         logger.debug(
                             f"Found existing {obj.__class__.__name__}({identifier}) "
                             "with matching content. Skipping insert."
@@ -551,9 +727,9 @@ def handle_temporal_tracking(session: Session, flush_context, instances) -> None
                         # Setup new version
                         obj.t_id = existing.t_id
                         obj.t_version = existing.t_version + 1
-                        obj.t_is_current = True
+                        obj.t_is_current = True if obj.t_is_deleted is None else False
                         obj.t_content_hash = new_hash
-                        obj.t_is_deleted = False
+                        obj.t_is_deleted = obj.t_is_deleted  if obj.t_is_deleted is not None else False
 
                         # Control operation order through add sequence
                         session.expunge(obj)
@@ -664,3 +840,31 @@ def handle_temporal_tracking(session: Session, flush_context, instances) -> None
                 obj.t_content_hash = new_hash
                 obj.t_version = 1
                 obj.t_is_current = True
+
+
+@event.listens_for(Session, 'before_commit')
+def identify_and_soft_delete_stale_records(session: Session):
+    # Group processed t_ids by model
+    processed_by_model = {}
+    for model, t_id in _processed_temporal_records:
+        if model not in processed_by_model:
+            processed_by_model[model] = set()
+        processed_by_model[model].add(t_id)
+
+    # Process each model with processed records
+    for model, processed_t_ids in processed_by_model.items():
+        # Find current records not in processed set for this specific model
+        stale_records = session.query(model).filter(
+            model.t_is_current == True,
+            model.t_is_deleted == False,
+            model.t_id.notin_(processed_t_ids)
+        ).all()
+
+        # Soft delete stale records
+        for record in stale_records:
+            logger.debug(f"Soft delete record: {record.t_id}")
+            record.soft_delete(session)
+            # session.expunge(record)
+
+    # Clear the processed records after handling
+    _processed_temporal_records.clear()

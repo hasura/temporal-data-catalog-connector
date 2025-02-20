@@ -18,8 +18,8 @@ def database_exists(url):
     session = None
     try:
         engine = create_engine(url)
-        Session = sessionmaker(bind=engine)
-        session = Session()
+        session_factory = sessionmaker(bind=engine)
+        session = session_factory()
         session.query(Supergraph).first()
         return True
     except exc.OperationalError:
@@ -91,6 +91,7 @@ def init_schema_from_build(
                         t_is_current=True,
                         t_is_deleted=False
                     ).first())
+                    Supergraph.set_initialization_timestamp(existing_supergraph.t_created_at)
                     # Get modification time in seconds since the epoch
                     mod_time = os.path.getmtime(engine_build)
 
@@ -104,7 +105,8 @@ def init_schema_from_build(
                                 return
                         else:
                             logger.debug(
-                                f"Existing supergraph has version {existing_supergraph.version}. Skipping schema import.")
+                                f"Existing supergraph has version {existing_supergraph.version}." 
+                                "Skipping schema import.")
                             return
                     else:
                         logger.debug(f"No existing supergraph found. Importing schema from {engine_build}.")
@@ -140,4 +142,3 @@ def init_with_session(clean_database=False):
         clean_database=clean_database,
         engine_build=engine_build
     )
-
