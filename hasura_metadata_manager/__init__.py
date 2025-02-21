@@ -92,6 +92,7 @@ def create_viewonly_fk_constraints(metadata: MetaData, engine):
 from .load import init_with_session
 from .export_rdf import export_rdf
 from .export_model_rdf import export_model_rdf
+from .sync_model_to_neo4j import sync_model_to_neo4j
 
 __all__ = [
     'init_with_session',
@@ -116,5 +117,6 @@ __all__ = [
     'TypePermission',
     'Collection',
     'export_rdf',
-    'export_model_rdf'
+    'export_model_rdf',
+    'sync_model_to_neo4j'
 ]

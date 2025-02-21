@@ -51,7 +51,6 @@ class Supergraph(BaseSupergraph):
         )
         session.add(supergraph)
         session.flush()  # Flush to get the primary key
-        # session.commit()
 
         # Process subgraphs if present
         if "subgraphs" in json_data:
@@ -61,8 +60,9 @@ class Supergraph(BaseSupergraph):
                     Subgraph.from_json(subgraph_data, supergraph, session)
 
         # Set t_created_at to current time just before commit
-        supergraph.t_created_at = datetime.now(timezone.utc)
-        supergraph.t_updated_at = supergraph.t_created_at
+        if supergraph is not None:
+            supergraph.t_created_at = datetime.now(timezone.utc)
+            supergraph.t_updated_at = supergraph.t_created_at
         return supergraph
 
     def to_json(self, session: Session) -> Dict[str, Any]:

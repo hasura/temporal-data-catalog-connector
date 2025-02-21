@@ -1,16 +1,12 @@
-from typing import overload, Optional, Union, TYPE_CHECKING
+from typing import overload, Optional, Union, cast, List
 
-from rdflib import Graph, URIRef, RDF, Literal
+from rdflib import Graph, URIRef, RDF, Literal, RDFS
 from sqlalchemy.orm import Session
 
+from . import NS_HASURA_REL
 from .base_rdf_mixin import BaseRDFMixin
-from .namespace import bind_namespaces
+from .namespace import bind_namespaces, NS_HASURA_MODEL, NS_HASURA_SUBGRAPH, NS_HASURA_PROP
 from .rdf_translator import T, RDFTranslator
-
-if TYPE_CHECKING:
-    from ... import ObjectType
-    from ...object_type.field import ObjectField
-    from ...relationship import Relationship
 
 logger = __import__("logging").getLogger(__name__)
 
@@ -35,47 +31,64 @@ class ModelRDFMixin(BaseRDFMixin):
     @classmethod
     def generate_model_metadata_graph(cls, session: Session) -> Graph:
         """Generate RDF graph representing the model structure from metadata tables"""
+
+        from ... import ObjectType
+        from ...object_type.field import ObjectField
+        from ...relationship import Relationship
+
         logger.debug("Generating model metadata graph")
         graph = Graph()
         bind_namespaces(graph)
 
         # Get all current object types, fields and relationships
-        object_types = session.query(ObjectType).filter(
-            ObjectType.t_is_current == True,
-            ObjectType.t_is_deleted == False
-        ).all()
+        object_types = cast(List[ObjectType],session.query(ObjectType).filter(
+            ObjectType.t_is_current,
+            ~ObjectType.t_is_deleted
+        ).all())
 
-        object_fields = session.query(ObjectField).filter(
-            ObjectField.t_is_current == True,
-            ObjectField.t_is_deleted == False
-        ).all()
+        object_fields = cast(List[ObjectField],session.query(ObjectField).filter(
+            ObjectField.t_is_current,
+            ~ObjectField.t_is_deleted
+        ).all())
 
-        relationships = session.query(Relationship).filter(
-            Relationship.t_is_current == True,
-            Relationship.t_is_deleted == False
-        ).all()
+        relationships = cast(List[Relationship],session.query(Relationship).filter(
+            Relationship.t_is_current,
+            ~Relationship.t_is_deleted
+        ).all())
 
         # Create nodes for each object type with its fields
         for obj_type in object_types:
             # Create node with labels
-            type_uri = URIRef(obj_type.name)
-            graph.add((type_uri, RDF.type, URIRef(obj_type.subgraph_name)))
-            graph.add((type_uri, RDF.type, URIRef(cls._to_pascal_case(obj_type.name))))
+            graph.add((
+                NS_HASURA_MODEL[obj_type.name],
+                NS_HASURA_REL["BELONGS_TO"],
+                NS_HASURA_SUBGRAPH[obj_type.subgraph_name]
+            ))
+            graph.add((NS_HASURA_MODEL[obj_type.name], RDF.type, NS_HASURA_MODEL.Model))
+            graph.add((NS_HASURA_SUBGRAPH[obj_type.subgraph_name], RDF.type, NS_HASURA_SUBGRAPH.Subgraph))
+            graph.add((NS_HASURA_MODEL[obj_type.name], RDFS.label, Literal(obj_type.name)))
+            graph.add((NS_HASURA_SUBGRAPH[obj_type.subgraph_name], RDFS.label, Literal(obj_type.subgraph_name)))
 
             # Add fields as properties
             fields = [f for f in object_fields if f.object_type_name == obj_type.name]
             for field in fields:
-                graph.add((type_uri, URIRef(field.logical_field_name),
-                           Literal(field.scalar_type_name)))
+                graph.add((NS_HASURA_MODEL[obj_type.name], NS_HASURA_REL["HAS_PROPERTY"],
+                           NS_HASURA_PROP[field.name]))
+                graph.add((NS_HASURA_PROP[field.name], RDFS.label, Literal(field.name)))
+                graph.add((NS_HASURA_PROP[field.name], RDF.type, NS_HASURA_PROP.Property))
+
 
         # Add relationships
         for rel in relationships:
-            source_uri = URIRef(rel.source_type_name)
-            target_uri = URIRef(rel.target_type_name)
-            rel_name = cls._to_upper_snake_case(rel.name)
-            graph.add((source_uri, URIRef(rel_name), target_uri))
+            source_uri = NS_HASURA_MODEL[rel.source_type_name]
+            target_uri = NS_HASURA_MODEL[rel.target_type_name]
+            rel_name = "HAS_" + cls._to_upper_snake_case(rel.name)
+            graph.add((source_uri, NS_HASURA_REL[rel_name], target_uri))
 
-        logger.debug("Completed model metadata graph generation")
+        # assert len(graph) > 0, "Generated model RDF graph is empty"
+        logger.debug(f"Completed model metadata graph generation: {len(graph)}")
+        for subj, pred, obj in graph.triples((None, None, None)):
+            logger.debug(f"Subject: {subj}, Predicate: {pred}, Object: {obj}")
         return graph
 
     @classmethod

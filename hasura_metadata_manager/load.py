@@ -16,17 +16,21 @@ logger = __import__("logging").getLogger(__name__)
 
 def database_exists(url):
     session = None
+    engine = None
     try:
         engine = create_engine(url)
         session_factory = sessionmaker(bind=engine)
         session = session_factory()
         session.query(Supergraph).first()
         return True
-    except exc.OperationalError:
+    except (exc.OperationalError, exc.ProgrammingError):
         return False
     finally:
         if session is not None:
             session.close()
+        if engine is not None:
+            engine.dispose()
+
 
 
 def create_engine_config(database_url: str):
@@ -86,7 +90,7 @@ def init_schema_from_build(
                 importer = SchemaHelper(session)
 
                 # Version checking logic
-                if not clean_database:
+                if not clean_database and database_exists(database_url):
                     existing_supergraph = cast(Supergraph, session.query(Supergraph).filter_by(
                         t_is_current=True,
                         t_is_deleted=False

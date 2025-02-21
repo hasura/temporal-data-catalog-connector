@@ -1,3 +1,4 @@
+import os
 from abc import abstractmethod
 from contextlib import contextmanager
 from functools import wraps
@@ -8,7 +9,7 @@ from rdflib_neo4j import Neo4jStore, Neo4jStoreConfig, HANDLE_VOCAB_URI_STRATEGY
 from sqlalchemy.orm import Session
 
 from . import NS_HASURA, NS_HASURA_PROP, NS_HASURA_REL, NS_HASURA_OBJ_REL, NS_HASURA_MODEL
-from .namespace import bind_namespaces
+from .namespace import bind_namespaces, NS_HASURA_SUBGRAPH
 from .rdf_translator import RDFTranslator, T
 
 logger = __import__("logging").getLogger(__name__)
@@ -71,20 +72,42 @@ class RDFNeo4jExport:
             multival_props_names: Optional[List[Tuple[str, str]]] = None
     ) -> None:
         """Configure Neo4j connection details"""
+        # Replace 'auth': auth, with the following logic:
+        neo4j_auth_env = os.getenv('NEO4J_AUTH', None)
+
+        if custom_prefixes is None:
+            custom_prefixes = {
+                "has": str(NS_HASURA),
+                "prop": str(NS_HASURA_PROP),
+                "rel": str(NS_HASURA_REL),
+                "drel": str(NS_HASURA_OBJ_REL),
+                "mod": str(NS_HASURA_MODEL),
+                "sub": str(NS_HASURA_SUBGRAPH)
+            }
+        if custom_mappings is None:
+            custom_mappings = [
+                # Format: (namespace, neo4j_label, property_name)
+                ("mod", "Model", None),
+                ("sub", "Subgraph", None),
+                ("prop", "Property", None)
+            ]
+
+        if neo4j_auth_env:
+            try:
+                username, password = neo4j_auth_env.split(",", 1)  # Split into a tuple (username, password)
+                auth = (username.strip(), password.strip())  # Assign the tuple
+            except ValueError:
+                raise ValueError("NEO4J_AUTH must be in the format 'username,password'")
+        else:
+            auth = auth  # Fallback to the original `auth` value
         global _GLOBAL_NEO4J_CONFIG
         _GLOBAL_NEO4J_CONFIG = {
-            'uri': uri,
-            'database': database,
+            'uri': os.getenv("NEO4J_URI", uri),
+            'database': os.getenv("NEO4J_DATABASE", database),
             'auth': auth,
             'batch_size': batch_size,
             'handle_vocab_uri_strategy': HANDLE_VOCAB_URI_STRATEGY.IGNORE,
-            'custom_prefixes': custom_prefixes or {
-                "has": NS_HASURA,
-                "prop": NS_HASURA_PROP,
-                "rel": NS_HASURA_REL,
-                "drel": NS_HASURA_OBJ_REL,
-                "mod": NS_HASURA_MODEL
-            },
+            'custom_prefixes': custom_prefixes,
             'custom_mappings': custom_mappings or [],
             'multival_props_names': multival_props_names or []
         }

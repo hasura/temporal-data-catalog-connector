@@ -17,7 +17,7 @@ services:
       dockerfile: hasura_metadata_agent/Dockerfile
       # We can use ARGS in Docker Compose to pass parameters during the build process.
       args:
-        - SRC_DIR=example
+        - SRC_DIR=$SRC_DIR
     env_file:
       - .env
 
