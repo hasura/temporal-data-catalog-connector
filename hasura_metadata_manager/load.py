@@ -89,12 +89,14 @@ def init_schema_from_build(
             with managed_session(engine) as session:
                 importer = SchemaHelper(session)
 
+                existing_supergraph = cast(Supergraph, session.query(Supergraph).filter_by(
+                    t_is_current=True,
+                    t_is_deleted=False
+                ).first())
+
                 # Version checking logic
-                if not clean_database and database_exists(database_url):
-                    existing_supergraph = cast(Supergraph, session.query(Supergraph).filter_by(
-                        t_is_current=True,
-                        t_is_deleted=False
-                    ).first())
+                if not clean_database and existing_supergraph is not None:
+
                     Supergraph.set_initialization_timestamp(existing_supergraph.t_created_at)
                     # Get modification time in seconds since the epoch
                     mod_time = os.path.getmtime(engine_build)

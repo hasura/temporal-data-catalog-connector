@@ -215,5 +215,8 @@ and add in the correct database params.</li>
 
 # Wrapping it up
 
-Your supergraph metadata is now available within the supergraph for direct reporting and analysis, its available as a direct connection to your database, and you can browse your metadata through neo4j.
+Your supergraph metadata is now available within the supergraph for direct querying, 
+its available as a direct connection to your database, 
+and you can browse your metadata through neo4j.
+
 
