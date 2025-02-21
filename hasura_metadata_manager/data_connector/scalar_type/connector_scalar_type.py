@@ -1,13 +1,13 @@
 import logging
-from typing import Dict, List, Any, TYPE_CHECKING, cast
+from typing import Dict, List, Any, TYPE_CHECKING, cast, Type
 
-from sqlalchemy import and_
 from sqlalchemy.orm import Mapped, Session
 
 from ..representation.representation import Representation
 from ..scalar_type.aggregate_function import AggregateFunction
 from ..scalar_type.connector_scalar_type_base import \
     ConnectorScalarType as BaseConnectorScalarType
+from ...boolean_expression_type.data_connector_operator_mapping import DataConnectorOperatorMapping
 from ...mixins.temporal.temporal_relationship import TemporalRelationship
 
 if TYPE_CHECKING:
@@ -86,20 +86,20 @@ class ConnectorScalarType(BaseConnectorScalarType):
             session.flush()
 
         # Find appropriate boolean expression types
-        from ...boolean_expression_type.boolean_expression_type import BooleanExpressionType, \
-            DataConnectorOperatorMapping
+        from ...boolean_expression_type.boolean_expression_type import BooleanExpressionType
 
         # Look for boolean expression types with matching data connector mappings
-        boolean_expression_types = cast(List[BooleanExpressionType], session.query(BooleanExpressionType).join(
+        data_connector_mappings = cast(
+            Type[DataConnectorOperatorMapping],
             BooleanExpressionType.data_connector_mappings
-        ).filter(and_(
-            # BooleanExpressionType.subgraph_name == connector.subgraph_name,
-            # DataConnectorOperatorMapping.data_connector_scalar_type == name,
-            # DataConnectorOperatorMapping.data_connector_name == connector.name
-        )).all())
+        )
+        boolean_expression_types = cast(List[BooleanExpressionType], session.query(BooleanExpressionType).join(
+            data_connector_mappings
+        ).all())
 
         boolean_expression_types_filtered = [t for t in boolean_expression_types if
-                                             name in [x.data_connector_scalar_type for x in t.data_connector_mappings]]
+                                             name in [x.data_connector_scalar_type for x in
+                                                      cast(List[DataConnectorOperatorMapping], t.data_connector_mappings)]]
 
         if boolean_expression_types_filtered and len(boolean_expression_types_filtered) > 1:
             boolean_expression_types_filtered = [t for t in boolean_expression_types_filtered if

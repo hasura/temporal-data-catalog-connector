@@ -1,8 +1,9 @@
 from typing import List, Dict, Any, Type, TYPE_CHECKING
-from sqlalchemy.orm import Mapped, mapped_column, Session
 
-from ..mixins.temporal.temporal_relationship import TemporalRelationship
+from sqlalchemy.orm import Mapped, Session
+
 from .command_permissions_base import CommandPermissions as BaseCommandPermissions
+from ..mixins.temporal.temporal_relationship import TemporalRelationship
 
 if TYPE_CHECKING:
     from .command_permission_preset import CommandPermissionPreset

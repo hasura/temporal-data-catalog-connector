@@ -1,6 +1,8 @@
 import json
 import logging
+import os
 import subprocess
+import time
 import warnings
 from typing import List, TYPE_CHECKING, cast
 
@@ -8,8 +10,6 @@ import pytest
 from rdflib import Graph, URIRef
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-import os
-import time
 
 from hasura_metadata_manager.compatibility_config import CompatibilityConfig
 from hasura_metadata_manager.mixins.rdf import NS_HASURA, NS_HASURA_OBJ_REL, bind_namespaces
@@ -55,8 +55,8 @@ def clean_directory():
 def session():
     database_url = "postgresql://kenstott:rN8qOh6AEMCP@ep-yellow-salad-961725.us-west-2.aws.neon.tech/hasura_config?sslmode=require"  # Example: SQLite database stored in a file
     engine = create_engine(database_url)
-    Session = sessionmaker(bind=engine)
-    session = Session()
+    session_factory = sessionmaker(bind=engine)
+    session = session_factory()
     try:
         yield session
     finally:
@@ -137,6 +137,54 @@ def test_export_rdf(session):
     except Exception as e:
         session.rollback()
         logger.error(f"RDF export failed: {str(e)}")
+        raise
+
+
+def test_export_model_rdf(session):
+    """
+    Export model RDF with proper transaction management and Neo4j sync
+    """
+    from hasura_metadata_manager.mixins.rdf.model_rdf_mixin import ModelRDFMixin
+
+    try:
+        # Initialize Neo4j configuration in its own transaction
+        with session.begin_nested():
+            ModelRDFMixin.configure_neo4j()
+
+        # Generate model metadata graph in a separate transaction
+        with session.begin_nested():
+            graph = ModelRDFMixin.generate_model_metadata_graph(session)
+
+            # Verify graph generation succeeded
+            assert len(graph) > 0, "Generated model RDF graph is empty"
+
+        # Serialize RDF output - not in transaction as it's memory operation
+        rdf_output = graph.serialize(format="turtle")
+
+        # Write to file - separate from DB operations
+        try:
+            with open("./model-metadata.ttl", "w") as file:
+                file.write(rdf_output)
+        except IOError as e:
+            logger.error(f"Failed to write model RDF output: {str(e)}")
+            raise
+
+        # Sync to Neo4j in final transaction
+        with session.begin_nested():
+            ModelRDFMixin.sync_all_to_neo4j(
+                session=session,
+                source_graph=graph
+            )
+
+        # Log output for debugging
+        logger.debug(rdf_output)
+
+        # Commit all changes if everything succeeded
+        session.commit()
+
+    except Exception as e:
+        session.rollback()
+        logger.error(f"Model RDF export failed: {str(e)}")
         raise
 
 

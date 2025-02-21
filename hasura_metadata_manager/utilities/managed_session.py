@@ -18,12 +18,12 @@ def managed_session(engine_or_session_factory):
 
     # Create SessionFactory if given an engine
     if not isinstance(engine_or_session_factory, sessionmaker):
-        SessionFactory = sessionmaker(bind=engine_or_session_factory)
+        session_factory = sessionmaker(bind=engine_or_session_factory)
     else:
-        SessionFactory = engine_or_session_factory
+        session_factory = engine_or_session_factory
 
     # Create new session
-    session = SessionFactory()
+    session = session_factory()
     try:
         yield session
         session.commit()

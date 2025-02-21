@@ -73,9 +73,9 @@ def rdf_to_advanced_graph(turtle_data,
                           output_png='rdf_network.png',
                           node_size_func=None,
                           node_color_func=None,
-                          edge_width_func=None,
+                          _edge_width_func=None,
                           layout_algorithm='spring',
-                          figsize=(20, 15),
+                          figure_size=(20, 15),
                           dpi=300,
                           filter_predicates=None,
                           max_nodes=500,
@@ -90,10 +90,10 @@ def rdf_to_advanced_graph(turtle_data,
         output_png (str, optional): Path for the output PNG file
         node_size_func (callable, optional): Function to determine node size
         node_color_func (callable, optional): Function to determine node color
-        edge_width_func (callable, optional): Function to determine edge width
+        _edge_width_func (callable, optional): Function to determine edge width
         layout_algorithm (str, optional): Graph layout algorithm
             Options: 'spring', 'kamada_kawai', 'spectral', 'circular'
-        figsize (tuple, optional): Figure size (width, height) in inches
+        figure_size (tuple, optional): Figure size (width, height) in inches
         dpi (int, optional): Dots per inch for the output image
         filter_predicates (list, optional): List of predicates to include/exclude
         max_nodes (int, optional): Maximum number of nodes to render
@@ -194,7 +194,7 @@ def rdf_to_advanced_graph(turtle_data,
                 return cm.viridis(centrality_measures['degree_centrality'].get(node, 0))
 
     # Prepare the plot
-    plt.figure(figsize=figsize, dpi=dpi)
+    plt.figure(figsize=figure_size, dpi=dpi)
 
     # Choose layout algorithm
     if layout_algorithm == 'spring':

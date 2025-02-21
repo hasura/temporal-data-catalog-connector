@@ -1,11 +1,9 @@
-from typing import Optional, Type, Dict, Any
+from typing import Type, Dict, Any
 
-from sqlalchemy import String, Boolean
-from sqlalchemy.orm import Mapped, mapped_column, Session
+from sqlalchemy.orm import Session
 
-from hasura_metadata_manager.base import Base
-from .command_permissions import CommandPermissions
 from .command_permission_preset_base import CommandPermissionPreset as BaseCommandPermissionPreset
+from .command_permissions import CommandPermissions
 
 
 class CommandPermissionPreset(BaseCommandPermissionPreset):
@@ -17,7 +15,7 @@ class CommandPermissionPreset(BaseCommandPermissionPreset):
                   permission: CommandPermissions, session: Session) -> "CommandPermissionPreset":
         """Create a CommandPermissionPreset from JSON data."""
         # Extract the argument name and value from the preset data
-        # The schema shows this as an array but we need to determine the exact structure
+        # The schema shows this as an array, but we need to determine the exact structure
         # of the preset data to properly parse it
         arg_name = json_data.get("name", "")  # Adjust based on actual structure
         preset_value = json_data.get("value")  # Adjust based on actual structure

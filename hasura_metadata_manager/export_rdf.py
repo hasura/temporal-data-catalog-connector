@@ -2,9 +2,8 @@ import os
 
 from sqlalchemy.orm import sessionmaker
 
-from hasura_metadata_manager import Supergraph
 from hasura_metadata_manager.load import create_engine_config
-from hasura_metadata_manager.utilities import managed_session, SchemaHelper, rdf_to_advanced_graph
+from hasura_metadata_manager.utilities import SchemaHelper, rdf_to_advanced_graph
 
 logger = __import__("logging").getLogger(__name__)
 
@@ -14,8 +13,8 @@ def export_rdf(center_node=None, hops=None):
     session = None
     try:
         engine = create_engine_config(os.getenv("DATABASE_URL", ''))
-        SessionFactory = sessionmaker(bind=engine)
-        session = SessionFactory()
+        session_factory = sessionmaker(bind=engine)
+        session = session_factory()
         assert session is not None, "Session not initialized."
         si = SchemaHelper(session)
         graph = si.generate_rdf_definitions_for_classes()

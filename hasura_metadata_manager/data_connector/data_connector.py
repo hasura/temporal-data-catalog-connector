@@ -180,7 +180,7 @@ class DataConnector(BaseDataConnector):
         Process field mappings for the data connector.
 
         Args:
-            json_data: Full JSON data for the data connector
+            _json_data: Full JSON data for the data connector
             session: SQLAlchemy session
 
         Returns:

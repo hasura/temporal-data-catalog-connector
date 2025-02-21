@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any, TYPE_CHECKING
 import os
 
@@ -61,7 +61,7 @@ class Supergraph(BaseSupergraph):
                     Subgraph.from_json(subgraph_data, supergraph, session)
 
         # Set t_created_at to current time just before commit
-        supergraph.t_created_at = datetime.utcnow()
+        supergraph.t_created_at = datetime.now(timezone.utc)
         supergraph.t_updated_at = supergraph.t_created_at
         return supergraph
 

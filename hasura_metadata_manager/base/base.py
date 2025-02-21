@@ -3,5 +3,5 @@ from ..mixins.rdf import RDFGeneratorMixin, RDFNeo4jExport
 from ..mixins.temporal import TemporalViewMixin, TemporalMixin
 
 
-class Base(CoreBase, TemporalMixin, TemporalViewMixin, RDFGeneratorMixin, RDFNeo4jExport):
+class Base(CoreBase, RDFGeneratorMixin, RDFNeo4jExport, TemporalMixin, TemporalViewMixin):
     __abstract__ = True

@@ -1,6 +1,5 @@
-from typing import Type, Dict, Any, List, TYPE_CHECKING, cast
+from typing import Type, Dict, Any, List, TYPE_CHECKING
 
-from sqlalchemy import inspect
 from sqlalchemy.orm import Mapped, Session
 
 from .field.object_field import ObjectField

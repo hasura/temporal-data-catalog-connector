@@ -15,6 +15,7 @@ from hasura_ndc.errors import UnprocessableContent
 from hasura_ndc.function_connector import FunctionConnector
 
 from hasura_metadata_manager import export_rdf
+from hasura_metadata_manager.export_model_rdf import export_model_rdf
 
 logger = logging.getLogger(__name__)
 
@@ -26,6 +27,14 @@ logging.basicConfig(level=logging.DEBUG)
 def metadata_rdf(center_node: str = None, hops: int = None) -> str:
     try:
         return export_rdf(center_node, hops)
+    except Exception as e:
+        raise UnprocessableContent(message=str(e), details={"Error": repr(e)})
+
+
+@connector.register_query
+def model_metadata_rdf(center_node: str = None, hops: int = None) -> str:
+    try:
+        return export_model_rdf(center_node, hops)
     except Exception as e:
         raise UnprocessableContent(message=str(e), details={"Error": repr(e)})
 

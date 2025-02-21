@@ -1,4 +1,4 @@
 hasura-ndc==0.38
-hasura-metadata-manager~=0.1.20
+hasura-metadata-manager~=0.1.24
 
 

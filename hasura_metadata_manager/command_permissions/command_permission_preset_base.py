@@ -1,7 +1,7 @@
-from typing import Optional, Type, Dict, Any
+from typing import Optional
 
 from sqlalchemy import String, Boolean, Float
-from sqlalchemy.orm import Mapped, mapped_column, Session
+from sqlalchemy.orm import Mapped, mapped_column
 
 from hasura_metadata_manager.base import Base
 

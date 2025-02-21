@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy.orm import relationship
@@ -15,7 +15,7 @@ class   DiffEntry(CoreBase):
     t_id = Column(String(2056), nullable=False)  # Reference to the t_id of the source entity
     from_version = Column(Integer, nullable=False)  # Previous version number
     to_version = Column(Integer, nullable=False)  # New version number
-    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+    created_at = Column(DateTime, nullable=False, default=datetime.now(timezone.utc))
 
     # Relationship to individual changes
     changes = relationship("DiffChange", back_populates="diff_entry", cascade="all, delete-orphan")

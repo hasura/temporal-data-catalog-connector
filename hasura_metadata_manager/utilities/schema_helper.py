@@ -260,6 +260,31 @@ class SchemaHelper:
 
         return combined_graph
 
+    def generate_model_rdf_definitions(self) -> Graph:
+        """
+        Generate a combined RDF graph for all SQLAlchemy models
+        that include the RDFGeneratorMixin, while excluding join tables.
+
+        :return: A single RDFLib Graph containing triples from all models.
+        """
+        # Initialize a combined RDF graph
+        combined_graph = Graph(identifier="models")
+        bind_namespaces(combined_graph)
+
+        # Iterate over all mapped classes in declarative `Base`
+        for mapper in Base.registry.mappers:
+            clazz = mapper.class_
+
+            # Check if the class has the RDFGeneratorMixin
+            if issubclass(clazz, ModelRDFMixin):
+                logger.debug(f"Generating RDF graph for {clazz.__name__}")
+                # Generate RDF data for this class and its instances
+                class_graph = clazz.translate_to_model_metadata(
+                    self.session)  # Generate RDF graph for class instances
+                combined_graph += class_graph  # Merge class graph into combined graph
+
+        return combined_graph
+
     @staticmethod
     def filter_graph_by_sparql(graph: Graph, start_node: URIRef, max_hops: int) -> Graph:
         """

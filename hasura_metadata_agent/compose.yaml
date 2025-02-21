@@ -11,6 +11,7 @@ services:
   metadata-app:
     depends_on:
       - db
+      - neo4j
     build:
       context: ..
       dockerfile: hasura_metadata_agent/Dockerfile
@@ -19,5 +20,24 @@ services:
         - SRC_DIR=example
     env_file:
       - .env
+
+  neo4j:
+    image: neo4j:5
+    container_name: neo4j
+    ports:
+      - 7474:7474  # HTTP port for accessing Neo4j Browser
+      - 7687:7687  # Bolt port for database interactions
+    environment:
+      NEO4J_AUTH: "neo4j/password"  # Username: neo4j, Password: password
+    volumes:
+      - neo4j_data:/data  # Persistent data storage
+      - neo4j_logs:/logs  # Persistent logs storage
+      - neo4j_import:/var/lib/neo4j/import  # Import directory if needed
+      - neo4j_plugins:/plugins  # Plugins directory if needed
+
 volumes:
   db_data:
+  neo4j_data:
+  neo4j_logs:
+  neo4j_import:
+  neo4j_plugins:

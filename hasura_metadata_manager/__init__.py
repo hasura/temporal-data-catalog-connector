@@ -91,6 +91,7 @@ def create_viewonly_fk_constraints(metadata: MetaData, engine):
 
 from .load import init_with_session
 from .export_rdf import export_rdf
+from .export_model_rdf import export_model_rdf
 
 __all__ = [
     'init_with_session',
@@ -114,5 +115,6 @@ __all__ = [
     'Role',
     'TypePermission',
     'Collection',
-    'export_rdf'
+    'export_rdf',
+    'export_model_rdf'
 ]

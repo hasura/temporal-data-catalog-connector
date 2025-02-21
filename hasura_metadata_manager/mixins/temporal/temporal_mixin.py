@@ -1,7 +1,7 @@
 import hashlib
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Dict, List, cast
 from typing import Optional
 
@@ -169,7 +169,7 @@ class TemporalMixin:
         def generate_created_at():
             if cls._override_created_at and cls._override_timestamp:
                 return cls._override_timestamp
-            return datetime.utcnow()
+            return datetime.now(timezone.utc)
 
         return Column(
             't_created_at',
@@ -548,8 +548,8 @@ class TemporalMixin:
         # Set soft delete specific attributes
         soft_deleted_obj.t_id = self.t_id
         soft_deleted_obj.t_is_deleted = True
-        soft_deleted_obj.t_deleted_at = datetime.utcnow()
-        soft_deleted_obj.t_updated_at = datetime.utcnow()
+        soft_deleted_obj.t_deleted_at = datetime.now(timezone.utc)
+        soft_deleted_obj.t_updated_at = datetime.now(timezone.utc)
 
         # Remove the original object from the session since we don't need it
         session.expunge(self)
@@ -650,9 +650,9 @@ def handle_temporal_tracking(session: Session, _flush_context, _instances) -> No
             if not obj.t_is_deleted:
                 try:
                     identifier = ', '.join(f"{k}={getattr(obj, k)}" for k in obj.get_business_keys())
-                    logger.debug(f"Soft deleting {obj.__class__.__name__}({identifier})")
                 except Exception:
                     identifier = "unknown"
+                logger.debug(f"Soft deleting {obj.__class__.__name__}({identifier})")
 
                 session.add(obj)
                 obj.soft_delete(session)
@@ -703,7 +703,7 @@ def handle_temporal_tracking(session: Session, _flush_context, _instances) -> No
                         )
                         existing.t_is_deleted = False
                         existing.t_deleted_at = None
-                        existing.t_updated_at = datetime.utcnow()
+                        existing.t_updated_at = datetime.now(timezone.utc)
                         session.expunge(obj)
                         logger.debug(f"After expunge - is obj in session: {obj in session}")
                         continue
@@ -722,7 +722,7 @@ def handle_temporal_tracking(session: Session, _flush_context, _instances) -> No
                         )
                         # Mark existing version as not current
                         existing.t_is_current = False
-                        existing.t_updated_at = datetime.utcnow()
+                        existing.t_updated_at = datetime.now(timezone.utc)
 
                         # Setup new version
                         obj.t_id = existing.t_id
@@ -784,7 +784,7 @@ def handle_temporal_tracking(session: Session, _flush_context, _instances) -> No
                     )
                     # Update previous version
                     previous.t_is_current = False
-                    previous.t_updated_at = datetime.utcnow()
+                    previous.t_updated_at = datetime.now(timezone.utc)
 
                     # Calculate changes between versions
                     changes = obj.calculate_changes(previous)
@@ -829,7 +829,7 @@ def handle_temporal_tracking(session: Session, _flush_context, _instances) -> No
                 # Update current version
                 obj.t_content_hash = new_hash
                 obj.t_is_current = True
-                obj.t_updated_at = datetime.utcnow()
+                obj.t_updated_at = datetime.now(timezone.utc)
 
             elif not hasattr(obj, 't_content_hash'):
                 # Initial hash for new objects
