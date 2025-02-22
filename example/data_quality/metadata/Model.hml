@@ -5,35 +5,35 @@ definition:
   name: Model
   fields:
     - name: aggregateExpression
-      type: Varchar_1!
+      type: Varchar!
     - name: description
-      type: Text_1
+      type: Text
     - name: filterExpressionType
-      type: Varchar_1!
+      type: Varchar!
     - name: globalIdSource
-      type: Bool_1!
+      type: Bool!
     - name: name
-      type: Varchar_1!
+      type: Varchar!
     - name: objectTypeName
-      type: Varchar_1!
+      type: Varchar!
     - name: subgraphName
-      type: Varchar_1!
+      type: Varchar!
     - name: tContentHash
-      type: Varchar_1!
+      type: Varchar!
     - name: tCreatedAt
       type: Timestamp!
     - name: tDeletedAt
       type: Timestamp
     - name: tId
-      type: Varchar_1!
+      type: Varchar!
     - name: tIsCurrent
-      type: Bool_1!
+      type: Bool!
     - name: tIsDeleted
-      type: Bool_1!
+      type: Bool!
     - name: tUpdatedAt
       type: Timestamp!
     - name: tVersion
-      type: Int4_1!
+      type: Int4!
   graphql:
     typeName: Model
     inputTypeName: ModelInput
@@ -122,44 +122,36 @@ definition:
       type: Model
       comparableFields:
         - fieldName: aggregateExpression
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: description
-          booleanExpressionType: TextBoolExp_1
+          booleanExpressionType: TextBoolExp
         - fieldName: filterExpressionType
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: globalIdSource
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: name
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: objectTypeName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: subgraphName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tContentHash
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tCreatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tDeletedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tId
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tIsCurrent
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tIsDeleted
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tUpdatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tVersion
-          booleanExpressionType: Int4BoolExp_1
-      comparableRelationships:
-        - relationshipName: collections
-        - relationshipName: modelGraphqlConfig
-        - relationshipName: objectType
-        - relationshipName: subgraph
-        - relationshipName: modelArguments
-        - relationshipName: modelOrderableFields
-        - relationshipName: modelPermissions
-        - relationshipName: modelSourceConfigs
+          booleanExpressionType: Int4BoolExp
+      comparableRelationships: []
   logicalOperators:
     enable: true
   isNull:
@@ -177,35 +169,35 @@ definition:
       aggregatedType: Model
       aggregatableFields:
         - fieldName: aggregateExpression
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: description
-          aggregateExpression: TextAggExp_1
+          aggregateExpression: TextAggExp
         - fieldName: filterExpressionType
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: globalIdSource
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: name
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: objectTypeName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: subgraphName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tContentHash
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tCreatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tDeletedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tId
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tIsCurrent
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tIsDeleted
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tUpdatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tVersion
-          aggregateExpression: Int4AggExp_1
+          aggregateExpression: Int4AggExp
   count:
     enable: true
   graphql:
@@ -221,39 +213,36 @@ definition:
       orderedType: Model
       orderableFields:
         - fieldName: aggregateExpression
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: description
-          orderByExpression: Text1OrderByExp
+          orderByExpression: TextOrderByExp
         - fieldName: filterExpressionType
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: globalIdSource
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: name
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: objectTypeName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: subgraphName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tContentHash
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tCreatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tDeletedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tId
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tIsCurrent
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tIsDeleted
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tUpdatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tVersion
-          orderByExpression: Int41OrderByExp
-      orderableRelationships:
-        - relationshipName: modelGraphqlConfig
-        - relationshipName: objectType
-        - relationshipName: subgraph
+          orderByExpression: Int4OrderByExp
+      orderableRelationships: []
   graphql:
     expressionTypeName: ModelOrderByExp
 
@@ -282,19 +271,21 @@ definition:
           - tVersion
         subscription:
           rootField: modelByModelPkey
-      - queryRootField: modelByUqModelNameSubgraphNameTIsCurrent
+      - queryRootField: modelByUqModelNameSubgraphNameTIsCurrentTVersion
         uniqueIdentifier:
           - name
           - subgraphName
           - tIsCurrent
+          - tVersion
         subscription:
-          rootField: modelByUqModelNameSubgraphNameTIsCurrent
-      - queryRootField: modelByUqModelNameTIsCurrent
+          rootField: modelByUqModelNameSubgraphNameTIsCurrentTVersion
+      - queryRootField: modelByUqModelNameTIsCurrentTVersion
         uniqueIdentifier:
           - name
           - tIsCurrent
+          - tVersion
         subscription:
-          rootField: modelByUqModelNameTIsCurrent
+          rootField: modelByUqModelNameTIsCurrentTVersion
     filterInputTypeName: ModelFilterInput
     aggregate:
       queryRootField: modelAggregate
@@ -311,246 +302,4 @@ definition:
       select:
         filter: null
         allowSubscriptions: true
-
----
-kind: Relationship
-version: v1
-definition:
-  name: collections
-  sourceType: Model
-  target:
-    model:
-      name: Collection
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: CollectionAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: modelName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: collectionsAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: modelGraphqlConfig
-  sourceType: Model
-  target:
-    model:
-      name: ModelGraphqlConfig
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: modelName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-
----
-kind: Relationship
-version: v1
-definition:
-  name: objectType
-  sourceType: Model
-  target:
-    model:
-      name: ObjectType
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: objectTypeName
-      target:
-        modelField:
-          - fieldName: name
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-
----
-kind: Relationship
-version: v1
-definition:
-  name: subgraph
-  sourceType: Model
-  target:
-    model:
-      name: Subgraph
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: name
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-
----
-kind: Relationship
-version: v1
-definition:
-  name: modelArguments
-  sourceType: Model
-  target:
-    model:
-      name: ModelArgument
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: ModelArgumentAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: modelName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: modelArgumentsAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: modelOrderableFields
-  sourceType: Model
-  target:
-    model:
-      name: ModelOrderableField
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: ModelOrderableFieldAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: modelName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: modelOrderableFieldsAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: modelPermissions
-  sourceType: Model
-  target:
-    model:
-      name: ModelPermission
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: ModelPermissionAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: modelName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: modelPermissionsAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: modelSourceConfigs
-  sourceType: Model
-  target:
-    model:
-      name: ModelSourceConfig
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: ModelSourceConfigAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: modelName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: modelSourceConfigsAggregate
 

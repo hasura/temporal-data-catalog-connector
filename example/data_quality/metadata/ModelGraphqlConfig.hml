@@ -5,33 +5,33 @@ definition:
   name: ModelGraphqlConfig
   fields:
     - name: apolloFederation
-      type: Varchar_1
+      type: Varchar
     - name: argumentsInputType
-      type: Varchar_1
+      type: Varchar
     - name: filterInputTypeName
-      type: Varchar_1!
+      type: Varchar!
     - name: modelName
-      type: Varchar_1!
+      type: Varchar!
     - name: orderByExpressionType
-      type: Varchar_1!
+      type: Varchar
     - name: subgraphName
-      type: Varchar_1!
+      type: Varchar!
     - name: tContentHash
-      type: Varchar_1!
+      type: Varchar!
     - name: tCreatedAt
       type: Timestamp!
     - name: tDeletedAt
       type: Timestamp
     - name: tId
-      type: Varchar_1!
+      type: Varchar!
     - name: tIsCurrent
-      type: Bool_1!
+      type: Bool!
     - name: tIsDeleted
-      type: Bool_1!
+      type: Bool!
     - name: tUpdatedAt
       type: Timestamp!
     - name: tVersion
-      type: Int4_1!
+      type: Int4!
   graphql:
     typeName: ModelGraphqlConfig
     inputTypeName: ModelGraphqlConfigInput
@@ -116,38 +116,34 @@ definition:
       type: ModelGraphqlConfig
       comparableFields:
         - fieldName: apolloFederation
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: argumentsInputType
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: filterInputTypeName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: modelName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: orderByExpressionType
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: subgraphName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tContentHash
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tCreatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tDeletedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tId
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tIsCurrent
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tIsDeleted
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tUpdatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tVersion
-          booleanExpressionType: Int4BoolExp_1
-      comparableRelationships:
-        - relationshipName: models
-        - relationshipName: modelGraphqlAggregateConfigs
-        - relationshipName: modelGraphqlSelectManyConfigs
-        - relationshipName: modelGraphqlSelectUniques
+          booleanExpressionType: Int4BoolExp
+      comparableRelationships: []
   logicalOperators:
     enable: true
   isNull:
@@ -165,33 +161,33 @@ definition:
       aggregatedType: ModelGraphqlConfig
       aggregatableFields:
         - fieldName: apolloFederation
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: argumentsInputType
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: filterInputTypeName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: modelName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: orderByExpressionType
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: subgraphName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tContentHash
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tCreatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tDeletedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tId
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tIsCurrent
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tIsDeleted
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tUpdatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tVersion
-          aggregateExpression: Int4AggExp_1
+          aggregateExpression: Int4AggExp
   count:
     enable: true
   graphql:
@@ -207,33 +203,33 @@ definition:
       orderedType: ModelGraphqlConfig
       orderableFields:
         - fieldName: apolloFederation
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: argumentsInputType
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: filterInputTypeName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: modelName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: orderByExpressionType
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: subgraphName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tContentHash
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tCreatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tDeletedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tId
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tIsCurrent
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tIsDeleted
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tUpdatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tVersion
-          orderByExpression: Int41OrderByExp
+          orderByExpression: Int4OrderByExp
       orderableRelationships: []
   graphql:
     expressionTypeName: ModelGraphqlConfigOrderByExp
@@ -263,13 +259,14 @@ definition:
           - tVersion
         subscription:
           rootField: modelGraphqlConfigByModelGraphqlConfigPkey
-      - queryRootField: modelGraphqlConfigByUqModelGraphqlConfigModelNameSubgraphNameTIsCurrent
+      - queryRootField: modelGraphqlConfigByUqModelGraphqlConfigA1De18097E
         uniqueIdentifier:
           - modelName
           - subgraphName
           - tIsCurrent
+          - tVersion
         subscription:
-          rootField: modelGraphqlConfigByUqModelGraphqlConfigModelNameSubgraphNameTIsCurrent
+          rootField: modelGraphqlConfigByUqModelGraphqlConfigA1De18097E
     filterInputTypeName: ModelGraphqlConfigFilterInput
     aggregate:
       queryRootField: modelGraphqlConfigAggregate
@@ -286,140 +283,4 @@ definition:
       select:
         filter: null
         allowSubscriptions: true
-
----
-kind: Relationship
-version: v1
-definition:
-  name: models
-  sourceType: ModelGraphqlConfig
-  target:
-    model:
-      name: Model
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: ModelAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: modelName
-      target:
-        modelField:
-          - fieldName: name
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: modelsAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: modelGraphqlAggregateConfigs
-  sourceType: ModelGraphqlConfig
-  target:
-    model:
-      name: ModelGraphqlAggregateConfig
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: ModelGraphqlAggregateConfigAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: modelName
-      target:
-        modelField:
-          - fieldName: modelName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: modelGraphqlAggregateConfigsAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: modelGraphqlSelectManyConfigs
-  sourceType: ModelGraphqlConfig
-  target:
-    model:
-      name: ModelGraphqlSelectManyConfig
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: ModelGraphqlSelectManyConfigAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: modelName
-      target:
-        modelField:
-          - fieldName: modelName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: modelGraphqlSelectManyConfigsAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: modelGraphqlSelectUniques
-  sourceType: ModelGraphqlConfig
-  target:
-    model:
-      name: ModelGraphqlSelectUnique
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: ModelGraphqlSelectUniqueAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: modelName
-      target:
-        modelField:
-          - fieldName: modelName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: modelGraphqlSelectUniquesAggregate
 

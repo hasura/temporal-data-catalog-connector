@@ -195,10 +195,11 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_aggregate_expression_name_subgraph_name_t_is_current": [
+          "uq_aggregate_expression_a7bb51b1ed": [
             "name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
         "foreignRelations": {},
@@ -338,18 +339,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_aggregate_function_96aadb5a17": {
-            "foreignSchema": "public",
-            "foreignTable": "type_definition",
-            "columnMapping": {
-              "return_type_connector_name": "connector_name",
-              "return_type_name": "name",
-              "return_type_subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "aggregate_object_field": {
@@ -469,17 +459,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_aggregate_object_field_cd7e720afa": {
-            "foreignSchema": "public",
-            "foreignTable": "aggregate_expression",
-            "columnMapping": {
-              "aggregate_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "aggregate_scalar_function": {
@@ -607,17 +587,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_aggregate_scalar_function_2be3e52436": {
-            "foreignSchema": "public",
-            "foreignTable": "aggregate_expression",
-            "columnMapping": {
-              "aggregate_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "allowed_field": {
@@ -738,28 +708,7 @@
             "type_name"
           ]
         },
-        "foreignRelations": {
-          "fk_allowed_field_3d6f6d49d0": {
-            "foreignSchema": "public",
-            "foreignTable": "object_field",
-            "columnMapping": {
-              "field_name": "logical_field_name",
-              "object_type_name": "object_type_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_allowed_field_role_name_subgraph_name_type_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "type_permission",
-            "columnMapping": {
-              "role_name": "role_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current",
-              "type_name": "type_name"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "auth_config": {
@@ -877,16 +826,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_auth_config_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "subgraph",
-            "columnMapping": {
-              "subgraph_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "boolean_expression_type": {
@@ -1012,10 +952,17 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_boolean_expression_type_name_subgraph_name_t_is_current": [
+          "uq_boolean_expression_type_2404128dc7": [
             "name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
+          ],
+          "uq_boolean_expression_type_de430898d1": [
+            "name",
+            "subgraph_name",
+            "t_is_current",
+            "t_version"
           ]
         },
         "foreignRelations": {},
@@ -1138,17 +1085,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_boolean_expression_type_operator_128c6017da": {
-            "foreignSchema": "public",
-            "foreignTable": "boolean_expression_type",
-            "columnMapping": {
-              "boolean_expression_type_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "collection": {
@@ -1283,42 +1220,15 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_collection_name_connector_name_subgraph_name_t_is_current": [
+          "uq_collection_7f6ae84af2": [
             "connector_name",
             "name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_collection_connector_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "data_connector",
-            "columnMapping": {
-              "connector_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_collection_model_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "model",
-            "columnMapping": {
-              "model_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_collection_object_type_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "object_type",
-            "columnMapping": {
-              "object_type_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "collection_field": {
@@ -1462,36 +1372,16 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_collection_field_93ebe8f1d1": [
+          "uq_collection_field_a44e4663af": [
             "collection_name",
             "connector_name",
             "physical_field_name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_collection_field_e1238ac17e": {
-            "foreignSchema": "public",
-            "foreignTable": "collection",
-            "columnMapping": {
-              "collection_name": "name",
-              "connector_name": "connector_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_collection_field_fdbbb20607": {
-            "foreignSchema": "public",
-            "foreignTable": "type_definition",
-            "columnMapping": {
-              "t_is_current": "t_is_current",
-              "type_definition_connector_name": "connector_name",
-              "type_definition_name": "name",
-              "type_definition_subgraph_name": "subgraph_name"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "collection_foreign_key": {
@@ -1623,23 +1513,13 @@
           "collection_foreign_key_pkey": [
             "collection_name",
             "connector_name",
+            "field_name",
             "fk_name",
             "subgraph_name",
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_collection_foreign_key_145388ca75": {
-            "foreignSchema": "public",
-            "foreignTable": "collection",
-            "columnMapping": {
-              "collection_name": "name",
-              "connector_name": "connector_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "collection_uniqueness_constraint": {
@@ -1751,26 +1631,680 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_collection_uniqueness_constraint_36cc1810bb": [
+          "uq_collection_uniqueness_constraint_f248dfdedf": [
             "collection_name",
             "connector_name",
             "constraint_name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_collection_uniqueness_constraint_a797843052": {
-            "foreignSchema": "public",
-            "foreignTable": "collection",
-            "columnMapping": {
-              "collection_name": "name",
-              "connector_name": "connector_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
+        "foreignRelations": {},
+        "description": null
+      },
+      "command": {
+        "schemaName": "public",
+        "tableName": "command",
+        "columns": {
+          "connector_name": {
+            "name": "connector_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "description": {
+            "name": "description",
+            "type": {
+              "scalarType": "text"
+            },
+            "nullable": "nullable",
+            "description": null
+          },
+          "graphql_deprecated": {
+            "name": "graphql_deprecated",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nullable",
+            "description": null
+          },
+          "graphql_root_field_kind": {
+            "name": "graphql_root_field_kind",
+            "type": {
+              "scalarType": "root_field_kind"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "graphql_root_field_name": {
+            "name": "graphql_root_field_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "name": {
+            "name": "name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "output_type": {
+            "name": "output_type",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "subgraph_name": {
+            "name": "subgraph_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_content_hash": {
+            "name": "t_content_hash",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_created_at": {
+            "name": "t_created_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_deleted_at": {
+            "name": "t_deleted_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nullable",
+            "description": null
+          },
+          "t_id": {
+            "name": "t_id",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_is_current": {
+            "name": "t_is_current",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_is_deleted": {
+            "name": "t_is_deleted",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_updated_at": {
+            "name": "t_updated_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_version": {
+            "name": "t_version",
+            "type": {
+              "scalarType": "int4"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "version": {
+            "name": "version",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
           }
         },
+        "uniquenessConstraints": {
+          "command_pkey": [
+            "name",
+            "subgraph_name",
+            "t_version"
+          ]
+        },
+        "foreignRelations": {},
+        "description": null
+      },
+      "command_argument": {
+        "schemaName": "public",
+        "tableName": "command_argument",
+        "columns": {
+          "command_name": {
+            "name": "command_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "default_value_boolean": {
+            "name": "default_value_boolean",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nullable",
+            "description": null
+          },
+          "default_value_number": {
+            "name": "default_value_number",
+            "type": {
+              "scalarType": "float8"
+            },
+            "nullable": "nullable",
+            "description": null
+          },
+          "default_value_string": {
+            "name": "default_value_string",
+            "type": {
+              "scalarType": "text"
+            },
+            "nullable": "nullable",
+            "description": null
+          },
+          "description": {
+            "name": "description",
+            "type": {
+              "scalarType": "text"
+            },
+            "nullable": "nullable",
+            "description": null
+          },
+          "name": {
+            "name": "name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "subgraph_name": {
+            "name": "subgraph_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_content_hash": {
+            "name": "t_content_hash",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_created_at": {
+            "name": "t_created_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_deleted_at": {
+            "name": "t_deleted_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nullable",
+            "description": null
+          },
+          "t_id": {
+            "name": "t_id",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_is_current": {
+            "name": "t_is_current",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_is_deleted": {
+            "name": "t_is_deleted",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_updated_at": {
+            "name": "t_updated_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_version": {
+            "name": "t_version",
+            "type": {
+              "scalarType": "int4"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "type": {
+            "name": "type",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          }
+        },
+        "uniquenessConstraints": {
+          "command_argument_pkey": [
+            "command_name",
+            "name",
+            "subgraph_name",
+            "t_version"
+          ]
+        },
+        "foreignRelations": {},
+        "description": null
+      },
+      "command_permission_preset": {
+        "schemaName": "public",
+        "tableName": "command_permission_preset",
+        "columns": {
+          "argument_name": {
+            "name": "argument_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "command_name": {
+            "name": "command_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "preset_value_boolean": {
+            "name": "preset_value_boolean",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nullable",
+            "description": null
+          },
+          "preset_value_number": {
+            "name": "preset_value_number",
+            "type": {
+              "scalarType": "float8"
+            },
+            "nullable": "nullable",
+            "description": null
+          },
+          "preset_value_string": {
+            "name": "preset_value_string",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nullable",
+            "description": null
+          },
+          "role": {
+            "name": "role",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "subgraph_name": {
+            "name": "subgraph_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_content_hash": {
+            "name": "t_content_hash",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_created_at": {
+            "name": "t_created_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_deleted_at": {
+            "name": "t_deleted_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nullable",
+            "description": null
+          },
+          "t_id": {
+            "name": "t_id",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_is_current": {
+            "name": "t_is_current",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_is_deleted": {
+            "name": "t_is_deleted",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_updated_at": {
+            "name": "t_updated_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_version": {
+            "name": "t_version",
+            "type": {
+              "scalarType": "int4"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          }
+        },
+        "uniquenessConstraints": {
+          "command_permission_preset_pkey": [
+            "argument_name",
+            "command_name",
+            "role",
+            "subgraph_name",
+            "t_version"
+          ]
+        },
+        "foreignRelations": {},
+        "description": null
+      },
+      "command_permissions": {
+        "schemaName": "public",
+        "tableName": "command_permissions",
+        "columns": {
+          "allow_execution": {
+            "name": "allow_execution",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "command_name": {
+            "name": "command_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "role": {
+            "name": "role",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "subgraph_name": {
+            "name": "subgraph_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_content_hash": {
+            "name": "t_content_hash",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_created_at": {
+            "name": "t_created_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_deleted_at": {
+            "name": "t_deleted_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nullable",
+            "description": null
+          },
+          "t_id": {
+            "name": "t_id",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_is_current": {
+            "name": "t_is_current",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_is_deleted": {
+            "name": "t_is_deleted",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_updated_at": {
+            "name": "t_updated_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_version": {
+            "name": "t_version",
+            "type": {
+              "scalarType": "int4"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "version": {
+            "name": "version",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          }
+        },
+        "uniquenessConstraints": {
+          "command_permissions_pkey": [
+            "command_name",
+            "role",
+            "subgraph_name",
+            "t_version"
+          ]
+        },
+        "foreignRelations": {},
+        "description": null
+      },
+      "command_source_mapping": {
+        "schemaName": "public",
+        "tableName": "command_source_mapping",
+        "columns": {
+          "command_name": {
+            "name": "command_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "source_key": {
+            "name": "source_key",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "subgraph_name": {
+            "name": "subgraph_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_content_hash": {
+            "name": "t_content_hash",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_created_at": {
+            "name": "t_created_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_deleted_at": {
+            "name": "t_deleted_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nullable",
+            "description": null
+          },
+          "t_id": {
+            "name": "t_id",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_is_current": {
+            "name": "t_is_current",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_is_deleted": {
+            "name": "t_is_deleted",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_updated_at": {
+            "name": "t_updated_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_version": {
+            "name": "t_version",
+            "type": {
+              "scalarType": "int4"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "target_value": {
+            "name": "target_value",
+            "type": {
+              "scalarType": "text"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          }
+        },
+        "uniquenessConstraints": {
+          "command_source_mapping_pkey": [
+            "command_name",
+            "source_key",
+            "subgraph_name",
+            "t_version"
+          ]
+        },
+        "foreignRelations": {},
         "description": null
       },
       "comparable_field": {
@@ -1882,26 +2416,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_comparable_field_619b8c3876": {
-            "foreignSchema": "public",
-            "foreignTable": "boolean_expression_type",
-            "columnMapping": {
-              "boolean_expression_type_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_comparable_field_parent_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "boolean_expression_type",
-            "columnMapping": {
-              "parent_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "comparable_relationship": {
@@ -2021,17 +2536,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_comparable_relationship_74cf7fa991": {
-            "foreignSchema": "public",
-            "foreignTable": "boolean_expression_type",
-            "columnMapping": {
-              "parent_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "comparison_operator": {
@@ -2191,46 +2696,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_comparison_operator_7db1a0e55b": {
-            "foreignSchema": "public",
-            "foreignTable": "boolean_expression_type",
-            "columnMapping": {
-              "boolean_expression_type_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_comparison_operator_803cc150b9": {
-            "foreignSchema": "public",
-            "foreignTable": "type_definition",
-            "columnMapping": {
-              "argument_type_connector_name": "connector_name",
-              "argument_type_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_comparison_operator_84f397ddbb": {
-            "foreignSchema": "public",
-            "foreignTable": "connector_scalar_type",
-            "columnMapping": {
-              "scalar_type_connector_name": "connector_name",
-              "scalar_type_name": "name",
-              "scalar_type_subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_comparison_operator_d95221a5ca": {
-            "foreignSchema": "public",
-            "foreignTable": "data_connector",
-            "columnMapping": {
-              "connector_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "compatibility_config": {
@@ -2323,21 +2789,13 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_compatibility_config_subgraph_name_t_is_current": [
+          "uq_compatibility_config_subgraph_name_t_is_current_t_version": [
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_compatibility_config_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "subgraph",
-            "columnMapping": {
-              "subgraph_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "connector_scalar_type": {
@@ -2448,3642 +2906,14 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_connector_scalar_type_b52966dd72": [
+          "uq_connector_scalar_type_b4c9709734": [
             "connector_name",
             "name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_connector_scalar_type_20637cdc77": {
-            "foreignSchema": "public",
-            "foreignTable": "data_connector",
-            "columnMapping": {
-              "connector_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_connector_scalar_type_5bee4aeb4d": {
-            "foreignSchema": "public",
-            "foreignTable": "representation",
-            "columnMapping": {
-              "connector_name": "connector_name",
-              "representation_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
-        "description": null
-      },
-      "current_aggregate_expression": {
-        "schemaName": "public",
-        "tableName": "current_aggregate_expression",
-        "columns": {
-          "count_description": {
-            "name": "count_description",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "count_distinct_description": {
-            "name": "count_distinct_description",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "count_distinct_enabled": {
-            "name": "count_distinct_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "count_distinct_return_type": {
-            "name": "count_distinct_return_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "count_enabled": {
-            "name": "count_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "count_return_type": {
-            "name": "count_return_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "graphql_deprecated": {
-            "name": "graphql_deprecated",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "graphql_select_type_name": {
-            "name": "graphql_select_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "operand_object_aggregate_type": {
-            "name": "operand_object_aggregate_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "operand_scalar_type": {
-            "name": "operand_scalar_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_aggregate_function": {
-        "schemaName": "public",
-        "tableName": "current_aggregate_function",
-        "columns": {
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "function_name": {
-            "name": "function_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "return_type_connector_name": {
-            "name": "return_type_connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "return_type_name": {
-            "name": "return_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "return_type_subgraph_name": {
-            "name": "return_type_subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "scalar_type_name": {
-            "name": "scalar_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_aggregate_object_field": {
-        "schemaName": "public",
-        "tableName": "current_aggregate_object_field",
-        "columns": {
-          "aggregate_expression_type": {
-            "name": "aggregate_expression_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "aggregate_name": {
-            "name": "aggregate_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "field_name": {
-            "name": "field_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_aggregate_scalar_function": {
-        "schemaName": "public",
-        "tableName": "current_aggregate_scalar_function",
-        "columns": {
-          "aggregate_name": {
-            "name": "aggregate_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "aggregated_type": {
-            "name": "aggregated_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "function_name": {
-            "name": "function_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "return_type": {
-            "name": "return_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_allowed_field": {
-        "schemaName": "public",
-        "tableName": "current_allowed_field",
-        "columns": {
-          "field_name": {
-            "name": "field_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "object_type_name": {
-            "name": "object_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "role_name": {
-            "name": "role_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "type_name": {
-            "name": "type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_auth_config": {
-        "schemaName": "public",
-        "tableName": "current_auth_config",
-        "columns": {
-          "default_role": {
-            "name": "default_role",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "mode_type": {
-            "name": "mode_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "session_vars": {
-            "name": "session_vars",
-            "type": {
-              "scalarType": "json"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "version": {
-            "name": "version",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_boolean_expression_type": {
-        "schemaName": "public",
-        "tableName": "current_boolean_expression_type",
-        "columns": {
-          "graphql_type_name": {
-            "name": "graphql_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "is_null_enabled": {
-            "name": "is_null_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "logical_ops_enabled": {
-            "name": "logical_ops_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "scalar_type": {
-            "name": "scalar_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_boolean_expression_type_operator": {
-        "schemaName": "public",
-        "tableName": "current_boolean_expression_type_operator",
-        "columns": {
-          "argument_type": {
-            "name": "argument_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "boolean_expression_type_name": {
-            "name": "boolean_expression_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "scalar_type_name": {
-            "name": "scalar_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_collection": {
-        "schemaName": "public",
-        "tableName": "current_collection",
-        "columns": {
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "model_name": {
-            "name": "model_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "object_type_name": {
-            "name": "object_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "physical_collection_name": {
-            "name": "physical_collection_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_collection_field": {
-        "schemaName": "public",
-        "tableName": "current_collection_field",
-        "columns": {
-          "collection_name": {
-            "name": "collection_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "physical_field_name": {
-            "name": "physical_field_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "type_definition_connector_name": {
-            "name": "type_definition_connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "type_definition_name": {
-            "name": "type_definition_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "type_definition_subgraph_name": {
-            "name": "type_definition_subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_collection_foreign_key": {
-        "schemaName": "public",
-        "tableName": "current_collection_foreign_key",
-        "columns": {
-          "collection_name": {
-            "name": "collection_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "field_name": {
-            "name": "field_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "fk_name": {
-            "name": "fk_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "target_collection": {
-            "name": "target_collection",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "target_field": {
-            "name": "target_field",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_collection_uniqueness_constraint": {
-        "schemaName": "public",
-        "tableName": "current_collection_uniqueness_constraint",
-        "columns": {
-          "collection_name": {
-            "name": "collection_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "constraint_name": {
-            "name": "constraint_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_comparable_field": {
-        "schemaName": "public",
-        "tableName": "current_comparable_field",
-        "columns": {
-          "boolean_expression_type_name": {
-            "name": "boolean_expression_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "field_name": {
-            "name": "field_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "parent_name": {
-            "name": "parent_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_comparable_relationship": {
-        "schemaName": "public",
-        "tableName": "current_comparable_relationship",
-        "columns": {
-          "aggregate_boolean_expression_type_name": {
-            "name": "aggregate_boolean_expression_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "boolean_expression_type_name": {
-            "name": "boolean_expression_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "parent_name": {
-            "name": "parent_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "relationship_name": {
-            "name": "relationship_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_comparison_operator": {
-        "schemaName": "public",
-        "tableName": "current_comparison_operator",
-        "columns": {
-          "argument_type_connector_name": {
-            "name": "argument_type_connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "argument_type_name": {
-            "name": "argument_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "boolean_expression_type_name": {
-            "name": "boolean_expression_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "operator_type": {
-            "name": "operator_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "scalar_type_connector_name": {
-            "name": "scalar_type_connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "scalar_type_name": {
-            "name": "scalar_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "scalar_type_subgraph_name": {
-            "name": "scalar_type_subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_compatibility_config": {
-        "schemaName": "public",
-        "tableName": "current_compatibility_config",
-        "columns": {
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "target_date": {
-            "name": "target_date",
-            "type": {
-              "scalarType": "timestamp"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_connector_scalar_type": {
-        "schemaName": "public",
-        "tableName": "current_connector_scalar_type",
-        "columns": {
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "representation_name": {
-            "name": "representation_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_data_connector": {
-        "schemaName": "public",
-        "tableName": "current_data_connector",
-        "columns": {
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "read_url": {
-            "name": "read_url",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "schema_version": {
-            "name": "schema_version",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "write_url": {
-            "name": "write_url",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_data_connector_argument_preset": {
-        "schemaName": "public",
-        "tableName": "current_data_connector_argument_preset",
-        "columns": {
-          "argument_type": {
-            "name": "argument_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "id": {
-            "name": "id",
-            "type": {
-              "scalarType": "int4"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "value": {
-            "name": "value",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_data_connector_capability": {
-        "schemaName": "public",
-        "tableName": "current_data_connector_capability",
-        "columns": {
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "supports_aggregates": {
-            "name": "supports_aggregates",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "supports_field_filters": {
-            "name": "supports_field_filters",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "supports_nested_fields": {
-            "name": "supports_nested_fields",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "supports_transactions": {
-            "name": "supports_transactions",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "supports_variables": {
-            "name": "supports_variables",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "version": {
-            "name": "version",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_data_connector_function_mapping": {
-        "schemaName": "public",
-        "tableName": "current_data_connector_function_mapping",
-        "columns": {
-          "aggregate_name": {
-            "name": "aggregate_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "data_connector_name": {
-            "name": "data_connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "data_connector_scalar_type": {
-            "name": "data_connector_scalar_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "function_name": {
-            "name": "function_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "mapped_function_name": {
-            "name": "mapped_function_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_data_connector_header": {
-        "schemaName": "public",
-        "tableName": "current_data_connector_header",
-        "columns": {
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "is_response_header": {
-            "name": "is_response_header",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "key": {
-            "name": "key",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "value": {
-            "name": "value",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_data_connector_operator_mapping": {
-        "schemaName": "public",
-        "tableName": "current_data_connector_operator_mapping",
-        "columns": {
-          "boolean_expression_type_name": {
-            "name": "boolean_expression_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "data_connector_name": {
-            "name": "data_connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "data_connector_scalar_type": {
-            "name": "data_connector_scalar_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "operator_mapping": {
-            "name": "operator_mapping",
-            "type": {
-              "scalarType": "json"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_data_connector_scalar_representation": {
-        "schemaName": "public",
-        "tableName": "current_data_connector_scalar_representation",
-        "columns": {
-          "data_connector_name": {
-            "name": "data_connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "data_connector_scalar_type": {
-            "name": "data_connector_scalar_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "graphql_comparison_expression_type_name": {
-            "name": "graphql_comparison_expression_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "scalar_type_name": {
-            "name": "scalar_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_enum_value": {
-        "schemaName": "public",
-        "tableName": "current_enum_value",
-        "columns": {
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "rep_name": {
-            "name": "rep_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "value": {
-            "name": "value",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_field_map": {
-        "schemaName": "public",
-        "tableName": "current_field_map",
-        "columns": {
-          "collection_name": {
-            "name": "collection_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "logical_field_name": {
-            "name": "logical_field_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "object_type_name": {
-            "name": "object_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "physical_field_name": {
-            "name": "physical_field_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_filter_condition": {
-        "schemaName": "public",
-        "tableName": "current_filter_condition",
-        "columns": {
-          "condition_type": {
-            "name": "condition_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "model_name": {
-            "name": "model_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "role_name": {
-            "name": "role_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_filter_operand": {
-        "schemaName": "public",
-        "tableName": "current_filter_operand",
-        "columns": {
-          "boolean_value": {
-            "name": "boolean_value",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "condition_type": {
-            "name": "condition_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "field_name": {
-            "name": "field_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "model_name": {
-            "name": "model_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "number_value": {
-            "name": "number_value",
-            "type": {
-              "scalarType": "numeric"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "operand_position": {
-            "name": "operand_position",
-            "type": {
-              "scalarType": "int4"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "operation_name": {
-            "name": "operation_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "operator": {
-            "name": "operator",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "role_name": {
-            "name": "role_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "string_value": {
-            "name": "string_value",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "value_type": {
-            "name": "value_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_filter_operation": {
-        "schemaName": "public",
-        "tableName": "current_filter_operation",
-        "columns": {
-          "condition_type": {
-            "name": "condition_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "model_name": {
-            "name": "model_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "operation_name": {
-            "name": "operation_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "operator": {
-            "name": "operator",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "role_name": {
-            "name": "role_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_function": {
-        "schemaName": "public",
-        "tableName": "current_function",
-        "columns": {
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "return_type_connector": {
-            "name": "return_type_connector",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "return_type_name": {
-            "name": "return_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_function_argument": {
-        "schemaName": "public",
-        "tableName": "current_function_argument",
-        "columns": {
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "function_name": {
-            "name": "function_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "is_required": {
-            "name": "is_required",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "scalar_type_name": {
-            "name": "scalar_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_graphql_config": {
-        "schemaName": "public",
-        "tableName": "current_graphql_config",
-        "columns": {
-          "apollo_federation_enabled": {
-            "name": "apollo_federation_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "key": {
-            "name": "key",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "operation_type": {
-            "name": "operation_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "root_operation_type_name": {
-            "name": "root_operation_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "value": {
-            "name": "value",
-            "type": {
-              "scalarType": "json"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_lifecycle_plugin_hook": {
-        "schemaName": "public",
-        "tableName": "current_lifecycle_plugin_hook",
-        "columns": {
-          "config": {
-            "name": "config",
-            "type": {
-              "scalarType": "json"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "pre_hook": {
-            "name": "pre_hook",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "url": {
-            "name": "url",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "version": {
-            "name": "version",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_model": {
-        "schemaName": "public",
-        "tableName": "current_model",
-        "columns": {
-          "aggregate_expression": {
-            "name": "aggregate_expression",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "filter_expression_type": {
-            "name": "filter_expression_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "global_id_source": {
-            "name": "global_id_source",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "object_type_name": {
-            "name": "object_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_model_argument": {
-        "schemaName": "public",
-        "tableName": "current_model_argument",
-        "columns": {
-          "model_name": {
-            "name": "model_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_model_argument_preset": {
-        "schemaName": "public",
-        "tableName": "current_model_argument_preset",
-        "columns": {
-          "argument_name": {
-            "name": "argument_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "model_name": {
-            "name": "model_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "role_name": {
-            "name": "role_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_model_graphql_aggregate_config": {
-        "schemaName": "public",
-        "tableName": "current_model_graphql_aggregate_config",
-        "columns": {
-          "deprecated": {
-            "name": "deprecated",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "model_name": {
-            "name": "model_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "query_root_field": {
-            "name": "query_root_field",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subscription_polling_interval_ms": {
-            "name": "subscription_polling_interval_ms",
-            "type": {
-              "scalarType": "int4"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subscription_root_field": {
-            "name": "subscription_root_field",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_model_graphql_config": {
-        "schemaName": "public",
-        "tableName": "current_model_graphql_config",
-        "columns": {
-          "apollo_federation": {
-            "name": "apollo_federation",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "arguments_input_type": {
-            "name": "arguments_input_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "filter_input_type_name": {
-            "name": "filter_input_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "model_name": {
-            "name": "model_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "order_by_expression_type": {
-            "name": "order_by_expression_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_model_graphql_select_many_config": {
-        "schemaName": "public",
-        "tableName": "current_model_graphql_select_many_config",
-        "columns": {
-          "deprecated": {
-            "name": "deprecated",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "model_name": {
-            "name": "model_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "query_root_field": {
-            "name": "query_root_field",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subscription_polling_interval_ms": {
-            "name": "subscription_polling_interval_ms",
-            "type": {
-              "scalarType": "int4"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subscription_root_field": {
-            "name": "subscription_root_field",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_model_graphql_select_unique": {
-        "schemaName": "public",
-        "tableName": "current_model_graphql_select_unique",
-        "columns": {
-          "deprecated": {
-            "name": "deprecated",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "identifier": {
-            "name": "identifier",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "model_name": {
-            "name": "model_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "query_root_field": {
-            "name": "query_root_field",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subscription_polling_interval_ms": {
-            "name": "subscription_polling_interval_ms",
-            "type": {
-              "scalarType": "int4"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subscription_root_field": {
-            "name": "subscription_root_field",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_model_orderable_field": {
-        "schemaName": "public",
-        "tableName": "current_model_orderable_field",
-        "columns": {
-          "enable_all_directions": {
-            "name": "enable_all_directions",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "field_name": {
-            "name": "field_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "model_name": {
-            "name": "model_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_model_permission": {
-        "schemaName": "public",
-        "tableName": "current_model_permission",
-        "columns": {
-          "allow_subscriptions": {
-            "name": "allow_subscriptions",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "model_name": {
-            "name": "model_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "role_name": {
-            "name": "role_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_model_source_argument_mapping": {
-        "schemaName": "public",
-        "tableName": "current_model_source_argument_mapping",
-        "columns": {
-          "key": {
-            "name": "key",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "model_name": {
-            "name": "model_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "value": {
-            "name": "value",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_model_source_config": {
-        "schemaName": "public",
-        "tableName": "current_model_source_config",
-        "columns": {
-          "collection": {
-            "name": "collection",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "data_connector_name": {
-            "name": "data_connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "model_name": {
-            "name": "model_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_mutation_capability": {
-        "schemaName": "public",
-        "tableName": "current_mutation_capability",
-        "columns": {
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "explain_enabled": {
-            "name": "explain_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "transactional_enabled": {
-            "name": "transactional_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_object_field": {
-        "schemaName": "public",
-        "tableName": "current_object_field",
-        "columns": {
-          "default_value": {
-            "name": "default_value",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "deprecation_reason": {
-            "name": "deprecation_reason",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "is_array": {
-            "name": "is_array",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "is_deprecated": {
-            "name": "is_deprecated",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "is_nullable": {
-            "name": "is_nullable",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "logical_field_name": {
-            "name": "logical_field_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "object_type_name": {
-            "name": "object_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "scalar_type_name": {
-            "name": "scalar_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_object_type": {
-        "schemaName": "public",
-        "tableName": "current_object_type",
-        "columns": {
-          "collection_type": {
-            "name": "collection_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "field_mapping": {
-            "name": "field_mapping",
-            "type": {
-              "scalarType": "json"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "graphql_input_type_name": {
-            "name": "graphql_input_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "graphql_type_name": {
-            "name": "graphql_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_preset_value": {
-        "schemaName": "public",
-        "tableName": "current_preset_value",
-        "columns": {
-          "argument_name": {
-            "name": "argument_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "boolean_value": {
-            "name": "boolean_value",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "model_name": {
-            "name": "model_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "number_value": {
-            "name": "number_value",
-            "type": {
-              "scalarType": "numeric"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "role_name": {
-            "name": "role_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "scalar_type_name": {
-            "name": "scalar_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "string_value": {
-            "name": "string_value",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "value_position": {
-            "name": "value_position",
-            "type": {
-              "scalarType": "int4"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_procedure": {
-        "schemaName": "public",
-        "tableName": "current_procedure",
-        "columns": {
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "result_type_connector_name": {
-            "name": "result_type_connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "result_type_name": {
-            "name": "result_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "result_type_subgraph_name": {
-            "name": "result_type_subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_procedure_argument": {
-        "schemaName": "public",
-        "tableName": "current_procedure_argument",
-        "columns": {
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "procedure_name": {
-            "name": "procedure_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "type_definition_connector_name": {
-            "name": "type_definition_connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "type_definition_name": {
-            "name": "type_definition_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "type_definition_subgraph_name": {
-            "name": "type_definition_subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_query_capability": {
-        "schemaName": "public",
-        "tableName": "current_query_capability",
-        "columns": {
-          "aggregates_enabled": {
-            "name": "aggregates_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "exists_enabled": {
-            "name": "exists_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "explain_enabled": {
-            "name": "explain_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "filter_by_enabled": {
-            "name": "filter_by_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "nested_collections_enabled": {
-            "name": "nested_collections_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "nested_fields_enabled": {
-            "name": "nested_fields_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "order_by_enabled": {
-            "name": "order_by_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "variables_enabled": {
-            "name": "variables_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_relationship": {
-        "schemaName": "public",
-        "tableName": "current_relationship",
-        "columns": {
-          "aggregate_expression": {
-            "name": "aggregate_expression",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "deprecated": {
-            "name": "deprecated",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "graphql_field_name": {
-            "name": "graphql_field_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "is_aggregate": {
-            "name": "is_aggregate",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "relationship_type": {
-            "name": "relationship_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "source_type_name": {
-            "name": "source_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "target_subgraph_name": {
-            "name": "target_subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "target_type_name": {
-            "name": "target_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_relationship_aggregate": {
-        "schemaName": "public",
-        "tableName": "current_relationship_aggregate",
-        "columns": {
-          "aggregate_expression": {
-            "name": "aggregate_expression",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "relationship_name": {
-            "name": "relationship_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "source_type_name": {
-            "name": "source_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_relationship_capability": {
-        "schemaName": "public",
-        "tableName": "current_relationship_capability",
-        "columns": {
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "order_by_aggregate_enabled": {
-            "name": "order_by_aggregate_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "relation_comparisons_enabled": {
-            "name": "relation_comparisons_enabled",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_relationship_field_mapping": {
-        "schemaName": "public",
-        "tableName": "current_relationship_field_mapping",
-        "columns": {
-          "relationship_name": {
-            "name": "relationship_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "source_field": {
-            "name": "source_field",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "source_type_name": {
-            "name": "source_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "target_field": {
-            "name": "target_field",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_representation": {
-        "schemaName": "public",
-        "tableName": "current_representation",
-        "columns": {
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "type": {
-            "name": "type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_role": {
-        "schemaName": "public",
-        "tableName": "current_role",
-        "columns": {
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "supergraph_name": {
-            "name": "supergraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_scalar_type": {
-        "schemaName": "public",
-        "tableName": "current_scalar_type",
-        "columns": {
-          "graphql_type_name": {
-            "name": "graphql_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "representation_name": {
-            "name": "representation_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_subgraph": {
-        "schemaName": "public",
-        "tableName": "current_subgraph",
-        "columns": {
-          "description": {
-            "name": "description",
-            "type": {
-              "scalarType": "text"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_subgraph_supergraph_map": {
-        "schemaName": "public",
-        "tableName": "current_subgraph_supergraph_map",
-        "columns": {
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "supergraph_name": {
-            "name": "supergraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_supergraph": {
-        "schemaName": "public",
-        "tableName": "current_supergraph",
-        "columns": {
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "version": {
-            "name": "version",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_target_model": {
-        "schemaName": "public",
-        "tableName": "current_target_model",
-        "columns": {
-          "is_command": {
-            "name": "is_command",
-            "type": {
-              "scalarType": "bool"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "relationship_name": {
-            "name": "relationship_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "relationship_type": {
-            "name": "relationship_type",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "source_type_name": {
-            "name": "source_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "target_subgraph": {
-            "name": "target_subgraph",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_type_definition": {
-        "schemaName": "public",
-        "tableName": "current_type_definition",
-        "columns": {
-          "child_type_name": {
-            "name": "child_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "collection_type_name": {
-            "name": "collection_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "name": {
-            "name": "name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "scalar_type_name": {
-            "name": "scalar_type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "type": {
-            "name": "type",
-            "type": {
-              "scalarType": "typedefinitionkind"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_type_permission": {
-        "schemaName": "public",
-        "tableName": "current_type_permission",
-        "columns": {
-          "role_name": {
-            "name": "role_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "type_name": {
-            "name": "type_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
-        "foreignRelations": {},
-        "description": null
-      },
-      "current_uniqueness_constraint_column": {
-        "schemaName": "public",
-        "tableName": "current_uniqueness_constraint_column",
-        "columns": {
-          "collection_name": {
-            "name": "collection_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "connector_name": {
-            "name": "connector_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "constraint_name": {
-            "name": "constraint_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "field_name": {
-            "name": "field_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          },
-          "subgraph_name": {
-            "name": "subgraph_name",
-            "type": {
-              "scalarType": "varchar"
-            },
-            "nullable": "nullable",
-            "description": null
-          }
-        },
-        "uniquenessConstraints": {},
         "foreignRelations": {},
         "description": null
       },
@@ -6202,31 +3032,14 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_data_connector_name_subgraph_name_t_is_current": [
+          "uq_data_connector_name_subgraph_name_t_is_current_t_version": [
             "name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_data_connector_subgraph_name_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "mutation_capability",
-            "columnMapping": {
-              "name": "connector_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_data_connector_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "subgraph",
-            "columnMapping": {
-              "subgraph_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "data_connector_argument_preset": {
@@ -6352,17 +3165,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_data_connector_argument_preset_b2d3e544b6": {
-            "foreignSchema": "public",
-            "foreignTable": "data_connector",
-            "columnMapping": {
-              "connector_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "data_connector_capability": {
@@ -6505,17 +3308,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_data_connector_capability_4e8ed0884d": {
-            "foreignSchema": "public",
-            "foreignTable": "data_connector",
-            "columnMapping": {
-              "connector_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "data_connector_function_mapping": {
@@ -6645,17 +3438,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_data_connector_function_mapping_bf8c248197": {
-            "foreignSchema": "public",
-            "foreignTable": "aggregate_expression",
-            "columnMapping": {
-              "aggregate_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "data_connector_header": {
@@ -6775,17 +3558,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_data_connector_header_58e328337a": {
-            "foreignSchema": "public",
-            "foreignTable": "data_connector",
-            "columnMapping": {
-              "connector_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "data_connector_operator_mapping": {
@@ -6905,17 +3678,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_data_connector_operator_mapping_346aefa6f6": {
-            "foreignSchema": "public",
-            "foreignTable": "boolean_expression_type",
-            "columnMapping": {
-              "boolean_expression_type_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "data_connector_scalar_representation": {
@@ -7035,27 +3798,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_data_connector_scalar_representation_e225d28498": {
-            "foreignSchema": "public",
-            "foreignTable": "connector_scalar_type",
-            "columnMapping": {
-              "data_connector_name": "connector_name",
-              "data_connector_scalar_type": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_data_connector_scalar_representation_e3f9c0c8c2": {
-            "foreignSchema": "public",
-            "foreignTable": "scalar_type",
-            "columnMapping": {
-              "scalar_type_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "diff_changes": {
@@ -7308,18 +4051,7 @@
             "value"
           ]
         },
-        "foreignRelations": {
-          "fk_enum_value_f681008754": {
-            "foreignSchema": "public",
-            "foreignTable": "representation",
-            "columnMapping": {
-              "connector_name": "connector_name",
-              "rep_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "field_map": {
@@ -7450,29 +4182,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_field_map_a61f6d17f8": {
-            "foreignSchema": "public",
-            "foreignTable": "object_field",
-            "columnMapping": {
-              "logical_field_name": "logical_field_name",
-              "object_type_name": "object_type_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_field_map_d7cfe5b0d0": {
-            "foreignSchema": "public",
-            "foreignTable": "collection_field",
-            "columnMapping": {
-              "collection_name": "collection_name",
-              "connector_name": "connector_name",
-              "physical_field_name": "physical_field_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "filter_condition": {
@@ -7584,26 +4294,16 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_filter_condition_a81bedade9": [
+          "uq_filter_condition_0f23678309": [
             "condition_type",
             "model_name",
             "role_name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_filter_condition_e8eec6a783": {
-            "foreignSchema": "public",
-            "foreignTable": "model_permission",
-            "columnMapping": {
-              "model_name": "model_name",
-              "role_name": "role_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "filter_operand": {
@@ -7783,20 +4483,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_filter_operand_3fa20319ec": {
-            "foreignSchema": "public",
-            "foreignTable": "filter_operation",
-            "columnMapping": {
-              "condition_type": "condition_type",
-              "model_name": "model_name",
-              "operation_name": "operation_name",
-              "role_name": "role_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "filter_operation": {
@@ -7925,28 +4612,17 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_filter_operation_9b040d1bb3": [
+          "uq_filter_operation_6ed2efd2b2": [
             "condition_type",
             "model_name",
             "operation_name",
             "role_name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_filter_operation_a6d2af076c": {
-            "foreignSchema": "public",
-            "foreignTable": "filter_condition",
-            "columnMapping": {
-              "condition_type": "condition_type",
-              "model_name": "model_name",
-              "role_name": "role_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "function": {
@@ -7987,6 +4663,14 @@
           },
           "return_type_name": {
             "name": "return_type_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "return_type_type": {
+            "name": "return_type_type",
             "type": {
               "scalarType": "varchar"
             },
@@ -8073,33 +4757,15 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_function_name_connector_name_subgraph_name_t_is_current": [
+          "uq_function_9936d5e463": [
             "connector_name",
             "name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_function_connector_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "data_connector",
-            "columnMapping": {
-              "connector_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_function_return_type_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "scalar_type",
-            "columnMapping": {
-              "return_type_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "function_argument": {
@@ -8148,6 +4814,14 @@
           },
           "scalar_type_name": {
             "name": "scalar_type_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "scalar_type_type": {
+            "name": "scalar_type_type",
             "type": {
               "scalarType": "varchar"
             },
@@ -8236,27 +4910,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_function_argument_510dd23b32": {
-            "foreignSchema": "public",
-            "foreignTable": "function",
-            "columnMapping": {
-              "connector_name": "connector_name",
-              "function_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_function_argument_7845c1c330": {
-            "foreignSchema": "public",
-            "foreignTable": "scalar_type",
-            "columnMapping": {
-              "scalar_type_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "graphql_config": {
@@ -8510,16 +5164,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_lifecycle_plugin_hook_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "subgraph",
-            "columnMapping": {
-              "subgraph_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "model": {
@@ -8653,44 +5298,19 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_model_name_subgraph_name_t_is_current": [
+          "uq_model_name_subgraph_name_t_is_current_t_version": [
             "name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ],
-          "uq_model_name_t_is_current": [
+          "uq_model_name_t_is_current_t_version": [
             "name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_model_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "model_graphql_config",
-            "columnMapping": {
-              "name": "model_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_model_object_type_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "object_type",
-            "columnMapping": {
-              "object_type_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_model_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "subgraph",
-            "columnMapping": {
-              "subgraph_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "model_argument": {
@@ -8794,17 +5414,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_model_argument_model_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "model",
-            "columnMapping": {
-              "model_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "model_argument_preset": {
@@ -8916,26 +5526,16 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_model_argument_preset_7118871f66": [
+          "uq_model_argument_preset_7403012ec1": [
             "argument_name",
             "model_name",
             "role_name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_model_argument_preset_5a8d5651a8": {
-            "foreignSchema": "public",
-            "foreignTable": "model_permission",
-            "columnMapping": {
-              "model_name": "model_name",
-              "role_name": "role_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "model_graphql_aggregate_config": {
@@ -9069,23 +5669,14 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_model_graphql_aggregate_config_8d29576b0d": [
+          "uq_model_graphql_aggregate_config_f7127e529d": [
             "model_name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_model_graphql_aggregate_config_b502fa6a85": {
-            "foreignSchema": "public",
-            "foreignTable": "model_graphql_config",
-            "columnMapping": {
-              "model_name": "model_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "model_graphql_config": {
@@ -9129,7 +5720,7 @@
             "type": {
               "scalarType": "varchar"
             },
-            "nullable": "nonNullable",
+            "nullable": "nullable",
             "description": null
           },
           "subgraph_name": {
@@ -9211,23 +5802,14 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_model_graphql_config_model_name_subgraph_name_t_is_current": [
+          "uq_model_graphql_config_a1de18097e": [
             "model_name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_model_graphql_config_model_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "model_graphql_aggregate_config",
-            "columnMapping": {
-              "model_name": "model_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "model_graphql_select_many_config": {
@@ -9362,17 +5944,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_model_graphql_select_many_config_13f56f4a8f": {
-            "foreignSchema": "public",
-            "foreignTable": "model_graphql_config",
-            "columnMapping": {
-              "model_name": "model_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "model_graphql_select_unique": {
@@ -9514,19 +6086,136 @@
             "model_name",
             "subgraph_name",
             "t_version"
+          ],
+          "uq_model_graphql_select_unique_859166a743": [
+            "identifier",
+            "model_name",
+            "subgraph_name",
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_model_graphql_select_unique_b2f55c493c": {
-            "foreignSchema": "public",
-            "foreignTable": "model_graphql_config",
-            "columnMapping": {
-              "model_name": "model_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
+        "foreignRelations": {},
+        "description": null
+      },
+      "model_graphql_select_unique_field": {
+        "schemaName": "public",
+        "tableName": "model_graphql_select_unique_field",
+        "columns": {
+          "field_name": {
+            "name": "field_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "model_name": {
+            "name": "model_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "select_unique_identifier": {
+            "name": "select_unique_identifier",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "subgraph_name": {
+            "name": "subgraph_name",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_content_hash": {
+            "name": "t_content_hash",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_created_at": {
+            "name": "t_created_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_deleted_at": {
+            "name": "t_deleted_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nullable",
+            "description": null
+          },
+          "t_id": {
+            "name": "t_id",
+            "type": {
+              "scalarType": "varchar"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_is_current": {
+            "name": "t_is_current",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_is_deleted": {
+            "name": "t_is_deleted",
+            "type": {
+              "scalarType": "bool"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_updated_at": {
+            "name": "t_updated_at",
+            "type": {
+              "scalarType": "timestamp"
+            },
+            "nullable": "nonNullable",
+            "description": null
+          },
+          "t_version": {
+            "name": "t_version",
+            "type": {
+              "scalarType": "int4"
+            },
+            "nullable": "nonNullable",
+            "description": null
           }
         },
+        "uniquenessConstraints": {
+          "model_graphql_select_unique_field_pkey": [
+            "field_name",
+            "model_name",
+            "select_unique_identifier",
+            "subgraph_name",
+            "t_version"
+          ],
+          "uq_model_graphql_select_unique_field_1594e682cb": [
+            "model_name",
+            "select_unique_identifier",
+            "subgraph_name",
+            "t_is_current",
+            "t_version"
+          ]
+        },
+        "foreignRelations": {},
         "description": null
       },
       "model_orderable_field": {
@@ -9638,16 +6327,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_model_orderable_field_model_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "model",
-            "columnMapping": {
-              "model_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "model_permission": {
@@ -9758,31 +6438,15 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_model_permission_99e9b4b726": [
+          "uq_model_permission_136f1cd797": [
             "model_name",
             "role_name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_model_permission_model_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "model",
-            "columnMapping": {
-              "model_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_model_permission_role_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "role",
-            "columnMapping": {
-              "role_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "model_source_argument_mapping": {
@@ -9894,17 +6558,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_model_source_argument_mapping_ec06204a8a": {
-            "foreignSchema": "public",
-            "foreignTable": "model_source_config",
-            "columnMapping": {
-              "model_name": "model_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "model_source_config": {
@@ -10014,23 +6668,14 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_model_source_config_model_name_subgraph_name_t_is_current": [
+          "uq_model_source_config_5672ef4750": [
             "model_name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_model_source_config_model_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "model",
-            "columnMapping": {
-              "model_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "mutation_capability": {
@@ -10140,23 +6785,14 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_mutation_capability_b33d8881e1": [
+          "uq_mutation_capability_51c1e0b87d": [
             "connector_name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_mutation_capability_e3f89e15a0": {
-            "foreignSchema": "public",
-            "foreignTable": "data_connector",
-            "columnMapping": {
-              "connector_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "object_field": {
@@ -10315,33 +6951,22 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_object_field_a89236c84b": [
+          "uq_object_field_37cd329558": [
             "logical_field_name",
             "object_type_name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
+          ],
+          "uq_object_field_fb8ac49254": [
+            "logical_field_name",
+            "object_type_name",
+            "subgraph_name",
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_object_field_object_type_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "object_type",
-            "columnMapping": {
-              "object_type_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_object_field_scalar_type_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "scalar_type",
-            "columnMapping": {
-              "scalar_type_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "object_type": {
@@ -10483,26 +7108,19 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_object_type_name_subgraph_name_t_is_current": [
+          "uq_object_type_name_subgraph_name_t_is_current_t_version": [
             "name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ],
-          "uq_object_type_name_t_is_current": [
+          "uq_object_type_name_t_is_current_t_version": [
             "name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_object_type_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "subgraph",
-            "columnMapping": {
-              "subgraph_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "preset_value": {
@@ -10656,28 +7274,7 @@
             "value_position"
           ]
         },
-        "foreignRelations": {
-          "fk_preset_value_2a4656db2c": {
-            "foreignSchema": "public",
-            "foreignTable": "model_argument_preset",
-            "columnMapping": {
-              "argument_name": "argument_name",
-              "model_name": "model_name",
-              "role_name": "role_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_preset_value_subgraph_name_scalar_type_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "scalar_type",
-            "columnMapping": {
-              "scalar_type_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "procedure": {
@@ -10812,34 +7409,15 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_procedure_name_connector_name_subgraph_name_t_is_current": [
+          "uq_procedure_593e143ddb": [
             "connector_name",
             "name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_procedure_4d035fd44d": {
-            "foreignSchema": "public",
-            "foreignTable": "type_definition",
-            "columnMapping": {
-              "result_type_connector_name": "connector_name",
-              "result_type_name": "name",
-              "result_type_subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_procedure_connector_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "data_connector",
-            "columnMapping": {
-              "connector_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "procedure_argument": {
@@ -10984,28 +7562,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_procedure_argument_bf35573507": {
-            "foreignSchema": "public",
-            "foreignTable": "procedure",
-            "columnMapping": {
-              "connector_name": "connector_name",
-              "procedure_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_procedure_argument_c8b2e5cb55": {
-            "foreignSchema": "public",
-            "foreignTable": "type_definition",
-            "columnMapping": {
-              "t_is_current": "t_is_current",
-              "type_definition_connector_name": "connector_name",
-              "type_definition_name": "name",
-              "type_definition_subgraph_name": "subgraph_name"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "query_capability": {
@@ -11164,17 +7721,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_query_capability_connector_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "data_connector",
-            "columnMapping": {
-              "connector_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "relationship": {
@@ -11341,50 +7888,15 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_relationship_f38c9a7f54": [
+          "uq_relationship_acea52d831": [
             "name",
             "source_type_name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_relationship_39dca3b487": {
-            "foreignSchema": "public",
-            "foreignTable": "aggregate_expression",
-            "columnMapping": {
-              "aggregate_expression": "name",
-              "t_is_current": "t_is_current",
-              "target_subgraph_name": "subgraph_name"
-            }
-          },
-          "fk_relationship_854834fd54": {
-            "foreignSchema": "public",
-            "foreignTable": "object_type",
-            "columnMapping": {
-              "t_is_current": "t_is_current",
-              "target_subgraph_name": "subgraph_name",
-              "target_type_name": "name"
-            }
-          },
-          "fk_relationship_source_type_name_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "object_type",
-            "columnMapping": {
-              "source_type_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_relationship_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "subgraph",
-            "columnMapping": {
-              "subgraph_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "relationship_aggregate": {
@@ -11615,17 +8127,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_relationship_capability_abf4b47003": {
-            "foreignSchema": "public",
-            "foreignTable": "data_connector",
-            "columnMapping": {
-              "connector_name": "name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "relationship_field_mapping": {
@@ -11740,23 +8242,13 @@
         "uniquenessConstraints": {
           "relationship_field_mapping_pkey": [
             "relationship_name",
+            "source_field",
             "source_type_name",
             "subgraph_name",
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_relationship_field_mapping_ac3ba83d11": {
-            "foreignSchema": "public",
-            "foreignTable": "relationship",
-            "columnMapping": {
-              "relationship_name": "name",
-              "source_type_name": "source_type_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "representation": {
@@ -11867,11 +8359,19 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_representation_eb70d8536a": [
+          "uq_representation_2cd38b70f8": [
             "connector_name",
             "name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
+          ],
+          "uq_representation_8a3306954e": [
+            "connector_name",
+            "name",
+            "subgraph_name",
+            "t_is_current",
+            "t_version"
           ]
         },
         "foreignRelations": {},
@@ -11975,21 +8475,13 @@
             "name",
             "t_version"
           ],
-          "uq_role_name_t_is_current": [
+          "uq_role_name_t_is_current_t_version": [
             "name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_role_supergraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "supergraph",
-            "columnMapping": {
-              "supergraph_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "scalar_type": {
@@ -12099,22 +8591,20 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_scalar_type_name_subgraph_name_t_is_current": [
+          "uq_scalar_type_name_subgraph_name_t_is_current_t_version": [
             "name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
+          ],
+          "uq_scalar_type_subgraph_name_name_t_is_current_t_version": [
+            "name",
+            "subgraph_name",
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_scalar_type_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "subgraph",
-            "columnMapping": {
-              "subgraph_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "subgraph": {
@@ -12207,9 +8697,10 @@
             "name",
             "t_version"
           ],
-          "uq_subgraph_name_t_is_current": [
+          "uq_subgraph_name_t_is_current_t_version": [
             "name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
         "foreignRelations": {},
@@ -12307,24 +8798,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_subgraph_supergraph_map_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "subgraph",
-            "columnMapping": {
-              "subgraph_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_subgraph_supergraph_map_supergraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "supergraph",
-            "columnMapping": {
-              "supergraph_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "supergraph": {
@@ -12417,9 +8891,10 @@
             "name",
             "t_version"
           ],
-          "uq_supergraph_name_t_is_current": [
+          "uq_supergraph_name_t_is_current_t_version": [
             "name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
           ]
         },
         "foreignRelations": {},
@@ -12693,25 +9168,36 @@
             "subgraph_name",
             "t_version"
           ],
-          "uq_type_definition_0c84a72501": [
+          "uq_type_definition_3a41526f7a": [
             "connector_name",
             "name",
             "subgraph_name",
-            "t_is_current"
+            "t_is_current",
+            "t_version"
+          ],
+          "uq_type_definition_7eab0e5451": [
+            "connector_name",
+            "name",
+            "subgraph_name",
+            "t_is_current",
+            "t_version"
+          ],
+          "uq_type_definition_8a3ce7e079": [
+            "connector_name",
+            "name",
+            "subgraph_name",
+            "t_is_current",
+            "t_version"
+          ],
+          "uq_type_definition_d37c85f176": [
+            "connector_name",
+            "name",
+            "subgraph_name",
+            "t_is_current",
+            "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_type_definition_2df362794f": {
-            "foreignSchema": "public",
-            "foreignTable": "type_definition",
-            "columnMapping": {
-              "child_type_name": "name",
-              "connector_name": "connector_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "type_permission": {
@@ -12814,39 +9300,15 @@
             "t_version",
             "type_name"
           ],
-          "uq_type_permission_00a84bcf1c": [
+          "uq_type_permission_28801d0b04": [
             "role_name",
             "subgraph_name",
             "t_is_current",
+            "t_version",
             "type_name"
           ]
         },
-        "foreignRelations": {
-          "fk_type_permission_role_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "role",
-            "columnMapping": {
-              "role_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_type_permission_subgraph_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "subgraph",
-            "columnMapping": {
-              "subgraph_name": "name",
-              "t_is_current": "t_is_current"
-            }
-          },
-          "fk_type_permission_type_name_t_is_current": {
-            "foreignSchema": "public",
-            "foreignTable": "object_type",
-            "columnMapping": {
-              "t_is_current": "t_is_current",
-              "type_name": "name"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       },
       "uniqueness_constraint_column": {
@@ -12968,19 +9430,7 @@
             "t_version"
           ]
         },
-        "foreignRelations": {
-          "fk_uniqueness_constraint_column_4fe5a36d17": {
-            "foreignSchema": "public",
-            "foreignTable": "collection_uniqueness_constraint",
-            "columnMapping": {
-              "collection_name": "collection_name",
-              "connector_name": "connector_name",
-              "constraint_name": "constraint_name",
-              "subgraph_name": "subgraph_name",
-              "t_is_current": "t_is_current"
-            }
-          }
-        },
+        "foreignRelations": {},
         "description": null
       }
     },
@@ -13112,6 +9562,88 @@
               "RESTORE"
             ]
           }
+        },
+        "float8": {
+          "typeName": "float8",
+          "schemaName": "pg_catalog",
+          "description": null,
+          "aggregateFunctions": {
+            "avg": {
+              "returnType": "float8"
+            },
+            "max": {
+              "returnType": "float8"
+            },
+            "min": {
+              "returnType": "float8"
+            },
+            "stddev": {
+              "returnType": "float8"
+            },
+            "stddev_pop": {
+              "returnType": "float8"
+            },
+            "stddev_samp": {
+              "returnType": "float8"
+            },
+            "sum": {
+              "returnType": "float8"
+            },
+            "var_pop": {
+              "returnType": "float8"
+            },
+            "var_samp": {
+              "returnType": "float8"
+            },
+            "variance": {
+              "returnType": "float8"
+            }
+          },
+          "comparisonOperators": {
+            "_eq": {
+              "operatorName": "=",
+              "operatorKind": "equal",
+              "argumentType": "float8",
+              "isInfix": true
+            },
+            "_gt": {
+              "operatorName": ">",
+              "operatorKind": "custom",
+              "argumentType": "float8",
+              "isInfix": true
+            },
+            "_gte": {
+              "operatorName": ">=",
+              "operatorKind": "custom",
+              "argumentType": "float8",
+              "isInfix": true
+            },
+            "_in": {
+              "operatorName": "IN",
+              "operatorKind": "in",
+              "argumentType": "float8",
+              "isInfix": true
+            },
+            "_lt": {
+              "operatorName": "<",
+              "operatorKind": "custom",
+              "argumentType": "float8",
+              "isInfix": true
+            },
+            "_lte": {
+              "operatorName": "<=",
+              "operatorKind": "custom",
+              "argumentType": "float8",
+              "isInfix": true
+            },
+            "_neq": {
+              "operatorName": "<>",
+              "operatorKind": "custom",
+              "argumentType": "float8",
+              "isInfix": true
+            }
+          },
+          "typeRepresentation": "float64"
         },
         "int4": {
           "typeName": "int4",
@@ -13391,6 +9923,69 @@
             }
           },
           "typeRepresentation": "bigDecimalAsString"
+        },
+        "root_field_kind": {
+          "typeName": "root_field_kind",
+          "schemaName": "public",
+          "description": null,
+          "aggregateFunctions": {
+            "max": {
+              "returnType": "root_field_kind"
+            },
+            "min": {
+              "returnType": "root_field_kind"
+            }
+          },
+          "comparisonOperators": {
+            "_eq": {
+              "operatorName": "=",
+              "operatorKind": "equal",
+              "argumentType": "root_field_kind",
+              "isInfix": true
+            },
+            "_gt": {
+              "operatorName": ">",
+              "operatorKind": "custom",
+              "argumentType": "root_field_kind",
+              "isInfix": true
+            },
+            "_gte": {
+              "operatorName": ">=",
+              "operatorKind": "custom",
+              "argumentType": "root_field_kind",
+              "isInfix": true
+            },
+            "_in": {
+              "operatorName": "IN",
+              "operatorKind": "in",
+              "argumentType": "root_field_kind",
+              "isInfix": true
+            },
+            "_lt": {
+              "operatorName": "<",
+              "operatorKind": "custom",
+              "argumentType": "root_field_kind",
+              "isInfix": true
+            },
+            "_lte": {
+              "operatorName": "<=",
+              "operatorKind": "custom",
+              "argumentType": "root_field_kind",
+              "isInfix": true
+            },
+            "_neq": {
+              "operatorName": "!=",
+              "operatorKind": "custom",
+              "argumentType": "root_field_kind",
+              "isInfix": true
+            }
+          },
+          "typeRepresentation": {
+            "enum": [
+              "Query",
+              "Mutation"
+            ]
+          }
         },
         "text": {
           "typeName": "text",

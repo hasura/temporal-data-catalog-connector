@@ -126,7 +126,7 @@ def init_schema_from_build(
             from .base.core_base import CoreBase
             from .base.base import Base
 
-            register_temporal_views(CoreBase, engine=engine)
+            # register_temporal_views(CoreBase, engine=engine)
             apply_indices(Base, engine=engine)
             apply_constraints(Base, engine=engine)
         finally:

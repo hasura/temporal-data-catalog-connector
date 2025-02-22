@@ -5,37 +5,37 @@ definition:
   name: DataConnectorCapability
   fields:
     - name: connectorName
-      type: Varchar_1!
+      type: Varchar!
     - name: subgraphName
-      type: Varchar_1!
+      type: Varchar!
     - name: supportsAggregates
-      type: Bool_1!
+      type: Bool!
     - name: supportsFieldFilters
-      type: Bool_1!
+      type: Bool!
     - name: supportsNestedFields
-      type: Bool_1!
+      type: Bool!
     - name: supportsTransactions
-      type: Bool_1!
+      type: Bool!
     - name: supportsVariables
-      type: Bool_1!
+      type: Bool!
     - name: tContentHash
-      type: Varchar_1!
+      type: Varchar!
     - name: tCreatedAt
       type: Timestamp!
     - name: tDeletedAt
       type: Timestamp
     - name: tId
-      type: Varchar_1!
+      type: Varchar!
     - name: tIsCurrent
-      type: Bool_1!
+      type: Bool!
     - name: tIsDeleted
-      type: Bool_1!
+      type: Bool!
     - name: tUpdatedAt
       type: Timestamp!
     - name: tVersion
-      type: Int4_1!
+      type: Int4!
     - name: version
-      type: Varchar_1!
+      type: Varchar!
   graphql:
     typeName: DataConnectorCapability
     inputTypeName: DataConnectorCapabilityInput
@@ -128,39 +128,38 @@ definition:
       type: DataConnectorCapability
       comparableFields:
         - fieldName: connectorName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: subgraphName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: supportsAggregates
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: supportsFieldFilters
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: supportsNestedFields
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: supportsTransactions
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: supportsVariables
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tContentHash
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tCreatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tDeletedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tId
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tIsCurrent
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tIsDeleted
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tUpdatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tVersion
-          booleanExpressionType: Int4BoolExp_1
+          booleanExpressionType: Int4BoolExp
         - fieldName: version
-          booleanExpressionType: VarcharBoolExp_1
-      comparableRelationships:
-        - relationshipName: dataConnector
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
   logicalOperators:
     enable: true
   isNull:
@@ -178,37 +177,37 @@ definition:
       aggregatedType: DataConnectorCapability
       aggregatableFields:
         - fieldName: connectorName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: subgraphName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: supportsAggregates
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: supportsFieldFilters
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: supportsNestedFields
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: supportsTransactions
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: supportsVariables
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tContentHash
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tCreatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tDeletedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tId
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tIsCurrent
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tIsDeleted
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tUpdatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tVersion
-          aggregateExpression: Int4AggExp_1
+          aggregateExpression: Int4AggExp
         - fieldName: version
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
   count:
     enable: true
   graphql:
@@ -224,39 +223,38 @@ definition:
       orderedType: DataConnectorCapability
       orderableFields:
         - fieldName: connectorName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: subgraphName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: supportsAggregates
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: supportsFieldFilters
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: supportsNestedFields
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: supportsTransactions
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: supportsVariables
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tContentHash
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tCreatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tDeletedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tId
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tIsCurrent
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tIsDeleted
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tUpdatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tVersion
-          orderByExpression: Int41OrderByExp
+          orderByExpression: Int4OrderByExp
         - fieldName: version
-          orderByExpression: Varchar1OrderByExp
-      orderableRelationships:
-        - relationshipName: dataConnector
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
   graphql:
     expressionTypeName: DataConnectorCapabilityOrderByExp
 
@@ -301,34 +299,4 @@ definition:
       select:
         filter: null
         allowSubscriptions: true
-
----
-kind: Relationship
-version: v1
-definition:
-  name: dataConnector
-  sourceType: DataConnectorCapability
-  target:
-    model:
-      name: DataConnector
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: connectorName
-      target:
-        modelField:
-          - fieldName: name
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
 

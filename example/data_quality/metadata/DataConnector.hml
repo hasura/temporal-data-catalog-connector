@@ -5,31 +5,31 @@ definition:
   name: DataConnector
   fields:
     - name: name
-      type: Varchar_1!
+      type: Varchar!
     - name: readUrl
-      type: Varchar_1!
+      type: Varchar!
     - name: schemaVersion
-      type: Varchar_1!
+      type: Varchar!
     - name: subgraphName
-      type: Varchar_1!
+      type: Varchar!
     - name: tContentHash
-      type: Varchar_1!
+      type: Varchar!
     - name: tCreatedAt
       type: Timestamp!
     - name: tDeletedAt
       type: Timestamp
     - name: tId
-      type: Varchar_1!
+      type: Varchar!
     - name: tIsCurrent
-      type: Bool_1!
+      type: Bool!
     - name: tIsDeleted
-      type: Bool_1!
+      type: Bool!
     - name: tUpdatedAt
       type: Timestamp!
     - name: tVersion
-      type: Int4_1!
+      type: Int4!
     - name: writeUrl
-      type: Varchar_1!
+      type: Varchar!
   graphql:
     typeName: DataConnector
     inputTypeName: DataConnectorInput
@@ -110,44 +110,32 @@ definition:
       type: DataConnector
       comparableFields:
         - fieldName: name
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: readUrl
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: schemaVersion
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: subgraphName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tContentHash
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tCreatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tDeletedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tId
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tIsCurrent
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tIsDeleted
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tUpdatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tVersion
-          booleanExpressionType: Int4BoolExp_1
+          booleanExpressionType: Int4BoolExp
         - fieldName: writeUrl
-          booleanExpressionType: VarcharBoolExp_1
-      comparableRelationships:
-        - relationshipName: collections
-        - relationshipName: comparisonOperators
-        - relationshipName: connectorScalarTypes
-        - relationshipName: mutationCapability
-        - relationshipName: subgraph
-        - relationshipName: dataConnectorArgumentPresets
-        - relationshipName: dataConnectorCapabilities
-        - relationshipName: dataConnectorHeaders
-        - relationshipName: functions
-        - relationshipName: procedures
-        - relationshipName: queryCapabilities
-        - relationshipName: relationshipCapabilities
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
   logicalOperators:
     enable: true
   isNull:
@@ -165,31 +153,31 @@ definition:
       aggregatedType: DataConnector
       aggregatableFields:
         - fieldName: name
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: readUrl
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: schemaVersion
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: subgraphName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tContentHash
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tCreatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tDeletedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tId
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tIsCurrent
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tIsDeleted
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tUpdatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tVersion
-          aggregateExpression: Int4AggExp_1
+          aggregateExpression: Int4AggExp
         - fieldName: writeUrl
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
   count:
     enable: true
   graphql:
@@ -205,34 +193,32 @@ definition:
       orderedType: DataConnector
       orderableFields:
         - fieldName: name
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: readUrl
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: schemaVersion
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: subgraphName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tContentHash
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tCreatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tDeletedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tId
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tIsCurrent
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tIsDeleted
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tUpdatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tVersion
-          orderByExpression: Int41OrderByExp
+          orderByExpression: Int4OrderByExp
         - fieldName: writeUrl
-          orderByExpression: Varchar1OrderByExp
-      orderableRelationships:
-        - relationshipName: mutationCapability
-        - relationshipName: subgraph
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
   graphql:
     expressionTypeName: DataConnectorOrderByExp
 
@@ -261,13 +247,14 @@ definition:
           - tVersion
         subscription:
           rootField: dataConnectorByDataConnectorPkey
-      - queryRootField: dataConnectorByUqDataConnectorNameSubgraphNameTIsCurrent
+      - queryRootField: dataConnectorByUqDataConnectorNameSubgraphNameTIsCurrentTVersion
         uniqueIdentifier:
           - name
           - subgraphName
           - tIsCurrent
+          - tVersion
         subscription:
-          rootField: dataConnectorByUqDataConnectorNameSubgraphNameTIsCurrent
+          rootField: dataConnectorByUqDataConnectorNameSubgraphNameTIsCurrentTVersion
     filterInputTypeName: DataConnectorFilterInput
     aggregate:
       queryRootField: dataConnectorAggregate
@@ -284,398 +271,4 @@ definition:
       select:
         filter: null
         allowSubscriptions: true
-
----
-kind: Relationship
-version: v1
-definition:
-  name: collections
-  sourceType: DataConnector
-  target:
-    model:
-      name: Collection
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: CollectionAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: collectionsAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: comparisonOperators
-  sourceType: DataConnector
-  target:
-    model:
-      name: ComparisonOperator
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: ComparisonOperatorAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: comparisonOperatorsAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: connectorScalarTypes
-  sourceType: DataConnector
-  target:
-    model:
-      name: ConnectorScalarType
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: ConnectorScalarTypeAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: connectorScalarTypesAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: mutationCapability
-  sourceType: DataConnector
-  target:
-    model:
-      name: MutationCapability
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-
----
-kind: Relationship
-version: v1
-definition:
-  name: subgraph
-  sourceType: DataConnector
-  target:
-    model:
-      name: Subgraph
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: name
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-
----
-kind: Relationship
-version: v1
-definition:
-  name: dataConnectorArgumentPresets
-  sourceType: DataConnector
-  target:
-    model:
-      name: DataConnectorArgumentPreset
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: DataConnectorArgumentPresetAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: dataConnectorArgumentPresetsAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: dataConnectorCapabilities
-  sourceType: DataConnector
-  target:
-    model:
-      name: DataConnectorCapability
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: DataConnectorCapabilityAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: dataConnectorCapabilitiesAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: dataConnectorHeaders
-  sourceType: DataConnector
-  target:
-    model:
-      name: DataConnectorHeader
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: DataConnectorHeaderAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: dataConnectorHeadersAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: functions
-  sourceType: DataConnector
-  target:
-    model:
-      name: Function
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: FunctionAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: functionsAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: procedures
-  sourceType: DataConnector
-  target:
-    model:
-      name: Procedure
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: ProcedureAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: proceduresAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: queryCapabilities
-  sourceType: DataConnector
-  target:
-    model:
-      name: QueryCapability
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: QueryCapabilityAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: queryCapabilitiesAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: relationshipCapabilities
-  sourceType: DataConnector
-  target:
-    model:
-      name: RelationshipCapability
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: RelationshipCapabilityAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: relationshipCapabilitiesAggregate
 

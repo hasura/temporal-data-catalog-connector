@@ -2,11 +2,15 @@
 kind: ObjectType
 version: v1
 definition:
-  name: SubgraphSupergraphMap
+  name: CommandPermissions
   fields:
-    - name: subgraphName
+    - name: allowExecution
+      type: Bool!
+    - name: commandName
       type: Varchar!
-    - name: supergraphName
+    - name: role
+      type: Varchar!
+    - name: subgraphName
       type: Varchar!
     - name: tContentHash
       type: Varchar!
@@ -24,19 +28,27 @@ definition:
       type: Timestamp!
     - name: tVersion
       type: Int4!
+    - name: version
+      type: Varchar!
   graphql:
-    typeName: SubgraphSupergraphMap
-    inputTypeName: SubgraphSupergraphMapInput
+    typeName: CommandPermissions
+    inputTypeName: CommandPermissionsInput
   dataConnectorTypeMapping:
     - dataConnectorName: mdata
-      dataConnectorObjectType: subgraph_supergraph_map
+      dataConnectorObjectType: command_permissions
       fieldMapping:
+        allowExecution:
+          column:
+            name: allow_execution
+        commandName:
+          column:
+            name: command_name
+        role:
+          column:
+            name: role
         subgraphName:
           column:
             name: subgraph_name
-        supergraphName:
-          column:
-            name: supergraph_name
         tContentHash:
           column:
             name: t_content_hash
@@ -61,18 +73,23 @@ definition:
         tVersion:
           column:
             name: t_version
+        version:
+          column:
+            name: version
 
 ---
 kind: TypePermissions
 version: v1
 definition:
-  typeName: SubgraphSupergraphMap
+  typeName: CommandPermissions
   permissions:
     - role: admin
       output:
         allowedFields:
+          - allowExecution
+          - commandName
+          - role
           - subgraphName
-          - supergraphName
           - tContentHash
           - tCreatedAt
           - tDeletedAt
@@ -81,19 +98,24 @@ definition:
           - tIsDeleted
           - tUpdatedAt
           - tVersion
+          - version
 
 ---
 kind: BooleanExpressionType
 version: v1
 definition:
-  name: SubgraphSupergraphMapBoolExp
+  name: CommandPermissionsBoolExp
   operand:
     object:
-      type: SubgraphSupergraphMap
+      type: CommandPermissions
       comparableFields:
-        - fieldName: subgraphName
+        - fieldName: allowExecution
+          booleanExpressionType: BoolBoolExp
+        - fieldName: commandName
           booleanExpressionType: VarcharBoolExp
-        - fieldName: supergraphName
+        - fieldName: role
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
           booleanExpressionType: VarcharBoolExp
         - fieldName: tContentHash
           booleanExpressionType: VarcharBoolExp
@@ -111,26 +133,32 @@ definition:
           booleanExpressionType: TimestampBoolExp
         - fieldName: tVersion
           booleanExpressionType: Int4BoolExp
+        - fieldName: version
+          booleanExpressionType: VarcharBoolExp
       comparableRelationships: []
   logicalOperators:
     enable: true
   isNull:
     enable: true
   graphql:
-    typeName: SubgraphSupergraphMapBoolExp
+    typeName: CommandPermissionsBoolExp
 
 ---
 kind: AggregateExpression
 version: v1
 definition:
-  name: SubgraphSupergraphMapAggExp
+  name: CommandPermissionsAggExp
   operand:
     object:
-      aggregatedType: SubgraphSupergraphMap
+      aggregatedType: CommandPermissions
       aggregatableFields:
-        - fieldName: subgraphName
+        - fieldName: allowExecution
+          aggregateExpression: BoolAggExp
+        - fieldName: commandName
           aggregateExpression: VarcharAggExp
-        - fieldName: supergraphName
+        - fieldName: role
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
           aggregateExpression: VarcharAggExp
         - fieldName: tContentHash
           aggregateExpression: VarcharAggExp
@@ -148,23 +176,29 @@ definition:
           aggregateExpression: TimestampAggExp
         - fieldName: tVersion
           aggregateExpression: Int4AggExp
+        - fieldName: version
+          aggregateExpression: VarcharAggExp
   count:
     enable: true
   graphql:
-    selectTypeName: SubgraphSupergraphMapAggExp
+    selectTypeName: CommandPermissionsAggExp
 
 ---
 kind: OrderByExpression
 version: v1
 definition:
-  name: SubgraphSupergraphMapOrderByExp
+  name: CommandPermissionsOrderByExp
   operand:
     object:
-      orderedType: SubgraphSupergraphMap
+      orderedType: CommandPermissions
       orderableFields:
-        - fieldName: subgraphName
+        - fieldName: allowExecution
+          orderByExpression: BoolOrderByExp
+        - fieldName: commandName
           orderByExpression: VarcharOrderByExp
-        - fieldName: supergraphName
+        - fieldName: role
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
           orderByExpression: VarcharOrderByExp
         - fieldName: tContentHash
           orderByExpression: VarcharOrderByExp
@@ -182,46 +216,49 @@ definition:
           orderByExpression: TimestampOrderByExp
         - fieldName: tVersion
           orderByExpression: Int4OrderByExp
+        - fieldName: version
+          orderByExpression: VarcharOrderByExp
       orderableRelationships: []
   graphql:
-    expressionTypeName: SubgraphSupergraphMapOrderByExp
+    expressionTypeName: CommandPermissionsOrderByExp
 
 ---
 kind: Model
 version: v2
 definition:
-  name: SubgraphSupergraphMap
-  objectType: SubgraphSupergraphMap
+  name: CommandPermissions
+  objectType: CommandPermissions
   source:
     dataConnectorName: mdata
-    collection: subgraph_supergraph_map
-  filterExpressionType: SubgraphSupergraphMapBoolExp
-  aggregateExpression: SubgraphSupergraphMapAggExp
-  orderByExpression: SubgraphSupergraphMapOrderByExp
+    collection: command_permissions
+  filterExpressionType: CommandPermissionsBoolExp
+  aggregateExpression: CommandPermissionsAggExp
+  orderByExpression: CommandPermissionsOrderByExp
   graphql:
     selectMany:
-      queryRootField: subgraphSupergraphMap
+      queryRootField: commandPermissions
       subscription:
-        rootField: subgraphSupergraphMap
+        rootField: commandPermissions
     selectUniques:
-      - queryRootField: subgraphSupergraphMapBySubgraphSupergraphMapPkey
+      - queryRootField: commandPermissionsByCommandPermissionsPkey
         uniqueIdentifier:
+          - commandName
+          - role
           - subgraphName
-          - supergraphName
           - tVersion
         subscription:
-          rootField: subgraphSupergraphMapBySubgraphSupergraphMapPkey
-    filterInputTypeName: SubgraphSupergraphMapFilterInput
+          rootField: commandPermissionsByCommandPermissionsPkey
+    filterInputTypeName: CommandPermissionsFilterInput
     aggregate:
-      queryRootField: subgraphSupergraphMapAggregate
+      queryRootField: commandPermissionsAggregate
       subscription:
-        rootField: subgraphSupergraphMapAggregate
+        rootField: commandPermissionsAggregate
 
 ---
 kind: ModelPermissions
 version: v1
 definition:
-  modelName: SubgraphSupergraphMap
+  modelName: CommandPermissions
   permissions:
     - role: admin
       select:

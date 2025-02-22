@@ -5,27 +5,27 @@ definition:
   name: TypePermission
   fields:
     - name: roleName
-      type: Varchar_1!
+      type: Varchar!
     - name: subgraphName
-      type: Varchar_1!
+      type: Varchar!
     - name: tContentHash
-      type: Varchar_1!
+      type: Varchar!
     - name: tCreatedAt
       type: Timestamp!
     - name: tDeletedAt
       type: Timestamp
     - name: tId
-      type: Varchar_1!
+      type: Varchar!
     - name: tIsCurrent
-      type: Bool_1!
+      type: Bool!
     - name: tIsDeleted
-      type: Bool_1!
+      type: Bool!
     - name: tUpdatedAt
       type: Timestamp!
     - name: tVersion
-      type: Int4_1!
+      type: Int4!
     - name: typeName
-      type: Varchar_1!
+      type: Varchar!
   graphql:
     typeName: TypePermission
     inputTypeName: TypePermissionInput
@@ -98,32 +98,28 @@ definition:
       type: TypePermission
       comparableFields:
         - fieldName: roleName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: subgraphName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tContentHash
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tCreatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tDeletedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tId
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tIsCurrent
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tIsDeleted
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tUpdatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tVersion
-          booleanExpressionType: Int4BoolExp_1
+          booleanExpressionType: Int4BoolExp
         - fieldName: typeName
-          booleanExpressionType: VarcharBoolExp_1
-      comparableRelationships:
-        - relationshipName: allowedFields
-        - relationshipName: role
-        - relationshipName: subgraph
-        - relationshipName: objectType
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
   logicalOperators:
     enable: true
   isNull:
@@ -141,27 +137,27 @@ definition:
       aggregatedType: TypePermission
       aggregatableFields:
         - fieldName: roleName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: subgraphName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tContentHash
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tCreatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tDeletedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tId
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tIsCurrent
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tIsDeleted
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tUpdatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tVersion
-          aggregateExpression: Int4AggExp_1
+          aggregateExpression: Int4AggExp
         - fieldName: typeName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
   count:
     enable: true
   graphql:
@@ -177,31 +173,28 @@ definition:
       orderedType: TypePermission
       orderableFields:
         - fieldName: roleName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: subgraphName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tContentHash
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tCreatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tDeletedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tId
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tIsCurrent
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tIsDeleted
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tUpdatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tVersion
-          orderByExpression: Int41OrderByExp
+          orderByExpression: Int4OrderByExp
         - fieldName: typeName
-          orderByExpression: Varchar1OrderByExp
-      orderableRelationships:
-        - relationshipName: role
-        - relationshipName: subgraph
-        - relationshipName: objectType
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
   graphql:
     expressionTypeName: TypePermissionOrderByExp
 
@@ -231,14 +224,15 @@ definition:
           - typeName
         subscription:
           rootField: typePermissionByTypePermissionPkey
-      - queryRootField: typePermissionByUqTypePermission00A84Bcf1C
+      - queryRootField: typePermissionByUqTypePermission28801D0B04
         uniqueIdentifier:
           - roleName
           - subgraphName
           - tIsCurrent
+          - tVersion
           - typeName
         subscription:
-          rootField: typePermissionByUqTypePermission00A84Bcf1C
+          rootField: typePermissionByUqTypePermission28801D0B04
     filterInputTypeName: TypePermissionFilterInput
     aggregate:
       queryRootField: typePermissionAggregate
@@ -255,116 +249,4 @@ definition:
       select:
         filter: null
         allowSubscriptions: true
-
----
-kind: Relationship
-version: v1
-definition:
-  name: allowedFields
-  sourceType: TypePermission
-  target:
-    model:
-      name: AllowedField
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: AllowedFieldAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: roleName
-      target:
-        modelField:
-          - fieldName: roleName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-    - source:
-        fieldPath:
-          - fieldName: typeName
-      target:
-        modelField:
-          - fieldName: typeName
-  graphql:
-    aggregateFieldName: allowedFieldsAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: role
-  sourceType: TypePermission
-  target:
-    model:
-      name: Role
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: roleName
-      target:
-        modelField:
-          - fieldName: name
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-
----
-kind: Relationship
-version: v1
-definition:
-  name: subgraph
-  sourceType: TypePermission
-  target:
-    model:
-      name: Subgraph
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: name
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-
----
-kind: Relationship
-version: v1
-definition:
-  name: objectType
-  sourceType: TypePermission
-  target:
-    model:
-      name: ObjectType
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-    - source:
-        fieldPath:
-          - fieldName: typeName
-      target:
-        modelField:
-          - fieldName: name
 

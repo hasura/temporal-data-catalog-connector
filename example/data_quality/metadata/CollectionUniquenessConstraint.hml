@@ -5,29 +5,29 @@ definition:
   name: CollectionUniquenessConstraint
   fields:
     - name: collectionName
-      type: Varchar_1!
+      type: Varchar!
     - name: connectorName
-      type: Varchar_1!
+      type: Varchar!
     - name: constraintName
-      type: Varchar_1!
+      type: Varchar!
     - name: subgraphName
-      type: Varchar_1!
+      type: Varchar!
     - name: tContentHash
-      type: Varchar_1!
+      type: Varchar!
     - name: tCreatedAt
       type: Timestamp!
     - name: tDeletedAt
       type: Timestamp
     - name: tId
-      type: Varchar_1!
+      type: Varchar!
     - name: tIsCurrent
-      type: Bool_1!
+      type: Bool!
     - name: tIsDeleted
-      type: Bool_1!
+      type: Bool!
     - name: tUpdatedAt
       type: Timestamp!
     - name: tVersion
-      type: Int4_1!
+      type: Int4!
   graphql:
     typeName: CollectionUniquenessConstraint
     inputTypeName: CollectionUniquenessConstraintInput
@@ -104,32 +104,30 @@ definition:
       type: CollectionUniquenessConstraint
       comparableFields:
         - fieldName: collectionName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: connectorName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: constraintName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: subgraphName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tContentHash
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tCreatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tDeletedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tId
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tIsCurrent
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tIsDeleted
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tUpdatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tVersion
-          booleanExpressionType: Int4BoolExp_1
-      comparableRelationships:
-        - relationshipName: collection
-        - relationshipName: uniquenessConstraintColumns
+          booleanExpressionType: Int4BoolExp
+      comparableRelationships: []
   logicalOperators:
     enable: true
   isNull:
@@ -147,29 +145,29 @@ definition:
       aggregatedType: CollectionUniquenessConstraint
       aggregatableFields:
         - fieldName: collectionName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: connectorName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: constraintName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: subgraphName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tContentHash
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tCreatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tDeletedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tId
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tIsCurrent
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tIsDeleted
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tUpdatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tVersion
-          aggregateExpression: Int4AggExp_1
+          aggregateExpression: Int4AggExp
   count:
     enable: true
   graphql:
@@ -185,31 +183,30 @@ definition:
       orderedType: CollectionUniquenessConstraint
       orderableFields:
         - fieldName: collectionName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: connectorName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: constraintName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: subgraphName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tContentHash
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tCreatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tDeletedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tId
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tIsCurrent
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tIsDeleted
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tUpdatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tVersion
-          orderByExpression: Int41OrderByExp
-      orderableRelationships:
-        - relationshipName: collection
+          orderByExpression: Int4OrderByExp
+      orderableRelationships: []
   graphql:
     expressionTypeName: CollectionUniquenessConstraintOrderByExp
 
@@ -240,15 +237,16 @@ definition:
           - tVersion
         subscription:
           rootField: collectionUniquenessConstraintByCollectionUniquenessConstraintPkey
-      - queryRootField: collectionUniquenessConstraintByUqCollectionUniquenessConstraint36Cc1810Bb
+      - queryRootField: collectionUniquenessConstraintByUqCollectionUniquenessConstraintF248Dfdedf
         uniqueIdentifier:
           - collectionName
           - connectorName
           - constraintName
           - subgraphName
           - tIsCurrent
+          - tVersion
         subscription:
-          rootField: collectionUniquenessConstraintByUqCollectionUniquenessConstraint36Cc1810Bb
+          rootField: collectionUniquenessConstraintByUqCollectionUniquenessConstraintF248Dfdedf
     filterInputTypeName: CollectionUniquenessConstraintFilterInput
     aggregate:
       queryRootField: collectionUniquenessConstraintAggregate
@@ -265,86 +263,4 @@ definition:
       select:
         filter: null
         allowSubscriptions: true
-
----
-kind: Relationship
-version: v1
-definition:
-  name: collection
-  sourceType: CollectionUniquenessConstraint
-  target:
-    model:
-      name: Collection
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: collectionName
-      target:
-        modelField:
-          - fieldName: name
-    - source:
-        fieldPath:
-          - fieldName: connectorName
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-
----
-kind: Relationship
-version: v1
-definition:
-  name: uniquenessConstraintColumns
-  sourceType: CollectionUniquenessConstraint
-  target:
-    model:
-      name: UniquenessConstraintColumn
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: UniquenessConstraintColumnAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: collectionName
-      target:
-        modelField:
-          - fieldName: collectionName
-    - source:
-        fieldPath:
-          - fieldName: connectorName
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: constraintName
-      target:
-        modelField:
-          - fieldName: constraintName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: uniquenessConstraintColumnsAggregate
 

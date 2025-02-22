@@ -5,37 +5,37 @@ definition:
   name: CollectionField
   fields:
     - name: collectionName
-      type: Varchar_1!
+      type: Varchar!
     - name: connectorName
-      type: Varchar_1!
+      type: Varchar!
     - name: description
-      type: Varchar_1
+      type: Varchar
     - name: physicalFieldName
-      type: Varchar_1!
+      type: Varchar!
     - name: subgraphName
-      type: Varchar_1!
+      type: Varchar!
     - name: tContentHash
-      type: Varchar_1!
+      type: Varchar!
     - name: tCreatedAt
       type: Timestamp!
     - name: tDeletedAt
       type: Timestamp
     - name: tId
-      type: Varchar_1!
+      type: Varchar!
     - name: tIsCurrent
-      type: Bool_1!
+      type: Bool!
     - name: tIsDeleted
-      type: Bool_1!
+      type: Bool!
     - name: tUpdatedAt
       type: Timestamp!
     - name: tVersion
-      type: Int4_1!
+      type: Int4!
     - name: typeDefinitionConnectorName
-      type: Varchar_1!
+      type: Varchar!
     - name: typeDefinitionName
-      type: Varchar_1!
+      type: Varchar!
     - name: typeDefinitionSubgraphName
-      type: Varchar_1!
+      type: Varchar!
   graphql:
     typeName: CollectionField
     inputTypeName: CollectionFieldInput
@@ -128,41 +128,38 @@ definition:
       type: CollectionField
       comparableFields:
         - fieldName: collectionName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: connectorName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: description
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: physicalFieldName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: subgraphName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tContentHash
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tCreatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tDeletedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tId
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tIsCurrent
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tIsDeleted
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tUpdatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tVersion
-          booleanExpressionType: Int4BoolExp_1
+          booleanExpressionType: Int4BoolExp
         - fieldName: typeDefinitionConnectorName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: typeDefinitionName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: typeDefinitionSubgraphName
-          booleanExpressionType: VarcharBoolExp_1
-      comparableRelationships:
-        - relationshipName: collection
-        - relationshipName: typeDefinition
-        - relationshipName: fieldMaps
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
   logicalOperators:
     enable: true
   isNull:
@@ -180,37 +177,37 @@ definition:
       aggregatedType: CollectionField
       aggregatableFields:
         - fieldName: collectionName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: connectorName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: description
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: physicalFieldName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: subgraphName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tContentHash
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tCreatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tDeletedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tId
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tIsCurrent
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tIsDeleted
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tUpdatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tVersion
-          aggregateExpression: Int4AggExp_1
+          aggregateExpression: Int4AggExp
         - fieldName: typeDefinitionConnectorName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: typeDefinitionName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: typeDefinitionSubgraphName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
   count:
     enable: true
   graphql:
@@ -226,40 +223,38 @@ definition:
       orderedType: CollectionField
       orderableFields:
         - fieldName: collectionName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: connectorName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: description
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: physicalFieldName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: subgraphName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tContentHash
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tCreatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tDeletedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tId
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tIsCurrent
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tIsDeleted
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tUpdatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tVersion
-          orderByExpression: Int41OrderByExp
+          orderByExpression: Int4OrderByExp
         - fieldName: typeDefinitionConnectorName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: typeDefinitionName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: typeDefinitionSubgraphName
-          orderByExpression: Varchar1OrderByExp
-      orderableRelationships:
-        - relationshipName: collection
-        - relationshipName: typeDefinition
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
   graphql:
     expressionTypeName: CollectionFieldOrderByExp
 
@@ -290,15 +285,16 @@ definition:
           - tVersion
         subscription:
           rootField: collectionFieldByCollectionFieldPkey
-      - queryRootField: collectionFieldByUqCollectionField93Ebe8F1D1
+      - queryRootField: collectionFieldByUqCollectionFieldA44E4663Af
         uniqueIdentifier:
           - collectionName
           - connectorName
           - physicalFieldName
           - subgraphName
           - tIsCurrent
+          - tVersion
         subscription:
-          rootField: collectionFieldByUqCollectionField93Ebe8F1D1
+          rootField: collectionFieldByUqCollectionFieldA44E4663Af
     filterInputTypeName: CollectionFieldFilterInput
     aggregate:
       queryRootField: collectionFieldAggregate
@@ -315,122 +311,4 @@ definition:
       select:
         filter: null
         allowSubscriptions: true
-
----
-kind: Relationship
-version: v1
-definition:
-  name: collection
-  sourceType: CollectionField
-  target:
-    model:
-      name: Collection
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: collectionName
-      target:
-        modelField:
-          - fieldName: name
-    - source:
-        fieldPath:
-          - fieldName: connectorName
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-
----
-kind: Relationship
-version: v1
-definition:
-  name: typeDefinition
-  sourceType: CollectionField
-  target:
-    model:
-      name: TypeDefinition
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-    - source:
-        fieldPath:
-          - fieldName: typeDefinitionConnectorName
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: typeDefinitionName
-      target:
-        modelField:
-          - fieldName: name
-    - source:
-        fieldPath:
-          - fieldName: typeDefinitionSubgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-
----
-kind: Relationship
-version: v1
-definition:
-  name: fieldMaps
-  sourceType: CollectionField
-  target:
-    model:
-      name: FieldMap
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: FieldMapAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: collectionName
-      target:
-        modelField:
-          - fieldName: collectionName
-    - source:
-        fieldPath:
-          - fieldName: connectorName
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: physicalFieldName
-      target:
-        modelField:
-          - fieldName: physicalFieldName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: fieldMapsAggregate
 

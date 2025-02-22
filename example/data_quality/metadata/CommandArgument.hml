@@ -2,11 +2,21 @@
 kind: ObjectType
 version: v1
 definition:
-  name: SubgraphSupergraphMap
+  name: CommandArgument
   fields:
-    - name: subgraphName
+    - name: commandName
       type: Varchar!
-    - name: supergraphName
+    - name: defaultValueBoolean
+      type: Bool
+    - name: defaultValueNumber
+      type: Float8
+    - name: defaultValueString
+      type: Text
+    - name: description
+      type: Text
+    - name: name
+      type: Varchar!
+    - name: subgraphName
       type: Varchar!
     - name: tContentHash
       type: Varchar!
@@ -24,19 +34,36 @@ definition:
       type: Timestamp!
     - name: tVersion
       type: Int4!
+    - name: type
+      type: Varchar!
   graphql:
-    typeName: SubgraphSupergraphMap
-    inputTypeName: SubgraphSupergraphMapInput
+    typeName: CommandArgument
+    inputTypeName: CommandArgumentInput
   dataConnectorTypeMapping:
     - dataConnectorName: mdata
-      dataConnectorObjectType: subgraph_supergraph_map
+      dataConnectorObjectType: command_argument
       fieldMapping:
+        commandName:
+          column:
+            name: command_name
+        defaultValueBoolean:
+          column:
+            name: default_value_boolean
+        defaultValueNumber:
+          column:
+            name: default_value_number
+        defaultValueString:
+          column:
+            name: default_value_string
+        description:
+          column:
+            name: description
+        name:
+          column:
+            name: name
         subgraphName:
           column:
             name: subgraph_name
-        supergraphName:
-          column:
-            name: supergraph_name
         tContentHash:
           column:
             name: t_content_hash
@@ -61,18 +88,26 @@ definition:
         tVersion:
           column:
             name: t_version
+        type:
+          column:
+            name: type
 
 ---
 kind: TypePermissions
 version: v1
 definition:
-  typeName: SubgraphSupergraphMap
+  typeName: CommandArgument
   permissions:
     - role: admin
       output:
         allowedFields:
+          - commandName
+          - defaultValueBoolean
+          - defaultValueNumber
+          - defaultValueString
+          - description
+          - name
           - subgraphName
-          - supergraphName
           - tContentHash
           - tCreatedAt
           - tDeletedAt
@@ -81,19 +116,30 @@ definition:
           - tIsDeleted
           - tUpdatedAt
           - tVersion
+          - type
 
 ---
 kind: BooleanExpressionType
 version: v1
 definition:
-  name: SubgraphSupergraphMapBoolExp
+  name: CommandArgumentBoolExp
   operand:
     object:
-      type: SubgraphSupergraphMap
+      type: CommandArgument
       comparableFields:
-        - fieldName: subgraphName
+        - fieldName: commandName
           booleanExpressionType: VarcharBoolExp
-        - fieldName: supergraphName
+        - fieldName: defaultValueBoolean
+          booleanExpressionType: BoolBoolExp
+        - fieldName: defaultValueNumber
+          booleanExpressionType: Float8BoolExp
+        - fieldName: defaultValueString
+          booleanExpressionType: TextBoolExp
+        - fieldName: description
+          booleanExpressionType: TextBoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
           booleanExpressionType: VarcharBoolExp
         - fieldName: tContentHash
           booleanExpressionType: VarcharBoolExp
@@ -111,26 +157,38 @@ definition:
           booleanExpressionType: TimestampBoolExp
         - fieldName: tVersion
           booleanExpressionType: Int4BoolExp
+        - fieldName: type
+          booleanExpressionType: VarcharBoolExp
       comparableRelationships: []
   logicalOperators:
     enable: true
   isNull:
     enable: true
   graphql:
-    typeName: SubgraphSupergraphMapBoolExp
+    typeName: CommandArgumentBoolExp
 
 ---
 kind: AggregateExpression
 version: v1
 definition:
-  name: SubgraphSupergraphMapAggExp
+  name: CommandArgumentAggExp
   operand:
     object:
-      aggregatedType: SubgraphSupergraphMap
+      aggregatedType: CommandArgument
       aggregatableFields:
-        - fieldName: subgraphName
+        - fieldName: commandName
           aggregateExpression: VarcharAggExp
-        - fieldName: supergraphName
+        - fieldName: defaultValueBoolean
+          aggregateExpression: BoolAggExp
+        - fieldName: defaultValueNumber
+          aggregateExpression: Float8AggExp
+        - fieldName: defaultValueString
+          aggregateExpression: TextAggExp
+        - fieldName: description
+          aggregateExpression: TextAggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
           aggregateExpression: VarcharAggExp
         - fieldName: tContentHash
           aggregateExpression: VarcharAggExp
@@ -148,23 +206,35 @@ definition:
           aggregateExpression: TimestampAggExp
         - fieldName: tVersion
           aggregateExpression: Int4AggExp
+        - fieldName: type
+          aggregateExpression: VarcharAggExp
   count:
     enable: true
   graphql:
-    selectTypeName: SubgraphSupergraphMapAggExp
+    selectTypeName: CommandArgumentAggExp
 
 ---
 kind: OrderByExpression
 version: v1
 definition:
-  name: SubgraphSupergraphMapOrderByExp
+  name: CommandArgumentOrderByExp
   operand:
     object:
-      orderedType: SubgraphSupergraphMap
+      orderedType: CommandArgument
       orderableFields:
-        - fieldName: subgraphName
+        - fieldName: commandName
           orderByExpression: VarcharOrderByExp
-        - fieldName: supergraphName
+        - fieldName: defaultValueBoolean
+          orderByExpression: BoolOrderByExp
+        - fieldName: defaultValueNumber
+          orderByExpression: Float8OrderByExp
+        - fieldName: defaultValueString
+          orderByExpression: TextOrderByExp
+        - fieldName: description
+          orderByExpression: TextOrderByExp
+        - fieldName: name
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
           orderByExpression: VarcharOrderByExp
         - fieldName: tContentHash
           orderByExpression: VarcharOrderByExp
@@ -182,46 +252,49 @@ definition:
           orderByExpression: TimestampOrderByExp
         - fieldName: tVersion
           orderByExpression: Int4OrderByExp
+        - fieldName: type
+          orderByExpression: VarcharOrderByExp
       orderableRelationships: []
   graphql:
-    expressionTypeName: SubgraphSupergraphMapOrderByExp
+    expressionTypeName: CommandArgumentOrderByExp
 
 ---
 kind: Model
 version: v2
 definition:
-  name: SubgraphSupergraphMap
-  objectType: SubgraphSupergraphMap
+  name: CommandArgument
+  objectType: CommandArgument
   source:
     dataConnectorName: mdata
-    collection: subgraph_supergraph_map
-  filterExpressionType: SubgraphSupergraphMapBoolExp
-  aggregateExpression: SubgraphSupergraphMapAggExp
-  orderByExpression: SubgraphSupergraphMapOrderByExp
+    collection: command_argument
+  filterExpressionType: CommandArgumentBoolExp
+  aggregateExpression: CommandArgumentAggExp
+  orderByExpression: CommandArgumentOrderByExp
   graphql:
     selectMany:
-      queryRootField: subgraphSupergraphMap
+      queryRootField: commandArgument
       subscription:
-        rootField: subgraphSupergraphMap
+        rootField: commandArgument
     selectUniques:
-      - queryRootField: subgraphSupergraphMapBySubgraphSupergraphMapPkey
+      - queryRootField: commandArgumentByCommandArgumentPkey
         uniqueIdentifier:
+          - commandName
+          - name
           - subgraphName
-          - supergraphName
           - tVersion
         subscription:
-          rootField: subgraphSupergraphMapBySubgraphSupergraphMapPkey
-    filterInputTypeName: SubgraphSupergraphMapFilterInput
+          rootField: commandArgumentByCommandArgumentPkey
+    filterInputTypeName: CommandArgumentFilterInput
     aggregate:
-      queryRootField: subgraphSupergraphMapAggregate
+      queryRootField: commandArgumentAggregate
       subscription:
-        rootField: subgraphSupergraphMapAggregate
+        rootField: commandArgumentAggregate
 
 ---
 kind: ModelPermissions
 version: v1
 definition:
-  modelName: SubgraphSupergraphMap
+  modelName: CommandArgument
   permissions:
     - role: admin
       select:

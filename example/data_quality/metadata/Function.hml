@@ -5,33 +5,35 @@ definition:
   name: Function
   fields:
     - name: connectorName
-      type: Varchar_1!
+      type: Varchar!
     - name: description
-      type: Text_1
+      type: Text
     - name: name
-      type: Varchar_1!
+      type: Varchar!
     - name: returnTypeConnector
-      type: Varchar_1!
+      type: Varchar!
     - name: returnTypeName
-      type: Varchar_1!
+      type: Varchar!
+    - name: returnTypeType
+      type: Varchar!
     - name: subgraphName
-      type: Varchar_1!
+      type: Varchar!
     - name: tContentHash
-      type: Varchar_1!
+      type: Varchar!
     - name: tCreatedAt
       type: Timestamp!
     - name: tDeletedAt
       type: Timestamp
     - name: tId
-      type: Varchar_1!
+      type: Varchar!
     - name: tIsCurrent
-      type: Bool_1!
+      type: Bool!
     - name: tIsDeleted
-      type: Bool_1!
+      type: Bool!
     - name: tUpdatedAt
       type: Timestamp!
     - name: tVersion
-      type: Int4_1!
+      type: Int4!
   graphql:
     typeName: Function
     inputTypeName: FunctionInput
@@ -54,6 +56,9 @@ definition:
         returnTypeName:
           column:
             name: return_type_name
+        returnTypeType:
+          column:
+            name: return_type_type
         subgraphName:
           column:
             name: subgraph_name
@@ -96,6 +101,7 @@ definition:
           - name
           - returnTypeConnector
           - returnTypeName
+          - returnTypeType
           - subgraphName
           - tContentHash
           - tCreatedAt
@@ -116,37 +122,36 @@ definition:
       type: Function
       comparableFields:
         - fieldName: connectorName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: description
-          booleanExpressionType: TextBoolExp_1
+          booleanExpressionType: TextBoolExp
         - fieldName: name
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: returnTypeConnector
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: returnTypeName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: returnTypeType
+          booleanExpressionType: VarcharBoolExp
         - fieldName: subgraphName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tContentHash
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tCreatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tDeletedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tId
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tIsCurrent
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tIsDeleted
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tUpdatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tVersion
-          booleanExpressionType: Int4BoolExp_1
-      comparableRelationships:
-        - relationshipName: dataConnector
-        - relationshipName: scalarType
-        - relationshipName: functionArguments
+          booleanExpressionType: Int4BoolExp
+      comparableRelationships: []
   logicalOperators:
     enable: true
   isNull:
@@ -164,33 +169,35 @@ definition:
       aggregatedType: Function
       aggregatableFields:
         - fieldName: connectorName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: description
-          aggregateExpression: TextAggExp_1
+          aggregateExpression: TextAggExp
         - fieldName: name
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: returnTypeConnector
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: returnTypeName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
+        - fieldName: returnTypeType
+          aggregateExpression: VarcharAggExp
         - fieldName: subgraphName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tContentHash
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tCreatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tDeletedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tId
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tIsCurrent
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tIsDeleted
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tUpdatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tVersion
-          aggregateExpression: Int4AggExp_1
+          aggregateExpression: Int4AggExp
   count:
     enable: true
   graphql:
@@ -206,36 +213,36 @@ definition:
       orderedType: Function
       orderableFields:
         - fieldName: connectorName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: description
-          orderByExpression: Text1OrderByExp
+          orderByExpression: TextOrderByExp
         - fieldName: name
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: returnTypeConnector
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: returnTypeName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
+        - fieldName: returnTypeType
+          orderByExpression: VarcharOrderByExp
         - fieldName: subgraphName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tContentHash
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tCreatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tDeletedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tId
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tIsCurrent
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tIsDeleted
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tUpdatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tVersion
-          orderByExpression: Int41OrderByExp
-      orderableRelationships:
-        - relationshipName: dataConnector
-        - relationshipName: scalarType
+          orderByExpression: Int4OrderByExp
+      orderableRelationships: []
   graphql:
     expressionTypeName: FunctionOrderByExp
 
@@ -265,14 +272,15 @@ definition:
           - tVersion
         subscription:
           rootField: functionByFunctionPkey
-      - queryRootField: functionByUqFunctionNameConnectorNameSubgraphNameTIsCurrent
+      - queryRootField: functionByUqFunction9936D5E463
         uniqueIdentifier:
           - connectorName
           - name
           - subgraphName
           - tIsCurrent
+          - tVersion
         subscription:
-          rootField: functionByUqFunctionNameConnectorNameSubgraphNameTIsCurrent
+          rootField: functionByUqFunction9936D5E463
     filterInputTypeName: FunctionFilterInput
     aggregate:
       queryRootField: functionAggregate
@@ -289,104 +297,4 @@ definition:
       select:
         filter: null
         allowSubscriptions: true
-
----
-kind: Relationship
-version: v1
-definition:
-  name: dataConnector
-  sourceType: Function
-  target:
-    model:
-      name: DataConnector
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: connectorName
-      target:
-        modelField:
-          - fieldName: name
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-
----
-kind: Relationship
-version: v1
-definition:
-  name: scalarType
-  sourceType: Function
-  target:
-    model:
-      name: ScalarType
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: returnTypeName
-      target:
-        modelField:
-          - fieldName: name
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-
----
-kind: Relationship
-version: v1
-definition:
-  name: functionArguments
-  sourceType: Function
-  target:
-    model:
-      name: FunctionArgument
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: FunctionArgumentAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: connectorName
-      target:
-        modelField:
-          - fieldName: connectorName
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: functionName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: functionArgumentsAggregate
 

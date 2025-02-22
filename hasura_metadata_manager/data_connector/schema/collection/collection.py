@@ -111,6 +111,7 @@ class Collection(BaseCollection):
                 subgraph_name=data_connector.subgraph_name,
                 description=json_data.get("description"),
                 object_type_name=json_data.get("object_type_name"),
+                model_name=json_data.get("object_type_name"),
                 physical_collection_name=json_data.get("arguments", {}).get("collection", json_data["name"])
             )
             session.add(collection)

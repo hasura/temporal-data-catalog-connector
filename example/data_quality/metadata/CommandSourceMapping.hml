@@ -2,11 +2,13 @@
 kind: ObjectType
 version: v1
 definition:
-  name: SubgraphSupergraphMap
+  name: CommandSourceMapping
   fields:
-    - name: subgraphName
+    - name: commandName
       type: Varchar!
-    - name: supergraphName
+    - name: sourceKey
+      type: Varchar!
+    - name: subgraphName
       type: Varchar!
     - name: tContentHash
       type: Varchar!
@@ -24,19 +26,24 @@ definition:
       type: Timestamp!
     - name: tVersion
       type: Int4!
+    - name: targetValue
+      type: Text!
   graphql:
-    typeName: SubgraphSupergraphMap
-    inputTypeName: SubgraphSupergraphMapInput
+    typeName: CommandSourceMapping
+    inputTypeName: CommandSourceMappingInput
   dataConnectorTypeMapping:
     - dataConnectorName: mdata
-      dataConnectorObjectType: subgraph_supergraph_map
+      dataConnectorObjectType: command_source_mapping
       fieldMapping:
+        commandName:
+          column:
+            name: command_name
+        sourceKey:
+          column:
+            name: source_key
         subgraphName:
           column:
             name: subgraph_name
-        supergraphName:
-          column:
-            name: supergraph_name
         tContentHash:
           column:
             name: t_content_hash
@@ -61,18 +68,22 @@ definition:
         tVersion:
           column:
             name: t_version
+        targetValue:
+          column:
+            name: target_value
 
 ---
 kind: TypePermissions
 version: v1
 definition:
-  typeName: SubgraphSupergraphMap
+  typeName: CommandSourceMapping
   permissions:
     - role: admin
       output:
         allowedFields:
+          - commandName
+          - sourceKey
           - subgraphName
-          - supergraphName
           - tContentHash
           - tCreatedAt
           - tDeletedAt
@@ -81,19 +92,22 @@ definition:
           - tIsDeleted
           - tUpdatedAt
           - tVersion
+          - targetValue
 
 ---
 kind: BooleanExpressionType
 version: v1
 definition:
-  name: SubgraphSupergraphMapBoolExp
+  name: CommandSourceMappingBoolExp
   operand:
     object:
-      type: SubgraphSupergraphMap
+      type: CommandSourceMapping
       comparableFields:
-        - fieldName: subgraphName
+        - fieldName: commandName
           booleanExpressionType: VarcharBoolExp
-        - fieldName: supergraphName
+        - fieldName: sourceKey
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
           booleanExpressionType: VarcharBoolExp
         - fieldName: tContentHash
           booleanExpressionType: VarcharBoolExp
@@ -111,26 +125,30 @@ definition:
           booleanExpressionType: TimestampBoolExp
         - fieldName: tVersion
           booleanExpressionType: Int4BoolExp
+        - fieldName: targetValue
+          booleanExpressionType: TextBoolExp
       comparableRelationships: []
   logicalOperators:
     enable: true
   isNull:
     enable: true
   graphql:
-    typeName: SubgraphSupergraphMapBoolExp
+    typeName: CommandSourceMappingBoolExp
 
 ---
 kind: AggregateExpression
 version: v1
 definition:
-  name: SubgraphSupergraphMapAggExp
+  name: CommandSourceMappingAggExp
   operand:
     object:
-      aggregatedType: SubgraphSupergraphMap
+      aggregatedType: CommandSourceMapping
       aggregatableFields:
-        - fieldName: subgraphName
+        - fieldName: commandName
           aggregateExpression: VarcharAggExp
-        - fieldName: supergraphName
+        - fieldName: sourceKey
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
           aggregateExpression: VarcharAggExp
         - fieldName: tContentHash
           aggregateExpression: VarcharAggExp
@@ -148,23 +166,27 @@ definition:
           aggregateExpression: TimestampAggExp
         - fieldName: tVersion
           aggregateExpression: Int4AggExp
+        - fieldName: targetValue
+          aggregateExpression: TextAggExp
   count:
     enable: true
   graphql:
-    selectTypeName: SubgraphSupergraphMapAggExp
+    selectTypeName: CommandSourceMappingAggExp
 
 ---
 kind: OrderByExpression
 version: v1
 definition:
-  name: SubgraphSupergraphMapOrderByExp
+  name: CommandSourceMappingOrderByExp
   operand:
     object:
-      orderedType: SubgraphSupergraphMap
+      orderedType: CommandSourceMapping
       orderableFields:
-        - fieldName: subgraphName
+        - fieldName: commandName
           orderByExpression: VarcharOrderByExp
-        - fieldName: supergraphName
+        - fieldName: sourceKey
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
           orderByExpression: VarcharOrderByExp
         - fieldName: tContentHash
           orderByExpression: VarcharOrderByExp
@@ -182,46 +204,49 @@ definition:
           orderByExpression: TimestampOrderByExp
         - fieldName: tVersion
           orderByExpression: Int4OrderByExp
+        - fieldName: targetValue
+          orderByExpression: TextOrderByExp
       orderableRelationships: []
   graphql:
-    expressionTypeName: SubgraphSupergraphMapOrderByExp
+    expressionTypeName: CommandSourceMappingOrderByExp
 
 ---
 kind: Model
 version: v2
 definition:
-  name: SubgraphSupergraphMap
-  objectType: SubgraphSupergraphMap
+  name: CommandSourceMapping
+  objectType: CommandSourceMapping
   source:
     dataConnectorName: mdata
-    collection: subgraph_supergraph_map
-  filterExpressionType: SubgraphSupergraphMapBoolExp
-  aggregateExpression: SubgraphSupergraphMapAggExp
-  orderByExpression: SubgraphSupergraphMapOrderByExp
+    collection: command_source_mapping
+  filterExpressionType: CommandSourceMappingBoolExp
+  aggregateExpression: CommandSourceMappingAggExp
+  orderByExpression: CommandSourceMappingOrderByExp
   graphql:
     selectMany:
-      queryRootField: subgraphSupergraphMap
+      queryRootField: commandSourceMapping
       subscription:
-        rootField: subgraphSupergraphMap
+        rootField: commandSourceMapping
     selectUniques:
-      - queryRootField: subgraphSupergraphMapBySubgraphSupergraphMapPkey
+      - queryRootField: commandSourceMappingByCommandSourceMappingPkey
         uniqueIdentifier:
+          - commandName
+          - sourceKey
           - subgraphName
-          - supergraphName
           - tVersion
         subscription:
-          rootField: subgraphSupergraphMapBySubgraphSupergraphMapPkey
-    filterInputTypeName: SubgraphSupergraphMapFilterInput
+          rootField: commandSourceMappingByCommandSourceMappingPkey
+    filterInputTypeName: CommandSourceMappingFilterInput
     aggregate:
-      queryRootField: subgraphSupergraphMapAggregate
+      queryRootField: commandSourceMappingAggregate
       subscription:
-        rootField: subgraphSupergraphMapAggregate
+        rootField: commandSourceMappingAggregate
 
 ---
 kind: ModelPermissions
 version: v1
 definition:
-  modelName: SubgraphSupergraphMap
+  modelName: CommandSourceMapping
   permissions:
     - role: admin
       select:

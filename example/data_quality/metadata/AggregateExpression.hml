@@ -5,47 +5,47 @@ definition:
   name: AggregateExpression
   fields:
     - name: countDescription
-      type: Text_1
+      type: Text
     - name: countDistinctDescription
-      type: Text_1
+      type: Text
     - name: countDistinctEnabled
-      type: Bool_1
+      type: Bool
     - name: countDistinctReturnType
-      type: Varchar_1
+      type: Varchar
     - name: countEnabled
-      type: Bool_1!
+      type: Bool!
     - name: countReturnType
-      type: Varchar_1
+      type: Varchar
     - name: description
-      type: Text_1
+      type: Text
     - name: graphqlDeprecated
-      type: Bool_1
+      type: Bool
     - name: graphqlSelectTypeName
-      type: Varchar_1!
+      type: Varchar!
     - name: name
-      type: Varchar_1!
+      type: Varchar!
     - name: operandObjectAggregateType
-      type: Varchar_1
+      type: Varchar
     - name: operandScalarType
-      type: Varchar_1
+      type: Varchar
     - name: subgraphName
-      type: Varchar_1!
+      type: Varchar!
     - name: tContentHash
-      type: Varchar_1!
+      type: Varchar!
     - name: tCreatedAt
       type: Timestamp!
     - name: tDeletedAt
       type: Timestamp
     - name: tId
-      type: Varchar_1!
+      type: Varchar!
     - name: tIsCurrent
-      type: Bool_1!
+      type: Bool!
     - name: tIsDeleted
-      type: Bool_1!
+      type: Bool!
     - name: tUpdatedAt
       type: Timestamp!
     - name: tVersion
-      type: Int4_1!
+      type: Int4!
   graphql:
     typeName: AggregateExpression
     inputTypeName: AggregateExpressionInput
@@ -158,52 +158,48 @@ definition:
       type: AggregateExpression
       comparableFields:
         - fieldName: countDescription
-          booleanExpressionType: TextBoolExp_1
+          booleanExpressionType: TextBoolExp
         - fieldName: countDistinctDescription
-          booleanExpressionType: TextBoolExp_1
+          booleanExpressionType: TextBoolExp
         - fieldName: countDistinctEnabled
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: countDistinctReturnType
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: countEnabled
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: countReturnType
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: description
-          booleanExpressionType: TextBoolExp_1
+          booleanExpressionType: TextBoolExp
         - fieldName: graphqlDeprecated
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: graphqlSelectTypeName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: name
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: operandObjectAggregateType
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: operandScalarType
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: subgraphName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tContentHash
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tCreatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tDeletedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tId
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tIsCurrent
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tIsDeleted
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tUpdatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tVersion
-          booleanExpressionType: Int4BoolExp_1
-      comparableRelationships:
-        - relationshipName: aggregateObjectFields
-        - relationshipName: aggregateScalarFunctions
-        - relationshipName: dataConnectorFunctionMappings
-        - relationshipName: relationships
+          booleanExpressionType: Int4BoolExp
+      comparableRelationships: []
   logicalOperators:
     enable: true
   isNull:
@@ -221,47 +217,47 @@ definition:
       aggregatedType: AggregateExpression
       aggregatableFields:
         - fieldName: countDescription
-          aggregateExpression: TextAggExp_1
+          aggregateExpression: TextAggExp
         - fieldName: countDistinctDescription
-          aggregateExpression: TextAggExp_1
+          aggregateExpression: TextAggExp
         - fieldName: countDistinctEnabled
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: countDistinctReturnType
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: countEnabled
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: countReturnType
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: description
-          aggregateExpression: TextAggExp_1
+          aggregateExpression: TextAggExp
         - fieldName: graphqlDeprecated
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: graphqlSelectTypeName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: name
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: operandObjectAggregateType
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: operandScalarType
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: subgraphName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tContentHash
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tCreatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tDeletedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tId
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tIsCurrent
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tIsDeleted
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tUpdatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tVersion
-          aggregateExpression: Int4AggExp_1
+          aggregateExpression: Int4AggExp
   count:
     enable: true
   graphql:
@@ -277,47 +273,47 @@ definition:
       orderedType: AggregateExpression
       orderableFields:
         - fieldName: countDescription
-          orderByExpression: Text1OrderByExp
+          orderByExpression: TextOrderByExp
         - fieldName: countDistinctDescription
-          orderByExpression: Text1OrderByExp
+          orderByExpression: TextOrderByExp
         - fieldName: countDistinctEnabled
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: countDistinctReturnType
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: countEnabled
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: countReturnType
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: description
-          orderByExpression: Text1OrderByExp
+          orderByExpression: TextOrderByExp
         - fieldName: graphqlDeprecated
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: graphqlSelectTypeName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: name
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: operandObjectAggregateType
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: operandScalarType
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: subgraphName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tContentHash
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tCreatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tDeletedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tId
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tIsCurrent
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tIsDeleted
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tUpdatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tVersion
-          orderByExpression: Int41OrderByExp
+          orderByExpression: Int4OrderByExp
       orderableRelationships: []
   graphql:
     expressionTypeName: AggregateExpressionOrderByExp
@@ -347,13 +343,14 @@ definition:
           - tVersion
         subscription:
           rootField: aggregateExpressionByAggregateExpressionPkey
-      - queryRootField: aggregateExpressionByUqAggregateExpressionNameSubgraphNameTIsCurrent
+      - queryRootField: aggregateExpressionByUqAggregateExpressionA7Bb51B1Ed
         uniqueIdentifier:
           - name
           - subgraphName
           - tIsCurrent
+          - tVersion
         subscription:
-          rootField: aggregateExpressionByUqAggregateExpressionNameSubgraphNameTIsCurrent
+          rootField: aggregateExpressionByUqAggregateExpressionA7Bb51B1Ed
     filterInputTypeName: AggregateExpressionFilterInput
     aggregate:
       queryRootField: aggregateExpressionAggregate
@@ -370,140 +367,4 @@ definition:
       select:
         filter: null
         allowSubscriptions: true
-
----
-kind: Relationship
-version: v1
-definition:
-  name: aggregateObjectFields
-  sourceType: AggregateExpression
-  target:
-    model:
-      name: AggregateObjectField
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: AggregateObjectFieldAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: aggregateName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: aggregateObjectFieldsAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: aggregateScalarFunctions
-  sourceType: AggregateExpression
-  target:
-    model:
-      name: AggregateScalarFunction
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: AggregateScalarFunctionAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: aggregateName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: aggregateScalarFunctionsAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: dataConnectorFunctionMappings
-  sourceType: AggregateExpression
-  target:
-    model:
-      name: DataConnectorFunctionMapping
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: DataConnectorFunctionMappingAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: aggregateName
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: subgraphName
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-  graphql:
-    aggregateFieldName: dataConnectorFunctionMappingsAggregate
-
----
-kind: Relationship
-version: v1
-definition:
-  name: relationships
-  sourceType: AggregateExpression
-  target:
-    model:
-      name: Relationship
-      relationshipType: Array
-      aggregate:
-        aggregateExpression: RelationshipAggExp
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: name
-      target:
-        modelField:
-          - fieldName: aggregateExpression
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: targetSubgraphName
-  graphql:
-    aggregateFieldName: relationshipsAggregate
 

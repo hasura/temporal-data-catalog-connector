@@ -2,53 +2,53 @@
 kind: ScalarType
 version: v1
 definition:
-  name: Text_1
+  name: Text
   graphql:
-    typeName: Text1
+    typeName: Text
 
 ---
 kind: BooleanExpressionType
 version: v1
 definition:
-  name: TextBoolExp_1
+  name: TextBoolExp
   operand:
     scalar:
-      type: Text_1
+      type: Text
       comparisonOperators:
         - name: _eq
-          argumentType: Text_1!
+          argumentType: Text!
         - name: _gt
-          argumentType: Text_1!
+          argumentType: Text!
         - name: _gte
-          argumentType: Text_1!
+          argumentType: Text!
         - name: _ilike
-          argumentType: Text_1!
+          argumentType: Text!
         - name: _in
-          argumentType: "[Text_1!]!"
+          argumentType: "[Text!]!"
         - name: _iregex
-          argumentType: Text_1!
+          argumentType: Text!
         - name: _like
-          argumentType: Text_1!
+          argumentType: Text!
         - name: _lt
-          argumentType: Text_1!
+          argumentType: Text!
         - name: _lte
-          argumentType: Text_1!
+          argumentType: Text!
         - name: _neq
-          argumentType: Text_1!
+          argumentType: Text!
         - name: _nilike
-          argumentType: Text_1!
+          argumentType: Text!
         - name: _niregex
-          argumentType: Text_1!
+          argumentType: Text!
         - name: _nlike
-          argumentType: Text_1!
+          argumentType: Text!
         - name: _nregex
-          argumentType: Text_1!
+          argumentType: Text!
         - name: _regex
-          argumentType: Text_1!
+          argumentType: Text!
         - name: starts_with
-          argumentType: Text_1!
+          argumentType: Text!
         - name: ts_match_tt
-          argumentType: Text_1!
+          argumentType: Text!
       dataConnectorOperatorMapping:
         - dataConnectorName: mdata
           dataConnectorScalarType: text
@@ -58,7 +58,7 @@ definition:
   isNull:
     enable: true
   graphql:
-    typeName: TextBoolExp1
+    typeName: TextBoolExp
 
 ---
 kind: DataConnectorScalarRepresentation
@@ -66,41 +66,41 @@ version: v1
 definition:
   dataConnectorName: mdata
   dataConnectorScalarType: text
-  representation: Text_1
+  representation: Text
   graphql:
-    comparisonExpressionTypeName: Text1ComparisonExp
+    comparisonExpressionTypeName: TextComparisonExp
 
 ---
 kind: ScalarType
 version: v1
 definition:
-  name: Bool_1
+  name: Bool
   graphql:
-    typeName: Bool1
+    typeName: Bool
 
 ---
 kind: BooleanExpressionType
 version: v1
 definition:
-  name: BoolBoolExp_1
+  name: BoolBoolExp
   operand:
     scalar:
-      type: Bool_1
+      type: Bool
       comparisonOperators:
         - name: _eq
-          argumentType: Bool_1!
+          argumentType: Bool!
         - name: _gt
-          argumentType: Bool_1!
+          argumentType: Bool!
         - name: _gte
-          argumentType: Bool_1!
+          argumentType: Bool!
         - name: _in
-          argumentType: "[Bool_1!]!"
+          argumentType: "[Bool!]!"
         - name: _lt
-          argumentType: Bool_1!
+          argumentType: Bool!
         - name: _lte
-          argumentType: Bool_1!
+          argumentType: Bool!
         - name: _neq
-          argumentType: Bool_1!
+          argumentType: Bool!
       dataConnectorOperatorMapping:
         - dataConnectorName: mdata
           dataConnectorScalarType: bool
@@ -110,7 +110,7 @@ definition:
   isNull:
     enable: true
   graphql:
-    typeName: BoolBoolExp1
+    typeName: BoolBoolExp
 
 ---
 kind: DataConnectorScalarRepresentation
@@ -118,61 +118,61 @@ version: v1
 definition:
   dataConnectorName: mdata
   dataConnectorScalarType: bool
-  representation: Bool_1
+  representation: Bool
   graphql:
-    comparisonExpressionTypeName: Bool1ComparisonExp
+    comparisonExpressionTypeName: BoolComparisonExp
 
 ---
 kind: ScalarType
 version: v1
 definition:
-  name: Varchar_1
+  name: Varchar
   graphql:
-    typeName: Varchar1
+    typeName: Varchar
 
 ---
 kind: BooleanExpressionType
 version: v1
 definition:
-  name: VarcharBoolExp_1
+  name: VarcharBoolExp
   operand:
     scalar:
-      type: Varchar_1
+      type: Varchar
       comparisonOperators:
         - name: _eq
-          argumentType: Varchar_1!
+          argumentType: Varchar!
         - name: _gt
-          argumentType: Varchar_1!
+          argumentType: Varchar!
         - name: _gte
-          argumentType: Varchar_1!
+          argumentType: Varchar!
         - name: _ilike
-          argumentType: Varchar_1!
+          argumentType: Varchar!
         - name: _in
-          argumentType: "[Varchar_1!]!"
+          argumentType: "[Varchar!]!"
         - name: _iregex
-          argumentType: Varchar_1!
+          argumentType: Varchar!
         - name: _like
-          argumentType: Varchar_1!
+          argumentType: Varchar!
         - name: _lt
-          argumentType: Varchar_1!
+          argumentType: Varchar!
         - name: _lte
-          argumentType: Varchar_1!
+          argumentType: Varchar!
         - name: _neq
-          argumentType: Varchar_1!
+          argumentType: Varchar!
         - name: _nilike
-          argumentType: Varchar_1!
+          argumentType: Varchar!
         - name: _niregex
-          argumentType: Varchar_1!
+          argumentType: Varchar!
         - name: _nlike
-          argumentType: Varchar_1!
+          argumentType: Varchar!
         - name: _nregex
-          argumentType: Varchar_1!
+          argumentType: Varchar!
         - name: _regex
-          argumentType: Varchar_1!
+          argumentType: Varchar!
         - name: starts_with
-          argumentType: Varchar_1!
+          argumentType: Varchar!
         - name: ts_match_tt
-          argumentType: Varchar_1!
+          argumentType: Varchar!
       dataConnectorOperatorMapping:
         - dataConnectorName: mdata
           dataConnectorScalarType: varchar
@@ -182,7 +182,7 @@ definition:
   isNull:
     enable: true
   graphql:
-    typeName: VarcharBoolExp1
+    typeName: VarcharBoolExp
 
 ---
 kind: DataConnectorScalarRepresentation
@@ -190,9 +190,9 @@ version: v1
 definition:
   dataConnectorName: mdata
   dataConnectorScalarType: varchar
-  representation: Varchar_1
+  representation: Varchar
   graphql:
-    comparisonExpressionTypeName: Varchar1ComparisonExp
+    comparisonExpressionTypeName: VarcharComparisonExp
 
 ---
 kind: ScalarType
@@ -250,33 +250,33 @@ definition:
 kind: ScalarType
 version: v1
 definition:
-  name: Int4_1
+  name: Int4
   graphql:
-    typeName: Int41
+    typeName: Int4
 
 ---
 kind: BooleanExpressionType
 version: v1
 definition:
-  name: Int4BoolExp_1
+  name: Int4BoolExp
   operand:
     scalar:
-      type: Int4_1
+      type: Int4
       comparisonOperators:
         - name: _eq
-          argumentType: Int4_1!
+          argumentType: Int4!
         - name: _gt
-          argumentType: Int4_1!
+          argumentType: Int4!
         - name: _gte
-          argumentType: Int4_1!
+          argumentType: Int4!
         - name: _in
-          argumentType: "[Int4_1!]!"
+          argumentType: "[Int4!]!"
         - name: _lt
-          argumentType: Int4_1!
+          argumentType: Int4!
         - name: _lte
-          argumentType: Int4_1!
+          argumentType: Int4!
         - name: _neq
-          argumentType: Int4_1!
+          argumentType: Int4!
       dataConnectorOperatorMapping:
         - dataConnectorName: mdata
           dataConnectorScalarType: int4
@@ -286,7 +286,7 @@ definition:
   isNull:
     enable: true
   graphql:
-    typeName: Int4BoolExp1
+    typeName: Int4BoolExp
 
 ---
 kind: DataConnectorScalarRepresentation
@@ -294,23 +294,23 @@ version: v1
 definition:
   dataConnectorName: mdata
   dataConnectorScalarType: int4
-  representation: Int4_1
+  representation: Int4
   graphql:
-    comparisonExpressionTypeName: Int41ComparisonExp
+    comparisonExpressionTypeName: Int4ComparisonExp
 
 ---
 kind: AggregateExpression
 version: v1
 definition:
-  name: TextAggExp_1
+  name: TextAggExp
   operand:
     scalar:
-      aggregatedType: Text_1
+      aggregatedType: Text
       aggregationFunctions:
         - name: max
-          returnType: Text_1
+          returnType: Text
         - name: min
-          returnType: Text_1
+          returnType: Text
       dataConnectorAggregationFunctionMapping:
         - dataConnectorName: mdata
           dataConnectorScalarType: text
@@ -324,23 +324,23 @@ definition:
   countDistinct:
     enable: true
   graphql:
-    selectTypeName: TextAggExp1
+    selectTypeName: TextAggExp
 
 ---
 kind: AggregateExpression
 version: v1
 definition:
-  name: BoolAggExp_1
+  name: BoolAggExp
   operand:
     scalar:
-      aggregatedType: Bool_1
+      aggregatedType: Bool
       aggregationFunctions:
         - name: bool_and
-          returnType: Bool_1
+          returnType: Bool
         - name: bool_or
-          returnType: Bool_1
+          returnType: Bool
         - name: every
-          returnType: Bool_1
+          returnType: Bool
       dataConnectorAggregationFunctionMapping:
         - dataConnectorName: mdata
           dataConnectorScalarType: bool
@@ -356,21 +356,21 @@ definition:
   countDistinct:
     enable: true
   graphql:
-    selectTypeName: BoolAggExp1
+    selectTypeName: BoolAggExp
 
 ---
 kind: AggregateExpression
 version: v1
 definition:
-  name: VarcharAggExp_1
+  name: VarcharAggExp
   operand:
     scalar:
-      aggregatedType: Varchar_1
+      aggregatedType: Varchar
       aggregationFunctions:
         - name: max
-          returnType: Text_1
+          returnType: Text
         - name: min
-          returnType: Text_1
+          returnType: Text
       dataConnectorAggregationFunctionMapping:
         - dataConnectorName: mdata
           dataConnectorScalarType: varchar
@@ -384,7 +384,7 @@ definition:
   countDistinct:
     enable: true
   graphql:
-    selectTypeName: VarcharAggExp1
+    selectTypeName: VarcharAggExp
 
 ---
 kind: AggregateExpression
@@ -418,33 +418,33 @@ definition:
 kind: ScalarType
 version: v1
 definition:
-  name: Numeric_1
+  name: Numeric
   graphql:
-    typeName: Numeric1
+    typeName: Numeric
 
 ---
 kind: BooleanExpressionType
 version: v1
 definition:
-  name: NumericBoolExp_1
+  name: NumericBoolExp
   operand:
     scalar:
-      type: Numeric_1
+      type: Numeric
       comparisonOperators:
         - name: _eq
-          argumentType: Numeric_1!
+          argumentType: Numeric!
         - name: _gt
-          argumentType: Numeric_1!
+          argumentType: Numeric!
         - name: _gte
-          argumentType: Numeric_1!
+          argumentType: Numeric!
         - name: _in
-          argumentType: "[Numeric_1!]!"
+          argumentType: "[Numeric!]!"
         - name: _lt
-          argumentType: Numeric_1!
+          argumentType: Numeric!
         - name: _lte
-          argumentType: Numeric_1!
+          argumentType: Numeric!
         - name: _neq
-          argumentType: Numeric_1!
+          argumentType: Numeric!
       dataConnectorOperatorMapping:
         - dataConnectorName: mdata
           dataConnectorScalarType: numeric
@@ -454,7 +454,7 @@ definition:
   isNull:
     enable: true
   graphql:
-    typeName: NumericBoolExp1
+    typeName: NumericBoolExp
 
 ---
 kind: DataConnectorScalarRepresentation
@@ -462,17 +462,51 @@ version: v1
 definition:
   dataConnectorName: mdata
   dataConnectorScalarType: numeric
-  representation: Numeric_1
+  representation: Numeric
   graphql:
-    comparisonExpressionTypeName: Numeric1ComparisonExp
+    comparisonExpressionTypeName: NumericComparisonExp
 
 ---
 kind: ScalarType
 version: v1
 definition:
-  name: Int8_1
+  name: Int8
   graphql:
-    typeName: Int81
+    typeName: Int8
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: Int8BoolExp
+  operand:
+    scalar:
+      type: Int8
+      comparisonOperators:
+        - name: _eq
+          argumentType: Int8!
+        - name: _gt
+          argumentType: Int8!
+        - name: _gte
+          argumentType: Int8!
+        - name: _in
+          argumentType: "[Int8!]!"
+        - name: _lt
+          argumentType: Int8!
+        - name: _lte
+          argumentType: Int8!
+        - name: _neq
+          argumentType: Int8!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mdata
+          dataConnectorScalarType: int8
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: Int8BoolExp
 
 ---
 kind: DataConnectorScalarRepresentation
@@ -480,45 +514,45 @@ version: v1
 definition:
   dataConnectorName: mdata
   dataConnectorScalarType: int8
-  representation: Int8_1
+  representation: Int8
   graphql:
-    comparisonExpressionTypeName: Int81ComparisonExp
+    comparisonExpressionTypeName: Int8ComparisonExp
 
 ---
 kind: AggregateExpression
 version: v1
 definition:
-  name: Int4AggExp_1
+  name: Int4AggExp
   operand:
     scalar:
-      aggregatedType: Int4_1
+      aggregatedType: Int4
       aggregationFunctions:
         - name: avg
-          returnType: Numeric_1
+          returnType: Numeric
         - name: bit_and
-          returnType: Int4_1
+          returnType: Int4
         - name: bit_or
-          returnType: Int4_1
+          returnType: Int4
         - name: bit_xor
-          returnType: Int4_1
+          returnType: Int4
         - name: max
-          returnType: Int4_1
+          returnType: Int4
         - name: min
-          returnType: Int4_1
+          returnType: Int4
         - name: stddev
-          returnType: Numeric_1
+          returnType: Numeric
         - name: stddev_pop
-          returnType: Numeric_1
+          returnType: Numeric
         - name: stddev_samp
-          returnType: Numeric_1
+          returnType: Numeric
         - name: sum
-          returnType: Int8_1
+          returnType: Int8
         - name: var_pop
-          returnType: Numeric_1
+          returnType: Numeric
         - name: var_samp
-          returnType: Numeric_1
+          returnType: Numeric
         - name: variance
-          returnType: Numeric_1
+          returnType: Numeric
       dataConnectorAggregationFunctionMapping:
         - dataConnectorName: mdata
           dataConnectorScalarType: int4
@@ -554,46 +588,46 @@ definition:
   countDistinct:
     enable: true
   graphql:
-    selectTypeName: Int4AggExp1
+    selectTypeName: Int4AggExp
 
 ---
 kind: OrderByExpression
 version: v1
 definition:
-  name: Text1OrderByExp
+  name: TextOrderByExp
   operand:
     scalar:
-      orderedType: Text_1
+      orderedType: Text
       enableOrderByDirections:
         enableAll: true
   graphql:
-    expressionTypeName: Text1OrderByExp
+    expressionTypeName: TextOrderByExp
 
 ---
 kind: OrderByExpression
 version: v1
 definition:
-  name: Bool1OrderByExp
+  name: BoolOrderByExp
   operand:
     scalar:
-      orderedType: Bool_1
+      orderedType: Bool
       enableOrderByDirections:
         enableAll: true
   graphql:
-    expressionTypeName: Bool1OrderByExp
+    expressionTypeName: BoolOrderByExp
 
 ---
 kind: OrderByExpression
 version: v1
 definition:
-  name: Varchar1OrderByExp
+  name: VarcharOrderByExp
   operand:
     scalar:
-      orderedType: Varchar_1
+      orderedType: Varchar
       enableOrderByDirections:
         enableAll: true
   graphql:
-    expressionTypeName: Varchar1OrderByExp
+    expressionTypeName: VarcharOrderByExp
 
 ---
 kind: OrderByExpression
@@ -612,14 +646,14 @@ definition:
 kind: OrderByExpression
 version: v1
 definition:
-  name: Int41OrderByExp
+  name: Int4OrderByExp
   operand:
     scalar:
-      orderedType: Int4_1
+      orderedType: Int4
       enableOrderByDirections:
         enableAll: true
   graphql:
-    expressionTypeName: Int41OrderByExp
+    expressionTypeName: Int4OrderByExp
 
 ---
 kind: ScalarType
@@ -695,37 +729,182 @@ definition:
     expressionTypeName: JsonOrderByExp
 
 ---
+kind: ScalarType
+version: v1
+definition:
+  name: RootFieldKind
+  graphql:
+    typeName: RootFieldKind
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: RootFieldKindBoolExp
+  operand:
+    scalar:
+      type: RootFieldKind
+      comparisonOperators:
+        - name: _eq
+          argumentType: RootFieldKind!
+        - name: _gt
+          argumentType: RootFieldKind!
+        - name: _gte
+          argumentType: RootFieldKind!
+        - name: _in
+          argumentType: "[RootFieldKind!]!"
+        - name: _lt
+          argumentType: RootFieldKind!
+        - name: _lte
+          argumentType: RootFieldKind!
+        - name: _neq
+          argumentType: RootFieldKind!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mdata
+          dataConnectorScalarType: root_field_kind
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: RootFieldKindBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mdata
+  dataConnectorScalarType: root_field_kind
+  representation: RootFieldKind
+  graphql:
+    comparisonExpressionTypeName: RootFieldKindComparisonExp
+
+---
 kind: AggregateExpression
 version: v1
 definition:
-  name: NumericAggExp
+  name: RootFieldKindAggExp
   operand:
     scalar:
-      aggregatedType: Numeric_1
+      aggregatedType: RootFieldKind
       aggregationFunctions:
-        - name: avg
-          returnType: Numeric_1
         - name: max
-          returnType: Numeric_1
+          returnType: RootFieldKind
         - name: min
-          returnType: Numeric_1
-        - name: stddev
-          returnType: Numeric_1
-        - name: stddev_pop
-          returnType: Numeric_1
-        - name: stddev_samp
-          returnType: Numeric_1
-        - name: sum
-          returnType: Numeric_1
-        - name: var_pop
-          returnType: Numeric_1
-        - name: var_samp
-          returnType: Numeric_1
-        - name: variance
-          returnType: Numeric_1
+          returnType: RootFieldKind
       dataConnectorAggregationFunctionMapping:
         - dataConnectorName: mdata
-          dataConnectorScalarType: numeric
+          dataConnectorScalarType: root_field_kind
+          functionMapping:
+            max:
+              name: max
+            min:
+              name: min
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: RootFieldKindAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: RootFieldKindOrderByExp
+  operand:
+    scalar:
+      orderedType: RootFieldKind
+      enableOrderByDirections:
+        enableAll: true
+  graphql:
+    expressionTypeName: RootFieldKindOrderByExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Float8
+  graphql:
+    typeName: Float8
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: Float8BoolExp
+  operand:
+    scalar:
+      type: Float8
+      comparisonOperators:
+        - name: _eq
+          argumentType: Float8!
+        - name: _gt
+          argumentType: Float8!
+        - name: _gte
+          argumentType: Float8!
+        - name: _in
+          argumentType: "[Float8!]!"
+        - name: _lt
+          argumentType: Float8!
+        - name: _lte
+          argumentType: Float8!
+        - name: _neq
+          argumentType: Float8!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mdata
+          dataConnectorScalarType: float8
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: Float8BoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mdata
+  dataConnectorScalarType: float8
+  representation: Float8
+  graphql:
+    comparisonExpressionTypeName: Float8ComparisonExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: Float8AggExp
+  operand:
+    scalar:
+      aggregatedType: Float8
+      aggregationFunctions:
+        - name: avg
+          returnType: Float8
+        - name: max
+          returnType: Float8
+        - name: min
+          returnType: Float8
+        - name: stddev
+          returnType: Float8
+        - name: stddev_pop
+          returnType: Float8
+        - name: stddev_samp
+          returnType: Float8
+        - name: sum
+          returnType: Float8
+        - name: var_pop
+          returnType: Float8
+        - name: var_samp
+          returnType: Float8
+        - name: variance
+          returnType: Float8
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: mdata
+          dataConnectorScalarType: float8
           functionMapping:
             avg:
               name: avg
@@ -752,113 +931,20 @@ definition:
   countDistinct:
     enable: true
   graphql:
-    selectTypeName: NumericAggExp
+    selectTypeName: Float8AggExp
 
 ---
 kind: OrderByExpression
 version: v1
 definition:
-  name: Numeric1OrderByExp
+  name: Float8OrderByExp
   operand:
     scalar:
-      orderedType: Numeric_1
+      orderedType: Float8
       enableOrderByDirections:
         enableAll: true
   graphql:
-    expressionTypeName: Numeric1OrderByExp
-
----
-kind: ScalarType
-version: v1
-definition:
-  name: Typedefinitionkind
-  graphql:
-    typeName: Typedefinitionkind
-
----
-kind: BooleanExpressionType
-version: v1
-definition:
-  name: TypedefinitionkindBoolExp
-  operand:
-    scalar:
-      type: Typedefinitionkind
-      comparisonOperators:
-        - name: _eq
-          argumentType: Typedefinitionkind!
-        - name: _gt
-          argumentType: Typedefinitionkind!
-        - name: _gte
-          argumentType: Typedefinitionkind!
-        - name: _in
-          argumentType: "[Typedefinitionkind!]!"
-        - name: _lt
-          argumentType: Typedefinitionkind!
-        - name: _lte
-          argumentType: Typedefinitionkind!
-        - name: _neq
-          argumentType: Typedefinitionkind!
-      dataConnectorOperatorMapping:
-        - dataConnectorName: mdata
-          dataConnectorScalarType: typedefinitionkind
-          operatorMapping: {}
-  logicalOperators:
-    enable: true
-  isNull:
-    enable: true
-  graphql:
-    typeName: TypedefinitionkindBoolExp
-
----
-kind: DataConnectorScalarRepresentation
-version: v1
-definition:
-  dataConnectorName: mdata
-  dataConnectorScalarType: typedefinitionkind
-  representation: Typedefinitionkind
-  graphql:
-    comparisonExpressionTypeName: TypedefinitionkindComparisonExp
-
----
-kind: AggregateExpression
-version: v1
-definition:
-  name: TypedefinitionkindAggExp
-  operand:
-    scalar:
-      aggregatedType: Typedefinitionkind
-      aggregationFunctions:
-        - name: max
-          returnType: Typedefinitionkind
-        - name: min
-          returnType: Typedefinitionkind
-      dataConnectorAggregationFunctionMapping:
-        - dataConnectorName: mdata
-          dataConnectorScalarType: typedefinitionkind
-          functionMapping:
-            max:
-              name: max
-            min:
-              name: min
-  count:
-    enable: true
-  countDistinct:
-    enable: true
-  graphql:
-    selectTypeName: TypedefinitionkindAggExp
-
----
-kind: OrderByExpression
-version: v1
-definition:
-  name: TypedefinitionkindOrderByExp
-  operand:
-    scalar:
-      orderedType: Typedefinitionkind
-      enableOrderByDirections:
-        enableAll: true
-  graphql:
-    expressionTypeName: TypedefinitionkindOrderByExp
+    expressionTypeName: Float8OrderByExp
 
 ---
 kind: ScalarType
@@ -952,4 +1038,170 @@ definition:
         enableAll: true
   graphql:
     expressionTypeName: ChangeoperationOrderByExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: NumericAggExp
+  operand:
+    scalar:
+      aggregatedType: Numeric
+      aggregationFunctions:
+        - name: avg
+          returnType: Numeric
+        - name: max
+          returnType: Numeric
+        - name: min
+          returnType: Numeric
+        - name: stddev
+          returnType: Numeric
+        - name: stddev_pop
+          returnType: Numeric
+        - name: stddev_samp
+          returnType: Numeric
+        - name: sum
+          returnType: Numeric
+        - name: var_pop
+          returnType: Numeric
+        - name: var_samp
+          returnType: Numeric
+        - name: variance
+          returnType: Numeric
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: mdata
+          dataConnectorScalarType: numeric
+          functionMapping:
+            avg:
+              name: avg
+            max:
+              name: max
+            min:
+              name: min
+            stddev:
+              name: stddev
+            stddev_pop:
+              name: stddev_pop
+            stddev_samp:
+              name: stddev_samp
+            sum:
+              name: sum
+            var_pop:
+              name: var_pop
+            var_samp:
+              name: var_samp
+            variance:
+              name: variance
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: NumericAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: NumericOrderByExp
+  operand:
+    scalar:
+      orderedType: Numeric
+      enableOrderByDirections:
+        enableAll: true
+  graphql:
+    expressionTypeName: NumericOrderByExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Typedefinitionkind
+  graphql:
+    typeName: Typedefinitionkind
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: TypedefinitionkindBoolExp
+  operand:
+    scalar:
+      type: Typedefinitionkind
+      comparisonOperators:
+        - name: _eq
+          argumentType: Typedefinitionkind!
+        - name: _gt
+          argumentType: Typedefinitionkind!
+        - name: _gte
+          argumentType: Typedefinitionkind!
+        - name: _in
+          argumentType: "[Typedefinitionkind!]!"
+        - name: _lt
+          argumentType: Typedefinitionkind!
+        - name: _lte
+          argumentType: Typedefinitionkind!
+        - name: _neq
+          argumentType: Typedefinitionkind!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mdata
+          dataConnectorScalarType: typedefinitionkind
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: TypedefinitionkindBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mdata
+  dataConnectorScalarType: typedefinitionkind
+  representation: Typedefinitionkind
+  graphql:
+    comparisonExpressionTypeName: TypedefinitionkindComparisonExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: TypedefinitionkindAggExp
+  operand:
+    scalar:
+      aggregatedType: Typedefinitionkind
+      aggregationFunctions:
+        - name: max
+          returnType: Typedefinitionkind
+        - name: min
+          returnType: Typedefinitionkind
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: mdata
+          dataConnectorScalarType: typedefinitionkind
+          functionMapping:
+            max:
+              name: max
+            min:
+              name: min
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: TypedefinitionkindAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: TypedefinitionkindOrderByExp
+  operand:
+    scalar:
+      orderedType: Typedefinitionkind
+      enableOrderByDirections:
+        enableAll: true
+  graphql:
+    expressionTypeName: TypedefinitionkindOrderByExp
 

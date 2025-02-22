@@ -2,11 +2,21 @@
 kind: ObjectType
 version: v1
 definition:
-  name: SubgraphSupergraphMap
+  name: CommandPermissionPreset
   fields:
-    - name: subgraphName
+    - name: argumentName
       type: Varchar!
-    - name: supergraphName
+    - name: commandName
+      type: Varchar!
+    - name: presetValueBoolean
+      type: Bool
+    - name: presetValueNumber
+      type: Float8
+    - name: presetValueString
+      type: Varchar
+    - name: role
+      type: Varchar!
+    - name: subgraphName
       type: Varchar!
     - name: tContentHash
       type: Varchar!
@@ -25,18 +35,33 @@ definition:
     - name: tVersion
       type: Int4!
   graphql:
-    typeName: SubgraphSupergraphMap
-    inputTypeName: SubgraphSupergraphMapInput
+    typeName: CommandPermissionPreset
+    inputTypeName: CommandPermissionPresetInput
   dataConnectorTypeMapping:
     - dataConnectorName: mdata
-      dataConnectorObjectType: subgraph_supergraph_map
+      dataConnectorObjectType: command_permission_preset
       fieldMapping:
+        argumentName:
+          column:
+            name: argument_name
+        commandName:
+          column:
+            name: command_name
+        presetValueBoolean:
+          column:
+            name: preset_value_boolean
+        presetValueNumber:
+          column:
+            name: preset_value_number
+        presetValueString:
+          column:
+            name: preset_value_string
+        role:
+          column:
+            name: role
         subgraphName:
           column:
             name: subgraph_name
-        supergraphName:
-          column:
-            name: supergraph_name
         tContentHash:
           column:
             name: t_content_hash
@@ -66,13 +91,18 @@ definition:
 kind: TypePermissions
 version: v1
 definition:
-  typeName: SubgraphSupergraphMap
+  typeName: CommandPermissionPreset
   permissions:
     - role: admin
       output:
         allowedFields:
+          - argumentName
+          - commandName
+          - presetValueBoolean
+          - presetValueNumber
+          - presetValueString
+          - role
           - subgraphName
-          - supergraphName
           - tContentHash
           - tCreatedAt
           - tDeletedAt
@@ -86,14 +116,24 @@ definition:
 kind: BooleanExpressionType
 version: v1
 definition:
-  name: SubgraphSupergraphMapBoolExp
+  name: CommandPermissionPresetBoolExp
   operand:
     object:
-      type: SubgraphSupergraphMap
+      type: CommandPermissionPreset
       comparableFields:
-        - fieldName: subgraphName
+        - fieldName: argumentName
           booleanExpressionType: VarcharBoolExp
-        - fieldName: supergraphName
+        - fieldName: commandName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: presetValueBoolean
+          booleanExpressionType: BoolBoolExp
+        - fieldName: presetValueNumber
+          booleanExpressionType: Float8BoolExp
+        - fieldName: presetValueString
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: role
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
           booleanExpressionType: VarcharBoolExp
         - fieldName: tContentHash
           booleanExpressionType: VarcharBoolExp
@@ -117,20 +157,30 @@ definition:
   isNull:
     enable: true
   graphql:
-    typeName: SubgraphSupergraphMapBoolExp
+    typeName: CommandPermissionPresetBoolExp
 
 ---
 kind: AggregateExpression
 version: v1
 definition:
-  name: SubgraphSupergraphMapAggExp
+  name: CommandPermissionPresetAggExp
   operand:
     object:
-      aggregatedType: SubgraphSupergraphMap
+      aggregatedType: CommandPermissionPreset
       aggregatableFields:
-        - fieldName: subgraphName
+        - fieldName: argumentName
           aggregateExpression: VarcharAggExp
-        - fieldName: supergraphName
+        - fieldName: commandName
+          aggregateExpression: VarcharAggExp
+        - fieldName: presetValueBoolean
+          aggregateExpression: BoolAggExp
+        - fieldName: presetValueNumber
+          aggregateExpression: Float8AggExp
+        - fieldName: presetValueString
+          aggregateExpression: VarcharAggExp
+        - fieldName: role
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
           aggregateExpression: VarcharAggExp
         - fieldName: tContentHash
           aggregateExpression: VarcharAggExp
@@ -151,20 +201,30 @@ definition:
   count:
     enable: true
   graphql:
-    selectTypeName: SubgraphSupergraphMapAggExp
+    selectTypeName: CommandPermissionPresetAggExp
 
 ---
 kind: OrderByExpression
 version: v1
 definition:
-  name: SubgraphSupergraphMapOrderByExp
+  name: CommandPermissionPresetOrderByExp
   operand:
     object:
-      orderedType: SubgraphSupergraphMap
+      orderedType: CommandPermissionPreset
       orderableFields:
-        - fieldName: subgraphName
+        - fieldName: argumentName
           orderByExpression: VarcharOrderByExp
-        - fieldName: supergraphName
+        - fieldName: commandName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: presetValueBoolean
+          orderByExpression: BoolOrderByExp
+        - fieldName: presetValueNumber
+          orderByExpression: Float8OrderByExp
+        - fieldName: presetValueString
+          orderByExpression: VarcharOrderByExp
+        - fieldName: role
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
           orderByExpression: VarcharOrderByExp
         - fieldName: tContentHash
           orderByExpression: VarcharOrderByExp
@@ -184,44 +244,46 @@ definition:
           orderByExpression: Int4OrderByExp
       orderableRelationships: []
   graphql:
-    expressionTypeName: SubgraphSupergraphMapOrderByExp
+    expressionTypeName: CommandPermissionPresetOrderByExp
 
 ---
 kind: Model
 version: v2
 definition:
-  name: SubgraphSupergraphMap
-  objectType: SubgraphSupergraphMap
+  name: CommandPermissionPreset
+  objectType: CommandPermissionPreset
   source:
     dataConnectorName: mdata
-    collection: subgraph_supergraph_map
-  filterExpressionType: SubgraphSupergraphMapBoolExp
-  aggregateExpression: SubgraphSupergraphMapAggExp
-  orderByExpression: SubgraphSupergraphMapOrderByExp
+    collection: command_permission_preset
+  filterExpressionType: CommandPermissionPresetBoolExp
+  aggregateExpression: CommandPermissionPresetAggExp
+  orderByExpression: CommandPermissionPresetOrderByExp
   graphql:
     selectMany:
-      queryRootField: subgraphSupergraphMap
+      queryRootField: commandPermissionPreset
       subscription:
-        rootField: subgraphSupergraphMap
+        rootField: commandPermissionPreset
     selectUniques:
-      - queryRootField: subgraphSupergraphMapBySubgraphSupergraphMapPkey
+      - queryRootField: commandPermissionPresetByCommandPermissionPresetPkey
         uniqueIdentifier:
+          - argumentName
+          - commandName
+          - role
           - subgraphName
-          - supergraphName
           - tVersion
         subscription:
-          rootField: subgraphSupergraphMapBySubgraphSupergraphMapPkey
-    filterInputTypeName: SubgraphSupergraphMapFilterInput
+          rootField: commandPermissionPresetByCommandPermissionPresetPkey
+    filterInputTypeName: CommandPermissionPresetFilterInput
     aggregate:
-      queryRootField: subgraphSupergraphMapAggregate
+      queryRootField: commandPermissionPresetAggregate
       subscription:
-        rootField: subgraphSupergraphMapAggregate
+        rootField: commandPermissionPresetAggregate
 
 ---
 kind: ModelPermissions
 version: v1
 definition:
-  modelName: SubgraphSupergraphMap
+  modelName: CommandPermissionPreset
   permissions:
     - role: admin
       select:

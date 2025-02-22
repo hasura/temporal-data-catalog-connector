@@ -5,19 +5,19 @@ definition:
   name: DiffChanges
   fields:
     - name: diffEntryId
-      type: Int4_1!
+      type: Int4!
     - name: fieldPath
-      type: Varchar_1!
+      type: Varchar!
     - name: id
-      type: Int4_1!
+      type: Int4!
     - name: newValue
-      type: Varchar_1
+      type: Varchar
     - name: oldValue
-      type: Varchar_1
+      type: Varchar
     - name: operation
       type: Changeoperation!
     - name: valueType
-      type: Varchar_1!
+      type: Varchar!
   graphql:
     typeName: DiffChanges
     inputTypeName: DiffChangesInput
@@ -74,21 +74,20 @@ definition:
       type: DiffChanges
       comparableFields:
         - fieldName: diffEntryId
-          booleanExpressionType: Int4BoolExp_1
+          booleanExpressionType: Int4BoolExp
         - fieldName: fieldPath
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: id
-          booleanExpressionType: Int4BoolExp_1
+          booleanExpressionType: Int4BoolExp
         - fieldName: newValue
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: oldValue
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: operation
           booleanExpressionType: ChangeoperationBoolExp
         - fieldName: valueType
-          booleanExpressionType: VarcharBoolExp_1
-      comparableRelationships:
-        - relationshipName: diff
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships: []
   logicalOperators:
     enable: true
   isNull:
@@ -106,19 +105,19 @@ definition:
       aggregatedType: DiffChanges
       aggregatableFields:
         - fieldName: diffEntryId
-          aggregateExpression: Int4AggExp_1
+          aggregateExpression: Int4AggExp
         - fieldName: fieldPath
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: id
-          aggregateExpression: Int4AggExp_1
+          aggregateExpression: Int4AggExp
         - fieldName: newValue
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: oldValue
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: operation
           aggregateExpression: ChangeoperationAggExp
         - fieldName: valueType
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
   count:
     enable: true
   graphql:
@@ -134,21 +133,20 @@ definition:
       orderedType: DiffChanges
       orderableFields:
         - fieldName: diffEntryId
-          orderByExpression: Int41OrderByExp
+          orderByExpression: Int4OrderByExp
         - fieldName: fieldPath
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: id
-          orderByExpression: Int41OrderByExp
+          orderByExpression: Int4OrderByExp
         - fieldName: newValue
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: oldValue
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: operation
           orderByExpression: ChangeoperationOrderByExp
         - fieldName: valueType
-          orderByExpression: Varchar1OrderByExp
-      orderableRelationships:
-        - relationshipName: diff
+          orderByExpression: VarcharOrderByExp
+      orderableRelationships: []
   graphql:
     expressionTypeName: DiffChangesOrderByExp
 
@@ -191,22 +189,4 @@ definition:
       select:
         filter: null
         allowSubscriptions: true
-
----
-kind: Relationship
-version: v1
-definition:
-  name: diff
-  sourceType: DiffChanges
-  target:
-    model:
-      name: Diffs
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: diffEntryId
-      target:
-        modelField:
-          - fieldName: id
 

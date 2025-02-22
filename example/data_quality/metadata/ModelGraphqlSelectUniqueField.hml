@@ -2,11 +2,15 @@
 kind: ObjectType
 version: v1
 definition:
-  name: SubgraphSupergraphMap
+  name: ModelGraphqlSelectUniqueField
   fields:
-    - name: subgraphName
+    - name: fieldName
       type: Varchar!
-    - name: supergraphName
+    - name: modelName
+      type: Varchar!
+    - name: selectUniqueIdentifier
+      type: Varchar!
+    - name: subgraphName
       type: Varchar!
     - name: tContentHash
       type: Varchar!
@@ -25,18 +29,24 @@ definition:
     - name: tVersion
       type: Int4!
   graphql:
-    typeName: SubgraphSupergraphMap
-    inputTypeName: SubgraphSupergraphMapInput
+    typeName: ModelGraphqlSelectUniqueField
+    inputTypeName: ModelGraphqlSelectUniqueFieldInput
   dataConnectorTypeMapping:
     - dataConnectorName: mdata
-      dataConnectorObjectType: subgraph_supergraph_map
+      dataConnectorObjectType: model_graphql_select_unique_field
       fieldMapping:
+        fieldName:
+          column:
+            name: field_name
+        modelName:
+          column:
+            name: model_name
+        selectUniqueIdentifier:
+          column:
+            name: select_unique_identifier
         subgraphName:
           column:
             name: subgraph_name
-        supergraphName:
-          column:
-            name: supergraph_name
         tContentHash:
           column:
             name: t_content_hash
@@ -66,13 +76,15 @@ definition:
 kind: TypePermissions
 version: v1
 definition:
-  typeName: SubgraphSupergraphMap
+  typeName: ModelGraphqlSelectUniqueField
   permissions:
     - role: admin
       output:
         allowedFields:
+          - fieldName
+          - modelName
+          - selectUniqueIdentifier
           - subgraphName
-          - supergraphName
           - tContentHash
           - tCreatedAt
           - tDeletedAt
@@ -86,14 +98,18 @@ definition:
 kind: BooleanExpressionType
 version: v1
 definition:
-  name: SubgraphSupergraphMapBoolExp
+  name: ModelGraphqlSelectUniqueFieldBoolExp
   operand:
     object:
-      type: SubgraphSupergraphMap
+      type: ModelGraphqlSelectUniqueField
       comparableFields:
-        - fieldName: subgraphName
+        - fieldName: fieldName
           booleanExpressionType: VarcharBoolExp
-        - fieldName: supergraphName
+        - fieldName: modelName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: selectUniqueIdentifier
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: subgraphName
           booleanExpressionType: VarcharBoolExp
         - fieldName: tContentHash
           booleanExpressionType: VarcharBoolExp
@@ -117,20 +133,24 @@ definition:
   isNull:
     enable: true
   graphql:
-    typeName: SubgraphSupergraphMapBoolExp
+    typeName: ModelGraphqlSelectUniqueFieldBoolExp
 
 ---
 kind: AggregateExpression
 version: v1
 definition:
-  name: SubgraphSupergraphMapAggExp
+  name: ModelGraphqlSelectUniqueFieldAggExp
   operand:
     object:
-      aggregatedType: SubgraphSupergraphMap
+      aggregatedType: ModelGraphqlSelectUniqueField
       aggregatableFields:
-        - fieldName: subgraphName
+        - fieldName: fieldName
           aggregateExpression: VarcharAggExp
-        - fieldName: supergraphName
+        - fieldName: modelName
+          aggregateExpression: VarcharAggExp
+        - fieldName: selectUniqueIdentifier
+          aggregateExpression: VarcharAggExp
+        - fieldName: subgraphName
           aggregateExpression: VarcharAggExp
         - fieldName: tContentHash
           aggregateExpression: VarcharAggExp
@@ -151,20 +171,24 @@ definition:
   count:
     enable: true
   graphql:
-    selectTypeName: SubgraphSupergraphMapAggExp
+    selectTypeName: ModelGraphqlSelectUniqueFieldAggExp
 
 ---
 kind: OrderByExpression
 version: v1
 definition:
-  name: SubgraphSupergraphMapOrderByExp
+  name: ModelGraphqlSelectUniqueFieldOrderByExp
   operand:
     object:
-      orderedType: SubgraphSupergraphMap
+      orderedType: ModelGraphqlSelectUniqueField
       orderableFields:
-        - fieldName: subgraphName
+        - fieldName: fieldName
           orderByExpression: VarcharOrderByExp
-        - fieldName: supergraphName
+        - fieldName: modelName
+          orderByExpression: VarcharOrderByExp
+        - fieldName: selectUniqueIdentifier
+          orderByExpression: VarcharOrderByExp
+        - fieldName: subgraphName
           orderByExpression: VarcharOrderByExp
         - fieldName: tContentHash
           orderByExpression: VarcharOrderByExp
@@ -184,44 +208,55 @@ definition:
           orderByExpression: Int4OrderByExp
       orderableRelationships: []
   graphql:
-    expressionTypeName: SubgraphSupergraphMapOrderByExp
+    expressionTypeName: ModelGraphqlSelectUniqueFieldOrderByExp
 
 ---
 kind: Model
 version: v2
 definition:
-  name: SubgraphSupergraphMap
-  objectType: SubgraphSupergraphMap
+  name: ModelGraphqlSelectUniqueField
+  objectType: ModelGraphqlSelectUniqueField
   source:
     dataConnectorName: mdata
-    collection: subgraph_supergraph_map
-  filterExpressionType: SubgraphSupergraphMapBoolExp
-  aggregateExpression: SubgraphSupergraphMapAggExp
-  orderByExpression: SubgraphSupergraphMapOrderByExp
+    collection: model_graphql_select_unique_field
+  filterExpressionType: ModelGraphqlSelectUniqueFieldBoolExp
+  aggregateExpression: ModelGraphqlSelectUniqueFieldAggExp
+  orderByExpression: ModelGraphqlSelectUniqueFieldOrderByExp
   graphql:
     selectMany:
-      queryRootField: subgraphSupergraphMap
+      queryRootField: modelGraphqlSelectUniqueField
       subscription:
-        rootField: subgraphSupergraphMap
+        rootField: modelGraphqlSelectUniqueField
     selectUniques:
-      - queryRootField: subgraphSupergraphMapBySubgraphSupergraphMapPkey
+      - queryRootField: modelGraphqlSelectUniqueFieldByModelGraphqlSelectUniqueFieldPkey
         uniqueIdentifier:
+          - fieldName
+          - modelName
+          - selectUniqueIdentifier
           - subgraphName
-          - supergraphName
           - tVersion
         subscription:
-          rootField: subgraphSupergraphMapBySubgraphSupergraphMapPkey
-    filterInputTypeName: SubgraphSupergraphMapFilterInput
+          rootField: modelGraphqlSelectUniqueFieldByModelGraphqlSelectUniqueFieldPkey
+      - queryRootField: modelGraphqlSelectUniqueFieldByUqModelGraphqlSelectUniqueField1594E682Cb
+        uniqueIdentifier:
+          - modelName
+          - selectUniqueIdentifier
+          - subgraphName
+          - tIsCurrent
+          - tVersion
+        subscription:
+          rootField: modelGraphqlSelectUniqueFieldByUqModelGraphqlSelectUniqueField1594E682Cb
+    filterInputTypeName: ModelGraphqlSelectUniqueFieldFilterInput
     aggregate:
-      queryRootField: subgraphSupergraphMapAggregate
+      queryRootField: modelGraphqlSelectUniqueFieldAggregate
       subscription:
-        rootField: subgraphSupergraphMapAggregate
+        rootField: modelGraphqlSelectUniqueFieldAggregate
 
 ---
 kind: ModelPermissions
 version: v1
 definition:
-  modelName: SubgraphSupergraphMap
+  modelName: ModelGraphqlSelectUniqueField
   permissions:
     - role: admin
       select:

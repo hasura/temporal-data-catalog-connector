@@ -5,23 +5,23 @@ definition:
   name: CompatibilityConfig
   fields:
     - name: subgraphName
-      type: Varchar_1!
+      type: Varchar!
     - name: tContentHash
-      type: Varchar_1!
+      type: Varchar!
     - name: tCreatedAt
       type: Timestamp!
     - name: tDeletedAt
       type: Timestamp
     - name: tId
-      type: Varchar_1!
+      type: Varchar!
     - name: tIsCurrent
-      type: Bool_1!
+      type: Bool!
     - name: tIsDeleted
-      type: Bool_1!
+      type: Bool!
     - name: tUpdatedAt
       type: Timestamp!
     - name: tVersion
-      type: Int4_1!
+      type: Int4!
     - name: targetDate
       type: Timestamp!
   graphql:
@@ -92,27 +92,26 @@ definition:
       type: CompatibilityConfig
       comparableFields:
         - fieldName: subgraphName
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tContentHash
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tCreatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tDeletedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tId
-          booleanExpressionType: VarcharBoolExp_1
+          booleanExpressionType: VarcharBoolExp
         - fieldName: tIsCurrent
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tIsDeleted
-          booleanExpressionType: BoolBoolExp_1
+          booleanExpressionType: BoolBoolExp
         - fieldName: tUpdatedAt
           booleanExpressionType: TimestampBoolExp
         - fieldName: tVersion
-          booleanExpressionType: Int4BoolExp_1
+          booleanExpressionType: Int4BoolExp
         - fieldName: targetDate
           booleanExpressionType: TimestampBoolExp
-      comparableRelationships:
-        - relationshipName: subgraph
+      comparableRelationships: []
   logicalOperators:
     enable: true
   isNull:
@@ -130,23 +129,23 @@ definition:
       aggregatedType: CompatibilityConfig
       aggregatableFields:
         - fieldName: subgraphName
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tContentHash
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tCreatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tDeletedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tId
-          aggregateExpression: VarcharAggExp_1
+          aggregateExpression: VarcharAggExp
         - fieldName: tIsCurrent
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tIsDeleted
-          aggregateExpression: BoolAggExp_1
+          aggregateExpression: BoolAggExp
         - fieldName: tUpdatedAt
           aggregateExpression: TimestampAggExp
         - fieldName: tVersion
-          aggregateExpression: Int4AggExp_1
+          aggregateExpression: Int4AggExp
         - fieldName: targetDate
           aggregateExpression: TimestampAggExp
   count:
@@ -164,27 +163,26 @@ definition:
       orderedType: CompatibilityConfig
       orderableFields:
         - fieldName: subgraphName
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tContentHash
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tCreatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tDeletedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tId
-          orderByExpression: Varchar1OrderByExp
+          orderByExpression: VarcharOrderByExp
         - fieldName: tIsCurrent
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tIsDeleted
-          orderByExpression: Bool1OrderByExp
+          orderByExpression: BoolOrderByExp
         - fieldName: tUpdatedAt
           orderByExpression: TimestampOrderByExp
         - fieldName: tVersion
-          orderByExpression: Int41OrderByExp
+          orderByExpression: Int4OrderByExp
         - fieldName: targetDate
           orderByExpression: TimestampOrderByExp
-      orderableRelationships:
-        - relationshipName: subgraph
+      orderableRelationships: []
   graphql:
     expressionTypeName: CompatibilityConfigOrderByExp
 
@@ -212,12 +210,13 @@ definition:
           - tVersion
         subscription:
           rootField: compatibilityConfigByCompatibilityConfigPkey
-      - queryRootField: compatibilityConfigByUqCompatibilityConfigSubgraphNameTIsCurrent
+      - queryRootField: compatibilityConfigByUqCompatibilityConfigSubgraphNameTIsCurrentTVersion
         uniqueIdentifier:
           - subgraphName
           - tIsCurrent
+          - tVersion
         subscription:
-          rootField: compatibilityConfigByUqCompatibilityConfigSubgraphNameTIsCurrent
+          rootField: compatibilityConfigByUqCompatibilityConfigSubgraphNameTIsCurrentTVersion
     filterInputTypeName: CompatibilityConfigFilterInput
     aggregate:
       queryRootField: compatibilityConfigAggregate
@@ -234,28 +233,4 @@ definition:
       select:
         filter: null
         allowSubscriptions: true
-
----
-kind: Relationship
-version: v1
-definition:
-  name: subgraph
-  sourceType: CompatibilityConfig
-  target:
-    model:
-      name: Subgraph
-      relationshipType: Object
-  mapping:
-    - source:
-        fieldPath:
-          - fieldName: subgraphName
-      target:
-        modelField:
-          - fieldName: name
-    - source:
-        fieldPath:
-          - fieldName: tIsCurrent
-      target:
-        modelField:
-          - fieldName: tIsCurrent
 
