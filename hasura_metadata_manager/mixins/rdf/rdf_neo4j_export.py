@@ -9,7 +9,7 @@ from rdflib_neo4j import Neo4jStore, Neo4jStoreConfig, HANDLE_VOCAB_URI_STRATEGY
 from sqlalchemy.orm import Session
 
 from . import NS_HASURA, NS_HASURA_PROP, NS_HASURA_REL, NS_HASURA_OBJ_REL, NS_HASURA_MODEL
-from .namespace import bind_namespaces, NS_HASURA_SUBGRAPH
+from .namespace import bind_namespaces, NS_HASURA_SUBGRAPH, NS_HASURA_SUPERGRAPH
 from .rdf_translator import RDFTranslator, T
 
 logger = __import__("logging").getLogger(__name__)
@@ -82,13 +82,15 @@ class RDFNeo4jExport:
                 "rel": str(NS_HASURA_REL),
                 "drel": str(NS_HASURA_OBJ_REL),
                 "mod": str(NS_HASURA_MODEL),
-                "sub": str(NS_HASURA_SUBGRAPH)
+                "sub": str(NS_HASURA_SUBGRAPH),
+                "sup": str(NS_HASURA_SUPERGRAPH)
             }
         if custom_mappings is None:
             custom_mappings = [
                 # Format: (namespace, neo4j_label, property_name)
-                ("mod", "Model", None),
+                ("mod", None, None),
                 ("sub", "Subgraph", None),
+                ("sup", "Supergraph", None),
                 ("prop", "Property", None)
             ]
 
