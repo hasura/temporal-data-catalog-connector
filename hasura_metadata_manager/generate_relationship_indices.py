@@ -223,8 +223,7 @@ def ensure_unique_constraint(table, columns, engine):
     """Ensure a unique constraint exists on the specified columns."""
     # Add t_version if not already in columns
     modified_columns = list(columns)
-    if not any(col.name == 't_version' for col in modified_columns):
-        modified_columns.append(table.c.t_version)
+
 
     constraint_name = generate_constraint_name(
         "uq",
@@ -235,14 +234,21 @@ def ensure_unique_constraint(table, columns, engine):
     print(f"[DEBUG] Creating unique constraint {constraint_name} on {table.name}")
     print(f"[DEBUG] Columns: {[col.name for col in modified_columns]}")
 
-    unique_constraint = UniqueConstraint(*modified_columns, name=constraint_name)
+    unique_constraint1 = UniqueConstraint(*modified_columns, name=constraint_name)
+    unique_constraint2 = None
+    if not any(col.name == 't_version' for col in modified_columns):
+        modified_columns.append(table.c.t_version)
+        unique_constraint2 = UniqueConstraint(*modified_columns, name=constraint_name + "_t_version")
 
     # Create constraint - separate connection
     try:
         with engine.connect().execution_options(timeout=30) as conn:
             with conn.begin():
-                conn.execute(AddConstraint(unique_constraint))
+                conn.execute(AddConstraint(unique_constraint1))
                 print(f"Added unique constraint: {constraint_name} to table {table.name}")
+                if unique_constraint2:
+                    conn.execute(AddConstraint(unique_constraint2))
+                    print(f"Added unique constraint: {constraint_name + "_t_version" } to table {table.name}")
                 return
     except IntegrityError as e:
         if "already exists" in str(e).lower():
